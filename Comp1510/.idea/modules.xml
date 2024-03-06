@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Assignment_1/Assignment_1.iml" filepath="$PROJECT_DIR$/Assignment_1/Assignment_1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/Comp1510.iml" filepath="$PROJECT_DIR$/.idea/Comp1510.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Comp1510Lab02XingJ/Comp1510Lab02XingJ.iml" filepath="$PROJECT_DIR$/Comp1510Lab02XingJ/Comp1510Lab02XingJ.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Comp1510Lab03XingJ/Comp1510Lab03XingJ.iml" filepath="$PROJECT_DIR$/Comp1510Lab03XingJ/Comp1510Lab03XingJ.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Comp1510Lab04XingJ/Comp1510Lab04XingJ.iml" filepath="$PROJECT_DIR$/Comp1510Lab04XingJ/Comp1510Lab04XingJ.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Comp1510Lab05XingJ/Comp1510Lab05XingJ.iml" filepath="$PROJECT_DIR$/Comp1510Lab05XingJ/Comp1510Lab05XingJ.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Comp1510Lab06XingJ/Comp1510Lab06XingJ.iml" filepath="$PROJECT_DIR$/Comp1510Lab06XingJ/Comp1510Lab06XingJ.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Comp1510Lab07XingJ/Comp1510Lab07XingJ.iml" filepath="$PROJECT_DIR$/Comp1510Lab07XingJ/Comp1510Lab07XingJ.iml" />
+    </modules>
+  </component>
+</project>
