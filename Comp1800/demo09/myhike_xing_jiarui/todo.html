@@ -35,7 +35,7 @@
     <!-- Other libraries and styles of your own -->
     <!-------------------------------------------->
     <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
-    <link rel="stylesheet" href="./styles/style.css">
+    <!-- <link rel="stylesheet" href="./styles/style.css"> -->
 
 </head>
 
@@ -48,14 +48,6 @@
     <nav id="navbarPlaceholder"></nav>
 
     <!-- the body of your page goes here -->
-    <div class="container text-center py-4">
-        <div class="overflow-hidden radius">
-            <img class="responsive" id="img1" src="./images/hike1.jpg" height="300" alt="img">
-        </div>
-        <h1>Welcome to Jerry's Hiking App</h1>
-        <a href="login.html" class="btn btn-danger" role="button">Log in</a>
-    </div>
-
     <!-- stuff -->
 
     <!-- our own footer goes here-->
@@ -66,9 +58,55 @@
     <!---------------------------------------------->
     <script src="./scripts/firebaseAPI_TEAM99.js"></script>
     <script src="./scripts/skeleton.js"></script>
-    <script src="./scripts/script.js"></script>
+    <!-- <script src="./scripts/script.js"></script> -->
+
+
     <script>
-        logout();       //make sure user is logged out
+        function writeHikes() {
+            //define a variable for the collection you want to create in Firestore to populate data
+            var hikesRef = db.collection("hikes");
+
+            hikesRef.add({
+                code: "BP1",
+                name: "Burnaby Picton Trail", //replace with your own city?
+                city: "Burnaby",
+                province: "BC",
+                level: "easy",
+                details: "Walk around the room aimlessly for a bit, then continue with your boring video game.",
+                length: 10,          //number value
+                hike_time: 60,       //number value
+                lat: 49.2467097082573,
+                lng: -122.9187029619698,
+                last_updated: firebase.firestore.FieldValue.serverTimestamp()  //current system time
+            });
+            hikesRef.add({
+                code: "VC1",
+                name: "Capilano Suspension Bridge Park Trail", //replace with your own city?
+                city: "North Vancouver",
+                province: "BC",
+                level: "moderate",
+                details: "Stunning waterfall and forest scenery",
+                length: 8.2,      //number value
+                hike_time: 120,     //number value
+                lat: 49.38847101455571,
+                lng: -122.94092543551031,
+                last_updated: firebase.firestore.Timestamp.fromDate(new Date("January 1, 2024"))
+            });
+            hikesRef.add({
+                code: "CN1",
+                name: "Dalian Dahei Mountain Hike", //replace with your own city?
+                city: "Dalian",
+                province: "Liaoning China",
+                level: "extremely difficult",
+                details: "If you miss home, just go back and take a look.",
+                length: 11356,        //number value
+                hike_time: 1050,     //number value
+                lat: 49.3399431028579,
+                lng: -122.85908496766939,
+                last_updated: firebase.firestore.Timestamp.fromDate(new Date("December 12, 2023"))
+            });
+        }
+        alert("Done");
     </script>
 
 </body>
