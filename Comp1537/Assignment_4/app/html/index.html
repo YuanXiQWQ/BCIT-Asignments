@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
   <!--  ====Page====  -->
   <title>Jerry's Minecraft world</title>
-  <link rel="icon" type="images/x-icon" href="../../public/images/YuanXi.ico">
+  <link rel="icon" type="images/x-icon" href="/images/icon/YuanXi.ico">
 
   <!--  ====Meta====  -->
   <meta charset="UTF-8">
@@ -11,11 +11,10 @@
   <meta name="author" content="Jiarui Xing"/>
 
   <!--  ====Script Libraries====  -->
-  <script defer src="../../public/scripts/script.js"></script>
-  <script defer src="../../public/scripts/client.js"></script>
+  <script defer src="/scripts/client.js"></script>
 
   <!--  ====Style Libraries====  -->
-  <link rel="stylesheet" href="../../public/styles/style.css">
+  <link rel="stylesheet" href="/styles/style.css">
 
   <!--  ====Others Libraries====  -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -25,84 +24,34 @@
     rel="stylesheet">
 </head>
 <body>
-<header class="header">
-  <div class="placeholder"></div>
-  <div class="header-logo">
-    <h1 class="header-logo-info">Jerry's</h1>
-    <img class="header-logo-img" src="../../public/images/logo-minecraft.svg" alt="logo-minecraft">
-  </div>
-  <div class="header-btns">
-    <button class="header-btns-login">log in</button>
-  </div>
-</header>
+
+<!--  ====Header====  -->
+<div id="headerContainer"></div>
+
+<!--  ====Container====  -->
 <div class="container">
+
   <aside>
-    <!--    Navbar    -->
-    <nav class="navbar">
-      <div class="navbar-logo">
-        <div class="logo-item">
-          <img class="item-img" src="../../public/images/Enchanting_Table.webp" alt="logo_Enchanting_Table">
-        </div>
-      </div>
-      <div class="navbar-title">
-        <div class="title-item">
-          <img class="icon" src="../../public/images/Lodestone_Compass.webp" alt="Lodestone_Compass">
-          <span>Navigation</span>
-        </div>
-      </div>
-      <div class=" navbar-nav">
-        <div class="nav-item active">
-          <a class="nav-item-link" aria-current="page" href="./index.html">
-            <img class="nav-icon icon" src="../../public/images/Beacon.webp" alt="Beacon">
-            <span>Home</span>
-          </a>
-        </div>
-        <div class="nav-item">
-          <a class="nav-item-link" href="#">
-            <img class="nav-icon icon" src="../../public/images/Block_of_Redstone.webp" alt="Block_of_Redstone">
-            <span>Redstone</span>
-          </a>
-        </div>
-        <div class="nav-item">
-          <a class="nav-item-link" href="#">
-            <img class="nav-icon icon" src="../../public/images/Standing_Scaffolding.webp"
-              alt="Standing_Scaffolding">
-            <span>Construction</span>
-          </a>
-        </div>
-        <div class="nav-item">
-          <a class="nav-item-link" href="#">
-            <img class="nav-icon icon" src="../../public/images/Written_Book.gif" alt="Written_Book">
-            <span>About</span>
-          </a>
-        </div>
-      </div>
-    </nav>
+    <div id="navbarContainer"></div>
+
     <section class="aside-introduce">
-      <h2>Introduce</h2>
-      <p class="introduce-info">Minecraft is a 2011 sandbox game developed by Mojang Studios and
-        originally
-        released in 2009. The
-        game was created by Markus "Notch" Persson in the Java programming language. Following several
-        early
-        private testing versions, it was first made public in May 2009 before being fully released on
-        November 18, 2011, with Notch stepping down and Jens "Jeb" Bergensten taking over development.
-        Minecraft has become the best-selling video game in history, with over 300 million copies sold
-        and
-        nearly 140 million monthly active players as of 2023. It has been ported to several platforms.
+      <h2><span id="text-Introduce"></span></h2>
+      <p class="introduce-info">
+        <span id="text-Introduce-info"></span>
       </p>
       <a class="introduce-anchor" href="https://en.wikipedia.org/wiki/Minecraft" target="_blank">
-        <span>See more</span>
+        <span id="text-SeeMore"></span>
       </a>
     </section>
   </aside>
+
   <main>
     <section class="section">
       <div class="section-title">
         <div class="section-title-item">
-          <img class="section-title-icon icon" src="../../public/images/Map.webp" alt="Map">
+          <img class="section-title-icon icon" src="/images/icon/Map.webp" alt="Map">
           <h3 class="section-title-info">
-            World capture
+            <span id="text-WorldCapture"></span>
           </h3>
         </div>
       </div>
@@ -116,22 +65,22 @@
 
           <figure class="imageGallery-image section-centre">
             <label class="images-img" for="img1">
-              <img src="../../public/images/image1.png" alt="Image 1"></label>
+              <img src="/images/article-imgs/image1.png" alt="Image 1"></label>
             <label class="images-img" for="img2">
-              <img src="../../public/images/image2.png" alt="Image 2"></label>
+              <img src="/images/article-imgs/image2.png" alt="Image 2"></label>
             <label class="images-img" for="img3">
-              <img src="../../public/images/image3.png" alt="Image 3"></label>
+              <img src="/images/article-imgs/image3.png" alt="Image 3"></label>
             <label class="images-img" for="img4">
-              <img src="../../public/images/image4.png" alt="Image 4"></label>
+              <img src="/images/article-imgs/image4.png" alt="Image 4"></label>
           </figure>
         </div>
 
         <!-- labels as btn -->
         <div class="imageGallery-btns section-centre">
-          <label for="img1">Base</label>
-          <label for="img2">Garden</label>
-          <label for="img3">Living Room</label>
-          <label for="img4">End Portal</label>
+          <label for="img1"><span id="text-Base"></span></label>
+          <label for="img2"><span id="text-Garden"></span></label>
+          <label for="img3"><span id="text-LivingRoom"></span></label>
+          <label for="img4"><span id="text-EndPortal"></span></label>
         </div>
       </div>
       <form class="section-search">
@@ -139,115 +88,111 @@
           aria-label="Search through site content"
           placeholder="Actually you will not search anything from here">
         <button class="search-btns" type="submit">
-          <img class="btns-icon" id="Ender_Pearl" src="../../public/images/Ender_Pearl.webp" alt="Ender_Pearl">
-          <img class="btns-icon" id="Eye_of_Ender" src="../../public/images/Eye_of_Ender.webp" alt="Eye_of_Ender">
+          <img class="btns-icon" id="Ender_Pearl" src="/images/icon/Ender_Pearl.webp" alt="Ender_Pearl">
+          <img class="btns-icon" id="Eye_of_Ender" src="/images/icon/Eye_of_Ender.webp" alt="Eye_of_Ender">
         </button>
       </form>
     </section>
+
     <article class="article">
       <div class="article-item">
         <figure class="article-item-figure">
-          <img class="article-item-img" src="../../public/images/Base.png" alt="YuanXi's Base">
+          <img class="article-item-img" src="/images/article-imgs/Base.png" alt="YuanXi's Base">
           <figcaption>
-            My base
+            <span id="text-MyBase"></span>
           </figcaption>
         </figure>
         <div class="article-item-info">
           <h3 class="article-item-title">
-            Story about this world
+            <span id="text-StoryAboutThisWorld"></span>
           </h3>
           <p>
-            This world was established on April 26, 2020, during the COVID-19 pandemic. The reason for
-            establishing such an archive can basically be said to be because I was too idle during the
-            lockdown.
+            <span id="text-AboutThisWorld"></span>
           </p>
         </div>
       </div>
       <div class="article-item">
         <figure class="article-item-figure">
-          <img class="article-item-img" src="../../public/images/Inventory.png" alt="YuanXi's Inventory">
+          <img class="article-item-img" src="/images/article-imgs/Inventory.png" alt="YuanXi's Inventory">
           <figcaption>
-            Inventory
+            <span id="text-Inventory"></span>
           </figcaption>
         </figure>
         <div class="article-item-info">
           <h3 class="article-item-title">
-            How is my inventory
+            <span id="text-HowIsMyInventory"></span>
           </h3>
           <p>
-            Because I've created many machines, including obsidian, wither skeleton skulls (the main
-            materials for beacons), and renewable materials such as metals other than Netherite,
-            diamonds, copper, and quartz, they can all be mass-produced.
+            <span id="text-InventoryInfo"></span>
           </p>
         </div>
       </div>
       <div class="article-item">
         <figure class="article-item-figure">
-          <img class="article-item-img" src="../../public/images/Information1.png" alt="Information">
+          <img class="article-item-img" src="/images/article-imgs/Information1.png" alt="Information">
           <figcaption>
-            Online time
+            <span id="text-OnlineTime"></span>
           </figcaption>
         </figure>
         <div class="article-item-info">
           <h3 class="article-item-title">
-            How long is the online duration each time
+            <span id="text-HowLongIsTheOnlineDurationEachTime"></span>
           </h3>
           <p>
-            It depends. If there's any major project, the online time won't be less than 10 hours each
-            time. If it's just casual play, then it's not certain.
+            <span id="text-OnlineTimeInfo"></span>
           </p>
         </div>
       </div>
       <div class="article-item">
         <figure class="article-item-figure">
-          <img class="article-item-img" src="../../public/images/Information2.png" alt="Information">
+          <img class="article-item-img" src="/images/article-imgs/Information2.png" alt="Information">
           <figcaption>
-            Information
+            <span id="text-Information"></span>
           </figcaption>
         </figure>
         <div class="article-item-info">
           <h3 class="article-item-title">
-            Some statistical information
+            <span id="text-SomeStatisticalInformation"></span>
           </h3>
           <div id="article-item-list">
             <div class="article-item-info-content">
-              <h4> Game duration:</h4>
+              <h4><span id="text-GameDuration"></span></h4>
               2408.88 h
             </div>
             <div class="article-item-info-content">
-              <h4> Deaths:</h4>
+              <h4><span id="text-Deaths"></span></h4>
               3
             </div>
             <div class="article-item-info-content">
-              <h4> Since last death:</h4>
+              <h4><span id="text-SinceLastDeath"></span></h4>
               2204.16 h
             </div>
             <div class="article-item-info-content">
-              <h4> Mob kills:</h4>
+              <h4><span id="text-MobKills"></span></h4>
               496,048
             </div>
             <div class="article-item-info-content">
-              <h4> Damage dealt:</h4>
+              <h4><span id="text-DamageDealt"></span></h4>
               515,563.90
             </div>
             <div class="article-item-info-content">
-              <h4> Distance walked:</h4>
+              <h4><span id="text-DistanceWalked"></span></h4>
               4,594.48 km
             </div>
             <div class="article-item-info-content">
-              <h4> Elytra gliding distance:</h4>
+              <h4><span id="text-ElytraGlidingDistance"></span></h4>
               8,768.16 km
             </div>
             <div class="article-item-info-content">
-              <h4> Jumps:</h4>
+              <h4><span id="text-Jumps"></span></h4>
               401,136
             </div>
             <div class="article-item-info-content">
-              <h4> Total blocks placed:</h4>
+              <h4><span id="text-TotalBlocksPlaced"></span></h4>
               905,753
             </div>
             <div class="article-item-info-content">
-              <h4> Total blocks mined:</h4>
+              <h4><span id="text-TotalBlocksMined"></span></h4>
               809,160
             </div>
           </div>
@@ -256,13 +201,8 @@
     </article>
   </main>
 </div>
-<footer>
-  <div class="footer-information">
-    <address class="information-address"><!--suppress HtmlUnknownTarget -->
-      <a class="information-address-link"
-        href="xjr815226031@outlook.com">xjr815226031@outlook.com</a></address>
-    <p class="information-copyright">Copyright &copy; 2024 YuanXi</p>
-  </div>
-</footer>
+
+<!--  ====Footer====  -->
+<div id="footerContainer"></div>
 </body>
 </html>

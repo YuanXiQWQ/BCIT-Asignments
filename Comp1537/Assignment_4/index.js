@@ -1,82 +1,117 @@
-// https://expressjs.com/en/guide/routing.html
-
-
-// REQUIRES
+//Imports
 const express = require("express");
+const path = require("node:path");
 const app = express();
 app.use(express.json());
-const fs = require("fs");
+const fs = require("node:fs");
 
-// just like a simple web server like Apache web server
-// we are mapping file system paths to the app's virtual paths
-app.use("/js", express.static("./public/js"));
-app.use("/css", express.static("./public/css"));
-app.use("/img", express.static("./public/img"));
+//Server
 
-app.get("/", function (req, res) {
-    //console.log(process.env);
-    // retrieve and send an HTML document from the file system
-    let doc = fs.readFileSync("./app/html/index.html", "utf8");
+//Static files
+app.use("/scripts", express.static(path.resolve(__dirname, "./public/scripts")));
+app.use("/styles", express.static(path.resolve(__dirname, "./public/styles")));
+app.use("/images", express.static(path.resolve(__dirname, "./public/images")));
+
+//Functions
+/*Pages*/
+app.get("/index", (req, res) => {
+    let doc = fs.readFileSync(path.resolve(__dirname, "./app/html/index.html"), "utf8");
     res.send(doc);
 });
-
-app.get("/hello", function (req, res) {
-    // just send some plain text
-    res.send("Hello world!");
-});
-
-app.get("/helloHTML", function (req, res) {
-    // hard-coded HTML
-    res.send("<html lang='en'><head><title>Hi!</title></head><body><p>Hello!</p></body></html>");
-});
-
-app.get("/profile", function (req, res) {
-
-    let doc = fs.readFileSync("./app/html/profile.html", "utf8");
-
-    // just send the text stream
+//
+// app.get("/Redstone", (req, res) => {
+//     let doc = fs.readFileSync(path.resolve(__dirname, "./app/html/Redstone.html"), "utf8");
+//     res.send(doc);
+// });
+//
+app.get("/Construction", (req, res) => {
+    let doc = fs.readFileSync(path.resolve(__dirname, "./app/html/Construction.html"), "utf8");
     res.send(doc);
+});
+//
+// app.get("/about", (req, res) => {
+//     let doc = fs.readFileSync(path.resolve(__dirname, "./app/html/about.html"), "utf8");
+//     res.send(doc);
+// });
 
+/*Snippets of HTML*/
+app.get("/get-header", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "./app/data/header.html"));
 });
 
-app.get("/schedule", function (req, res) {
-
-    let doc = fs.readFileSync("./app/data/cstschedule.xml", "utf8");
-
-    // just send the text stream
-    res.send(doc);
-
+app.get("/get-navbar", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "./app/data/navbar.html"));
 });
 
-app.get("/lists", function (req, res) {
-
-    let doc = fs.readFileSync("./app/data/lists.js", "utf8");
-
-    // just send the text stream
-    res.send(doc);
-
+app.get("/get-footer", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "./app/data/footer.html"));
 });
 
-app.get("/date", function (req, res) {
 
-    // set the type of response:
-    res.setHeader("Content-Type", "application/json");
-    let options = { weekday: "long", year: "numeric", month: "long", day: "numeric" };
-    let d = new Date();
+/*Construction.html
+* */
 
-    res.send({ currentTime: d.toLocaleDateString("en-US", options) });
-
+/*Snippets of HTML*/
+app.get("/get-constructionList", (req, res) => {
+    res.sendFile(path.join(__dirname, "./app/data/constructionList.html"));
 });
 
-// for resource not found (i.e., 404)
-app.use(function (req, res, next) {
-    // this could be a separate file too - but you'd have to make sure that you have the path
-    // correct, otherwise, you'd get a 404 on the 404 (actually a 500 on the 404)
-    res.status(404).send("<html lang='en'><head><title>Page not found!</title></head><body><p>Nothing here.</p></body></html>");
+app.get("/get-constructionList-data", (req, res) => {
+    res.sendFile(path.join(__dirname, "./app/data/constructionList_data.json"));
 });
 
-// RUN SERVER
-let port = 8000;
-app.listen(port, function () {
-    console.log("Example app listening on port " + port + "!");
+/*Interactions*/
+app.get("/languages", (req, res) => {
+    const languageDir = path.join(__dirname, "./app/data/language");
+    fs.readdir(languageDir, (err, files) => {
+        if (err) {
+            console.error("Could not list the directory.", err);
+            res.status(500).send("Server error when listing languages");
+            return;
+        }
+        const languages = files.map(file => {
+            const code = file.split(".")[0];
+            const name = code; // 简单示例，直接使用code作为显示名称
+            return {code, name};
+        });
+        res.json(languages);
+    });
 });
+
+app.get("/languages/:lang", (req, res) => {
+    const lang = req.params.lang;
+    const languageFilePath = path.resolve(__dirname, `./app/data/language/${lang}.json`);
+    if (fs.existsSync(languageFilePath)) {
+        res.sendFile(languageFilePath);
+    } else {
+        res.status(404).send({error: "Language file not found."});
+    }
+});
+
+app.post("/add-construction", (req, res) => {
+    const newBuilding = req.body;
+    const filePath = path.join(__dirname, "./app/data/constructionList_data.json");
+
+    fs.readFile(filePath, (err, data) => {
+        if (err) {
+            console.error("Error reading construction list data:", err);
+            return res.status(500).send("Error reading construction data");
+        }
+
+        const constructionData = JSON.parse(data.toString());
+        constructionData.buildings.push(newBuilding);
+
+        fs.writeFile(filePath, JSON.stringify(constructionData, null, 2), (err) => {
+            if (err) {
+                console.error("Error writing construction list data:", err);
+                return res.status(500).send("Error updating construction data");
+            }
+
+            res.status(200).send("Construction added successfully");
+        });
+    });
+});
+
+
+//Run Server
+app.listen(8000);

@@ -1,0 +1,584 @@
+* {
+margin: 0;
+padding: 0;
+}
+/**
+* Initialize Hidden Elements.
+*/
+.nav-ham {
+  display: none;
+  grid-area: ham;
+}
+
+/**
+* Navbar.
+*/
+nav {
+display: grid;
+grid-template-columns: 75% auto;
+grid-area: nav;
+background-color: #f7f9e3;
+border-bottom: 3px solid #63190e;
+justify-content: space-around;
+padding: 0 10% 0;
+}
+
+nav ul {
+list-style-type: none;
+overflow: hidden;
+}
+
+nav li {
+float: left;
+}
+
+nav li a {
+font-size: 20px;
+display: inline-block;
+color: #63190e;
+text-align: center;
+padding: 30px 16px;
+text-decoration: none;
+font-family: "Zilla Slab", serif;
+}
+
+nav li a:hover {
+color: #c13e31;
+background-color: #ccc;
+}
+
+.nav-logo {
+padding: 5px 0px;
+}
+
+/**
+* Headers.
+*/
+small {
+color: #484846;
+font-family: "Truculenta", sans-serif;
+font-size: large;
+}
+
+h1 {
+color: black;
+font-family: "Zilla Slab", serif;
+}
+
+/**
+* Table Styling.
+*/
+table {
+display: grid;
+text-align: center;
+border-collapse: collapse;
+font-family: "Truculenta", sans-serif;
+justify-content: center;
+margin: 10%;
+}
+
+th {
+text-transform: uppercase;
+background-color: #484846;
+color: white;
+padding: 10px 45px 10px;
+}
+
+td {
+padding: 0 35px 0;
+}
+
+#ajax_ranking {
+display: grid;
+}
+
+table a {
+text-decoration: none;
+color: #e64120;
+}
+
+/**
+* Container #1 - Main Page.
+*/
+#container1 {
+display: grid;
+grid-template-columns: 100%;
+grid-template-rows: 9% auto auto;
+width: 100%;
+height: 100vh;
+grid-template-areas:
+  'nav'
+  'article_data'
+  'footer';
+}
+
+.card-body p {
+  font-family: "Zilla Slab", serif;
+  font-size: larger;
+}
+
+/**
+* Container #2 - Rank Page.
+*/
+#container2 {
+display: grid;
+grid-template-columns: 100%;
+grid-template-rows: 9% auto auto;
+width: 100%;
+height: 100vh;
+grid-template-areas:
+  'nav'
+  'content'
+  'footer';
+}
+
+/**
+* Rank Page Cover.
+*/
+#rank-cover {
+display: grid;
+justify-content: center;
+overflow: hidden;
+}
+
+/**
+* Rank Page Content.
+*/
+#content {
+background-image: url('/img/bgs/ranking-bg.jpg');
+background-size: cover;
+background-repeat: no-repeat;
+}
+
+/**
+* Rank Buttons Container.
+*/
+#rank-btn-container {
+display: grid;
+margin: 10% 10% 0;
+}
+
+/**
+* Rank Buttons Container BUTTONS.
+*/
+.rank-btn {
+display: grid;
+padding: 5%;
+align-content: center;
+font-family: "Truculenta", sans-serif;
+font-weight: bold;
+font-size: larger;
+}
+
+/**
+* Rank Buttons Container INPUT.
+*/
+.rank-btn-input {
+display: grid;
+align-content: center;
+font-family: "Truculenta", sans-serif;
+font-weight: bold;
+background-color: transparent;
+border-color: #e64120;
+height: 100%;
+width: 100%;
+box-sizing: border-box;
+padding: 7%;
+font-size: larger;
+}
+
+/**
+* Rank Buttons Container INPUT(Focussed).
+*/
+.rank-btn-input:focus {
+outline: none;
+border-color: #e64120;
+}
+
+/**
+* Rank Buttons Container SEARCH ICON.
+*/
+.rank-btn a {
+display: grid;
+justify-content: center;
+color: #e64120;
+text-decoration: none;
+}
+
+/**
+* Rank Button Border #1 - Orange.
+*/
+.btn-bordero {
+border: 5px solid #e64120;
+}
+
+/**
+* Rank Button Border #2 - Black.
+*/
+.btn-borderb {
+border: 5px solid black;
+}
+
+/**
+* Rank Buttons Row Top.
+*/
+#rank-btnrow1 {
+display: grid;
+grid-template-columns: auto auto;
+}
+
+/**
+* Rank Buttons Row Bottom.
+*/
+#rank-btnrow2 {
+display: grid;
+grid-template-columns: repeat(2, 1fr);
+}
+
+/**
+* Rank Buttons Row Top - Left.
+*/
+#rank-btnrow1 .row1-left {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+}
+
+/**
+* Rank Buttons Row Top - Right.
+*/
+#rank-btnrow1 .row1-right {
+display: grid;
+grid-template-columns: auto auto 10%;
+overflow: hidden;
+}
+
+/**
+* Rank Buttons Row Bottom - Content.
+*/
+#rank-btnrow2 .row2-content {
+display: grid;
+grid-template-columns: repeat(4, 1fr);
+}
+
+/**
+* Rank Content Styling - orange bg, white text + NO dropdown.
+*/
+.row1-obg-wt {
+background-color: #e64120;
+}
+
+.row1-obg-wt a {
+background-color: #e64120;
+text-decoration: none;
+color: white;
+}
+
+/**
+* Rank Content Styling - orange bg, white text + dropdown.
+*/
+.row1-obg-wt-dd {
+display: grid;
+grid-template-columns: auto 5%;
+background-color: #e64120;
+}
+
+.row1-obg-wt-dd a {
+background-color: #e64120;
+text-decoration: none;
+color: white;
+}
+
+/**
+* Rank Content Styling - no bg, black text.
+*/
+.row2-nbg-bt a {
+color: gray;
+text-decoration: none;
+}
+
+/**
+* Rank Content Styling - black bg, white text.
+*/
+.row2-bbg-wt {
+display: grid;
+grid-template-columns: auto 10%;
+background-color: black;
+}
+
+.row2-bbg-wt a {
+color: white;
+text-decoration: none;
+}
+
+/**
+* Article Data.
+*/
+#article_data {
+display: grid;
+height: 100%;
+}
+
+/**
+* Carousel / Cover
+*/
+.carousel {
+display: grid;
+width: 100%;
+height: 100%;
+overflow: hidden;
+align-content: center;
+justify-content: center;
+}
+
+.carousel img {
+height: 100%;
+}
+
+/**
+* Featured News and Updates (BG1)
+*/
+.featured {
+display: grid;
+background-image: url('/img/bgs/landscape-bg.jpg');
+background-size: cover;
+background-repeat: no-repeat;
+padding: 10% 20% 10%;
+}
+
+/**
+* Featured News and Updates' Top Content (2 x 1)
+*/
+#featured-top {
+display: grid;
+grid-template-columns: 50% 50%;
+margin: 0 0 2%;
+}
+
+.card-image1 {
+display: grid;
+}
+
+#featured-top img {
+width: 100%;
+}
+
+/**
+* Featured News and Updates' Bottom Content (1 x 3)
+*/
+#featured-bottom {
+display: grid;
+grid-template-columns: 100%;
+}
+
+#featured-bottom img {
+width: 100%;
+}
+
+/**
+* Community News (BG2)
+*/
+#community {
+display: grid;
+grid-template-columns: 50% 50%;
+grid-template-rows: repeat(3, 1fr);
+background-image: url('/img/bgs/green-bg.jpg');
+background-size: cover;
+background-repeat: no-repeat;
+padding: 5% 15% 5%;
+}
+
+.card-image2 {
+display: grid;
+align-content: center;
+}
+
+#community img {
+width: 100%;
+}
+
+/**
+* Footer.
+*/
+footer {
+display: grid;
+grid-area: footer;
+grid-template-rows: repeat(2, 1fr);
+background-color: black;
+justify-content: center;
+justify-items: center;
+padding: 5% 10% 1%;
+}
+
+footer ul {
+list-style-type: none;
+overflow: hidden;
+}
+
+footer li {
+float: left;
+}
+
+footer li a {
+font-size: 20px;
+display: inline-block;
+color: white;
+text-align: center;
+text-decoration: none;
+font-family: "Truculenta", sans-serif;
+}
+
+footer li a:hover {
+color: #c13e31;
+}
+
+footer div {
+padding: 0 0 1%;
+}
+
+/**
+* Article Container Type #1.
+*/
+.article-container1 {
+display: grid;
+grid-template-columns: 100%;
+background-color: white;
+margin: 0 2% 0;
+}
+
+/**
+* Article Container Type #2.
+*/
+.article-container2 {
+display: grid;
+grid-template-columns: 50% 50%;
+background-color: white;
+align-items: center;
+margin: 2% 0 0 2%;
+}
+
+/**
+* Article Container Type #1 and #2.
+*/
+.article-container1 div,
+.article-container2 div {
+margin: 3%;
+}
+
+/**
+* Article Container Type #3.
+*/
+.article-container3 {
+display: grid;
+grid-template-columns: 50% 50%;
+background-color: rgba(0, 0, 0, 0.75);
+align-items: center;
+}
+
+/**
+* Article Container Type #3 - Headers, and text.
+*/
+.article-container3 h1 {
+color: white;
+}
+
+.article-container3 p {
+color: white;
+}
+
+.article-container3 div {
+margin: 2%
+}
+
+@media only screen and (max-width: 990px) {
+  /**
+  * Navbar - Mobile.
+  */
+  nav {
+    grid-template-columns: auto 10%;
+    grid-template-areas:
+      'nav ham';
+    align-items: center;
+    justify-items: center;
+    justify-content: space-between;
+    padding: 0 0 0 3%;
+  }
+  nav li a {
+    font-size: 30px;
+  }
+  .nav-logo img {
+    content: url("/img/logo/logo-mobile.png");
+  }
+  .nav-ajax {
+    display: grid;
+    grid-area: nav;
+  }
+  .nav-off {
+    display: none;
+  }
+  .nav-socials {
+    display: none;
+  }
+  .nav-ham {
+    display: grid;
+    grid-area: ham;
+    font-size: x-large;
+  }
+  .nav-ham a {
+    color: #63190e;
+    text-decoration: none;
+  }
+
+  /**
+  * Main Page - Mobile.
+  */
+  #featured-top {
+    grid-template-columns: 100%;
+  }
+  .featured {
+    padding: 2%
+  }
+  .article-container1 {
+    margin: 0;
+  }
+  .article-container2 {
+    grid-template-columns: 100%;
+    margin: 0;
+  }
+  .article-container3 {
+    grid-template-columns: 100%;
+    margin: 0;
+  }
+  #community {
+    padding: 1% 2% 1%;
+    grid-template-columns: 100%;
+  }
+
+  /**
+  * Ranking Page - Mobile.
+  */
+  #rank-btn-container {
+    margin: 1% 2% 1%;
+    grid-template-rows: repeat(4, 1fr);
+    height: 15%;
+  }
+  #rank-btnrow1 {
+    grid-template-columns: 100%;
+  }
+  #rank-btnrow1 .row1-left {
+    grid-template-columns: auto auto;
+  }
+  #naeu-empty {
+    margin: 0;
+    padding: 0;
+  }
+  #rank-btnrow2 {
+    grid-template-columns: 80% auto;
+    margin: 3% 0 0 0;
+  }
+  table {
+    margin: 0;
+  }
+  th, td {
+    padding: 0.5vw 4.5vw 0.5vw;
+  }
+}

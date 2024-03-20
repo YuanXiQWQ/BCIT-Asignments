@@ -1,0 +1,47 @@
+{
+  "languageOption": {
+    "label": "中文(繁體)",
+    "value": "zh-TW"
+  },
+  "Strings": {
+    "text-Login": "登入",
+    "text-Navigation": "導航",
+    "text-Home": "首頁",
+    "text-Redstone": "紅石",
+    "text-Construction": "建造",
+    "text-About": "關於",
+    "text-Introduce": "介紹",
+    "text-Introduce-info": "《我的世界》是一款於2011年發布的沙盒遊戲，由Mojang Studios開發，並最初於2009年發布。遊戲由Markus 'Notch' Persson用Java編程語言創建。經過幾個早期的私人測試版本，它於2009年5月首次公開發布，然後於2011年11月18日全面發布，此時Notch卸任，Jens 'Jeb' Bergensten接管了開發。《我的世界》已成為史上最暢銷的視頻遊戲，截至2023年已售出超過3億份，並且幾乎有1.4億的月活躍玩家。它已被移植到多個平台上。",
+    "text-SeeMore": "了解更多",
+    "text-WorldCapture": "世界截圖",
+    "text-Base": "基地",
+    "text-Garden": "花園",
+    "text-LivingRoom": "客廳",
+    "text-EndPortal": "終界傳送門",
+    "text-MyBase": "我的基地",
+    "text-StoryAboutThisWorld": "關於這個世界的故事",
+    "text-AboutThisWorld": "這個世界創建於2020年4月26日，新冠流行期間。建立這樣一個檔案的原因可以說是因為我在封鎖期間太他媽閒了。",
+    "text-Inventory": "庫存",
+    "text-HowIsMyInventory": "我的庫存情況",
+    "text-InventoryInfo": "因為我修了許多機器，所以包括黑曜石、凋靈骷髏頭（信標的主要材料）以及除了下界合金之外的可再生材料如鑽石、銅和石英都可以大規模生產。",
+    "text-OnlineTime": "在線時長",
+    "text-HowLongIsTheOnlineDurationEachTime": "每次在線時長",
+    "text-OnlineTimeInfo": "不一定。如果有任何重大項目，每次在線時間不會少於10小時。如果只是隨便玩玩，那就不一定了。",
+    "text-Information": "信息",
+    "text-SomeStatisticalInformation": "一些統計信息",
+    "text-GameDuration": "遊戲時長",
+    "text-Deaths": "死亡次數",
+    "text-SinceLastDeath": "自上次死亡",
+    "text-MobKills": "怪物擊殺",
+    "text-DamageDealt": "造成的傷害",
+    "text-DistanceWalked": "步行距離",
+    "text-ElytraGlidingDistance": "鞘翅滑翔距離",
+    "text-Jumps": "跳躍次數",
+    "text-TotalBlocksPlaced": "總放置方塊數",
+    "text-TotalBlocksMined": "總挖掘方塊數",
+    "text-Copyright": "版權所有 © 2024 元夕",
+
+    "text-CurrentInventoryListOfArchivalBuildings": "當前存檔建築清單",
+    "text-AddConstruction": "添加建築"
+  }
+}

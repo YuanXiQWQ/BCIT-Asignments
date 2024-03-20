@@ -1,0 +1,82 @@
+[
+  {
+    "rank": 1,
+    "img": "/img/rank-imgs/fangblade.png",
+    "name": "FangBlade",
+    "job": "/img/rank-imgs/warrior.gif",
+    "world": "/img/rank-imgs/bera.gif",
+    "level": 200
+  },
+  {
+    "rank": 2,
+    "img": "/img/rank-imgs/korwyn.png",
+    "name": "Korwyn",
+    "job": "/img/rank-imgs/warrior.gif",
+    "world": "/img/rank-imgs/broa.gif",
+    "level": 200
+  },
+  {
+    "rank": 3,
+    "img": "/img/rank-imgs/novinha.png",
+    "name": "Novinha",
+    "job": "/img/rank-imgs/warrior.gif",
+    "world": "/img/rank-imgs/scania.gif",
+    "level": 200
+  },
+  {
+    "rank": 4,
+    "img": "/img/rank-imgs/starlightzz.png",
+    "name": "Starlightzz",
+    "job": "/img/rank-imgs/magician.gif",
+    "world": "/img/rank-imgs/bera.gif",
+    "level": 200
+  },
+  {
+    "rank": 5,
+    "img": "/img/rank-imgs/loopedd.png",
+    "name": "LoOpEdd",
+    "job": "/img/rank-imgs/thief.gif",
+    "world": "/img/rank-imgs/broa.gif",
+    "level": 200
+  },
+  {
+    "rank": 6,
+    "img": "/img/rank-imgs/kimcheengk86.png",
+    "name": "Kimcheengk86",
+    "job": "/img/rank-imgs/magician.gif",
+    "world": "/img/rank-imgs/scania.gif",
+    "level": 200
+  },
+  {
+    "rank": 7,
+    "img": "/img/rank-imgs/keturah.png",
+    "name": "Keturah",
+    "job": "/img/rank-imgs/magician.gif",
+    "world": "/img/rank-imgs/bera.gif",
+    "level": 200
+  },
+  {
+    "rank": 2114297,
+    "img": "/img/rank-imgs/vincent.png",
+    "name": "<a href='https://vincef.ca' target='_blank'>ChocaStar</a>",
+    "job": "/img/rank-imgs/thief.gif",
+    "world": "/img/rank-imgs/bera.gif",
+    "level": 123
+  },
+  {
+    "rank": 9,
+    "img": "/img/rank-imgs/mecate.png",
+    "name": "Mecate",
+    "job": "/img/rank-imgs/magician.gif",
+    "world": "/img/rank-imgs/bera.gif",
+    "level": 200
+  },
+  {
+    "rank": 10,
+    "img": "/img/rank-imgs/xuaex.png",
+    "name": "XUAEx",
+    "job": "/img/rank-imgs/warrior.gif",
+    "world": "/img/rank-imgs/scania.gif",
+    "level": 200
+  }
+]

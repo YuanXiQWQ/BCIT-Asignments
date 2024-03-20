@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <title>Maplestory | Vincent Fung</title>
+    <link href="/img/logo/favicon.ico" rel="icon" type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" href="css/style.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/439240f295.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Truculenta:opsz,wght@12..72,100..900&family=Zilla+Slab:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+</head>
+<body>
+   <div id="container2">
+      <!-- navbar that uses AJAX, and DOM. Has  -->
+      <nav id="ajax_navbar"></nav>
+      <div id="content">
+            <!-- Cover -->
+            <div id="rank-cover"><img src="/img/carousel/rank-cover.jpg" alt="rankcover"></div>
+            <!-- Ranking Buttons -->
+            <div id="rank-btn-container">
+                <div><small>HOME > COMMUNITY > RANKINGS</small></div>
+                <div><h1>RANKINGS</h1></div>
+                <div id="rank-btnrow1">
+                    <div class="row1-left">
+                        <div class="row1-obg-wt rank-btn"><a href="/rankings">NORTH AMERICA</a></div>
+                        <div class="rank-btn btn-bordero"><a href="/rankings">EUROPE</a></div>
+                        <div class="rank-btn" id="naeu-empty">&nbsp;</div>
+                    </div>
+                    <div class="row1-right">
+                        <div class="row1-obg-wt-dd rank-btn">
+                            <div><a href="/rankings">CHANGE RANKING TYPE</a></div>
+                            <div><a href="/rankings"><i class="fa-solid fa-caret-down"></i></a></div>
+                        </div>
+                        <div><input placeholder="CHARACTER NAME" class="rank-btn-input"/></div>
+                        <div class="rank-btn btn-bordero"><a href="/rankings"><i class="fa-solid fa-magnifying-glass"></i></a></div>
+                    </div>
+                </div>
+                <div id="rank-btnrow2">
+                    <div class="row2-content row2-nbg-bt">
+                        <div class="rank-btn btn-borderb"><a href="/rankings">WEEKLY</a></div>
+                        <div class="rank-btn btn-borderb"><a href="/rankings">MONTHLY</a></div>
+                        <div class="rank-btn btn-borderb"><a href="/rankings">LEGENDARY</a></div>
+                        <div class="row2-bbg-wt rank-btn">
+                            <div><a href="/rankings">LV. 200</a></div>
+                            <div><a href="/rankings"><i class="fa-solid fa-caret-down"></i></a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- table that uses AJAX, and DOM -->
+            <div id="ajax_ranking"></div>
+      </div>
+      <footer id="ajax_footer"></footer>
+   </div>
+    <script src="/js/ranking.js"></script>
+</body>
+</html>
