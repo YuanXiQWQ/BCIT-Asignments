@@ -27,7 +27,7 @@ app.get("/hello", function (req, res) {
 
 app.get("/helloHTML", function (req, res) {
     // hard-coded HTML
-    res.send("<html><head><title>Hi!</title></head><body><p>Hello!</p></body></html>");
+    res.send("<html lang='en'><head><title>Hi!</title></head><body><p>Hello!</p></body></html>");
 });
 
 app.get("/profile", function (req, res) {
@@ -71,8 +71,8 @@ app.get("/date", function (req, res) {
 // for resource not found (i.e., 404)
 app.use(function (req, res, next) {
     // this could be a separate file too - but you'd have to make sure that you have the path
-    // correct, otherewise, you'd get a 404 on the 404 (actually a 500 on the 404)
-    res.status(404).send("<html><head><title>Page not found!</title></head><body><p>Nothing here.</p></body></html>");
+    // correct, otherwise, you'd get a 404 on the 404 (actually a 500 on the 404)
+    res.status(404).send("<html lang='en'><head><title>Page not found!</title></head><body><p>Nothing here.</p></body></html>");
 });
 
 // RUN SERVER
