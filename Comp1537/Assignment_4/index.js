@@ -1,37 +1,32 @@
 //Imports
 const express = require("express");
-const path = require("node:path");
 const app = express();
-app.use(express.json());
+const path = require("node:path");
 const fs = require("node:fs");
-
-//Server
+app.use(express.json());
 
 //Static files
+app.use("/images", express.static(path.resolve(__dirname, "./public/images")));
 app.use("/scripts", express.static(path.resolve(__dirname, "./public/scripts")));
 app.use("/styles", express.static(path.resolve(__dirname, "./public/styles")));
-app.use("/images", express.static(path.resolve(__dirname, "./public/images")));
 
 //Functions
 /*Pages*/
-app.get("/index", (req, res) => {
-    let doc = fs.readFileSync(path.resolve(__dirname, "./app/html/index.html"), "utf8");
-    res.send(doc);
+app.get("/", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "./app/html/index.html"));
 });
+
 //
 // app.get("/Redstone", (req, res) => {
-//     let doc = fs.readFileSync(path.resolve(__dirname, "./app/html/Redstone.html"), "utf8");
-//     res.send(doc);
+//     res.sendFile(path.resolve(__dirname, "./app/html/redstone.html"));
 // });
 //
 app.get("/Construction", (req, res) => {
-    let doc = fs.readFileSync(path.resolve(__dirname, "./app/html/Construction.html"), "utf8");
-    res.send(doc);
+    res.sendFile(path.resolve(__dirname, "./app/html/construction.html"));
 });
 //
 // app.get("/about", (req, res) => {
-//     let doc = fs.readFileSync(path.resolve(__dirname, "./app/html/about.html"), "utf8");
-//     res.send(doc);
+//     res.sendFile(path.resolve(__dirname, "./app/html/about.html"));
 // });
 
 /*Snippets of HTML*/
@@ -48,21 +43,21 @@ app.get("/get-footer", (req, res) => {
 });
 
 
-/*Construction.html
+/*construction.html
 * */
 
 /*Snippets of HTML*/
 app.get("/get-constructionList", (req, res) => {
-    res.sendFile(path.join(__dirname, "./app/data/constructionList.html"));
+    res.sendFile(path.resolve(__dirname, "./app/data/constructionList.html"));
 });
 
 app.get("/get-constructionList-data", (req, res) => {
-    res.sendFile(path.join(__dirname, "./app/data/constructionList_data.json"));
+    res.sendFile(path.resolve(__dirname, "./app/data/constructionList_data.json"));
 });
 
 /*Interactions*/
 app.get("/languages", (req, res) => {
-    const languageDir = path.join(__dirname, "./app/data/language");
+    const languageDir = path.resolve(__dirname, "./app/data/language");
     fs.readdir(languageDir, (err, files) => {
         if (err) {
             console.error("Could not list the directory.", err);
@@ -90,7 +85,7 @@ app.get("/languages/:lang", (req, res) => {
 
 app.post("/add-construction", (req, res) => {
     const newBuilding = req.body;
-    const filePath = path.join(__dirname, "./app/data/constructionList_data.json");
+    const filePath = path.resolve(__dirname, "./app/data/constructionList_data.json");
 
     fs.readFile(filePath, (err, data) => {
         if (err) {
@@ -115,3 +110,4 @@ app.post("/add-construction", (req, res) => {
 
 //Run Server
 app.listen(8000);
+console.log("Server running on port 8000");

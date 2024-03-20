@@ -76,18 +76,17 @@ document.addEventListener("change", Event => {
     }
 });
 
-/*Construction.html
+/*construction.html
 * */
 
 // Fetch and display the Construction list
 function fetchAndDisplayConstructions() {
-    fetch('/get-constructionList-data') // 确保这个URL正确指向您的JSON数据文件
+    fetch('/get-constructionList-data')
         .then(response => response.json())
         .then(data => {
             const listContainer = document.getElementById('constructionListContainer');
-            listContainer.innerHTML = ''; // 清空容器当前内容
+            listContainer.innerHTML = '';
             data.buildings.forEach(building => {
-                // 动态创建并添加每个建筑的HTML
                 const buildingHTML = `
                     <div class="construction-item">
                         <h2>${building.Name}</h2>
@@ -104,7 +103,7 @@ function fetchAndDisplayConstructions() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    fetchAndDisplayConstructions(); // 页面加载时调用此函数
+    fetchAndDisplayConstructions();
 });
 
 document.addEventListener('DOMContentLoaded', () => {
