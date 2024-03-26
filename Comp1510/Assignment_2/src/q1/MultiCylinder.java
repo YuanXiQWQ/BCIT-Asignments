@@ -2,34 +2,36 @@ package q1;
 
 /**
  * A class that contains instance data that represents the cylinder’s radius and height.
+ * For Assignment2 Cylinder Class
  *
  * @author XingJiarui
  * @version 2024.3.18
  */
 public class MultiCylinder {
-    private static double radius;
-    private static double height;
+  public static void main(String[] args) {
+    // Instantiates and updates two Cylinder objects (no user input required).
+    Cylinder cylinder1 = new Cylinder(5.0, 10.0);
+    Cylinder cylinder2 = new Cylinder(3.0, 7.0);
 
-    private void outHere(String status) {
-        System.out.println(status + ": "
-                + "radius = " + radius + "; "
-                + "height = " + height);
-    }
+    // Printing their radius and height before modification.
+    System.out.println("Initial State:");
+    System.out.println(cylinder1);
+    System.out.println(cylinder2);
 
-    public static void main(String[] args) {
-        MultiCylinder fnHere = new MultiCylinder();
-        Cylinder cylinder = new Cylinder();
+    // Modification.
+    cylinder1.setRadius(6.0);
+    cylinder1.setHeight(12.0);
+    cylinder2.setRadius(4.0);
+    cylinder2.setHeight(8.0);
 
-        //Before set
-        radius = cylinder.getRadius();
-        height = cylinder.getHeight();
-        fnHere.outHere("Before set");
+    // Printing their radius and height after modification.
+    System.out.println("\nAfter Modification:");
+    System.out.println(cylinder1);
+    System.out.println(cylinder2);
 
-        //After set
-        radius = 5.21;
-        height = 13.14;
-        cylinder.setRadius(radius);
-        cylinder.setHeight(height);
-        fnHere.outHere("After set");
-    }
+    // Prints the final volume and surface area of each cylinder.
+    System.out.println("\nFinal Volume and Surface Area:");
+    System.out.println("Cylinder 1 - Volume: " + cylinder1.volume() + ", Surface Area: " + cylinder1.surfaceArea());
+    System.out.println("Cylinder 2 - Volume: " + cylinder2.volume() + ", Surface Area: " + cylinder2.surfaceArea());
+  }
 }

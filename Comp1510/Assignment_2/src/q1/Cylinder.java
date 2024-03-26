@@ -15,7 +15,7 @@ public class Cylinder {
     /**
      * Constructor for objects of class Cylinder
      */
-    public Cylinder() {
+    public Cylinder(double radius, double height) {
         this.radius = radius;
         this.height = height;
     }
