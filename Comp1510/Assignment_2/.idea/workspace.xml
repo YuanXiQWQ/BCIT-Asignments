@@ -5,13 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="25bdd569-cf7d-4dbf-990f-35c6cf77eaa2" name="更改" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Assignment_2/TestString.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Assignment_2/q1/Cylinder.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Assignment_2/q1/Cylinder.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Assignment_2/q1/MultiCylinder.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Assignment_2/q1/MultiCylinder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Assignment_2/q2/The King James Version of the Bible.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Assignment_2/q2/WordCounter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Assignment_2/q2/WordCounter.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/q1/Cylinder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/q1/Cylinder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/q1/MultiCylinder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/q1/MultiCylinder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/q2/The King James Version of the Bible.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/q2/Word.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/q2/Word.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/q2/WordCounter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/q2/WordCounter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/q3/Primes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/q3/Primes.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/q4/Exponential.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/q4/Exponential.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,10 +67,11 @@
     "project.structure.last.edited": "全局库",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.rainbow.brackets.disable.when",
+    "settings.editor.selected.configurable": "preferences.sourceCode.Java",
     "vue.rearranger.settings.migration": "true",
     "应用程序.Exponential.executor": "Debug",
     "应用程序.MultiCylinder.executor": "Run",
+    "应用程序.Primes.executor": "Run",
     "应用程序.TestString.executor": "Run",
     "应用程序.WordCounter.executor": "Run"
   }
@@ -88,6 +94,7 @@
       <workItem from="1711433348251" duration="361000" />
       <workItem from="1711433834877" duration="122000" />
       <workItem from="1711480876311" duration="19936000" />
+      <workItem from="1711510436045" duration="5192000" />
     </task>
     <servers />
   </component>
