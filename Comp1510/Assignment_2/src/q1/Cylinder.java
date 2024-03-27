@@ -7,88 +7,87 @@ package q1;
  * @version 2024.3.18
  */
 public class Cylinder {
-    private double radius;
-    private double height;
+  /**
+   * The radius of the cylinder.
+   */
+  private double radius;
+  /**
+   * The height of the cylinder.
+   */
+  private double height;
 
-    //Constructor
+  /**
+   * Constructor for objects of class Cylinder
+   *
+   * @param radius The radius of the cylinder
+   * @param height The height of the cylinder
+   */
+  public Cylinder(double radius, double height) {
+    this.radius = radius;
+    this.height = height;
+  }
 
-    /**
-     * Constructor for objects of class Cylinder
-     */
-    public Cylinder(double radius, double height) {
-        this.radius = radius;
-        this.height = height;
-    }
+  /**
+   * Getter for the radius
+   *
+   * @return The radius of the cylinder
+   */
+  public double getRadius() {
+    return radius;
+  }
 
-    //Getters
+  /**
+   * Getter for the height
+   *
+   * @return The height of the cylinder
+   */
+  public double getHeight() {
+    return height;
+  }
 
-    /**
-     * Getter for the radius
-     *
-     * @return radius
-     */
-    public double getRadius() {
-        return radius;
-    }
+  /**
+   * Setter for the radius
+   *
+   * @param radius The new radius of the cylinder
+   */
+  public void setRadius(double radius) {
+    this.radius = radius;
+  }
 
-    /**
-     * Getter for the height
-     *
-     * @return height
-     */
-    public double getHeight() {
-        return height;
-    }
+  /**
+   * Setter for the height
+   *
+   * @param height The new height of the cylinder
+   */
+  public void setHeight(double height) {
+    this.height = height;
+  }
 
-    //Setters
+  /**
+   * Calculate the surface area of the cylinder
+   *
+   * @return The surface area of the cylinder
+   */
+  public double surfaceArea() {
+    return 2 * Math.PI * radius * (radius + height);
+  }
 
-    /**
-     * Setter for the radius
-     *
-     * @param radius radius
-     */
-    public void setRadius(double radius) {
-        this.radius = radius;
-    }
+  /**
+   * Calculate the volume of the cylinder
+   *
+   * @return The volume of the cylinder
+   */
+  public double volume() {
+    return Math.PI * radius * radius * height;
+  }
 
-    /**
-     * Setter for the height
-     *
-     * @param height height
-     */
-    public void setHeight(double height) {
-        this.height = height;
-    }
-
-    //Methods
-
-    /**
-     * Calculate the surface area of the cylinder
-     *
-     * @return surface area
-     */
-    public double surfaceArea() {
-        //2 * pi * r * (r + h)
-        return 2 * Math.PI * radius * (radius + height);
-    }
-
-    /**
-     * Calculate the volume of the cylinder
-     *
-     * @return volume
-     */
-    public double volume() {
-        //V = pi * r^2 * h
-        return Math.PI * radius * radius * height;
-    }
-
-    /**
-     * Get the description of the cylinder
-     *
-     * @return description
-     */
-    @Override
-    public String toString() {
-        return "Cylinder: radius = " + radius + ", height = " + height;
-    }
+  /**
+   * Get the description of the cylinder
+   *
+   * @return A string representation of the cylinder
+   */
+  @Override
+  public String toString() {
+    return String.format("Cylinder: radius = %.2f, height = %.2f", radius, height);
+  }
 }
