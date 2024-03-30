@@ -39,8 +39,7 @@ public class Exponential {
     }
 
     private static double expCalc(double x, double term, double sum, int k) {
-        if (Math.abs(term) < ZERO_POINT_ZERO_ZERO_ZERO_ZERO_ONE
-                || k > ONE_HUNDRED) {
+        if (Math.abs(term) < ZERO_POINT_ZERO_ZERO_ZERO_ZERO_ONE || k > ONE_HUNDRED) {
             return sum;
         }
         return expCalc(x, term * x / k, sum + term, k + 1);

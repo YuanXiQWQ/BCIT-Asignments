@@ -1,9 +1,9 @@
 package q2;
 
 /**
- * A class that includes the word and its frequency.
- * Provides methods to get the word, get and increment its frequency,
- * and compare objects based on frequency.
+ * A class that includes the word and its frequency. Provides methods to get the
+ * word, get and increment its frequency, and compare objects based on
+ * frequency.
  *
  * @author Xing Jiarui
  * @version 2024.3.26
@@ -25,8 +25,8 @@ public class Word implements Comparable<Word> {
     private int frequency;
 
     /**
-     * Constructs a Word object with the specified word.
-     * The initial frequency is set to 1.
+     * Constructs a Word object with the specified word. The initial frequency
+     * is set to 1.
      *
      * @param word the word included in the book.
      */

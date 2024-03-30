@@ -1,9 +1,9 @@
 package q1;
 
 /**
- * A driver class that demonstrates the functionality of the Cylinder class
- * by instantiating, updating, displaying information about Cylinder objects.
- * For Assignment2 Cylinder Class
+ * A driver class that demonstrates the functionality of the Cylinder class by
+ * instantiating, updating, displaying information about Cylinder objects. For
+ * Assignment2 Cylinder Class
  *
  * @author XingJiarui
  * @version 2024.3.18
@@ -78,8 +78,8 @@ public class MultiCylinder {
     }
 
     /**
-     * Prints the state of a Cylinder object including its radius,
-     * height, volume, and surface area.
+     * Prints the state of a Cylinder object including its radius, height,
+     * volume, and surface area.
      *
      * @param cylinder The Cylinder object to print the state of.
      */

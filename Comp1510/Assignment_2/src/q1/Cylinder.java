@@ -1,8 +1,8 @@
 package q1;
 
 /**
- * A class that contains instance data.
- * Represents the cylinder’s radius and height.
+ * A class that contains instance data. Represents the cylinder’s radius and
+ * height.
  *
  * @author XingJiarui
  * @version 2024.3.18
