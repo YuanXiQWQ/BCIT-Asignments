@@ -1,7 +1,3 @@
-# BCIT BCIT's CST (Diploma) COMP1510, 1537, 1800 repositories
-
----
-
 ## About
 
 * What is this repo

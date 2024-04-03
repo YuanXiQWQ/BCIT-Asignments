@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>My BCIT Project</title>
+    <meta name="comp1800 template" content="My 1800 App">
+
+    <!------------------------>
+    <!-- Required meta tags -->
+    <!------------------------>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!------------------------------------------>
+    <!-- Bootstrap Library CSS JS CDN go here -->
+    <!------------------------------------------>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
+        </script>
+
+    <!-------------------------------------------------------->
+    <!-- Firebase 8 Library related CSS, JS, JQuery go here -->
+    <!-------------------------------------------------------->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
+
+    <!-------------------------------------------->
+    <!-- Other libraries and styles of your own -->
+    <!-------------------------------------------->
+    <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
+    <!-- <link rel="stylesheet" href="./styles/style.css"> -->
+
+</head>
+
+<body>
+    <!------------------------------>
+    <!-- Your HTML Layout go here -->
+    <!------------------------------>
+
+    <!-- our own navbar goes here -->
+    <nav id="navbarPlaceholder"></nav>
+
+    <!-- the body of your page goes here -->
+    <!-- stuff -->
+
+    <!-- our own footer goes here-->
+    <nav id="footerPlaceholder"></nav>
+
+    <!---------------------------------------------->
+    <!-- Your own JavaScript functions go here    -->
+    <!---------------------------------------------->
+    <script src="./scripts/firebaseAPI_TEAM99.js"></script>
+    <script src="./scripts/skeleton.js"></script>
+    <!-- <script src="./scripts/script.js"></script> -->
+
+
+    <script>
+        function writeHikes() {
+            //define a variable for the collection you want to create in Firestore to populate data
+            var hikesRef = db.collection("hikes");
+
+            hikesRef.add({
+                code: "BP1",
+                name: "Burnaby Picton Trail", //replace with your own city?
+                city: "Burnaby",
+                province: "BC",
+                level: "easy",
+                details: "Walk around the room aimlessly for a bit, then continue with your boring video game.",
+                length: 10,          //number value
+                hike_time: 60,       //number value
+                lat: 49.2467097082573,
+                lng: -122.9187029619698,
+                last_updated: firebase.firestore.FieldValue.serverTimestamp()  //current system time
+            });
+            hikesRef.add({
+                code: "VC1",
+                name: "Capilano Suspension Bridge Park Trail", //replace with your own city?
+                city: "North Vancouver",
+                province: "BC",
+                level: "moderate",
+                details: "Stunning waterfall and forest scenery",
+                length: 8.2,      //number value
+                hike_time: 120,     //number value
+                lat: 49.38847101455571,
+                lng: -122.94092543551031,
+                last_updated: firebase.firestore.Timestamp.fromDate(new Date("January 1, 2024"))
+            });
+            hikesRef.add({
+                code: "CN1",
+                name: "Dalian Dahei Mountain Hike", //replace with your own city?
+                city: "Dalian",
+                province: "Liaoning China",
+                level: "extremely difficult",
+                details: "If you miss home, just go back and take a look.",
+                length: 11356,        //number value
+                hike_time: 1050,     //number value
+                lat: 49.3399431028579,
+                lng: -122.85908496766939,
+                last_updated: firebase.firestore.Timestamp.fromDate(new Date("December 12, 2023"))
+            });
+        }
+        alert("Done");
+    </script>
+
+</body>
+
+</html>
