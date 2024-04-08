@@ -1,0 +1,47 @@
+{
+  "languageOption": {
+    "label": "Français",
+    "value": "fr-FR"
+  },
+  "Strings": {
+    "text-Login": "Connexion",
+    "text-Navigation": "Navigation",
+    "text-Home": "Accueil",
+    "text-Redstone": "Redstone",
+    "text-Construction": "Construction",
+    "text-About": "À propos",
+    "text-Introduce": "Introduction",
+    "text-Introduce-info": "Minecraft est un jeu bac à sable lancé en 2011, développé par Mojang Studios et initialement publié en 2009. Le jeu a été créé par Markus 'Notch' Persson en utilisant le langage de programmation Java. Après plusieurs versions de test privées, il a été rendu public pour la première fois en mai 2009 avant d'être officiellement lancé le 18 novembre 2011, Notch cédant la place à Jens 'Jeb' Bergensten pour le développement. Minecraft est devenu le jeu vidéo le plus vendu de l'histoire, avec plus de 300 millions de copies vendues et près de 140 millions de joueurs actifs par mois en 2023. Il a été porté sur plusieurs plateformes.",
+    "text-SeeMore": "En savoir plus",
+    "text-WorldCapture": "Capture du monde",
+    "text-Base": "Base",
+    "text-Garden": "Jardin",
+    "text-LivingRoom": "Salon",
+    "text-EndPortal": "Portail de l'End",
+    "text-MyBase": "Ma base",
+    "text-StoryAboutThisWorld": "Histoire de ce monde",
+    "text-AboutThisWorld": "Ce monde a été établi le 26 avril 2020, pendant la pandémie de COVID-19. La raison de la création d'un tel archive peut essentiellement être attribuée au fait que j'étais trop oisif pendant le confinement.",
+    "text-Inventory": "Inventaire",
+    "text-HowIsMyInventory": "État de mon inventaire",
+    "text-InventoryInfo": "Puisque j'ai construit de nombreuses machines, y compris de l'obsidienne, des crânes de squelettes wither (les principaux matériaux pour les balises) et des matériaux renouvelables tels que les métaux autres que le Netherite, les diamants, le cuivre et le quartz, ils peuvent tous être produits en masse.",
+    "text-OnlineTime": "Durée en ligne",
+    "text-HowLongIsTheOnlineDurationEachTime": "Durée de chaque session en ligne",
+    "text-OnlineTimeInfo": "Cela dépend. Si il y a un projet majeur, le temps en ligne ne sera pas inférieur à 10 heures à chaque fois. Si c'est juste pour jouer occasionnellement, alors ce n'est pas certain.",
+    "text-Information": "Informations",
+    "text-SomeStatisticalInformation": "Quelques informations statistiques",
+    "text-GameDuration": "Durée du jeu",
+    "text-Deaths": "Nombre de morts",
+    "text-SinceLastDeath": "Depuis la dernière mort",
+    "text-MobKills": "Monstres tués",
+    "text-DamageDealt": "Dégâts infligés",
+    "text-DistanceWalked": "Distance parcourue à pied",
+    "text-ElytraGlidingDistance": "Distance en Elytra",
+    "text-Jumps": "Nombre de sauts",
+    "text-TotalBlocksPlaced": "Total de blocs placés",
+    "text-TotalBlocksMined": "Total de blocs minés",
+    "text-Copyright": "Droits d'auteur © 2024 YuanXi",
+
+    "text-CurrentInventoryListOfArchivalBuildings": "Liste actuelle des bâtiments d'archives",
+    "text-AddConstruction": "Ajouter un bâtiment"
+  }
+}
