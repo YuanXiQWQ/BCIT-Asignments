@@ -115,30 +115,53 @@ app.post("/add-construction", (req, res) => {
 
 
 /*Database*/
-const connection = mysql.createConnection({
-    host: "localhost",
-    user: "root",
-    password: "Xjr@66773738",
-    database: "assignment6"
-});
+async function createConnection() {
+    return mysql.createConnection({
+        host: "localhost",
+        user: "root",
+        password: "Xjr@66773738",
+        database: "assignment6"
+    });
+}
 
 let user = false;
 
-app.post('/login', async (req, res) => {
+app.post('/user-login', async (req, res) => {
     const {username, password} = req.body;
+    const connection = await createConnection();
+    const [rows] = await connection.execute('SELECT * FROM a01354731_user WHERE user_name = ? AND password = ?', [username, password]);
+    await connection.end();
 
+    if (rows.length > 0) {
+        res.redirect('/profile');
+    } else {
+        res.send('Username or password is incorrect');
+    }
+});
+
+// 注册处理
+app.post('/user-register', async (req, res) => {
+    const {email, username, password, confirmPassword} = req.body;
+
+    const connection = await createConnection();
     try {
-        const [rows] = await connection.execute('SELECT * FROM a01354731_user WHERE user_name = ? AND password = ?', [username, password]);
-        if (rows.length > 0) {
-            req.session.loggedin = user = true;
-            req.session.username = username;
-            res.redirect('/profile');
+        // 检查用户名或邮箱是否已存在
+        const [users] = await connection.execute('SELECT * FROM a01354731_user WHERE email = ? OR user_name = ?', [email, username]);
+        if (users.length > 0) {
+            res.send('Email or username already exists.');
+            return;
+        }
+
+        // 插入新用户
+        if (password === confirmPassword) {
+            await connection.execute('INSERT INTO a01354731_user (email, user_name, password) VALUES (?, ?, ?)', [email, username, password]);
+            res.send('Registration successful!');
         } else {
-            res.send('Username or Password is incorrect.');
+            res.send('Passwords do not match.');
         }
     } catch (error) {
-        console.error('Database error', error);
-        res.send('Error while connecting to database');
+        console.error(error);
+        res.send('An error occurred.');
     } finally {
         await connection.end();
     }

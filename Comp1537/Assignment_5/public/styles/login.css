@@ -32,7 +32,8 @@ main {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 326px;
+  height: fit-content;
+  min-height: 326px;
   width: 380px;
   background-color: #FFF;
   }
@@ -66,6 +67,7 @@ main {
   justify-content: center;
   height: 100%;
   width: 100%;
+  margin-bottom: 15px;
   }
 
 .black {
