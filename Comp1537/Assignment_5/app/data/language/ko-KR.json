@@ -42,6 +42,10 @@
     "text-Copyright": "저작권 © 2024 YuanXi",
 
     "text-CurrentInventoryListOfArchivalBuildings": "현재 보관 건물 목록",
-    "text-AddConstruction": "건축 추가"
+    "text-AddConstruction": "건축 추가",
+
+    "text-Login-info": "나의 이름 및 пароль를 입력해 주세요.",
+    "text-Username": "나의 이름",
+    "text-Password": "파어쓰기"
   }
 }

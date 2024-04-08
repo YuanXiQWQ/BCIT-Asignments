@@ -42,6 +42,22 @@
     "text-Copyright": "Copyright © 2024 YuanXi",
 
     "text-CurrentInventoryListOfArchivalBuildings": "Current inventory list of archival buildings",
-    "text-AddConstruction": "Add Construction"
+    "text-AddConstruction": "Add Construction",
+
+    "text-LoginOrRegister": "Login or Register",
+    "text-Register": "Register",
+    "text-Dont-have-account": "Don't have an account?",
+    "text-Have-account": "Have an account?",
+    "text-LoginUsername": "Username",
+    "text-LoginPassword": "Password",
+    "text-RegisterUsername": "Username",
+    "text-RegisterPassword": "Password",
+    "text-RegisterConfirmPassword": "Confirm Password",
+    "text-Login1": "Login",
+    "text-Login2": "Login",
+    "text-Register1": "Register",
+    "text-Register2": "Register",
+    "text-LoginNow": "Login Now!",
+    "text-RegisterNow": "Register Now!"
   }
 }

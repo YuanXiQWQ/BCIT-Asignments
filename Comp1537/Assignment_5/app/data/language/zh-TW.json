@@ -42,6 +42,10 @@
     "text-Copyright": "版權所有 © 2024 元夕",
 
     "text-CurrentInventoryListOfArchivalBuildings": "當前存檔建築清單",
-    "text-AddConstruction": "添加建築"
+    "text-AddConstruction": "添加建築",
+
+    "text-Login-info": "請輸入您的用戶名和密碼以登錄。",
+    "text-Username": "用戶名",
+    "text-Password": "密碼"
   }
 }

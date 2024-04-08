@@ -42,6 +42,10 @@
     "text-Copyright": "Все права защищены © 2024 YuanXi",
 
     "text-CurrentInventoryListOfArchivalBuildings": "Текущий список архивных зданий",
-    "text-AddConstruction": "Добавить строение"
+    "text-AddConstruction": "Добавить строение",
+
+    "text-Login-info": "Пожалуйста, введите свой логин и пароль для входа.",
+    "text-Username": "Логин",
+    "text-Password": "Пароль"
   }
 }

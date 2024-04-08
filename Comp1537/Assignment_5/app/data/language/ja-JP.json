@@ -42,6 +42,10 @@
     "text-Copyright": "著作権所有 © 2024 元夕",
 
     "text-CurrentInventoryListOfArchivalBuildings": "現在のアーカイブ建物リスト",
-    "text-AddConstruction": "建築を追加"
+    "text-AddConstruction": "建築を追加",
+
+    "text-Login-info": "ログインするには、ユーザー名とパスワードを入力してください。",
+    "text-Username": "ユーザー名",
+    "text-Password": "パスワード"
   }
 }

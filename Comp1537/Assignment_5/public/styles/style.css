@@ -4,6 +4,10 @@
   --link-color: #000;
   }
 
+.hidden {
+  display: none !important;
+  }
+
 body,
 html {
   margin: 0;

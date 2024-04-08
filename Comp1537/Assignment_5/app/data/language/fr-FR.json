@@ -42,6 +42,10 @@
     "text-Copyright": "Droits d'auteur © 2024 YuanXi",
 
     "text-CurrentInventoryListOfArchivalBuildings": "Liste actuelle des bâtiments d'archives",
-    "text-AddConstruction": "Ajouter un bâtiment"
+    "text-AddConstruction": "Ajouter un bâtiment",
+
+    "text-Login-info": "Veuillez entrer votre nom d'utilisateur et votre mot de passe pour vous connecter.",
+    "text-Username": "Nom d'utilisateur",
+    "text-Password": "Mot de passe"
   }
 }

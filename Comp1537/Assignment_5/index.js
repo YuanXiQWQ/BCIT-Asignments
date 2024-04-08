@@ -1,6 +1,7 @@
 //Imports
 const express = require("express");
 const app = express();
+const mysql = require('mysql2/promise');
 const path = require("node:path");
 const fs = require("node:fs");
 app.use(express.json());
@@ -28,6 +29,11 @@ app.get("/Construction", (req, res) => {
 // app.get("/about", (req, res) => {
 //     res.sendFile(path.resolve(__dirname, "./app/html/about.html"));
 // });
+
+app.get("/login", (req, res) => {
+    let filePath = user ? "./app/html/profile.html" : "./app/html/login.html";
+    res.sendFile(path.resolve(__dirname, filePath));
+});
 
 /*Snippets of HTML*/
 app.get("/get-header", (req, res) => {
@@ -105,6 +111,37 @@ app.post("/add-construction", (req, res) => {
             res.status(200).send("Construction added successfully");
         });
     });
+});
+
+
+/*Database*/
+const connection = mysql.createConnection({
+    host: "localhost",
+    user: "root",
+    password: "Xjr@66773738",
+    database: "assignment6"
+});
+
+let user = false;
+
+app.post('/login', async (req, res) => {
+    const {username, password} = req.body;
+
+    try {
+        const [rows] = await connection.execute('SELECT * FROM a01354731_user WHERE user_name = ? AND password = ?', [username, password]);
+        if (rows.length > 0) {
+            req.session.loggedin = user = true;
+            req.session.username = username;
+            res.redirect('/profile');
+        } else {
+            res.send('Username or Password is incorrect.');
+        }
+    } catch (error) {
+        console.error('Database error', error);
+        res.send('Error while connecting to database');
+    } finally {
+        await connection.end();
+    }
 });
 
 

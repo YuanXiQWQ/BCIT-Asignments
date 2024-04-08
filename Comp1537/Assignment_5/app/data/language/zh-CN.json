@@ -42,6 +42,10 @@
     "text-Copyright": "版权所有 ©; 2024 元夕",
 
     "text-CurrentInventoryListOfArchivalBuildings": "当前存档建筑清单",
-    "text-AddConstruction": "添加建筑"
+    "text-AddConstruction": "添加建筑",
+
+    "text-Login-info": "请输入您的用户名和密码以登录。",
+    "text-Username": "用户名",
+    "text-Password": "密码"
   }
 }
