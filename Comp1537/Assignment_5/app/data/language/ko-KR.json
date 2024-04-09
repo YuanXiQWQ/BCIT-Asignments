@@ -4,8 +4,9 @@
     "value": "ko-KR"
   },
   "Strings": {
+    "text-Profile": "평점",
     "text-Login": "로그인",
-    "text-Navigation": "내비게이션",
+    "text-Navigation",: "내비게이션",
     "text-Home": "홈",
     "text-Redstone": "레드스톤",
     "text-Construction": "건축",
@@ -44,8 +45,21 @@
     "text-CurrentInventoryListOfArchivalBuildings": "현재 보관 건물 목록",
     "text-AddConstruction": "건축 추가",
 
-    "text-Login-info": "나의 이름 및 пароль를 입력해 주세요.",
-    "text-Username": "나의 이름",
-    "text-Password": "파어쓰기"
+    "text-LoginOrRegister": "로그인 또는 회원가입",
+    "text-Register": "회원가입",
+    "text-Dont-have-account": "계정이 없으신가요?",
+    "text-Have-account": "계정이 있으신가요?",
+    "text-LoginUsername": "사용자 이름",
+    "text-LoginPassword": "비밀번호",
+    "text-RegisterEmail": "이메일",
+    "text-RegisterUsername": "사용자 이름",
+    "text-RegisterPassword": "비밀번호",
+    "text-RegisterConfirmPassword": "비밀번호 확인",
+    "text-Login1": "로그인",
+    "text-Login2": "로그인",
+    "text-Register1": "회원가입",
+    "text-Register2": "회원가입",
+    "text-LoginNow": "지금 로그인!",
+    "text-RegisterNow": "지금 회원가입!"
   }
 }

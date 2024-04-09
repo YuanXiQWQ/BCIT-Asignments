@@ -4,8 +4,9 @@
     "value": "ru-RU"
   },
   "Strings": {
-    "text-Login": "Войти",
-    "text-Navigation": "Навигация",
+    "text-Profile": "Профиль",
+    "text-Login": "Вход",
+    "text-Navigation",: "Навигация",
     "text-Home": "Главная",
     "text-Redstone": "Редстоун",
     "text-Construction": "Строительство",
@@ -44,8 +45,21 @@
     "text-CurrentInventoryListOfArchivalBuildings": "Текущий список архивных зданий",
     "text-AddConstruction": "Добавить строение",
 
-    "text-Login-info": "Пожалуйста, введите свой логин и пароль для входа.",
-    "text-Username": "Логин",
-    "text-Password": "Пароль"
+    "text-LoginOrRegister": "Войти или зарегистрироваться",
+    "text-Register": "Зарегистрироваться",
+    "text-Dont-have-account": "Нет учетной записи?",
+    "text-Have-account": "У вас уже есть учетная запись?",
+    "text-LoginUsername": "Имя пользователя",
+    "text-LoginPassword": "Пароль",
+    "text-RegisterEmail": "Электронная почта",
+    "text-RegisterUsername": "Имя пользователя",
+    "text-RegisterPassword": "Пароль",
+    "text-RegisterConfirmPassword": "Подтвердите пароль",
+    "text-Login1": "Войти",
+    "text-Login2": "Вход",
+    "text-Register1": "Зарегистрироваться",
+    "text-Register2": "Регистрация",
+    "text-LoginNow": "Войти сейчас!",
+    "text-RegisterNow": "Зарегистрироваться сейчас!"
   }
 }

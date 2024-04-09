@@ -4,6 +4,7 @@
     "value": "en-UK"
   },
   "Strings": {
+    "text-Profile": "Profile",
     "text-Login": "Login",
     "text-Navigation": "Navigation",
     "text-Home": "Home",

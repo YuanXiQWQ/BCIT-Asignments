@@ -4,7 +4,8 @@
     "value": "zh-TW"
   },
   "Strings": {
-    "text-Login": "登入",
+    "text-Profile": "個人檔案",
+    "text-Login": "登錄",
     "text-Navigation": "導航",
     "text-Home": "首頁",
     "text-Redstone": "紅石",
@@ -44,8 +45,21 @@
     "text-CurrentInventoryListOfArchivalBuildings": "當前存檔建築清單",
     "text-AddConstruction": "添加建築",
 
-    "text-Login-info": "請輸入您的用戶名和密碼以登錄。",
-    "text-Username": "用戶名",
-    "text-Password": "密碼"
+    "text-LoginOrRegister": "登錄或註冊",
+    "text-Register": "註冊",
+    "text-Dont-have-account": "沒有帳號？",
+    "text-Have-account": "已有帳號？",
+    "text-LoginUsername": "用戶名",
+    "text-LoginPassword": "密碼",
+    "text-RegisterEmail": "郵箱",
+    "text-RegisterUsername": "用戶名",
+    "text-RegisterPassword": "密碼",
+    "text-RegisterConfirmPassword": "確認密碼",
+    "text-Login1": "登錄",
+    "text-Login2": "登錄",
+    "text-Register1": "註冊",
+    "text-Register2": "註冊",
+    "text-LoginNow": "立即登錄！",
+    "text-RegisterNow": "立即註冊！"
   }
 }

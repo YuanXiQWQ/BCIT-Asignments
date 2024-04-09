@@ -4,6 +4,7 @@ const app = express();
 const mysql = require('mysql2/promise');
 const path = require("node:path");
 const fs = require("node:fs");
+app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 
 //Static files
@@ -31,6 +32,11 @@ app.get("/Construction", (req, res) => {
 // });
 
 app.get("/login", (req, res) => {
+    let filePath = user ? "./app/html/profile.html" : "./app/html/login.html";
+    res.sendFile(path.resolve(__dirname, filePath));
+});
+
+app.get("/profile", (req, res) => {
     let filePath = user ? "./app/html/profile.html" : "./app/html/login.html";
     res.sendFile(path.resolve(__dirname, filePath));
 });
@@ -126,6 +132,7 @@ async function createConnection() {
 
 let user = false;
 
+// User login
 app.post('/user-login', async (req, res) => {
     const {username, password} = req.body;
     const connection = await createConnection();
@@ -133,37 +140,78 @@ app.post('/user-login', async (req, res) => {
     await connection.end();
 
     if (rows.length > 0) {
+        user = true;
         res.redirect('/profile');
     } else {
-        res.send('Username or password is incorrect');
+        res.send(`
+            <p>Username or password is incorrect. Please try again.</p>
+            <a href="/login">Back to Log in</a>
+        `);
     }
 });
 
-// 注册处理
+// User registration
 app.post('/user-register', async (req, res) => {
     const {email, username, password, confirmPassword} = req.body;
 
-    const connection = await createConnection();
+    if (password !== confirmPassword) {
+        res.send(`
+            <!DOCTYPE html>
+            <html lang="en">
+            <head>
+                <title>Passwords Do Not Match</title>
+                <script type="text/javascript">
+                    alert("Passwords do not match. Please try again.");
+                    window.location.href = '/login';
+                </script>
+            </head>
+            <body>
+            </body>
+            </html>
+        `);
+        return;
+    }
+
     try {
-        // 检查用户名或邮箱是否已存在
+        const connection = await createConnection();
         const [users] = await connection.execute('SELECT * FROM a01354731_user WHERE email = ? OR user_name = ?', [email, username]);
+
         if (users.length > 0) {
-            res.send('Email or username already exists.');
+            res.send(`
+                <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <title>Email or Username Already Exists</title>
+                    <script type="text/javascript">
+                        alert("Email or username already exists. Please login or try again .");
+                        window.location.href = '/login';
+                    </script>
+                </head>
+                <body>
+                </body>
+                </html>
+            `);
             return;
         }
 
-        // 插入新用户
-        if (password === confirmPassword) {
-            await connection.execute('INSERT INTO a01354731_user (email, user_name, password) VALUES (?, ?, ?)', [email, username, password]);
-            res.send('Registration successful!');
-        } else {
-            res.send('Passwords do not match.');
-        }
+        await connection.execute('INSERT INTO a01354731_user (email, user_name, password) VALUES (?, ?, ?)', [email, username, password]);
+        res.send(`
+            <!DOCTYPE html>
+            <html lang="en">
+            <head>
+                <title>Registration Successful</title>
+                <script type="text/javascript">
+                    alert("Registration successful! Redirecting to login page.");
+                    window.location.href = '/login';
+                </script>
+            </head>
+            <body>
+            </body>
+            </html>
+        `);
     } catch (error) {
-        console.error(error);
-        res.send('An error occurred.');
-    } finally {
-        await connection.end();
+        console.error("Database operation error:", error);
+        res.status(500).send('An error occurred.');
     }
 });
 

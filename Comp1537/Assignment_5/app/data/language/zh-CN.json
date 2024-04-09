@@ -4,8 +4,9 @@
     "value": "zh-CN"
   },
   "Strings": {
+    "text-Profile": "个人资料",
     "text-Login": "登录",
-    "text-Navigation": "导航",
+    "text-Navigation",: "导航",
     "text-Home": "首页",
     "text-Redstone": "红石",
     "text-Construction": "建筑",
@@ -44,8 +45,21 @@
     "text-CurrentInventoryListOfArchivalBuildings": "当前存档建筑清单",
     "text-AddConstruction": "添加建筑",
 
-    "text-Login-info": "请输入您的用户名和密码以登录。",
-    "text-Username": "用户名",
-    "text-Password": "密码"
+    "text-LoginOrRegister": "登录或注册",
+    "text-Register": "注册",
+    "text-Dont-have-account": "没有账号？",
+    "text-Have-account": "已有账号？",
+    "text-LoginUsername": "用户名",
+    "text-LoginPassword": "密码",
+    "text-RegisterEmail": "邮箱",
+    "text-RegisterUsername": "用户名",
+    "text-RegisterPassword": "密码",
+    "text-RegisterConfirmPassword": "确认密码",
+    "text-Login1": "登录",
+    "text-Login2": "登录",
+    "text-Register1": "注册",
+    "text-Register2": "注册",
+    "text-LoginNow": "立即登录！",
+    "text-RegisterNow": "立即注册！"
   }
 }

@@ -4,6 +4,7 @@
     "value": "ja-JP"
   },
   "Strings": {
+    "text-Profile": "プロファイル",
     "text-Login": "ログイン",
     "text-Navigation": "ナビゲーション",
     "text-Home": "ホーム",
@@ -44,8 +45,21 @@
     "text-CurrentInventoryListOfArchivalBuildings": "現在のアーカイブ建物リスト",
     "text-AddConstruction": "建築を追加",
 
-    "text-Login-info": "ログインするには、ユーザー名とパスワードを入力してください。",
-    "text-Username": "ユーザー名",
-    "text-Password": "パスワード"
+    "text-LoginOrRegister": "ログインまたは登録",
+    "text-Register": "登録",
+    "text-Dont-have-account": "アカウントを持っていませんか？",
+    "text-Have-account": "アカウントをお持ちですか？",
+    "text-LoginUsername": "ユーザー名",
+    "text-LoginPassword": "パスワード",
+    "text-RegisterEmail": "メール",
+    "text-RegisterUsername": "ユーザー名",
+    "text-RegisterPassword": "パスワード",
+    "text-RegisterConfirmPassword": "パスワードの確認",
+    "text-Login1": "ログイン",
+    "text-Login2": "ログイン",
+    "text-Register1": "登録",
+    "text-Register2": "登録",
+    "text-LoginNow": "今すぐログイン！",
+    "text-RegisterNow": "今すぐ登録！"
   }
 }
