@@ -60,6 +60,25 @@
     "text-Register1": "登録",
     "text-Register2": "登録",
     "text-LoginNow": "今すぐログイン！",
-    "text-RegisterNow": "今すぐ登録！"
+    "text-RegisterNow": "今すぐ登録！",
+
+    "text-Username": "ユーザー名",
+    "text-Email": "メールアドレス",
+    "text-LastName": "姓",
+    "text-FirstName": "名",
+    "text-Password": "パスワード",
+    "text-Password1": "パスワード",
+    "text-Password2": "パスワード",
+    "text-ConfirmPassword": "パスワードの確認",
+    "text-OldPassword": "古いパスワード",
+    "text-NewPassword": "新しいパスワード",
+    "text-ConfirmNewPassword": "新しいパスワードの確認",
+    "text-myProfile": "マイプロフィール",
+    "text-Username1": "ユーザー名",
+    "text-Email1": "メールアドレス",
+    "text-LastName1": "姓",
+    "text-FirstName1": "名",
+    "text-Edit": "編集",
+    "text-Save": "保存"
   }
 }

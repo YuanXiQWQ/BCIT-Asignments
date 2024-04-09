@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/html">
+<html lang="en" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
 <head>
   <!--  ====Page====  -->
   <title>Jerry's Minecraft world</title>
@@ -12,10 +12,11 @@
 
   <!--  ====Script Libraries====  -->
   <script defer src="/scripts/client.js"></script>
+  <script defer src="/scripts/profile.js"></script>
 
   <!--  ====Style Libraries====  -->
   <link rel="stylesheet" href="/styles/style.css">
-  <link rel="stylesheet" href="/styles/login.css">
+  <link rel="stylesheet" href="/styles/profile.css">
 
   <!--  ====Others Libraries====  -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -47,47 +48,82 @@
   </aside>
 
   <main>
-    <div id="loginContainer">
-
-      <div class="innerContext" id="loginOrRegister">
-        <div class="innerTitle">
-          <span id="text-LoginOrRegister"></span>
-        </div>
-        <div class="innerForm loginOrRegister-btn">
-          <button id="loginBtn">
-            <span id="text-SignIn"></span>
-          </button>
-          <button id="registerBtn">
-            <span id="text-SignUp"></span>
-          </button>
-        </div>
+    <div class="profile-container">
+      <div class="profile-title title">
+        <span id="text-myProfile">My profile</span>
       </div>
 
-<!--      <div class="innerContext" id="login-formContainer">-->
-<!--        <form>-->
-<!--          <label for="username"><span id="text-Username"></span></label>-->
-<!--          <input type="text" id="username" name="username" required>-->
-<!--          <label for="password"><span id="text-Password"></span></label>-->
-<!--          <input type="password" id="password" name="password" required>-->
-<!--        </form>-->
-<!--        <p class="dont-have-account">-->
-<!--          <span id="text-Dont-have-account"></span>-->
-<!--        </p>-->
-<!--      </div>-->
-
-<!--      <div class="innerContext" id="register-formContainer">-->
-<!--        <form>-->
-<!--          <label for="username"><span id="text-Username"></span></label>-->
-<!--          <input type="text" id="username" name="username" required>-->
-<!--          <label for="password"><span id="text-Password"></span></label>-->
-<!--          <input type="password" id="password" name="password" required>-->
-<!--          <label for="confirmPassword"><span id="text-ConfirmPassword"></span></label>-->
-<!--          <input type="password" id="confirmPassword" name="confirmPassword" required>-->
-<!--        </form>-->
-<!--        <p class="have-account">-->
-<!--          <span id="text-Have-account"></span>-->
-<!--        </p>-->
+      <div class="profile-info profile">
+        <ul class="infoContainer undecorated">
+          <li>
+            <span id="text-Username">Username</span>
+            <div id="usernameInfo-container"></div>
+          </li>
+          <li>
+            <span id="text-Email">Email</span>
+            <div id="emailInfo-container"></div>
+          </li>
+          <li>
+            <span id="text-LastName">Last name</span>
+            <div id="lastNameInfo-container"></div>
+          </li>
+          <li>
+            <span id="text-FirstName">First name</span>
+            <div id="firstNameInfo-container"></div>
+          </li>
+        </ul>
       </div>
+
+      <div class="profile-edit profile hidden">
+        <form>
+          <ul class="editContainer undecorated">
+            <li>
+              <label>
+                <span id="text-Username1">Username</span>
+                <input type="text" id="editUsername">
+              </label>
+            </li>
+            <li>
+              <label>
+                <span id="text-Email1">Email</span>
+                <input type="text" id="editEmail">
+              </label>
+            </li>
+            <li>
+              <label>
+                <span id="text-LastName1">Last name</span>
+                <input id="editLastName" type="text">
+              </label>
+            </li>
+            <li>
+              <label>
+                <span id="text-FirstName1">First name</span>
+                <input id="editFirstName" type="text">
+              </label>
+            </li>
+            <li>
+              <label>
+                <span id="text-Password">Old Password</span>
+                <input id="editPassword-oldPassword" type="password">
+              </label>
+              <label>
+                <span id="text-Password1">New Password</span>
+                <input id="editPassword-newPassword" type="password">
+              </label>
+            </li>
+          </ul>
+        </form>
+      </div>
+
+    </div>
+    <button id="editBtn">
+      <span id="text-Edit">Edit</span>
+    </button>
+
+    <button id="saveBtn" class="hidden">
+      <span id="text-Save">Save</span>
+    </button>
+
 
   </main>
 </div>

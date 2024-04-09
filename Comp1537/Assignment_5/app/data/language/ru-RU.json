@@ -6,7 +6,7 @@
   "Strings": {
     "text-Profile": "Профиль",
     "text-Login": "Вход",
-    "text-Navigation",: "Навигация",
+    "text-Navigation": "Навигация",
     "text-Home": "Главная",
     "text-Redstone": "Редстоун",
     "text-Construction": "Строительство",
@@ -60,6 +60,25 @@
     "text-Register1": "Зарегистрироваться",
     "text-Register2": "Регистрация",
     "text-LoginNow": "Войти сейчас!",
-    "text-RegisterNow": "Зарегистрироваться сейчас!"
+    "text-RegisterNow": "Зарегистрироваться сейчас!",
+
+    "text-Username": "Имя пользователя",
+    "text-Email": "Электронная почта",
+    "text-LastName": "Фамилия",
+    "text-FirstName": "Имя",
+    "text-Password": "Пароль",
+    "text-Password1": "Пароль",
+    "text-Password2": "Пароль",
+    "text-ConfirmPassword": "Подтвердите пароль",
+    "text-OldPassword": "Старый пароль",
+    "text-NewPassword": "Новый пароль",
+    "text-ConfirmNewPassword": "Подтвердите новый пароль",
+    "text-myProfile": "Мой профиль",
+    "text-Username1": "Имя пользователя",
+    "text-Email1": "Электронная почта",
+    "text-LastName1": "Фамилия",
+    "text-FirstName1": "Имя",
+    "text-Edit": "Редактировать",
+    "text-Save": "Сохранить"
   }
 }

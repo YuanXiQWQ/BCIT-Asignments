@@ -60,6 +60,25 @@
     "text-Register1": "Register",
     "text-Register2": "Register",
     "text-LoginNow": "Login Now!",
-    "text-RegisterNow": "Register Now!"
+    "text-RegisterNow": "Register Now!",
+
+    "text-Username": "Username",
+    "text-Email": "Email",
+    "text-LastName": "Last name",
+    "text-FirstName": "First name",
+    "text-Password": "Password",
+    "text-Password1": "Password",
+    "text-Password2": "Password",
+    "text-ConfirmPassword": "Confirm Password",
+    "text-OldPassword": "Old Password",
+    "text-NewPassword": "New Password",
+    "text-ConfirmNewPassword": "Confirm New Password",
+    "text-myProfile": "My profile",
+    "text-Username1": "Username",
+    "text-Email1": "Email",
+    "text-LastName1": "Last name",
+    "text-FirstName1": "First name",
+    "text-Edit": "Edit",
+    "text-Save": "Save"
   }
 }

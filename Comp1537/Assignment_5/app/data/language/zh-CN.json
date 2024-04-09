@@ -6,7 +6,7 @@
   "Strings": {
     "text-Profile": "个人资料",
     "text-Login": "登录",
-    "text-Navigation",: "导航",
+    "text-Navigation": "导航",
     "text-Home": "首页",
     "text-Redstone": "红石",
     "text-Construction": "建筑",
@@ -60,6 +60,25 @@
     "text-Register1": "注册",
     "text-Register2": "注册",
     "text-LoginNow": "立即登录！",
-    "text-RegisterNow": "立即注册！"
+    "text-RegisterNow": "立即注册！",
+
+    "text-Username": "用户名",
+    "text-Email": "邮箱",
+    "text-LastName": "姓",
+    "text-FirstName": "名",
+    "text-Password": "密码",
+    "text-Password1": "密码",
+    "text-Password2": "密码",
+    "text-ConfirmPassword": "确认密码",
+    "text-OldPassword": "旧密码",
+    "text-NewPassword": "新密码",
+    "text-ConfirmNewPassword": "确认新密码",
+    "text-myProfile": "我的资料",
+    "text-Username1": "用户名",
+    "text-Email1": "邮箱",
+    "text-LastName1": "姓",
+    "text-FirstName1": "名",
+    "text-Edit": "编辑",
+    "text-Save": "保存"
   }
 }

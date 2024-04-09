@@ -60,6 +60,25 @@
     "text-Register1": "註冊",
     "text-Register2": "註冊",
     "text-LoginNow": "立即登錄！",
-    "text-RegisterNow": "立即註冊！"
+    "text-RegisterNow": "立即註冊！",
+
+    "text-Username": "用戶名",
+    "text-Email": "郵箱",
+    "text-LastName": "姓氏",
+    "text-FirstName": "名字",
+    "text-Password": "密碼",
+    "text-Password1": "密碼",
+    "text-Password2": "密碼",
+    "text-ConfirmPassword": "確認密碼",
+    "text-OldPassword": "舊密碼",
+    "text-NewPassword": "新密碼",
+    "text-ConfirmNewPassword": "確認新密碼",
+    "text-myProfile": "我的檔案",
+    "text-Username1": "用戶名",
+    "text-Email1": "郵箱",
+    "text-LastName1": "姓氏",
+    "text-FirstName1": "名字",
+    "text-Edit": "編輯",
+    "text-Save": "保存"
   }
 }

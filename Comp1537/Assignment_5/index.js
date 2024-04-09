@@ -6,6 +6,7 @@ const path = require("node:path");
 const fs = require("node:fs");
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
+let currentUser = null;
 
 //Static files
 app.use("/images", express.static(path.resolve(__dirname, "./public/images")));
@@ -32,12 +33,12 @@ app.get("/Construction", (req, res) => {
 // });
 
 app.get("/login", (req, res) => {
-    let filePath = user ? "./app/html/profile.html" : "./app/html/login.html";
+    let filePath = currentUser ? "./app/html/profile.html" : "./app/html/login.html";
     res.sendFile(path.resolve(__dirname, filePath));
 });
 
 app.get("/profile", (req, res) => {
-    let filePath = user ? "./app/html/profile.html" : "./app/html/login.html";
+    let filePath = currentUser ? "./app/html/profile.html" : "./app/html/login.html";
     res.sendFile(path.resolve(__dirname, filePath));
 });
 
@@ -123,24 +124,18 @@ app.post("/add-construction", (req, res) => {
 /*Database*/
 async function createConnection() {
     return mysql.createConnection({
-        host: "localhost",
-        user: "root",
-        password: "Xjr@66773738",
-        database: "assignment6"
+        host: "localhost", user: "root", password: "Xjr@66773738", database: "assignment6"
     });
 }
-
-let user = false;
 
 // User login
 app.post('/user-login', async (req, res) => {
     const {username, password} = req.body;
     const connection = await createConnection();
     const [rows] = await connection.execute('SELECT * FROM a01354731_user WHERE user_name = ? AND password = ?', [username, password]);
-    await connection.end();
 
     if (rows.length > 0) {
-        user = true;
+        currentUser = rows[0];
         res.redirect('/profile');
     } else {
         res.send(`
@@ -215,6 +210,119 @@ app.post('/user-register', async (req, res) => {
     }
 });
 
+
+/*
+* Function to edit profile
+* */
+
+app.post('/update-profile', async (req, res) => {
+    if (!currentUser) {
+        return res.status(401).json({success: false, message: "User not logged in"});
+    }
+
+    const {username, email, firstName, lastName, oldPassword, newPassword} = req.body;
+
+    try {
+        const connection = await createConnection();
+        let updates = [];
+        let params = [];
+
+        if (username && username !== currentUser.user_name) {
+            const [userCheck] = await connection.execute('SELECT * FROM a01354731_user WHERE user_name = ?', [username]);
+            if (userCheck.length > 0) {
+                return res.json({success: false, message: "Username is already taken."});
+            } else {
+                updates.push("user_name = ?");
+                params.push(username);
+            }
+        }
+
+        if (email && email.trim()) {
+            updates.push("email = ?");
+            params.push(email.trim());
+        }
+        if (firstName && firstName.trim()) {
+            updates.push("first_name = ?");
+            params.push(firstName.trim());
+        }
+        if (lastName && lastName.trim()) {
+            updates.push("last_name = ?");
+            params.push(lastName.trim());
+        }
+
+        if (oldPassword && newPassword && oldPassword.trim() && newPassword.trim()) {
+            const [user] = await connection.execute('SELECT * FROM a01354731_user WHERE user_name = ? AND password = ?', [currentUser.user_name, oldPassword.trim()]);
+            if (user.length === 0) {
+                return res.json({success: false, message: "Old password is incorrect"});
+            } else {
+                updates.push("password = ?");
+                params.push(newPassword.trim());
+            }
+        }
+
+        if (updates.length > 0) {
+            params.push(currentUser.user_name);
+            const query = `UPDATE a01354731_user
+                           SET ${updates.join(", ")}
+                           WHERE user_name = ?`;
+            await connection.execute(query, params);
+            const [updatedRows] = await connection.execute('SELECT * FROM a01354731_user WHERE user_name = ?', [currentUser.user_name]);
+            if (updatedRows.length > 0) {
+                currentUser = updatedRows[0];
+            }
+            res.json({success: true, message: "Profile updated successfully"});
+        } else {
+            res.json({success: false, message: "No changes were made"});
+        }
+    } catch (error) {
+        console.error("Database operation error:", error);
+        res.status(500).json({success: false, message: "An error occurred while updating profile"});
+    }
+});
+
+app.get('/get-current-user', async (req, res) => {
+    if (!currentUser) {
+        return res.status(401).send("User not logged in");
+    }
+
+    try {
+        const connection = await createConnection();
+        const [rows] = await connection.execute('SELECT * FROM a01354731_user WHERE user_name = ?', [currentUser.user_name]);
+        if (rows.length > 0) {
+            const userInfo = {
+                username: rows[0].user_name,
+                email: rows[0].email,
+                firstName: rows[0].first_name || '',
+                lastName: rows[0].last_name || '',
+            };
+            res.json(userInfo);
+        } else {
+            res.status(404).send("User not found");
+        }
+    } catch (error) {
+        console.error("Database operation error:", error);
+        res.status(500).send("An error occurred while fetching user info");
+    }
+});
+
+function sendFeedbackPage(res, message, redirectUrl) {
+    res.send(`
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Update Feedback</title>
+            <script type="text/javascript">
+                alert("${message}");
+                window.location.href = "${redirectUrl}";
+            </script>
+        </head>
+        <body>
+        </body>
+        </html>
+    `);
+}
 
 //Run Server
 app.listen(8000);

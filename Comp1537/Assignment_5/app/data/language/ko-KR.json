@@ -6,7 +6,7 @@
   "Strings": {
     "text-Profile": "평점",
     "text-Login": "로그인",
-    "text-Navigation",: "내비게이션",
+    "text-Navigation": "내비게이션",
     "text-Home": "홈",
     "text-Redstone": "레드스톤",
     "text-Construction": "건축",
@@ -60,6 +60,25 @@
     "text-Register1": "회원가입",
     "text-Register2": "회원가입",
     "text-LoginNow": "지금 로그인!",
-    "text-RegisterNow": "지금 회원가입!"
+    "text-RegisterNow": "지금 회원가입!",
+
+    "text-Username": "사용자 이름",
+    "text-Email": "이메일",
+    "text-LastName": "성",
+    "text-FirstName": "이름",
+    "text-Password": "비밀번호",
+    "text-Password1": "비밀번호",
+    "text-Password2": "비밀번호",
+    "text-ConfirmPassword": "비밀번호 확인",
+    "text-OldPassword": "이전 비밀번호",
+    "text-NewPassword": "새 비밀번호",
+    "text-ConfirmNewPassword": "새 비밀번호 확인",
+    "text-myProfile": "내 프로필",
+    "text-Username1": "사용자 이름",
+    "text-Email1": "이메일",
+    "text-LastName1": "성",
+    "text-FirstName1": "이름",
+    "text-Edit": "편집",
+    "text-Save": "저장"
   }
 }

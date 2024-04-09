@@ -60,6 +60,25 @@
     "text-Register1": "Inscription",
     "text-Register2": "Inscription",
     "text-LoginNow": "Connectez-vous maintenant !",
-    "text-RegisterNow": "Inscrivez-vous maintenant !"
+    "text-RegisterNow": "Inscrivez-vous maintenant !",
+
+    "text-Username": "Nom d'utilisateur",
+    "text-Email": "Email",
+    "text-LastName": "Nom de famille",
+    "text-FirstName": "Prénom",
+    "text-Password": "Mot de passe",
+    "text-Password1": "Mot de passe",
+    "text-Password2": "Mot de passe",
+    "text-ConfirmPassword": "Confirmer le mot de passe",
+    "text-OldPassword": "Ancien mot de passe",
+    "text-NewPassword": "Nouveau mot de passe",
+    "text-ConfirmNewPassword": "Confirmer le nouveau mot de passe",
+    "text-myProfile": "Mon profil",
+    "text-Username1": "Nom d'utilisateur",
+    "text-Email1": "Email",
+    "text-LastName1": "Nom de famille",
+    "text-FirstName1": "Prénom",
+    "text-Edit": "Éditer",
+    "text-Save": "Enregistrer"
   }
 }
