@@ -8,7 +8,7 @@
     "text-Login": "ログイン",
     "text-Navigation": "ナビゲーション",
     "text-Home": "ホーム",
-    "text-Redstone": "レッドストーン",
+    "text-Community": "コミュニティ",
     "text-Construction": "建築",
     "text-About": "紹介",
     "text-Introduce": "紹介",
@@ -79,6 +79,15 @@
     "text-LastName1": "姓",
     "text-FirstName1": "名",
     "text-Edit": "編集",
-    "text-Save": "保存"
+    "text-Save": "保存",
+
+    "text-Post": "投稿",
+
+    "text-Title": "タイトル：",
+    "text-Content": "内容：",
+    "text-Post1": "投稿",
+
+    "text-Back": "戻る",
+    "text-Views": "閲覧数"
   }
 }

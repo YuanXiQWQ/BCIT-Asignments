@@ -8,7 +8,7 @@
     "text-Login": "登錄",
     "text-Navigation": "導航",
     "text-Home": "首頁",
-    "text-Redstone": "紅石",
+    "text-Community": "社群",
     "text-Construction": "建造",
     "text-About": "關於",
     "text-Introduce": "介紹",
@@ -79,6 +79,15 @@
     "text-LastName1": "姓氏",
     "text-FirstName1": "名字",
     "text-Edit": "編輯",
-    "text-Save": "保存"
+    "text-Save": "保存",
+
+    "text-Post": "發佈",
+
+    "text-Title": "標題：",
+    "text-Content": "內容：",
+    "text-Post1": "發布",
+
+    "text-Back": "返回",
+    "text-Views": "瀏覽量"
   }
 }

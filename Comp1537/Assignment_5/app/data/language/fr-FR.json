@@ -8,7 +8,7 @@
     "text-Login": "Connexion",
     "text-Navigation": "Navigation",
     "text-Home": "Accueil",
-    "text-Redstone": "Redstone",
+    "text-Community": "Communaute",
     "text-Construction": "Construction",
     "text-About": "À propos",
     "text-Introduce": "Introduction",
@@ -79,6 +79,15 @@
     "text-LastName1": "Nom de famille",
     "text-FirstName1": "Prénom",
     "text-Edit": "Éditer",
-    "text-Save": "Enregistrer"
+    "text-Save": "Enregistrer",
+
+    "text-Post": "Poster",
+
+    "text-Title": "Titre : ",
+    "text-Content": "Contenu : ",
+    "text-Post1": "Poster",
+
+    "text-Back": "Retour",
+    "text-Views": "Vues"
   }
 }

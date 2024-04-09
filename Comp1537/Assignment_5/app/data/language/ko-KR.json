@@ -8,7 +8,7 @@
     "text-Login": "로그인",
     "text-Navigation": "내비게이션",
     "text-Home": "홈",
-    "text-Redstone": "레드스톤",
+    "text-Community": "시험",
     "text-Construction": "건축",
     "text-About": "소개",
     "text-Introduce": "소개",
@@ -79,6 +79,15 @@
     "text-LastName1": "성",
     "text-FirstName1": "이름",
     "text-Edit": "편집",
-    "text-Save": "저장"
+    "text-Save": "저장",
+
+    "text-Post": "테스트",
+
+    "text-Title": "제목: ",
+    "text-Content": "내용: ",
+    "text-Post1": "게시",
+
+    "text-Back": "뒤로",
+    "text-Views": "조회수"
   }
 }

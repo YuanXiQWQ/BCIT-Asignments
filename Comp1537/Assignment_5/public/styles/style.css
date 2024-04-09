@@ -18,9 +18,10 @@ html {
   }
 
 .undecorated {
+  background: none;
+  border: none;
   list-style-type: none;
   text-decoration: none;
-  cursor: default;
   padding: 0;
   margin: 0;
   }
@@ -94,9 +95,12 @@ aside {
   }
 
 /* navbar */
-#navbar {
+#navbarContainer {
   position: sticky;
-  top: 50px;
+  top: 0;
+  }
+
+#navbar {
   display: grid;
   grid-template-rows: 2fr 1fr 4fr;
   background-color: #ECE5E2;
@@ -470,9 +474,6 @@ footer {
     }
 
   #navbar {
-    position: static;
-    top: 50px;
-    display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 2fr;
     height: auto;
@@ -512,8 +513,6 @@ footer {
     }
 
   #navbar {
-    position: static;
-    display: grid;
     grid-template-columns: 1fr 1fr 3fr;
     grid-template-rows: 1fr;
     height: auto;

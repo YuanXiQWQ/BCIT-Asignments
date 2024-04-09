@@ -8,7 +8,7 @@
     "text-Login": "登录",
     "text-Navigation": "导航",
     "text-Home": "首页",
-    "text-Redstone": "红石",
+    "text-Community": "社区",
     "text-Construction": "建筑",
     "text-About": "关于",
     "text-Introduce": "介绍",
@@ -79,6 +79,15 @@
     "text-LastName1": "姓",
     "text-FirstName1": "名",
     "text-Edit": "编辑",
-    "text-Save": "保存"
+    "text-Save": "保存",
+
+    "text-Post": "发布",
+
+    "text-Title": "标题：",
+    "text-Content": "内容：",
+    "text-Post1": "发布",
+
+    "text-Back": "返回",
+    "text-Views": "浏览量"
   }
 }

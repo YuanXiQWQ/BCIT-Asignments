@@ -8,7 +8,7 @@
     "text-Login": "Login",
     "text-Navigation": "Navigation",
     "text-Home": "Home",
-    "text-Redstone": "Redstone",
+    "text-Community": "Community",
     "text-Construction": "Construction",
     "text-About": "About",
     "text-Introduce": "Introduction",
@@ -79,6 +79,15 @@
     "text-LastName1": "Last name",
     "text-FirstName1": "First name",
     "text-Edit": "Edit",
-    "text-Save": "Save"
+    "text-Save": "Save",
+
+    "text-Post": "Post",
+
+    "text-Title": "Title: ",
+    "text-Content": "Content: ",
+    "text-Post1": "Post",
+
+    "text-Back": "Back",
+    "text-Views": "Views"
   }
 }

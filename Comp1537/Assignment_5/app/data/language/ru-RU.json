@@ -8,7 +8,7 @@
     "text-Login": "Вход",
     "text-Navigation": "Навигация",
     "text-Home": "Главная",
-    "text-Redstone": "Редстоун",
+    "text-Community": "Сообщество",
     "text-Construction": "Строительство",
     "text-About": "О нас",
     "text-Introduce": "Введение",
@@ -79,6 +79,15 @@
     "text-LastName1": "Фамилия",
     "text-FirstName1": "Имя",
     "text-Edit": "Редактировать",
-    "text-Save": "Сохранить"
+    "text-Save": "Сохранить",
+
+    "text-Post": "Пост",
+
+    "text-Title": "Заголовок: ",
+    "text-Content": "Содержание: ",
+    "text-Post1": "Пост",
+
+    "text-Back": "Назад",
+    "text-Views": "Просмотры"
   }
 }

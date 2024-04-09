@@ -19,11 +19,19 @@ app.get("/", (req, res) => {
     res.sendFile(path.resolve(__dirname, "./app/html/index.html"));
 });
 
-//
-// app.get("/Redstone", (req, res) => {
-//     res.sendFile(path.resolve(__dirname, "./app/html/redstone.html"));
-// });
-//
+
+app.get("/Community", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "./app/html/community.html"));
+});
+
+app.get("/Post", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "./app/html/post.html"));
+});
+
+app.get("/CreatePost", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "./app/html/createPost.html"));
+});
+
 app.get("/Construction", (req, res) => {
     res.sendFile(path.resolve(__dirname, "./app/html/construction.html"));
 });
@@ -305,24 +313,62 @@ app.get('/get-current-user', async (req, res) => {
     }
 });
 
-function sendFeedbackPage(res, message, redirectUrl) {
-    res.send(`
-        <!DOCTYPE html>
-        <html lang="en">
-        <head>
-            <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>Update Feedback</title>
-            <script type="text/javascript">
-                alert("${message}");
-                window.location.href = "${redirectUrl}";
-            </script>
-        </head>
-        <body>
-        </body>
-        </html>
-    `);
-}
+app.post('/post-timeline', async (req, res) => {
+    if (!currentUser) {
+        return res.status(401).json({success: false, message: "User not logged in"});
+    }
+
+    const {postTitle, postText} = req.body;
+    try {
+        const connection = await createConnection();
+        await connection.execute('INSERT INTO a01354731_user_timeline (user_id, post_title, post_text, post_date, post_time, post_views) VALUES (?, ?, ?, CURDATE(), CURTIME(), 0)', [currentUser.id, postTitle, postText]);
+        res.json({success: true, message: "Post successfully added"});
+    } catch (error) {
+        console.error("Database operation error:", error);
+        res.status(500).json({success: false, message: "Failed to add post"});
+    }
+});
+
+app.get('/get-posts', async (req, res) => {
+    try {
+        const connection = await createConnection();
+        // 调整SQL查询以包含来自a01354731_user表的user_name字段
+        const [posts] = await connection.execute(`
+            SELECT ut.*, u.user_name
+            FROM a01354731_user_timeline ut
+                     JOIN a01354731_user u ON ut.user_id = u.id
+            ORDER BY ut.post_date DESC, ut.post_time DESC
+        `);
+        res.json(posts);
+    } catch (error) {
+        console.error("Error fetching posts:", error);
+        res.status(500).send("Error fetching posts from the database.");
+    }
+});
+
+
+app.get('/get-post-details', async (req, res) => {
+    const postId = req.query.postId;
+    if (!postId) {
+        return res.status(400).send("Post ID is required");
+    }
+    try {
+        const connection = await createConnection();
+        // 更新浏览量
+        await connection.execute('UPDATE a01354731_user_timeline SET post_views = post_views + 1 WHERE id = ?', [postId]);
+        // 联表查询获取帖子详情及用户名
+        const [postDetails] = await connection.execute('SELECT a01354731_user_timeline.*, a01354731_user.user_name FROM a01354731_user_timeline JOIN a01354731_user ON a01354731_user_timeline.user_id = a01354731_user.id WHERE a01354731_user_timeline.id = ?', [postId]);
+        if (postDetails.length > 0) {
+            res.json(postDetails[0]);
+        } else {
+            res.status(404).send("Post not found");
+        }
+    } catch (error) {
+        console.error("Error fetching post details:", error);
+        res.status(500).send("Error fetching post details from the database.");
+    }
+});
+
 
 //Run Server
 app.listen(8000);
