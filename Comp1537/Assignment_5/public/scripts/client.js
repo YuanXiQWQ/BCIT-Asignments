@@ -1,36 +1,28 @@
-// Get header.html
-
-document.addEventListener("DOMContentLoaded", () => {
+/**
+ * Get header.html
+ */
+document.addEventListener("DOMContentLoaded", function () {
     fetch("/get-header")
         .then(response => response.text())
         .then(html => {
             document.getElementById("headerContainer").innerHTML = html;
         })
         .catch(error => console.error("Error loading the header:", error));
-});
 
-// Get navbar.html
-document.addEventListener("DOMContentLoaded", () => {
     fetch("/get-navbar")
         .then(response => response.text())
         .then(html => {
             document.getElementById("navbarContainer").innerHTML = html;
         })
         .catch(error => console.error("Error loading the navbar:", error));
-});
 
-// Get footer.html
-document.addEventListener("DOMContentLoaded", () => {
     fetch("/get-footer")
         .then(response => response.text())
         .then(html => {
             document.getElementById("footerContainer").innerHTML = html;
         })
         .catch(error => console.error("Error loading the footer:", error));
-});
 
-// Change language
-document.addEventListener("DOMContentLoaded", function () {
     // Get the available language list.
     fetch("/languages")
         .then(response => response.json())
@@ -42,10 +34,20 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         })
         .catch(error => console.error("Error loading languages:", error));
+
+    changeLanguage(currentLanguage);
 });
 
+/**
+ * Current language
+ * @type {string}
+ */
 let currentLanguage = "en-UK";
 
+/**
+ * Change language
+ * @param language {string} The language code to change to
+ */
 function changeLanguage(language) {
     currentLanguage = language;
     fetch(`/languages/${language}`)
@@ -66,10 +68,9 @@ function changeLanguage(language) {
         .catch(error => console.error("Error loading the language file:", error));
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-    changeLanguage(currentLanguage);
-});
-
+/**
+ * Change language on change.
+ */
 document.addEventListener("change", Event => {
     if (Event.target.id === "header-btns-language") {
         currentLanguage = Event.target.value;

@@ -1,3 +1,6 @@
+/**
+ * Loads posts from the server and displays them on the page
+ */
 document.addEventListener('DOMContentLoaded', function () {
     fetch('/get-posts')
         .then(response => response.json())
@@ -12,22 +15,22 @@ document.addEventListener('DOMContentLoaded', function () {
                 const postElement = document.createElement('div');
                 postElement.classList.add('posts');
 
-                // 使用从后端返回的用户名
+                // User name
                 const postUser = document.createElement('div');
                 postUser.classList.add('post-details', 'postUser');
                 postUser.textContent = post.user_name;
 
-                // 帖子标题
+                // Post title
                 const postTitle = document.createElement('div');
                 postTitle.classList.add('post-details', 'postTitle');
                 postTitle.textContent = post.post_title;
 
-                // 帖子文本
+                // Post text
                 const postText = document.createElement('div');
                 postText.classList.add('post-details', 'postText');
                 postText.textContent = post.post_text;
 
-                // 帖子信息（日期、时间、浏览量）
+                // Post info(date, time, views)
                 const postInfo = document.createElement('div');
                 postInfo.classList.add('post-details', 'postInfo');
 
@@ -46,19 +49,19 @@ document.addEventListener('DOMContentLoaded', function () {
                 postViews.classList.add('postViews');
                 postViews.innerHTML = `<span>views:</span> ${post.post_views}`;
 
-                // 构建帖子信息结构
+                // Concatenate date and time
                 postDateAndTime.appendChild(postDate);
                 postDateAndTime.appendChild(postTime);
                 postInfo.appendChild(postDateAndTime);
                 postInfo.appendChild(postViews);
 
-                // 将所有部分添加到帖子容器中
+                // Add username, post title, post text, and post info to the post-element
                 postElement.appendChild(postUser);
                 postElement.appendChild(postTitle);
                 postElement.appendChild(postText);
                 postElement.appendChild(postInfo);
 
-                // 将帖子容器添加到页面中
+                // Add the post-element to the post-link
                 postLink.appendChild(postElement);
                 postsContainer.appendChild(postLink);
             });

@@ -1,3 +1,6 @@
+/**
+ * Handles the login form
+ */
 document.addEventListener("DOMContentLoaded", () => {
     const loginBtn = document.getElementById("loginBtn");
     const loginNow = document.getElementById("text-LoginNow");

@@ -1,3 +1,6 @@
+/**
+ * Handles the form submission for creating a new post.
+ */
 document.addEventListener("DOMContentLoaded", function () {
     const createPostForm = document.getElementById('createPostForm');
     createPostForm.addEventListener('submit', function (e) {

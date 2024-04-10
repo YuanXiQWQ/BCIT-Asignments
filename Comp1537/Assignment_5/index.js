@@ -35,7 +35,7 @@ app.get("/CreatePost", (req, res) => {
 app.get("/Construction", (req, res) => {
     res.sendFile(path.resolve(__dirname, "./app/html/construction.html"));
 });
-//
+
 // app.get("/about", (req, res) => {
 //     res.sendFile(path.resolve(__dirname, "./app/html/about.html"));
 // });
@@ -130,13 +130,20 @@ app.post("/add-construction", (req, res) => {
 
 
 /*Database*/
+/**
+ * Creates a new connection to the MySQL database with the specified configuration.
+ *
+ * @return {Promise<Connection>} A Promise that resolves with the MySQL Connection object.
+ */
 async function createConnection() {
     return mysql.createConnection({
         host: "localhost", user: "root", password: "Xjr@66773738", database: "assignment6"
     });
 }
 
-// User login
+/**
+ * Handles the login form submission and redirects to the profile page if the credentials are valid.
+ */
 app.post('/user-login', async (req, res) => {
     const {username, password} = req.body;
     const connection = await createConnection();
@@ -153,7 +160,10 @@ app.post('/user-login', async (req, res) => {
     }
 });
 
-// User registration
+/**
+ * Handles the registration form submission
+ * and redirects to the login page if the registration is successful.
+ */
 app.post('/user-register', async (req, res) => {
     const {email, username, password, confirmPassword} = req.body;
 
@@ -222,7 +232,6 @@ app.post('/user-register', async (req, res) => {
 /*
 * Function to edit profile
 * */
-
 app.post('/update-profile', async (req, res) => {
     if (!currentUser) {
         return res.status(401).json({success: false, message: "User not logged in"});
@@ -288,6 +297,9 @@ app.post('/update-profile', async (req, res) => {
     }
 });
 
+/**
+ * Function to get current user information
+ */
 app.get('/get-current-user', async (req, res) => {
     if (!currentUser) {
         return res.status(401).send("User not logged in");
@@ -313,6 +325,9 @@ app.get('/get-current-user', async (req, res) => {
     }
 });
 
+/**
+ * Function to add a new post.
+ */
 app.post('/post-timeline', async (req, res) => {
     if (!currentUser) {
         return res.status(401).json({success: false, message: "User not logged in"});
@@ -329,10 +344,12 @@ app.post('/post-timeline', async (req, res) => {
     }
 });
 
+/**
+ * Function to get all posts.
+ */
 app.get('/get-posts', async (req, res) => {
     try {
         const connection = await createConnection();
-        // 调整SQL查询以包含来自a01354731_user表的user_name字段
         const [posts] = await connection.execute(`
             SELECT ut.*, u.user_name
             FROM a01354731_user_timeline ut
@@ -346,7 +363,9 @@ app.get('/get-posts', async (req, res) => {
     }
 });
 
-
+/**
+ * Function to get post-details.
+ */
 app.get('/get-post-details', async (req, res) => {
     const postId = req.query.postId;
     if (!postId) {
@@ -354,9 +373,8 @@ app.get('/get-post-details', async (req, res) => {
     }
     try {
         const connection = await createConnection();
-        // 更新浏览量
         await connection.execute('UPDATE a01354731_user_timeline SET post_views = post_views + 1 WHERE id = ?', [postId]);
-        // 联表查询获取帖子详情及用户名
+
         const [postDetails] = await connection.execute('SELECT a01354731_user_timeline.*, a01354731_user.user_name FROM a01354731_user_timeline JOIN a01354731_user ON a01354731_user_timeline.user_id = a01354731_user.id WHERE a01354731_user_timeline.id = ?', [postId]);
         if (postDetails.length > 0) {
             res.json(postDetails[0]);
@@ -370,6 +388,8 @@ app.get('/get-post-details', async (req, res) => {
 });
 
 
-//Run Server
+/**
+ * Start the server.
+ */
 app.listen(8000);
 console.log("Server running on port 8000");

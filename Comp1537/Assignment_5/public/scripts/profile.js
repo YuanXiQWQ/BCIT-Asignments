@@ -1,3 +1,6 @@
+/**
+ * Function to load and display user information on the webpage.
+ */
 document.addEventListener("DOMContentLoaded", () => {
     const profileInfo = document.querySelector(".profile-info");
     const profileEdit = document.querySelector(".profile-edit");
@@ -22,6 +25,9 @@ document.addEventListener("DOMContentLoaded", () => {
     loadAndDisplayUserInfo();
 });
 
+/**
+ * Edits the user profile by sending updated information to the server.
+ */
 function editProfile() {
     let formData = {
         email: document.getElementById("editEmail").value.trim(),
@@ -40,7 +46,6 @@ function editProfile() {
         .then(data => {
             alert(data.message);
             if (data.success) {
-                // 更新成功，重新加载用户信息
                 loadAndDisplayUserInfo();
             }
         })
@@ -49,7 +54,9 @@ function editProfile() {
         });
 }
 
-
+/**
+ * Function to load and display user information on the webpage.
+ */
 function loadAndDisplayUserInfo() {
     fetch(`/get-current-user?_=${new Date().getTime()}`)
         .then(response => response.json())

@@ -1,5 +1,8 @@
+/**
+ * This script fetches the details of a post and displays it on the page.
+ */
 document.addEventListener('DOMContentLoaded', function () {
-    // 解析URL参数以获取postId
+    // get postId from URL
     const params = new URLSearchParams(window.location.search);
     const postId = params.get('postId');
 
@@ -8,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function () {
         return;
     }
 
-    // 根据postId获取帖子详情
+    // get post-details based on postId
     fetch(`/get-post-details?postId=${postId}`)
         .then(response => response.json())
         .then(post => {

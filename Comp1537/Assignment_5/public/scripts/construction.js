@@ -1,7 +1,9 @@
 /*construction.html
 * */
 
-// Fetch and display the Construction list
+/**
+ * Fetches and displays construction data from the server.
+ */
 function fetchAndDisplayConstructions() {
     fetch('/get-constructionList-data')
         .then(response => response.json())
@@ -24,7 +26,9 @@ function fetchAndDisplayConstructions() {
         .catch(error => console.error('Error loading construction data:', error));
 }
 
-// Add user input
+/**
+ * Adds a new construction to the server.
+ */
 document.getElementById('addConstructionForm').addEventListener('submit', e => {
     e.preventDefault();
 
@@ -53,6 +57,9 @@ document.getElementById('addConstructionForm').addEventListener('submit', e => {
         .catch(error => console.error('Error adding construction:', error));
 });
 
+/**
+ * Loads and inserts the construction list from the server.
+ */
 function loadAndInsertConstructionList() {
     fetch('/get-constructionList')
         .then(response => response.text())
@@ -62,11 +69,10 @@ function loadAndInsertConstructionList() {
         .catch(error => console.error('Error loading construction list:', error));
 }
 
+/**
+ * Event listener for DOMContentLoaded event.
+ */
 document.addEventListener('DOMContentLoaded', () => {
     loadAndInsertConstructionList();
-});
-
-
-document.addEventListener('DOMContentLoaded', () => {
     fetchAndDisplayConstructions();
 });
