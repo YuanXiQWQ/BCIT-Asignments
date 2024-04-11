@@ -1,31 +1,60 @@
 package q3;
 
+import java.util.Scanner;
+
 /**
- * This is where you put your description about what this class does. You
- * don't have to write an essay but you should describe exactly what it does.
- * Describing it will help you to understand the programming problem better.
+ * A class that tests the MIXChar class.
  *
- * @author Your Name goes here
+ * @author Xing Jiarui
  * @version 1.0
  */
 public class TestMIXChar {
-    
-    //the following are for reference, you may want to move them or copy them 
-    //to another class.
-    private static final char DELTA = '\u0394';
-    
-    private static final char SIGMA = '\u03A3';
-    
-    private static final char PI = '\u03A0';
-    
+
     /**
-     * This is the main method (entry point) that gets called by the JVM.
+     * The main method that tests the MIXChar class.
      *
-     * @param args command line arguments.
+     * @param args the command line arguments
      */
     public static void main(String[] args) {
-        //replace next line with your code:
-        System.out.println("Question three was called and ran sucessfully.");
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter a string to encode with MIXChar characters:");
+
+        String input = scanner.nextLine();
+        if (!isAllMIXChar(input)) {
+            System.out.println("Error: Input contains invalid MIX characters.");
+        } else {
+
+            MIXChar[] mixChars = MIXChar.toMIXChar(input);
+            Message message = new Message(mixChars);
+
+            System.out.println("Encoded long values: " + message.toLongs());
+
+            String decodedString = message.toString();
+            System.out.println("Decoded string: " + decodedString);
+
+            if (input.equals(decodedString)) {
+                System.out.println(
+                        "Success: The encoded and then decoded string matches the " +
+                                "original input.");
+            } else {
+                System.out.println(
+                        "Failure: The decoded string does not match the original input.");
+            }
+        }
     }
-    
+
+    /**
+     * Checks if the entire input string consists of valid MIX characters.
+     *
+     * @param input the input string to check
+     * @return true if all characters are valid MIX characters, false otherwise
+     */
+    private static boolean isAllMIXChar(String input) {
+        for (char c : input.toCharArray()) {
+            if (MIXChar.isMIXChar(c)) {
+                return false;
+            }
+        }
+        return true;
+    }
 }

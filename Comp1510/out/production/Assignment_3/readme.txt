@@ -1,4 +1,4 @@
-[Xing Jiarui], [A01354731], [SetD], [2024.4.10]
+[Student Name], [Student ID], [Set], [Date]
 
 This assignment is [enter percent]% complete.
 
@@ -7,16 +7,16 @@ This assignment is [enter percent]% complete.
 Question one (Timesheet) status:
 
 [complete or not complete]
-[complete]
+[explanation if not complete, what is working/not working]
 
 ------------------------
 Question two (Exponential) status:
 
 [complete or not complete]
-[complete]
+[explanation if not complete, what is working/not working]
 
 ------------------------
 Question three (TestMIXChar) status:
 
 [complete or not complete]
-[complete]
+[explanation if not complete, what is working/not working]

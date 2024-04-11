@@ -6,13 +6,13 @@
       THAN ONE WORD FOR YOUR FIRST (OR GIVEN NAME), PLEASE USE COMMAS TO
       SIGNIFY THIS.
   -->
-<project name="COMP 1510 Assignment 3" default="clean" basedir="." >
+<project name="COMP 1510 Assignment 3" default="clean" basedir=".">
 
   <taskdef resource="com/puppycrawl/tools/checkstyle/ant/checkstyle-ant-task.properties"
-     classpath="lib/checkstyle-10.12.3-all.jar"/>
+           classpath="lib/checkstyle-10.12.3-all.jar"/>
 
   <!-- REPLACE THIS NAME WITH YOUR OWN -->
-  <property name="studentName" value="Bloggs,Fred"/>
+  <property name="studentName" value="Jiarui, Xing"/>
 
   <property environment="env"/>
   <property name="build" location="build"/>
@@ -42,9 +42,9 @@
 
   <target name="javadoc">
     <javadoc destdir="docs/api" author="true" version="true" use="true"
-    windowtitle="COMP 1510 Assignment 3 - ${studentName}">
-    <fileset dir="${src}" defaultexcludes="yes">
-    </fileset>
+             windowtitle="COMP 1510 Assignment 3 - ${studentName}">
+      <fileset dir="${src}" defaultexcludes="yes">
+      </fileset>
     </javadoc>
   </target>
 
@@ -60,7 +60,7 @@
       <formatter type="xml" toFile="reports/styleResult.xml"/>
     </checkstyle>
     <xslt in="./reports/styleResult.xml" out="./reports/results.html"
-      style="./checkstyle-noframes-sorted.xsl"/>
+          style="./checkstyle-noframes-sorted.xsl"/>
   </target>
 
 
@@ -101,11 +101,11 @@
   </target>
 
 
-  <!-- build all of the projects -->
+  <!-- build all the projects -->
   <target name="compile">
     <mkdir dir="${build}"/>
     <javac modulepath="${mods}"
-        srcdir="${src}" destdir="build" debug="true" includeantruntime="false"  includes="**/*.java"/>
+           srcdir="${src}" destdir="build" debug="true" includeantruntime="false" includes="**/*.java"/>
 
   </target>
 
