@@ -1,7 +1,7 @@
 package ca.bcit.comp1510.lab11;
 
 /**
- * ca.bcit.comp1510.lab11.Lockable interface defines the methods to lock and unlock an object using a key.
+ * Defines the methods to lock and unlock an object using a key.
  *
  * @author Xing Jiarui
  * @version 2024.4.11

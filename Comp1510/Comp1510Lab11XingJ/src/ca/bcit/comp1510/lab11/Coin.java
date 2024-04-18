@@ -4,15 +4,26 @@ package ca.bcit.comp1510.lab11;
  * A coin that can be flipped and locked.
  *
  * @author Xing Jiarui
- * @version 2024.3.29
+ * @version 2024.4.12
  */
 public class Coin implements Lockable {
+    /**
+     * The face of the coin.
+     */
     private String face;
+
+    /**
+     * The key used for locking and unlocking the coin.
+     */
     private int key;
+
+    /**
+     * The lock status of the coin.
+     */
     private boolean isLocked = false;
 
     /**
-     * Constructs a new ca.bcit.comp1510.lab11.Coin and flips it initially.
+     * Default constructor.
      */
     public Coin() {
         flip();
@@ -73,11 +84,7 @@ public class Coin implements Lockable {
      */
     public void flip() {
         if (!isLocked) {
-            if (Math.random() < 0.5) {
-                face = "Heads";
-            } else {
-                face = "Tails";
-            }
+            face = Math.random() < 0.5 ? "Heads" : "Tails";
         }
     }
 
@@ -97,6 +104,7 @@ public class Coin implements Lockable {
      */
     @Override
     public String toString() {
-        return "ca.bcit.comp1510.lab11.Coin is " + getFace() + (isLocked ? " (Locked)" : "");
+        return "Coin is " + getFace() +
+                (isLocked ? " (Locked)" : "");
     }
 }
