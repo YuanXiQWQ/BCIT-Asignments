@@ -27,24 +27,6 @@ public class Name {
     }
 
     /**
-     * Returns the first name.
-     *
-     * @return the first name
-     */
-    public String getFirst() {
-        return first;
-    }
-
-    /**
-     * Returns the last name.
-     *
-     * @return the last name
-     */
-    public String getLast() {
-        return last;
-    }
-
-    /**
      * Returns the initials of the name.
      *
      * @return the initials
@@ -59,7 +41,7 @@ public class Name {
      * @return the full name
      */
     public String getFullName() {
-        return capitalize(first) + " " + capitalize(last);
+        return formatName(first) + " " + formatName(last);
     }
 
     /**
@@ -73,12 +55,12 @@ public class Name {
     }
 
     /**
-     * Capitalizes the first letter of the name.
+     * Capitalizes the first letter of the name, and lowercases the rest.
      *
      * @param name the name
-     * @return the capitalized name
+     * @return the formatted name
      */
-    private String capitalize(String name) {
+    private String formatName(String name) {
         return name.substring(0, 1).toUpperCase() + name.substring(1).toLowerCase();
     }
 }
