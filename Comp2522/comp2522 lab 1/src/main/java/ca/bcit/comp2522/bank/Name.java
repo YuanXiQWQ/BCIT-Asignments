@@ -3,6 +3,7 @@ package ca.bcit.comp2522.bank;
 /**
  * Represents a Name with a first and last name. Author: Jiarui Xing
  *
+ * @author Jiarui Xing
  * @version 1.0
  */
 public class Name {
@@ -32,7 +33,7 @@ public class Name {
      * @return the initials
      */
     public String getInitials() {
-        return (first.charAt(0) + "." + last.charAt(0) + ".").toUpperCase();
+        return (this.first.charAt(0) + "." + this.last.charAt(0) + ".").toUpperCase();
     }
 
     /**
@@ -41,7 +42,7 @@ public class Name {
      * @return the full name
      */
     public String getFullName() {
-        return formatName(first) + " " + formatName(last);
+        return formatName(this.first) + " " + formatName(this.last);
     }
 
     /**
@@ -50,8 +51,8 @@ public class Name {
      * @return the reverse name
      */
     public String getReverseName() {
-        return new StringBuilder(last).reverse().toString() + " " +
-                new StringBuilder(first).reverse().toString();
+        return new StringBuilder(this.last).reverse().toString() + " " +
+                new StringBuilder(this.first).reverse().toString();
     }
 
     /**

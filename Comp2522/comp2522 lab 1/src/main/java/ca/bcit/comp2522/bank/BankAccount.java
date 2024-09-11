@@ -8,34 +8,32 @@ package ca.bcit.comp2522.bank;
  */
 public class BankAccount {
     private final BankClient client;
-    private double balanceUsd;
-    private final int pin;
     private final String accountNumber;
     private final Date accountOpened;
     private Date accountClosed;
+    private double balanceUsd;
+    private final int pin;
 
     /**
      * Constructs a new BankAccount object.
      *
-     * @param client        the bank client who owns the account
-     * @param balanceUsd    the initial balance in USD
-     * @param pin           the PIN associated with the account
+     * @param client        the client that owns the account
      * @param accountNumber the account number
      * @param accountOpened the date the account was opened
-     * @throws IllegalArgumentException if any input is invalid
+     * @param accountClosed the date the account was closed, can be null
      */
-    public BankAccount(BankClient client, double balanceUsd, int pin,
-                       String accountNumber, Date accountOpened) {
+    public BankAccount(BankClient client, String accountNumber, Date accountOpened,
+                       Date accountClosed, int pin) {
         if (client == null || accountNumber == null ||
                 !accountNumber.matches("\\w{6,7}") || accountOpened == null) {
             throw new IllegalArgumentException("Invalid account details provided");
         }
         this.client = client;
-        this.balanceUsd = balanceUsd;
-        this.pin = pin;
         this.accountNumber = accountNumber;
         this.accountOpened = accountOpened;
+        this.accountClosed = accountClosed;
         this.accountClosed = null;
+        this.pin = pin;
     }
 
     /**
@@ -45,7 +43,7 @@ public class BankAccount {
      */
     public void deposit(double amountUsd) {
         if (amountUsd > 0) {
-            balanceUsd += amountUsd;
+            this.balanceUsd += amountUsd;
         }
     }
 
@@ -55,9 +53,9 @@ public class BankAccount {
      * @param amountUsd the amount to withdraw
      * @return true if the withdrawal is successful, false otherwise
      */
-    public boolean withdraw(double amountUsd) {
-        if (amountUsd > 0 && balanceUsd >= amountUsd) {
-            balanceUsd -= amountUsd;
+    public boolean withdraw(final double amountUsd) {
+        if (amountUsd > 0 && this.balanceUsd >= amountUsd) {
+            this.balanceUsd -= amountUsd;
             return true;
         }
         return false;
@@ -70,9 +68,9 @@ public class BankAccount {
      * @param pinToMatch the PIN to match
      * @return true if the withdrawal is successful and the PIN matches, false otherwise
      */
-    public boolean withdraw(double amountUsd, int pinToMatch) {
+    public boolean withdraw(final double amountUsd,final int pinToMatch) {
         if (this.pin == pinToMatch) {
-            return withdraw(amountUsd);
+            return this.withdraw(amountUsd);
         }
         return false;
     }
@@ -94,16 +92,18 @@ public class BankAccount {
      * @return the account details
      */
     public String getDetails() {
-        if (accountClosed == null) {
-            return String.format("%s had $%.2f USD in account #%s opened on %s",
-                    client.getName().getFullName(), balanceUsd, accountNumber,
-                    accountOpened.getDayOfTheWeek() + " " + accountOpened.getYYYYMMDD());
-        } else {
-            return String.format(
-                    "%s had $%.2f USD in account #%s opened on %s and closed on %s",
-                    client.getName().getFullName(), balanceUsd, accountNumber,
-                    accountOpened.getDayOfTheWeek() + " " + accountOpened.getYYYYMMDD(),
-                    accountClosed.getDayOfTheWeek() + " " + accountClosed.getYYYYMMDD());
-        }
+        return (this.accountClosed == null)
+               ? String.format(
+                "%s had $%.2f USD in account" + " #%s which he opened on %s",
+                this.client.getName().getFullName(), this.balanceUsd, this.accountNumber,
+                this.accountOpened.getDayOfTheWeek() + ", " + this.accountOpened.getYYYYMMDD())
+               : String.format(
+                       "%s had $%.2f USD in account #%s which " + "he opened on %s and " +
+                               "closed on %s",
+                       this.client.getName().getFullName(), this.balanceUsd, this.accountNumber,
+                       this.accountOpened.getDayOfTheWeek() + ", " +
+                               this.accountOpened.getYYYYMMDD(),
+                       this.accountClosed.getDayOfTheWeek() + ", " +
+                               this.accountClosed.getYYYYMMDD());
     }
 }

@@ -33,16 +33,7 @@ public class Person {
      * @return the name
      */
     public Name getName() {
-        return name;
-    }
-
-    /**
-     * Returns the person's birthdate.
-     *
-     * @return the birthdate
-     */
-    public Date getBirthDate() {
-        return birthDate;
+        return this.name;
     }
 
     /**
@@ -51,7 +42,7 @@ public class Person {
      * @return the death date, null if the person is still alive
      */
     public Date getDeathDate() {
-        return deathDate;
+        return this.deathDate;
     }
 
     /**
@@ -60,7 +51,7 @@ public class Person {
      * @return true if the person is alive, false if deceased
      */
     public boolean isAlive() {
-        return deathDate == null;
+        return this.deathDate == null;
     }
 
     /**
@@ -69,15 +60,13 @@ public class Person {
      * @return the person's details
      */
     public String getDetails() {
-        if (isAlive()) {
-            return String.format("%s (alive) was born on %s!",
-                    name.getFullName(),
-                    birthDate.getDayOfTheWeek() + " " + birthDate.getYYYYMMDD());
-        } else {
-            return String.format("%s (died %s) was born on %s!",
-                    name.getFullName(),
-                    deathDate.getDayOfTheWeek() + " " + deathDate.getYYYYMMDD(),
-                    birthDate.getDayOfTheWeek() + " " + birthDate.getYYYYMMDD());
-        }
+        return isAlive() ? String.format("%s (alive) was born on %s!", name.getFullName(),
+                this.birthDate.getDayOfTheWeek() + ", " + this.birthDate.getYYYYMMDD())
+                         : String.format("%s (died %s) was born on %s!",
+                                 name.getFullName(), this.deathDate.getDayOfTheWeek() + ", " +
+                                         this.deathDate.getYYYYMMDD(),
+                                 this.birthDate.getDayOfTheWeek() + ", " +
+                                         this.birthDate.getYYYYMMDD());
+
     }
 }
