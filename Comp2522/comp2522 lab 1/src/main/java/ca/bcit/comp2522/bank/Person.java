@@ -55,18 +55,26 @@ public class Person {
     }
 
     /**
+     * Formats a Date into a string like "dayOfWeek, YYYY-MM-DD".
+     *
+     * @param date the date to format
+     * @return formatted string
+     */
+    protected String formatDate(Date date) {
+        return date.getDayOfTheWeek() + ", " + date.getYYYYMMDD();
+    }
+
+    /**
      * Returns the details of the person.
      *
      * @return the person's details
      */
     public String getDetails() {
-        return isAlive() ? String.format("%s (alive) was born on %s!", name.getFullName(),
-                this.birthDate.getDayOfTheWeek() + ", " + this.birthDate.getYYYYMMDD())
-                         : String.format("%s (died %s) was born on %s!",
-                                 name.getFullName(), this.deathDate.getDayOfTheWeek() + ", " +
-                                         this.deathDate.getYYYYMMDD(),
-                                 this.birthDate.getDayOfTheWeek() + ", " +
-                                         this.birthDate.getYYYYMMDD());
-
+        return String.format("%s %s",
+                name.getFullName(),
+                isAlive()
+                ? String.format("(alive) was born on %s!", formatDate(birthDate))
+                : String.format("(died %s) was born on %s!", formatDate(deathDate),
+                        formatDate(birthDate)));
     }
 }

@@ -83,9 +83,12 @@ public class Main {
     private static void createAndPrintAccount(Name name, Date birthDate, Date deathDate,
                                               String accountId, Date openDate, Date closeDate,
                                               int pin, double deposit, double withdraw) {
-        Person personDetails = new Person(name, birthDate, deathDate);
-        BankClient client = new BankClient(name, birthDate, deathDate, accountId, openDate);
-        BankAccount account = new BankAccount(client, accountId, openDate, closeDate, pin);
+        final Person personDetails = new Person(name, birthDate, deathDate);
+        final BankClient client = new BankClient(name, birthDate, deathDate, accountId,
+                openDate);
+        final BankAccount account = new BankAccount(client, accountId, openDate,
+                closeDate,
+                pin);
 
         account.deposit(deposit);
         account.withdraw(withdraw, pin);

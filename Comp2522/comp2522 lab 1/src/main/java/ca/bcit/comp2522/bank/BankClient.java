@@ -18,14 +18,15 @@ public class BankClient extends Person {
      * @param signupDate the date the client signed up with the bank
      * @throws IllegalArgumentException if the clientID is not valid
      */
-    public BankClient(Name name, Date birthDate, Date deathDate, String clientID, Date signupDate) {
+    public BankClient(Name name, Date birthDate, Date deathDate, String clientID,
+                      Date signupDate) {
         super(name, birthDate, deathDate);
         if (clientID == null || !clientID.matches("\\w{6,7}")) {
             throw new IllegalArgumentException(
-                    "Client ID must be a 6 or 7 character string");
+                    "Client ID must be a non-null 6 or 7 character alphanumeric string.");
         }
         if (signupDate == null) {
-            throw new IllegalArgumentException("Signup date must not be null");
+            throw new IllegalArgumentException("Signup date cannot be null.");
         }
         this.clientID = clientID;
         this.signupDate = signupDate;
@@ -38,14 +39,10 @@ public class BankClient extends Person {
      */
     @Override
     public String getDetails() {
-        return isAlive() ? String.format("%s client #%s (alive) joined the bank on %s",
-                getName().getFullName(), this.clientID,
-                this.signupDate.getDayOfTheWeek() + ", " + this.signupDate.getYYYYMMDD())
-                         : String.format("%s client #%s (died %s) joined the bank on %s",
-                                 getName().getFullName(), this.clientID,
-                                 getDeathDate().getDayOfTheWeek() + ", " +
-                                         getDeathDate().getYYYYMMDD(),
-                                 this.signupDate.getDayOfTheWeek() + ", " +
-                                         this.signupDate.getYYYYMMDD());
+        return String.format("%s client #%s (%s) joined the bank on %s",
+                getName().getFullName(),
+                this.clientID,
+                isAlive() ? "alive" : "died " + formatDate(getDeathDate()),
+                formatDate(this.signupDate));
     }
 }

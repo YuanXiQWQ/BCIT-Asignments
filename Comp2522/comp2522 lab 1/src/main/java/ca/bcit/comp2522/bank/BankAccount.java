@@ -24,15 +24,20 @@ public class BankAccount {
      */
     public BankAccount(BankClient client, String accountNumber, Date accountOpened,
                        Date accountClosed, int pin) {
-        if (client == null || accountNumber == null ||
-                !accountNumber.matches("\\w{6,7}") || accountOpened == null) {
-            throw new IllegalArgumentException("Invalid account details provided");
+        if (client == null) {
+            throw new IllegalArgumentException("Client must not be null");
+        }
+        if (accountNumber == null || !accountNumber.matches("\\w{6,7}")) {
+            throw new IllegalArgumentException(
+                    "Account number must be a 6 or 7 character string");
+        }
+        if (accountOpened == null) {
+            throw new IllegalArgumentException("Account opened date must not be null");
         }
         this.client = client;
         this.accountNumber = accountNumber;
         this.accountOpened = accountOpened;
         this.accountClosed = accountClosed;
-        this.accountClosed = null;
         this.pin = pin;
     }
 
@@ -54,11 +59,11 @@ public class BankAccount {
      * @return true if the withdrawal is successful, false otherwise
      */
     public boolean withdraw(final double amountUsd) {
-        if (amountUsd > 0 && this.balanceUsd >= amountUsd) {
-            this.balanceUsd -= amountUsd;
-            return true;
+        if (amountUsd <= 0 || this.balanceUsd < amountUsd) {
+            return false;
         }
-        return false;
+        this.balanceUsd -= amountUsd;
+        return true;
     }
 
     /**
@@ -68,11 +73,8 @@ public class BankAccount {
      * @param pinToMatch the PIN to match
      * @return true if the withdrawal is successful and the PIN matches, false otherwise
      */
-    public boolean withdraw(final double amountUsd,final int pinToMatch) {
-        if (this.pin == pinToMatch) {
-            return this.withdraw(amountUsd);
-        }
-        return false;
+    public boolean withdraw(final double amountUsd, final int pinToMatch) {
+        return this.pin == pinToMatch && this.withdraw(amountUsd);
     }
 
     /**
@@ -92,18 +94,19 @@ public class BankAccount {
      * @return the account details
      */
     public String getDetails() {
-        return (this.accountClosed == null)
-               ? String.format(
-                "%s had $%.2f USD in account" + " #%s which he opened on %s",
-                this.client.getName().getFullName(), this.balanceUsd, this.accountNumber,
-                this.accountOpened.getDayOfTheWeek() + ", " + this.accountOpened.getYYYYMMDD())
-               : String.format(
-                       "%s had $%.2f USD in account #%s which " + "he opened on %s and " +
-                               "closed on %s",
-                       this.client.getName().getFullName(), this.balanceUsd, this.accountNumber,
-                       this.accountOpened.getDayOfTheWeek() + ", " +
-                               this.accountOpened.getYYYYMMDD(),
-                       this.accountClosed.getDayOfTheWeek() + ", " +
-                               this.accountClosed.getYYYYMMDD());
+        final String template =
+                "%s had $%.2f USD in account #%s which he opened on %s";
+        return this.accountClosed == null
+               ? String.format(template,
+                this.client.getName().getFullName(),
+                this.balanceUsd,
+                this.accountNumber,
+                client.formatDate(this.accountOpened))
+               : String.format(template + " and closed on %s",
+                       this.client.getName().getFullName(),
+                       this.balanceUsd,
+                       this.accountNumber,
+                       client.formatDate(this.accountOpened),
+                       client.formatDate(this.accountClosed));
     }
 }
