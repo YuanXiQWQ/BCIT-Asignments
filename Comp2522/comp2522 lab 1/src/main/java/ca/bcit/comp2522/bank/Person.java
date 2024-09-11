@@ -28,7 +28,7 @@ public class Person {
     }
 
     /**
-     * Returns the person's name.
+     * Getter for the person's name.
      *
      * @return the name
      */
@@ -37,7 +37,7 @@ public class Person {
     }
 
     /**
-     * Returns the person's death date.
+     * Getter for the person's birthdate.
      *
      * @return the death date, null if the person is still alive
      */

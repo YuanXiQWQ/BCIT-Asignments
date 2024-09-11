@@ -11,13 +11,19 @@ public class Date {
     private final int month;
     private final int day;
 
+    // Month codes
     private static final int[] MONTH_CODES = {1, 4, 4, 0, 2, 5, 0, 3, 6, 1, 4, 6};
+    private static final String[] DAYS_OF_WEEK =
+            {"Saturday", "Sunday", "Monday", "Tuesday",
+                    "Wednesday", "Thursday", "Friday"};
 
     // Zeller's Congruence
     private static final int YEAR_2000_OFFSET = 6;
     private static final int YEAR_1900_OFFSET = 0;
     private static final int PRE_1900_OFFSET = 2;
     private static final int LEAP_YEAR_ADJUSTMENT = 6;
+
+    // Months numbers
     private static final int JANUARY = 1;
     private static final int FEBRUARY = 2;
     private static final int DAYS_IN_FEBRUARY_IN_LEAP_YEAR = 29;
@@ -35,8 +41,7 @@ public class Date {
      * @throws IllegalArgumentException if the date is invalid
      */
     public Date(int year, int month, int day) {
-        if (year < 1 || year > getCurrentYear() || month < 1 || month > 12 || day < 1 ||
-                day > getMaxDaysInMonth(year, month)) {
+        if (!isValidDate(year, month, day)) {
             throw new IllegalArgumentException("Invalid date provided");
         }
         this.year = year;
@@ -45,7 +50,7 @@ public class Date {
     }
 
     /**
-     * Returns the day.
+     * Getter for the day.
      *
      * @return the day
      */
@@ -54,7 +59,7 @@ public class Date {
     }
 
     /**
-     * Returns the month.
+     * Getter for the month.
      *
      * @return the month
      */
@@ -63,7 +68,7 @@ public class Date {
     }
 
     /**
-     * Returns the year.
+     * Getter for the year.
      *
      * @return the year
      */
@@ -72,7 +77,7 @@ public class Date {
     }
 
     /**
-     * Returns the date in YYYY-MM-DD format.
+     * Getter for the formatted date in YYYY-MM-DD.
      *
      * @return the formatted date
      */
@@ -81,33 +86,72 @@ public class Date {
     }
 
     /**
-     * Returns the day of the week for the date.
+     * Getter for the day of the week. Using several steps based on Zeller's Congruence to
+     * calculate the day of the week step by step.
      *
      * @return the day of the week
      */
     public String getDayOfTheWeek() {
-        // Step 0: Calculate the year offset
+        /* Step 0: Calculate the year offset, if the year is before 2000, the offset is 6,
+        if the year is after 2000, the offset is 0, otherwise it is 2 */
         int yearOffset = (this.year >= 2000) ? YEAR_2000_OFFSET
                                              : (this.year < 1900) ? YEAR_1900_OFFSET
                                                                   : PRE_1900_OFFSET;
+
+        // Step 1-4: get the day sum
+        int daySum = getDaySum();
+
+        // Step 5: Get the month code
+        int monthCode = getMonthCode(this.month);
+
+        // Step 6: Add the previous five numbers and mod by 7
+        int result = (yearOffset + daySum + monthCode) % 7;
+
+        // Step 7: Return the day of the week
+        return getDayOfWeekName(result);
+    }
+
+    /**
+     * Checks if the date is valid.
+     *
+     * @param year  the year
+     * @param month the month
+     * @param day   the day
+     * @return true if the date is valid, false otherwise
+     */
+    private boolean isValidDate(int year, int month, int day) {
+        if (year < 1 || year > getCurrentYear()) {
+            return false;
+        }
+        if (month < 1 || month > 12) {
+            return false;
+        }
+        return day >= 1 && day <= getMaxDaysInMonth(year, month);
+    }
+
+    /**
+     * Calculates the day sum for calculating the day of the week.
+     *
+     * @return the day sum
+     */
+    private int getDaySum() {
         // Step 1: Calculate the number of twelves in last 2 numbers of the year
         int twelveInYear = (this.year % 100) / 12;
+
         // Step 2: Calculate the remainder from step 1
         int remainderOfTwelveInYear = (this.year % 100) - twelveInYear * 12;
+
         // Step 3: Calculate the number of fours from step 2
         int foursInRemainder = remainderOfTwelveInYear / 4;
+
         // Step 4: Add the day of the month to each step above
         int daySum = this.day + twelveInYear + remainderOfTwelveInYear + foursInRemainder;
-        // Extra notes: For January/February dates in leap years, add 6 at the start
+
+        // Extra adjustment: For January/February dates in leap years, add 6
         if (isLeapYear(this.year) && (this.month == JANUARY || this.month == FEBRUARY)) {
             daySum += LEAP_YEAR_ADJUSTMENT;
         }
-        // Step 5: Get the month code
-        int monthCode = getMonthCode(this.month);
-        // Step 6: Add the previous five numbers and mod by 7
-        int result = (yearOffset + daySum + monthCode) % 7;
-        // Step 7: Return the day of the week
-        return getDayOfWeekName(result);
+        return daySum;
     }
 
     /**
@@ -170,10 +214,7 @@ public class Date {
      * @return the day of the week name
      */
     private String getDayOfWeekName(int dayOfWeek) {
-        String[] days =
-                {"Saturday", "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday",
-                        "Friday"};
-        return days[dayOfWeek];
+        return DAYS_OF_WEEK[dayOfWeek];
     }
 
     /**

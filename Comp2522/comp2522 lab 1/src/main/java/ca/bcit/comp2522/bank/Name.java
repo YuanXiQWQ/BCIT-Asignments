@@ -21,10 +21,10 @@ public class Name {
                 first.length() > 45 || last.length() > 45 ||
                 first.toLowerCase().contains("admin") ||
                 last.toLowerCase().contains("admin")) {
-            throw new IllegalArgumentException("Invalid name provided.");
+            throw new IllegalArgumentException("Invalid first or last name provided.");
         }
-        this.first = first;
-        this.last = last;
+        this.first = first.trim();
+        this.last = last.trim();
     }
 
     /**
@@ -33,7 +33,9 @@ public class Name {
      * @return the initials
      */
     public String getInitials() {
-        return (this.first.charAt(0) + "." + this.last.charAt(0) + ".").toUpperCase();
+        return String.format("%c.%c.",
+                Character.toUpperCase(this.first.charAt(0)),
+                Character.toUpperCase(this.last.charAt(0)));
     }
 
     /**
@@ -51,12 +53,12 @@ public class Name {
      * @return the reverse name
      */
     public String getReverseName() {
-        return new StringBuilder(this.last).reverse().toString() + " " +
-                new StringBuilder(this.first).reverse().toString();
+        return new StringBuilder(this.last).reverse() + " " +
+                new StringBuilder(this.first).reverse();
     }
 
     /**
-     * Capitalizes the first letter of the name, and lowercases the rest.
+     * Capitalises the first letter of the name, and lowercases the rest.
      *
      * @param name the name
      * @return the formatted name

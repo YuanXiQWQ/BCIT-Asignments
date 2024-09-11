@@ -16,7 +16,7 @@ public class Main {
     public static void main(String[] args) {
         // Albert Einstein
         createAndPrintAccount(
-                new Name("Albert", "Einstein"),
+                new Name("alBeRt", "EINsTein"),
                 new Date(1879, 3, 14),
                 new Date(1955, 4, 18),
                 "abc123",
