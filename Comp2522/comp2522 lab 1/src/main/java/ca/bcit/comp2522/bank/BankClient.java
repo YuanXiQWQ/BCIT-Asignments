@@ -11,6 +11,9 @@ public class BankClient extends Person {
     private final Date signupDate;
     private final String clientID;
 
+    private final static String BANK_CLIENT_INFO = "%s client #%s (%s) joined the bank" +
+            " on %s";
+
     /**
      * Constructs a new BankClient object.
      *
@@ -39,7 +42,7 @@ public class BankClient extends Person {
      */
     @Override
     public String getDetails() {
-        return String.format("%s client #%s (%s) joined the bank on %s",
+        return String.format(BANK_CLIENT_INFO,
                 getName().getFullName(),
                 this.clientID,
                 isAlive() ? "alive" : "died " + formatDate(getDeathDate()),

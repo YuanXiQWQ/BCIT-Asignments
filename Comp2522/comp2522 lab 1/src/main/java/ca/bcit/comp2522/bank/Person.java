@@ -11,6 +11,8 @@ public class Person {
     private final Date birthDate;
     private final Date deathDate;
 
+    private final static String PERSON_INFO = "was born on %s!";
+
     /**
      * Constructs a new Person object.
      *
@@ -73,8 +75,8 @@ public class Person {
         return String.format("%s %s",
                 name.getFullName(),
                 isAlive()
-                ? String.format("(alive) was born on %s!", formatDate(birthDate))
-                : String.format("(died %s) was born on %s!", formatDate(deathDate),
+                ? String.format("(alive)" + PERSON_INFO, formatDate(birthDate))
+                : String.format("(died %s)" + PERSON_INFO, formatDate(deathDate),
                         formatDate(birthDate)));
     }
 }

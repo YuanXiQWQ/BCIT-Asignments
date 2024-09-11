@@ -14,6 +14,9 @@ public class BankAccount {
     private double balanceUsd;
     private final int pin;
 
+    private final static String BANK_ACCOUNT_INFO = "%s had $%.2f USD in account #%s " +
+            "which he opened on %s";
+
     /**
      * Constructs a new BankAccount object.
      *
@@ -94,15 +97,13 @@ public class BankAccount {
      * @return the account details
      */
     public String getDetails() {
-        final String template =
-                "%s had $%.2f USD in account #%s which he opened on %s";
         return this.accountClosed == null
-               ? String.format(template,
+               ? String.format(BANK_ACCOUNT_INFO,
                 this.client.getName().getFullName(),
                 this.balanceUsd,
                 this.accountNumber,
                 client.formatDate(this.accountOpened))
-               : String.format(template + " and closed on %s",
+               : String.format(BANK_ACCOUNT_INFO + " and closed on %s",
                        this.client.getName().getFullName(),
                        this.balanceUsd,
                        this.accountNumber,
