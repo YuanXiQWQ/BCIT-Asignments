@@ -8,49 +8,34 @@ package ca.bcit.comp2522.bank;
  * @version 1.0
  */
 public class BankClient extends Person {
-    private final String clientID;
     private final Date signupDate;
+    private final String clientID;
+
+    private final static String BANK_CLIENT_INFO = "%s client #%s (%s) joined the bank" +
+            " on %s";
 
     /**
      * Constructs a new BankClient object.
      *
-     * @param name       the name
-     * @param birthDate  the birthdate
-     * @param deathDate  the death date
      * @param clientID   the client's ID
      * @param signupDate the date the client signed up with the bank
      * @throws IllegalArgumentException if the clientID is not valid
      */
-    public BankClient(Name name, Date birthDate, Date deathDate, String clientID,
-                      Date signupDate) {
+    public BankClient(Name name,
+                      final Date birthDate,
+                      Date deathDate,
+                      final String clientID,
+                      final Date signupDate) {
         super(name, birthDate, deathDate);
         if (clientID == null || !clientID.matches("\\w{6,7}")) {
             throw new IllegalArgumentException(
-                    "Client ID must be a 6 or 7 character string");
+                    "Client ID must be a non-null 6 or 7 character alphanumeric string.");
         }
         if (signupDate == null) {
-            throw new IllegalArgumentException("Signup date must not be null");
+            throw new IllegalArgumentException("Signup date cannot be null.");
         }
         this.clientID = clientID;
         this.signupDate = signupDate;
-    }
-
-    /**
-     * Returns the client's ID.
-     *
-     * @return the client ID
-     */
-    public String getClientID() {
-        return clientID;
-    }
-
-    /**
-     * Returns the signup date.
-     *
-     * @return the signup date
-     */
-    public Date getSignupDate() {
-        return signupDate;
     }
 
     /**
@@ -60,9 +45,10 @@ public class BankClient extends Person {
      */
     @Override
     public String getDetails() {
-        String baseDetails = super.getDetails();
-        return String.format("%s client #%s joined the bank on %s",
-                getName().getFullName(), clientID,
-                signupDate.getDayOfTheWeek() + " " + signupDate.getYYYYMMDD());
+        return String.format(BANK_CLIENT_INFO,
+                getName().getFullName(),
+                this.clientID,
+                isAlive() ? "alive" : "died " + formatDate(getDeathDate()),
+                formatDate(this.signupDate));
     }
 }

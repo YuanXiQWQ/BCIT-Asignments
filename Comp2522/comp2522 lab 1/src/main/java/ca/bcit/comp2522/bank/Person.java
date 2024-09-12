@@ -11,6 +11,8 @@ public class Person {
     private final Date birthDate;
     private final Date deathDate;
 
+    private final static String PERSON_INFO = "was born on %s!";
+
     /**
      * Constructs a new Person object.
      *
@@ -18,7 +20,7 @@ public class Person {
      * @param birthDate the person's birthdate
      * @param deathDate the person's death date
      */
-    public Person(Name name, Date birthDate, Date deathDate) {
+    public Person(Name name, final Date birthDate, Date deathDate) {
         if (name == null || birthDate == null) {
             throw new IllegalArgumentException("Name and birth date must not be null");
         }
@@ -28,30 +30,21 @@ public class Person {
     }
 
     /**
-     * Returns the person's name.
+     * Getter for the person's name.
      *
      * @return the name
      */
     public Name getName() {
-        return name;
+        return this.name;
     }
 
     /**
-     * Returns the person's birthdate.
-     *
-     * @return the birthdate
-     */
-    public Date getBirthDate() {
-        return birthDate;
-    }
-
-    /**
-     * Returns the person's death date.
+     * Getter for the person's birthdate.
      *
      * @return the death date, null if the person is still alive
      */
     public Date getDeathDate() {
-        return deathDate;
+        return this.deathDate;
     }
 
     /**
@@ -60,7 +53,17 @@ public class Person {
      * @return true if the person is alive, false if deceased
      */
     public boolean isAlive() {
-        return deathDate == null;
+        return this.deathDate == null;
+    }
+
+    /**
+     * Formats a Date into a string like "dayOfWeek, YYYY-MM-DD".
+     *
+     * @param date the date to format
+     * @return formatted string
+     */
+    protected String formatDate(final Date date) {
+        return date.getDayOfTheWeek() + ", " + date.getYYYYMMDD();
     }
 
     /**
@@ -69,15 +72,11 @@ public class Person {
      * @return the person's details
      */
     public String getDetails() {
-        if (isAlive()) {
-            return String.format("%s (alive) was born on %s!",
-                    name.getFullName(),
-                    birthDate.getDayOfTheWeek() + " " + birthDate.getYYYYMMDD());
-        } else {
-            return String.format("%s (died %s) was born on %s!",
-                    name.getFullName(),
-                    deathDate.getDayOfTheWeek() + " " + deathDate.getYYYYMMDD(),
-                    birthDate.getDayOfTheWeek() + " " + birthDate.getYYYYMMDD());
-        }
+        return String.format("%s %s",
+                name.getFullName(),
+                isAlive()
+                ? String.format("(alive)" + PERSON_INFO, formatDate(birthDate))
+                : String.format("(died %s)" + PERSON_INFO, formatDate(deathDate),
+                        formatDate(birthDate)));
     }
 }

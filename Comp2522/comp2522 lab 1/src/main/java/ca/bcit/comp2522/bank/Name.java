@@ -3,6 +3,7 @@ package ca.bcit.comp2522.bank;
 /**
  * Represents a Name with a first and last name. Author: Jiarui Xing
  *
+ * @author Jiarui Xing
  * @version 1.0
  */
 public class Name {
@@ -20,28 +21,10 @@ public class Name {
                 first.length() > 45 || last.length() > 45 ||
                 first.toLowerCase().contains("admin") ||
                 last.toLowerCase().contains("admin")) {
-            throw new IllegalArgumentException("Invalid name provided.");
+            throw new IllegalArgumentException("Invalid first or last name provided.");
         }
-        this.first = first;
-        this.last = last;
-    }
-
-    /**
-     * Returns the first name.
-     *
-     * @return the first name
-     */
-    public String getFirst() {
-        return first;
-    }
-
-    /**
-     * Returns the last name.
-     *
-     * @return the last name
-     */
-    public String getLast() {
-        return last;
+        this.first = first.trim();
+        this.last = last.trim();
     }
 
     /**
@@ -50,7 +33,9 @@ public class Name {
      * @return the initials
      */
     public String getInitials() {
-        return (first.charAt(0) + "." + last.charAt(0) + ".").toUpperCase();
+        return String.format("%c.%c.",
+                Character.toUpperCase(this.first.charAt(0)),
+                Character.toUpperCase(this.last.charAt(0)));
     }
 
     /**
@@ -59,7 +44,7 @@ public class Name {
      * @return the full name
      */
     public String getFullName() {
-        return capitalize(first) + " " + capitalize(last);
+        return formatName(this.first) + " " + formatName(this.last);
     }
 
     /**
@@ -68,17 +53,17 @@ public class Name {
      * @return the reverse name
      */
     public String getReverseName() {
-        return new StringBuilder(last).reverse().toString() + " " +
-                new StringBuilder(first).reverse().toString();
+        return new StringBuilder(this.last).reverse() + " " +
+                new StringBuilder(this.first).reverse();
     }
 
     /**
-     * Capitalizes the first letter of the name.
+     * Capitalises the first letter of the name, and lowercases the rest.
      *
      * @param name the name
-     * @return the capitalized name
+     * @return the formatted name
      */
-    private String capitalize(String name) {
+    private String formatName(String name) {
         return name.substring(0, 1).toUpperCase() + name.substring(1).toLowerCase();
     }
 }

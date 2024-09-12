@@ -8,34 +8,43 @@ package ca.bcit.comp2522.bank;
  */
 public class BankAccount {
     private final BankClient client;
-    private double balanceUsd;
-    private final int pin;
     private final String accountNumber;
     private final Date accountOpened;
     private Date accountClosed;
+    private double balanceUsd;
+    private final int pin;
+
+    private final static String BANK_ACCOUNT_INFO = "%s had $%.2f USD in account #%s " +
+            "which he opened on %s";
 
     /**
      * Constructs a new BankAccount object.
      *
-     * @param client        the bank client who owns the account
-     * @param balanceUsd    the initial balance in USD
-     * @param pin           the PIN associated with the account
+     * @param client        the client that owns the account
      * @param accountNumber the account number
      * @param accountOpened the date the account was opened
-     * @throws IllegalArgumentException if any input is invalid
+     * @param accountClosed the date the account was closed, can be null
      */
-    public BankAccount(BankClient client, double balanceUsd, int pin,
-                       String accountNumber, Date accountOpened) {
-        if (client == null || accountNumber == null ||
-                !accountNumber.matches("\\w{6,7}") || accountOpened == null) {
-            throw new IllegalArgumentException("Invalid account details provided");
+    public BankAccount(final BankClient client,
+                       final String accountNumber,
+                       final Date accountOpened,
+                       Date accountClosed,
+                       final int pin) {
+        if (client == null) {
+            throw new IllegalArgumentException("Client must not be null");
+        }
+        if (accountNumber == null || !accountNumber.matches("\\w{6,7}")) {
+            throw new IllegalArgumentException(
+                    "Account number must be a 6 or 7 character string");
+        }
+        if (accountOpened == null) {
+            throw new IllegalArgumentException("Account opened date must not be null");
         }
         this.client = client;
-        this.balanceUsd = balanceUsd;
-        this.pin = pin;
         this.accountNumber = accountNumber;
         this.accountOpened = accountOpened;
-        this.accountClosed = null;
+        this.accountClosed = accountClosed;
+        this.pin = pin;
     }
 
     /**
@@ -45,7 +54,7 @@ public class BankAccount {
      */
     public void deposit(double amountUsd) {
         if (amountUsd > 0) {
-            balanceUsd += amountUsd;
+            this.balanceUsd += amountUsd;
         }
     }
 
@@ -55,12 +64,12 @@ public class BankAccount {
      * @param amountUsd the amount to withdraw
      * @return true if the withdrawal is successful, false otherwise
      */
-    public boolean withdraw(double amountUsd) {
-        if (amountUsd > 0 && balanceUsd >= amountUsd) {
-            balanceUsd -= amountUsd;
-            return true;
+    public boolean withdraw(final double amountUsd) {
+        if (amountUsd <= 0 || this.balanceUsd < amountUsd) {
+            return false;
         }
-        return false;
+        this.balanceUsd -= amountUsd;
+        return true;
     }
 
     /**
@@ -70,11 +79,8 @@ public class BankAccount {
      * @param pinToMatch the PIN to match
      * @return true if the withdrawal is successful and the PIN matches, false otherwise
      */
-    public boolean withdraw(double amountUsd, int pinToMatch) {
-        if (this.pin == pinToMatch) {
-            return withdraw(amountUsd);
-        }
-        return false;
+    public boolean withdraw(final double amountUsd, final int pinToMatch) {
+        return this.pin == pinToMatch && this.withdraw(amountUsd);
     }
 
     /**
@@ -82,7 +88,7 @@ public class BankAccount {
      *
      * @param accountClosed the date the account is closed
      */
-    public void closeAccount(Date accountClosed) {
+    public void closeAccount(final Date accountClosed) {
         if (this.accountClosed == null && accountClosed != null) {
             this.accountClosed = accountClosed;
         }
@@ -94,16 +100,17 @@ public class BankAccount {
      * @return the account details
      */
     public String getDetails() {
-        if (accountClosed == null) {
-            return String.format("%s had $%.2f USD in account #%s opened on %s",
-                    client.getName().getFullName(), balanceUsd, accountNumber,
-                    accountOpened.getDayOfTheWeek() + " " + accountOpened.getYYYYMMDD());
-        } else {
-            return String.format(
-                    "%s had $%.2f USD in account #%s opened on %s and closed on %s",
-                    client.getName().getFullName(), balanceUsd, accountNumber,
-                    accountOpened.getDayOfTheWeek() + " " + accountOpened.getYYYYMMDD(),
-                    accountClosed.getDayOfTheWeek() + " " + accountClosed.getYYYYMMDD());
-        }
+        return this.accountClosed == null
+               ? String.format(BANK_ACCOUNT_INFO,
+                this.client.getName().getFullName(),
+                this.balanceUsd,
+                this.accountNumber,
+                client.formatDate(this.accountOpened))
+               : String.format(BANK_ACCOUNT_INFO + " and closed on %s",
+                       this.client.getName().getFullName(),
+                       this.balanceUsd,
+                       this.accountNumber,
+                       client.formatDate(this.accountOpened),
+                       client.formatDate(this.accountClosed));
     }
 }
