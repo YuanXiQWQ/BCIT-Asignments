@@ -21,20 +21,34 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="532a30b7-af8c-4dbc-a7be-8eae466d5b05" name="更改" comment="">
-      <change beforePath="$PROJECT_DIR$/../q1/cmake-build-debug/.cmake/api/v1/reply/cmakeFiles-v1-73cd2203df3790fec75a.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../q1/cmake-build-debug/.cmake/api/v1/reply/index-2024-09-12T19-15-00-0004.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../q1/cmake-build-debug/.cmake/api/v1/reply/cmakeFiles-v1-385410757ae4d5c74536.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../q1/cmake-build-debug/.cmake/api/v1/reply/index-2024-09-12T19-21-33-0472.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../q1/cmake-build-debug/.ninja_deps" beforeDir="false" afterPath="$PROJECT_DIR$/../q1/cmake-build-debug/.ninja_deps" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../q1/cmake-build-debug/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/../q1/cmake-build-debug/.ninja_log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../q1/cmake-build-debug/CMakeFiles/3.28.1/CMakeDetermineCompilerABI_C.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../q1/cmake-build-debug/CMakeFiles/3.28.1/CMakeDetermineCompilerABI_C.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../q1/cmake-build-debug/CMakeFiles/3.28.1/CompilerIdC/a.exe" beforeDir="false" afterPath="$PROJECT_DIR$/../q1/cmake-build-debug/CMakeFiles/3.28.1/CompilerIdC/a.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../q1/cmake-build-debug/CMakeFiles/CMakeConfigureLog.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../q1/cmake-build-debug/CMakeFiles/CMakeConfigureLog.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../q1/cmake-build-debug/CMakeFiles/clion-Debug-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../q1/cmake-build-debug/CMakeFiles/clion-Debug-log.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../q1/cmake-build-debug/CMakeFiles/clion-environment.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../q1/cmake-build-debug/CMakeFiles/clion-environment.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../q1/cmake-build-debug/CMakeFiles/q1.dir/factorial.c.obj" beforeDir="false" afterPath="$PROJECT_DIR$/../q1/cmake-build-debug/CMakeFiles/q1.dir/factorial.c.obj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../q1/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/../q1/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../q1/cmake-build-debug/build.ninja" beforeDir="false" afterPath="$PROJECT_DIR$/../q1/cmake-build-debug/build.ninja" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../q1/cmake-build-debug/q1.exe" beforeDir="false" afterPath="$PROJECT_DIR$/../q1/cmake-build-debug/q1.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../q1/factorial.c" beforeDir="false" afterPath="$PROJECT_DIR$/../q1/factorial.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../q1/output.png" beforeDir="false" afterPath="$PROJECT_DIR$/../q1/output.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/q2.exe" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/q2.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output.png" beforeDir="false" afterPath="$PROJECT_DIR$/output.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../q3/cmake-build-debug/.cmake/api/v1/reply/cmakeFiles-v1-564eff036eee9b36821b.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../q3/cmake-build-debug/.cmake/api/v1/reply/index-2024-09-12T19-31-58-0008.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../q3/cmake-build-debug/.ninja_deps" beforeDir="false" afterPath="$PROJECT_DIR$/../q3/cmake-build-debug/.ninja_deps" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../q3/cmake-build-debug/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/../q3/cmake-build-debug/.ninja_log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../q3/cmake-build-debug/CMakeFiles/3.28.1/CMakeDetermineCompilerABI_C.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../q3/cmake-build-debug/CMakeFiles/3.28.1/CMakeDetermineCompilerABI_C.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../q3/cmake-build-debug/CMakeFiles/3.28.1/CompilerIdC/a.exe" beforeDir="false" afterPath="$PROJECT_DIR$/../q3/cmake-build-debug/CMakeFiles/3.28.1/CompilerIdC/a.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../q3/cmake-build-debug/CMakeFiles/CMakeConfigureLog.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../q3/cmake-build-debug/CMakeFiles/CMakeConfigureLog.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../q3/cmake-build-debug/CMakeFiles/clion-Debug-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../q3/cmake-build-debug/CMakeFiles/clion-Debug-log.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../q3/cmake-build-debug/CMakeFiles/clion-environment.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../q3/cmake-build-debug/CMakeFiles/clion-environment.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../q3/cmake-build-debug/CMakeFiles/q3.dir/division_with_precision.c.obj" beforeDir="false" afterPath="$PROJECT_DIR$/../q3/cmake-build-debug/CMakeFiles/q3.dir/division_with_precision.c.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../q3/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/../q3/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../q3/cmake-build-debug/build.ninja" beforeDir="false" afterPath="$PROJECT_DIR$/../q3/cmake-build-debug/build.ninja" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../q3/cmake-build-debug/q3.exe" beforeDir="false" afterPath="$PROJECT_DIR$/../q3/cmake-build-debug/q3.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../q3/output.png" beforeDir="false" afterPath="$PROJECT_DIR$/../q3/output.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,8 +84,8 @@
     "RunOnceActivity.readMode.enableVisualFormatting": "true",
     "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
-    "git-widget-placeholder": "COMP2510Lab2",
-    "last_opened_file_path": "F:/JerryCode/BCIT-Asignments/Comp2510/Lab2/q1",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "F:/JerryCode/BCIT-Asignments/Comp2510/Lab2/q2",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -81,11 +95,6 @@
   }
 }]]></component>
   <component name="RunManager">
-    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="q2" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="q2" TARGET_NAME="q2" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="q2" RUN_TARGET_NAME="q2">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -101,7 +110,8 @@
       <option name="presentableId" value="Default" />
       <updated>1726168151578</updated>
       <workItem from="1726168153010" duration="23000" />
-      <workItem from="1726168624388" duration="375000" />
+      <workItem from="1726168624388" duration="545000" />
+      <workItem from="1726170404934" duration="43000" />
     </task>
     <servers />
   </component>
