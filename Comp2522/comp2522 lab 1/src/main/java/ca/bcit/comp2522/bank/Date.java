@@ -11,6 +11,9 @@ public class Date {
     private final int month;
     private final int day;
 
+    // Information
+    private static final String INFO_DATE_INVALID = "Invalid date provided";
+
     // Month codes
     private static final int[] MONTH_CODES = {1, 4, 4, 0, 2, 5, 0, 3, 6, 1, 4, 6};
     private static final String[] DAYS_OF_WEEK =
@@ -40,9 +43,10 @@ public class Date {
      * @param day   the day
      * @throws IllegalArgumentException if the date is invalid
      */
-    public Date(final int year, final int month, final int day) {
+    public Date(final int year, final int month, final int day)
+    {
         if (!isValidDate(year, month, day)) {
-            throw new IllegalArgumentException("Invalid date provided");
+            throw new IllegalArgumentException(INFO_DATE_INVALID);
         }
         this.year = year;
         this.month = month;
@@ -54,7 +58,8 @@ public class Date {
      *
      * @return the day
      */
-    public int getDay() {
+    public int getDay()
+    {
         return this.day;
     }
 
@@ -63,7 +68,8 @@ public class Date {
      *
      * @return the month
      */
-    public int getMonth() {
+    public int getMonth()
+    {
         return this.month;
     }
 
@@ -72,7 +78,8 @@ public class Date {
      *
      * @return the year
      */
-    public int getYear() {
+    public int getYear()
+    {
         return this.year;
     }
 
@@ -81,7 +88,8 @@ public class Date {
      *
      * @return the formatted date
      */
-    public String getYYYYMMDD() {
+    public String getYYYYMMDD()
+    {
         return String.format("%04d-%02d-%02d", this.year, this.month, this.day);
     }
 
@@ -91,7 +99,8 @@ public class Date {
      *
      * @return the day of the week
      */
-    public String getDayOfTheWeek() {
+    public String getDayOfTheWeek()
+    {
         /* Step 0: Calculate the year offset, if the year is before 2000, the offset is 6,
         if the year is after 2000, the offset is 0, otherwise it is 2 */
         final int yearOffset = (this.year >= 2000) ? YEAR_2000_OFFSET
@@ -119,7 +128,8 @@ public class Date {
      * @param day   the day
      * @return true if the date is valid, false otherwise
      */
-    private boolean isValidDate(final int year, final int month, final int day) {
+    private boolean isValidDate(final int year, final int month, final int day)
+    {
         if (year < 1 || year > getCurrentYear()) {
             return false;
         }
@@ -134,7 +144,8 @@ public class Date {
      *
      * @return the day sum
      */
-    private int getDaySum() {
+    private int getDaySum()
+    {
         // Step 1: Calculate the number of twelves in last 2 numbers of the year
         final int twelveInYear = (this.year % 100) / 12;
 
@@ -162,7 +173,8 @@ public class Date {
      * @param month the month
      * @return the maximum number of days in the month
      */
-    private int getMaxDaysInMonth(final int year, final int month) {
+    private int getMaxDaysInMonth(final int year, final int month)
+    {
         if (month == FEBRUARY) {
             return isLeapYear(year) ? DAYS_IN_FEBRUARY_IN_LEAP_YEAR
                                     : DAYS_IN_FEBRUARY_IN_NON_LEAP_YEAR;
@@ -179,7 +191,8 @@ public class Date {
      * @param year the year
      * @return true if the year is a leap year
      */
-    private boolean isLeapYear(final int year) {
+    private boolean isLeapYear(final int year)
+    {
         return (year % 4 == 0 && year % 100 != 0) || (year % 400 == 0);
     }
 
@@ -189,7 +202,8 @@ public class Date {
      * @param month the month
      * @return true if the month has 30 days
      */
-    private boolean getThirtyDayMonth(final int month) {
+    private boolean getThirtyDayMonth(final int month)
+    {
         for (int m : MONTHS_WITH_30_DAYS) {
             if (month == m) {
                 return true;
@@ -204,7 +218,8 @@ public class Date {
      * @param month the month
      * @return the month code
      */
-    private int getMonthCode(final int month) {
+    private int getMonthCode(final int month)
+    {
         return MONTH_CODES[month - 1];
     }
 
@@ -214,7 +229,8 @@ public class Date {
      * @param dayOfWeek the day of the week
      * @return the day of the week name
      */
-    private String getDayOfWeekName(final int dayOfWeek) {
+    private String getDayOfWeekName(final int dayOfWeek)
+    {
         return DAYS_OF_WEEK[dayOfWeek];
     }
 
@@ -223,7 +239,8 @@ public class Date {
      *
      * @return the current year
      */
-    private int getCurrentYear() {
+    private int getCurrentYear()
+    {
         return java.util.Calendar.getInstance().get(java.util.Calendar.YEAR);
     }
 }

@@ -11,7 +11,10 @@ public class BankClient extends Person {
     private final Date signupDate;
     private final String clientID;
 
-    private final static String BANK_CLIENT_INFO = "%s client #%s (%s) joined the bank" +
+    private final static String INFO_CLIENT_ID_INVALID =
+            "Client ID must be a non-null 6 or 7 character alphanumeric string.";
+    private final static String INFO_SIGNUP_DATE_NULL = "Signup date cannot be null.";
+    private final static String INFO_BANK_CLIENT = "%s client #%s (%s) joined the bank" +
             " on %s";
 
     /**
@@ -25,14 +28,14 @@ public class BankClient extends Person {
                       final Date birthDate,
                       final Date deathDate,
                       final String clientId,
-                      final Date signupDate) {
+                      final Date signupDate)
+    {
         super(name, birthDate, deathDate);
         if (clientId == null || !clientId.matches("\\w{6,7}")) {
-            throw new IllegalArgumentException(
-                    "Client ID must be a non-null 6 or 7 character alphanumeric string.");
+            throw new IllegalArgumentException(INFO_CLIENT_ID_INVALID);
         }
         if (signupDate == null) {
-            throw new IllegalArgumentException("Signup date cannot be null.");
+            throw new IllegalArgumentException(INFO_SIGNUP_DATE_NULL);
         }
         this.clientID = clientId;
         this.signupDate = signupDate;
@@ -44,8 +47,9 @@ public class BankClient extends Person {
      * @return the client's details
      */
     @Override
-    public String getDetails() {
-        return String.format(BANK_CLIENT_INFO,
+    public String getDetails()
+    {
+        return String.format(INFO_BANK_CLIENT,
                 getName().getFullName(),
                 this.clientID,
                 isAlive() ? "alive" : "died " + formatDate(getDeathDate()),

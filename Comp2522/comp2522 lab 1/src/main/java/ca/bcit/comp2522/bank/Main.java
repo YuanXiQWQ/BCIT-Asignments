@@ -7,13 +7,16 @@ package ca.bcit.comp2522.bank;
  * @version 1.0
  */
 public class Main {
+    private static final String DIVIDER =
+            "------------------------------------------------------------------";
 
     /**
      * Runs the program.
      *
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args)
+    {
         // Albert Einstein
         createAndPrintAccount(
                 new Name("alBeRt", "EINsTein"),
@@ -89,7 +92,8 @@ public class Main {
                                               final Date closeDate,
                                               final int pin,
                                               final double deposit,
-                                              final double withdraw) {
+                                              final double withdraw)
+    {
         final Person personDetails = new Person(name, birthDate, deathDate);
         final BankClient client = new BankClient(name, birthDate, deathDate, accountId,
                 openDate);
@@ -110,6 +114,6 @@ public class Main {
         System.out.println(account.getDetails());
         account.withdraw(withdraw, pin);
         System.out.println(account.getDetails());
-        System.out.println("------------------------");
+        System.out.println(DIVIDER);
     }
 }

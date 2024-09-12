@@ -10,18 +10,26 @@ public class Name {
     private final String first;
     private final String last;
 
+    private static final int MAX_NAME_LENGTH = 45;
+    private static final String ILLEGAL_NAME = "admin";
+    private static final String INFO_INVALID_NAME =
+            "Invalid first or last name provided.";
+    private static final int FIRST_LETTER_BEGIN_INDEX = 0;
+    private static final int FIRST_LETTER_END_INDEX = 1;
+
     /**
      * Constructs a new Name object.
      *
      * @param first the first name
      * @param last  the last name
      */
-    public Name(final String first, final String last) {
+    public Name(final String first, final String last)
+    {
         if (first == null || last == null || first.isBlank() || last.isBlank() ||
-                first.length() > 45 || last.length() > 45 ||
-                first.toLowerCase().contains("admin") ||
-                last.toLowerCase().contains("admin")) {
-            throw new IllegalArgumentException("Invalid first or last name provided.");
+                first.length() > MAX_NAME_LENGTH || last.length() > MAX_NAME_LENGTH ||
+                first.toLowerCase().contains(ILLEGAL_NAME) ||
+                last.toLowerCase().contains(ILLEGAL_NAME)) {
+            throw new IllegalArgumentException(INFO_INVALID_NAME);
         }
         this.first = first.trim();
         this.last = last.trim();
@@ -32,9 +40,9 @@ public class Name {
      *
      * @return the initials
      */
-    public String getInitials() {
-        return String.format("%c.%c.",
-                Character.toUpperCase(this.first.charAt(0)),
+    public String getInitials()
+    {
+        return String.format("%c.%c.", Character.toUpperCase(this.first.charAt(0)),
                 Character.toUpperCase(this.last.charAt(0)));
     }
 
@@ -43,7 +51,8 @@ public class Name {
      *
      * @return the full name
      */
-    public String getFullName() {
+    public String getFullName()
+    {
         return formatName(this.first) + " " + formatName(this.last);
     }
 
@@ -52,7 +61,8 @@ public class Name {
      *
      * @return the reverse name
      */
-    public String getReverseName() {
+    public String getReverseName()
+    {
         return new StringBuilder(this.last).reverse() + " " +
                 new StringBuilder(this.first).reverse();
     }
@@ -63,7 +73,9 @@ public class Name {
      * @param name the name
      * @return the formatted name
      */
-    private String formatName(final String name) {
-        return name.substring(0, 1).toUpperCase() + name.substring(1).toLowerCase();
+    private String formatName(final String name)
+    {
+        return name.substring(FIRST_LETTER_BEGIN_INDEX, FIRST_LETTER_END_INDEX)
+                .toUpperCase() + name.substring(FIRST_LETTER_END_INDEX).toLowerCase();
     }
 }
