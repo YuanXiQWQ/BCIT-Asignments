@@ -16,7 +16,7 @@ public class Name {
      * @param first the first name
      * @param last  the last name
      */
-    public Name(String first, String last) {
+    public Name(final String first, final String last) {
         if (first == null || last == null || first.isBlank() || last.isBlank() ||
                 first.length() > 45 || last.length() > 45 ||
                 first.toLowerCase().contains("admin") ||
@@ -63,7 +63,7 @@ public class Name {
      * @param name the name
      * @return the formatted name
      */
-    private String formatName(String name) {
+    private String formatName(final String name) {
         return name.substring(0, 1).toUpperCase() + name.substring(1).toLowerCase();
     }
 }

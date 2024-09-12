@@ -28,7 +28,7 @@ public class BankAccount {
     public BankAccount(final BankClient client,
                        final String accountNumber,
                        final Date accountOpened,
-                       Date accountClosed,
+                       final Date accountClosed,
                        final int pin) {
         if (client == null) {
             throw new IllegalArgumentException("Client must not be null");
@@ -52,7 +52,7 @@ public class BankAccount {
      *
      * @param amountUsd the amount to deposit
      */
-    public void deposit(double amountUsd) {
+    public void deposit(final double amountUsd) {
         if (amountUsd > 0) {
             this.balanceUsd += amountUsd;
         }

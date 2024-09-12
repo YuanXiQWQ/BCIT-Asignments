@@ -17,24 +17,24 @@ public class BankClient extends Person {
     /**
      * Constructs a new BankClient object.
      *
-     * @param clientID   the client's ID
+     * @param clientId   the client's ID
      * @param signupDate the date the client signed up with the bank
      * @throws IllegalArgumentException if the clientID is not valid
      */
-    public BankClient(Name name,
+    public BankClient(final Name name,
                       final Date birthDate,
-                      Date deathDate,
-                      final String clientID,
+                      final Date deathDate,
+                      final String clientId,
                       final Date signupDate) {
         super(name, birthDate, deathDate);
-        if (clientID == null || !clientID.matches("\\w{6,7}")) {
+        if (clientId == null || !clientId.matches("\\w{6,7}")) {
             throw new IllegalArgumentException(
                     "Client ID must be a non-null 6 or 7 character alphanumeric string.");
         }
         if (signupDate == null) {
             throw new IllegalArgumentException("Signup date cannot be null.");
         }
-        this.clientID = clientID;
+        this.clientID = clientId;
         this.signupDate = signupDate;
     }
 

@@ -40,7 +40,7 @@ public class Date {
      * @param day   the day
      * @throws IllegalArgumentException if the date is invalid
      */
-    public Date(int year, int month, int day) {
+    public Date(final int year, final int month, final int day) {
         if (!isValidDate(year, month, day)) {
             throw new IllegalArgumentException("Invalid date provided");
         }
@@ -95,8 +95,8 @@ public class Date {
         /* Step 0: Calculate the year offset, if the year is before 2000, the offset is 6,
         if the year is after 2000, the offset is 0, otherwise it is 2 */
         final int yearOffset = (this.year >= 2000) ? YEAR_2000_OFFSET
-                                             : (this.year < 1900) ? YEAR_1900_OFFSET
-                                                                  : PRE_1900_OFFSET;
+                                                   : (this.year < 1900) ? YEAR_1900_OFFSET
+                                                                        : PRE_1900_OFFSET;
 
         // Step 1-4: get the day sum
         final int daySum = getDaySum();
@@ -119,7 +119,7 @@ public class Date {
      * @param day   the day
      * @return true if the date is valid, false otherwise
      */
-    private boolean isValidDate(int year, int month, int day) {
+    private boolean isValidDate(final int year, final int month, final int day) {
         if (year < 1 || year > getCurrentYear()) {
             return false;
         }
@@ -162,7 +162,7 @@ public class Date {
      * @param month the month
      * @return the maximum number of days in the month
      */
-    private int getMaxDaysInMonth(int year, int month) {
+    private int getMaxDaysInMonth(final int year, final int month) {
         if (month == FEBRUARY) {
             return isLeapYear(year) ? DAYS_IN_FEBRUARY_IN_LEAP_YEAR
                                     : DAYS_IN_FEBRUARY_IN_NON_LEAP_YEAR;
@@ -179,7 +179,7 @@ public class Date {
      * @param year the year
      * @return true if the year is a leap year
      */
-    private boolean isLeapYear(int year) {
+    private boolean isLeapYear(final int year) {
         return (year % 4 == 0 && year % 100 != 0) || (year % 400 == 0);
     }
 
@@ -189,7 +189,7 @@ public class Date {
      * @param month the month
      * @return true if the month has 30 days
      */
-    private boolean getThirtyDayMonth(int month) {
+    private boolean getThirtyDayMonth(final int month) {
         for (int m : MONTHS_WITH_30_DAYS) {
             if (month == m) {
                 return true;
@@ -204,7 +204,7 @@ public class Date {
      * @param month the month
      * @return the month code
      */
-    private int getMonthCode(int month) {
+    private int getMonthCode(final int month) {
         return MONTH_CODES[month - 1];
     }
 
@@ -214,7 +214,7 @@ public class Date {
      * @param dayOfWeek the day of the week
      * @return the day of the week name
      */
-    private String getDayOfWeekName(int dayOfWeek) {
+    private String getDayOfWeekName(final int dayOfWeek) {
         return DAYS_OF_WEEK[dayOfWeek];
     }
 

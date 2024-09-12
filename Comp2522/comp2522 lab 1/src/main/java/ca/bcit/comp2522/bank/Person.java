@@ -20,7 +20,7 @@ public class Person {
      * @param birthDate the person's birthdate
      * @param deathDate the person's death date
      */
-    public Person(Name name, final Date birthDate, Date deathDate) {
+    public Person(final Name name, final Date birthDate, final Date deathDate) {
         if (name == null || birthDate == null) {
             throw new IllegalArgumentException("Name and birth date must not be null");
         }
