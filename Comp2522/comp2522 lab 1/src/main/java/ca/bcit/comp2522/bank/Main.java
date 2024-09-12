@@ -7,13 +7,16 @@ package ca.bcit.comp2522.bank;
  * @version 1.0
  */
 public class Main {
+    private static final String DIVIDER =
+            "------------------------------------------------------------------";
 
     /**
      * Runs the program.
      *
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args)
+    {
         // Albert Einstein
         createAndPrintAccount(
                 new Name("alBeRt", "EINsTein"),
@@ -68,7 +71,8 @@ public class Main {
     }
 
     /**
-     * Helper method to create a person, bank client, and bank account and print their details.
+     * Helper method to create a person, bank client, and bank account and print their
+     * details.
      *
      * @param name      the person's name
      * @param birthDate the person's birthdate
@@ -80,9 +84,16 @@ public class Main {
      * @param deposit   the initial deposit amount
      * @param withdraw  the amount to withdraw
      */
-    private static void createAndPrintAccount(Name name, Date birthDate, Date deathDate,
-                                              String accountId, Date openDate, Date closeDate,
-                                              int pin, double deposit, double withdraw) {
+    private static void createAndPrintAccount(final Name name,
+                                              final Date birthDate,
+                                              final Date deathDate,
+                                              final String accountId,
+                                              final Date openDate,
+                                              final Date closeDate,
+                                              final int pin,
+                                              final double deposit,
+                                              final double withdraw)
+    {
         final Person personDetails = new Person(name, birthDate, deathDate);
         final BankClient client = new BankClient(name, birthDate, deathDate, accountId,
                 openDate);
@@ -91,7 +102,6 @@ public class Main {
                 pin);
 
         account.deposit(deposit);
-        account.withdraw(withdraw, pin);
 
         if (closeDate != null) {
             account.closeAccount(closeDate);
@@ -102,6 +112,8 @@ public class Main {
         System.out.println(name.getReverseName());
         System.out.println(personDetails.getDetails());
         System.out.println(account.getDetails());
-        System.out.println("------------------------");
+        account.withdraw(withdraw, pin);
+        System.out.println(account.getDetails());
+        System.out.println(DIVIDER);
     }
 }
