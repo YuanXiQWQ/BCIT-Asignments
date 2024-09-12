@@ -25,8 +25,11 @@ public class BankAccount {
      * @param accountOpened the date the account was opened
      * @param accountClosed the date the account was closed, can be null
      */
-    public BankAccount(BankClient client, String accountNumber, Date accountOpened,
-                       Date accountClosed, int pin) {
+    public BankAccount(final BankClient client,
+                       final String accountNumber,
+                       final Date accountOpened,
+                       Date accountClosed,
+                       final int pin) {
         if (client == null) {
             throw new IllegalArgumentException("Client must not be null");
         }
@@ -85,7 +88,7 @@ public class BankAccount {
      *
      * @param accountClosed the date the account is closed
      */
-    public void closeAccount(Date accountClosed) {
+    public void closeAccount(final Date accountClosed) {
         if (this.accountClosed == null && accountClosed != null) {
             this.accountClosed = accountClosed;
         }

@@ -21,8 +21,11 @@ public class BankClient extends Person {
      * @param signupDate the date the client signed up with the bank
      * @throws IllegalArgumentException if the clientID is not valid
      */
-    public BankClient(Name name, Date birthDate, Date deathDate, String clientID,
-                      Date signupDate) {
+    public BankClient(Name name,
+                      final Date birthDate,
+                      Date deathDate,
+                      final String clientID,
+                      final Date signupDate) {
         super(name, birthDate, deathDate);
         if (clientID == null || !clientID.matches("\\w{6,7}")) {
             throw new IllegalArgumentException(

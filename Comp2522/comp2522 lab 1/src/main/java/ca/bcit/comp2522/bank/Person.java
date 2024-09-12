@@ -20,7 +20,7 @@ public class Person {
      * @param birthDate the person's birthdate
      * @param deathDate the person's death date
      */
-    public Person(Name name, Date birthDate, Date deathDate) {
+    public Person(Name name, final Date birthDate, Date deathDate) {
         if (name == null || birthDate == null) {
             throw new IllegalArgumentException("Name and birth date must not be null");
         }
@@ -62,7 +62,7 @@ public class Person {
      * @param date the date to format
      * @return formatted string
      */
-    protected String formatDate(Date date) {
+    protected String formatDate(final Date date) {
         return date.getDayOfTheWeek() + ", " + date.getYYYYMMDD();
     }
 

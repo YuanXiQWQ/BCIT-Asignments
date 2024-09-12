@@ -94,18 +94,18 @@ public class Date {
     public String getDayOfTheWeek() {
         /* Step 0: Calculate the year offset, if the year is before 2000, the offset is 6,
         if the year is after 2000, the offset is 0, otherwise it is 2 */
-        int yearOffset = (this.year >= 2000) ? YEAR_2000_OFFSET
+        final int yearOffset = (this.year >= 2000) ? YEAR_2000_OFFSET
                                              : (this.year < 1900) ? YEAR_1900_OFFSET
                                                                   : PRE_1900_OFFSET;
 
         // Step 1-4: get the day sum
-        int daySum = getDaySum();
+        final int daySum = getDaySum();
 
         // Step 5: Get the month code
-        int monthCode = getMonthCode(this.month);
+        final int monthCode = getMonthCode(this.month);
 
         // Step 6: Add the previous five numbers and mod by 7
-        int result = (yearOffset + daySum + monthCode) % 7;
+        final int result = (yearOffset + daySum + monthCode) % 7;
 
         // Step 7: Return the day of the week
         return getDayOfWeekName(result);
@@ -136,16 +136,17 @@ public class Date {
      */
     private int getDaySum() {
         // Step 1: Calculate the number of twelves in last 2 numbers of the year
-        int twelveInYear = (this.year % 100) / 12;
+        final int twelveInYear = (this.year % 100) / 12;
 
         // Step 2: Calculate the remainder from step 1
-        int remainderOfTwelveInYear = (this.year % 100) - twelveInYear * 12;
+        final int remainderOfTwelveInYear = (this.year % 100) - twelveInYear * 12;
 
         // Step 3: Calculate the number of fours from step 2
-        int foursInRemainder = remainderOfTwelveInYear / 4;
+        final int foursInRemainder = remainderOfTwelveInYear / 4;
 
         // Step 4: Add the day of the month to each step above
-        int daySum = this.day + twelveInYear + remainderOfTwelveInYear + foursInRemainder;
+        int daySum =
+                this.day + twelveInYear + remainderOfTwelveInYear + foursInRemainder;
 
         // Extra adjustment: For January/February dates in leap years, add 6
         if (isLeapYear(this.year) && (this.month == JANUARY || this.month == FEBRUARY)) {
