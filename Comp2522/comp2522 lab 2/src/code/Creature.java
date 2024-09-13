@@ -13,20 +13,20 @@ import java.time.Period;
  * @version 1.0
  */
 public class Creature {
-    private final String name;
-    private final LocalDate dateOfBirth;
-    private int health;
+    protected final String name;
+    protected final LocalDate dateOfBirth;
+    protected int health;
 
-    // Throw info
-    private static final String INFO_INVALID_NAME = "name cannot be null";
+    // Exception messages
+    private static final String INFO_INVALID_NAME = "Name cannot be null or empty.";
     private static final String INFO_INVALID_DATE =
-            "dateOfBirth cannot be null or in the future";
+            "Date of birth cannot be null or in the future.";
     private static final String INFO_DAMAGE_EXCEPTION =
-            "Damage Exception: cannot take negative damage";
+            "DamageException: Damage cannot be negative.";
     private static final String INFO_HEALING_EXCEPTION =
-            "Healing Exception: healing amount must not be negative";
+            "HealingException: Healing amount cannot be negative.";
 
-    // Creature's details
+    // Details template
     private static final String DETAILS_TEMPLATE =
             "Name: %s, Date of Birth: %s, Age: %d, Health: %d";
 
@@ -52,7 +52,7 @@ public class Creature {
 
         this.name = name;
         this.dateOfBirth = dateOfBirth;
-        health = 100;
+        this.health = 100;
     }
 
     /**
@@ -60,7 +60,7 @@ public class Creature {
      *
      * @return true if the creature's health is greater than 0, false otherwise
      */
-    private boolean isAlive()
+    public boolean isAlive()
     {
         return health > 0;
     }
@@ -70,15 +70,15 @@ public class Creature {
      * is negative, an exception is thrown. The health will never drop below 0.
      *
      * @param damage the amount of damage to apply
-     * @throws IllegalArgumentException if the damage is negative
+     * @throws DamageException if the damage is negative
      */
     public void takeDamage(final int damage)
     {
         // Validate damage is not negative
         if (damage < 0) {
-            throw new IllegalArgumentException(INFO_DAMAGE_EXCEPTION);
+            throw new DamageException(INFO_DAMAGE_EXCEPTION);
         }
-        // Set to 0 if health will be less than 0 after taking damage.
+        // Set to 0 if health will be less than 0 after taking damage
         health = Math.max(0, health - damage);
     }
 
@@ -87,16 +87,16 @@ public class Creature {
      * negative, an exception is thrown. The health will not exceed 100.
      *
      * @param healAmount the amount of health to restore
-     * @throws IllegalArgumentException if the heal amount is negative
+     * @throws HealingException if the heal amount is negative
      */
     public void heal(final int healAmount)
     {
         // Validate healAmount is not negative
         if (healAmount < 0) {
-            throw new IllegalArgumentException(INFO_HEALING_EXCEPTION);
+            throw new HealingException(INFO_HEALING_EXCEPTION);
         }
 
-        // Set to 100 if health will be more than 100 after healing.
+        // Set to 100 if health will be more than 100 after healing
         health = Math.min(100, health + healAmount);
     }
 
