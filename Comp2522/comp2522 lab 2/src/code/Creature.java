@@ -38,7 +38,7 @@ public class Creature {
      * @throws IllegalArgumentException if the name is invalid or dateOfBirth is in the
      *                                  future
      */
-    public Creature(String name, LocalDate dateOfBirth)
+    public Creature(final String name, final LocalDate dateOfBirth)
     {
         // Validate the name is not null or empty
         if (name == null || name.isBlank()) {
@@ -52,7 +52,7 @@ public class Creature {
 
         this.name = name;
         this.dateOfBirth = dateOfBirth;
-        this.health = 100;
+        health = 100;
     }
 
     /**
@@ -72,7 +72,7 @@ public class Creature {
      * @param damage the amount of damage to apply
      * @throws IllegalArgumentException if the damage is negative
      */
-    public void takeDamage(int damage)
+    public void takeDamage(final int damage)
     {
         // Validate damage is not negative
         if (damage < 0) {
@@ -89,7 +89,7 @@ public class Creature {
      * @param healAmount the amount of health to restore
      * @throws IllegalArgumentException if the heal amount is negative
      */
-    public void heal(int healAmount)
+    public void heal(final int healAmount)
     {
         // Validate healAmount is not negative
         if (healAmount < 0) {
@@ -107,7 +107,7 @@ public class Creature {
      */
     public int getAgeYears()
     {
-        return Period.between(this.dateOfBirth, LocalDate.now()).getYears();
+        return Period.between(dateOfBirth, LocalDate.now()).getYears();
     }
 
     /**
@@ -118,6 +118,11 @@ public class Creature {
      */
     public String getDetails()
     {
-        return String.format(DETAILS_TEMPLATE, name, dateOfBirth, getAgeYears(), health);
+        return String.format(
+                DETAILS_TEMPLATE,
+                name,
+                dateOfBirth,
+                getAgeYears(),
+                health);
     }
 }
