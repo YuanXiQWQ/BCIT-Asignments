@@ -1,19 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="2c7cdf06-853b-4b19-a048-33ec0fe5185b" name="更改" comment="" />
+    <list default="true" id="f6798b36-a3ad-4fae-bc03-ed0017078734" name="更改" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Exception" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 1
-}]]></component>
-  <component name="ProjectId" id="2lzH8IyEFdMGFlZluXGl9SiWjHF" />
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 1
+}</component>
+  <component name="ProjectId" id="2lzLwnRGaD3GmzoLSawuY0zqKh0" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -22,10 +38,11 @@
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "com.codeium.enabled": "true",
-    "git-widget-placeholder": "COMP2522Lab1",
+    "git-widget-placeholder": "COMP2522LAB2",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "F:/JerryCode/BCIT-Asignments/Comp2522/comp2522 lab 1",
-    "settings.editor.selected.configurable": "MavenSettings"
+    "settings.editor.selected.configurable": "MavenSettings",
+    "应用程序.CreatureTest.executor": "Run",
+    "应用程序.TestDragon.executor": "Run"
   }
 }]]></component>
   <component name="SharedIndexes">
@@ -38,12 +55,14 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="默认任务">
-      <changelist id="2c7cdf06-853b-4b19-a048-33ec0fe5185b" name="更改" comment="" />
-      <created>1726175823327</created>
+      <changelist id="f6798b36-a3ad-4fae-bc03-ed0017078734" name="更改" comment="" />
+      <created>1726178199951</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1726175823327</updated>
-      <workItem from="1726175824391" duration="211000" />
+      <updated>1726178199951</updated>
+      <workItem from="1726178200966" duration="1459000" />
+      <workItem from="1726194019440" duration="4149000" />
+      <workItem from="1726249119793" duration="5195000" />
     </task>
     <servers />
   </component>
