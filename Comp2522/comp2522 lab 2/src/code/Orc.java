@@ -46,6 +46,11 @@ public class Orc extends Creature {
         this.rage = rage;
     }
 
+    /**
+     * Returns the details of the orc.
+     *
+     * @return the details of the orc
+     */
     @Override
     public String getDetails()
     {

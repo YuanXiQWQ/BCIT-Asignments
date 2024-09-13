@@ -46,6 +46,11 @@ public class Elf extends Creature {
         this.mana = mana;
     }
 
+    /**
+     * Returns the details of the Elf.
+     *
+     * @return the details of the Elf
+     */
     @Override
     public String getDetails()
     {

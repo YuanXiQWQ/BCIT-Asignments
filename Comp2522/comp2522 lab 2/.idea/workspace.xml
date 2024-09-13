@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f6798b36-a3ad-4fae-bc03-ed0017078734" name="更改" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="f6798b36-a3ad-4fae-bc03-ed0017078734" name="更改" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -23,6 +21,31 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
+  <component name="GitToolBoxStore">
+    <option name="recentBranches">
+      <RecentBranches>
+        <option name="branchesForRepo">
+          <list>
+            <RecentBranchesForRepo>
+              <option name="branches">
+                <list>
+                  <RecentBranch>
+                    <option name="branchName" value="master" />
+                    <option name="lastUsedInstant" value="1726257177" />
+                  </RecentBranch>
+                  <RecentBranch>
+                    <option name="branchName" value="COMP2522LAB2" />
+                    <option name="lastUsedInstant" value="1726257176" />
+                  </RecentBranch>
+                </list>
+              </option>
+              <option name="repositoryRootUrl" value="file://$PROJECT_DIR$/../.." />
+            </RecentBranchesForRepo>
+          </list>
+        </option>
+      </RecentBranches>
+    </option>
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 1
 }</component>
@@ -38,8 +61,9 @@
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "com.codeium.enabled": "true",
-    "git-widget-placeholder": "COMP2522LAB2",
+    "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "F:/JerryCode/YuanXi-WarmNest/Git,GitHub/Others_Repo/baritone",
     "settings.editor.selected.configurable": "MavenSettings",
     "应用程序.CreatureTest.executor": "Run",
     "应用程序.TestDragon.executor": "Run"
@@ -63,6 +87,8 @@
       <workItem from="1726178200966" duration="1459000" />
       <workItem from="1726194019440" duration="4149000" />
       <workItem from="1726249119793" duration="5195000" />
+      <workItem from="1726257406000" duration="179000" />
+      <workItem from="1726290515259" duration="25000" />
     </task>
     <servers />
   </component>
