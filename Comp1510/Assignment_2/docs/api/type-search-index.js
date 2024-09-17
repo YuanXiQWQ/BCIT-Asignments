@@ -1,1 +1,0 @@
-typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"q1","l":"Cylinder"},{"p":"q4","l":"Exponential"},{"p":"q1","l":"MultiCylinder"},{"p":"q3","l":"Primes"},{"p":"q2","l":"Word"},{"p":"q2","l":"WordCounter"}];updateSearchResults();

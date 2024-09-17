@@ -1,0 +1,6 @@
+# ninja log v6
+1	231	7478733883738567	build.ninja	a2f563c9056ad17f
+3	104	7478731833495002	CMakeFiles/q3.dir/division_with_precision.c.obj	cea5a16dd3132fa1
+104	211	7478731834512243	q3.exe	95541b4cc91cf939
+3	118	7478734570604024	CMakeFiles/q3.dir/division_with_precision.c.obj	cea5a16dd3132fa1
+119	224	7478734571761599	q3.exe	95541b4cc91cf939

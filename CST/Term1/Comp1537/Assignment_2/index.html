@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Assignment 2</title>
+    <link rel="icon" type="images/x-icon"
+        href="https://www.minecraft.net/content/dam/games/minecraft/logos/VanillaLauncher.png">
+    <!-- Minecraft Logo from official website, just for fun -->
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        header,
+        footer {
+            color: #ffffff;
+            text-align: center;
+            background-color: #305420;
+            padding: 10px;
+        }
+
+        ul,
+        ol {
+            list-style-position: inside;
+            text-align: left;
+        }
+
+        p {
+            text-align: left;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid #305420;
+            border-collapse: collapse;
+            text-align: center;
+        }
+
+        table {
+            width: 50%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        span {
+            color: #c0a1f0;
+        }
+
+        /* Element selectors and Combinatory selectors check*/
+
+        #content {
+            background-color: #4f8335;
+            padding: 20px;
+        }
+
+        /* Class selectors check*/
+
+        .table-row {
+            background-color: #658b56;
+        }
+
+        /* ID selectors check*/
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Universal selectors check*/
+
+        img[alt] {
+            border: 1px solid #305420;
+        }
+
+        /* Attribute selectors check*/
+
+        table tr:nth-child(even) {
+            background-color: #96d46d;
+        }
+
+        /* Pseudo-classes check*/
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Minecraft fake official website</h1>
+        <hr>
+    </header>
+
+    <!-- header check-->
+
+    <div id="content">
+        <img src="https://www.minecraft.net/content/dam/games/minecraft/key-art/Java-Game-Image.png" alt="Minecraft"
+            height="150">
+
+        <!-- img check; I think maybe this image is better-->
+
+        <br>
+
+        <p>From our website, you will:</p>
+        <ul>
+            <li>
+                Get <b>nothing</b>
+            </li>
+            <li>
+                <span>Losssing</span> money
+            </li>
+            <li>
+                Will <i>NOT</i> get <abbr title="Minecraft">MC</abbr>
+            </li>
+        </ul>
+
+        <!-- p, span, b, i, ul check -->
+
+        <br>
+
+        <p>The stuff we are selling:</p>
+        <ol type="A">
+            <li>
+                Minecraft Java Edition
+            </li>
+            <li>
+                Minecraft Bedrock Edition
+            </li>
+        </ol>
+
+        <!-- ol check -->
+
+        Details
+        <table>
+            <tr class="table-row">
+                <th>
+                    Version
+                </th>
+                <th>
+                    Price(not real)
+                </th>
+                <th>
+                    Gift
+                </th>
+            </tr>
+            <!-- th check -->
+
+            <tr>
+                <td>
+                    Minecraft Java Edition
+                </td>
+                <td>
+                    $20
+                </td>
+                <td>
+                    Yes
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Minecraft Bedrock Edition
+                </td>
+                <td>
+                    $13
+                </td>
+                <td>
+                    No
+                </td>
+            </tr>
+        </table>
+
+        <!-- table check -->
+    </div>
+
+    <!-- div with id check -->
+
+    <footer>
+        <p>copyright: no copyright</p>
+    </footer>
+
+    <!-- footer check-->
+</body>
+
+<!-- body check-->
+
+</html>
