@@ -84,7 +84,7 @@ CMAKE_FIND_PACKAGE_REDIRECTS_DIR:STATIC=F:/JerryCode/BCIT-Asignments/CST/Term2/C
 CMAKE_GNUtoMS:BOOL=OFF
 
 //Install path prefix, prepended onto install directories.
-CMAKE_INSTALL_PREFIX:PATH=C:/Program Files (x86)/rotateArray
+CMAKE_INSTALL_PREFIX:PATH=C:/Program Files (x86)/Lab3
 
 //Path to a program.
 CMAKE_LINKER:FILEPATH=E:/JetBrains/CLion 2023.3.2/bin/mingw/bin/ld.exe
@@ -128,7 +128,7 @@ CMAKE_PROJECT_DESCRIPTION:STATIC=
 CMAKE_PROJECT_HOMEPAGE_URL:STATIC=
 
 //Value Computed by CMake
-CMAKE_PROJECT_NAME:STATIC=rotateArray
+CMAKE_PROJECT_NAME:STATIC=Lab3
 
 //Path to a program.
 CMAKE_RANLIB:FILEPATH=E:/JetBrains/CLion 2023.3.2/bin/mingw/bin/ranlib.exe
@@ -214,13 +214,13 @@ CMAKE_TAPI:FILEPATH=CMAKE_TAPI-NOTFOUND
 CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
 
 //Value Computed by CMake
-rotateArray_BINARY_DIR:STATIC=F:/JerryCode/BCIT-Asignments/CST/Term2/Comp2510/Lab3/cmake-build-debug
+Lab3_BINARY_DIR:STATIC=F:/JerryCode/BCIT-Asignments/CST/Term2/Comp2510/Lab3/cmake-build-debug
 
 //Value Computed by CMake
-rotateArray_IS_TOP_LEVEL:STATIC=ON
+Lab3_IS_TOP_LEVEL:STATIC=ON
 
 //Value Computed by CMake
-rotateArray_SOURCE_DIR:STATIC=F:/JerryCode/BCIT-Asignments/CST/Term2/Comp2510/Lab3
+Lab3_SOURCE_DIR:STATIC=F:/JerryCode/BCIT-Asignments/CST/Term2/Comp2510/Lab3
 
 
 ########################

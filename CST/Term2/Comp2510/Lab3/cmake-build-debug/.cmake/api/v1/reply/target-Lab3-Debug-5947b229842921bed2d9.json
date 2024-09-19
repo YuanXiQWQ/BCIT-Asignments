@@ -2,10 +2,10 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "rotateArray.exe"
+			"path" : "Lab3.exe"
 		},
 		{
-			"path" : "rotateArray.pdb"
+			"path" : "Lab3.pdb"
 		}
 	],
 	"backtrace" : 1,
@@ -56,7 +56,7 @@
 			]
 		}
 	],
-	"id" : "rotateArray::@6890427a1f51a3e7e1df",
+	"id" : "Lab3::@6890427a1f51a3e7e1df",
 	"link" : 
 	{
 		"commandFragments" : 
@@ -76,8 +76,8 @@
 		],
 		"language" : "C"
 	},
-	"name" : "rotateArray",
-	"nameOnDisk" : "rotateArray.exe",
+	"name" : "Lab3",
+	"nameOnDisk" : "Lab3.exe",
 	"paths" : 
 	{
 		"build" : ".",

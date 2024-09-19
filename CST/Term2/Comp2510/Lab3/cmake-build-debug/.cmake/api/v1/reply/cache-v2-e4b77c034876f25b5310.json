@@ -515,7 +515,7 @@
 				}
 			],
 			"type" : "PATH",
-			"value" : "C:/Program Files (x86)/rotateArray"
+			"value" : "C:/Program Files (x86)/Lab3"
 		},
 		{
 			"name" : "CMAKE_LINKER",
@@ -731,7 +731,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "rotateArray"
+			"value" : "Lab3"
 		},
 		{
 			"name" : "CMAKE_RANLIB",
@@ -1126,19 +1126,7 @@
 			"value" : "FALSE"
 		},
 		{
-			"name" : "_CMAKE_LINKER_PUSHPOP_STATE_SUPPORTED",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : "linker supports push/pop state"
-				}
-			],
-			"type" : "INTERNAL",
-			"value" : "TRUE"
-		},
-		{
-			"name" : "rotateArray_BINARY_DIR",
+			"name" : "Lab3_BINARY_DIR",
 			"properties" : 
 			[
 				{
@@ -1150,7 +1138,7 @@
 			"value" : "F:/JerryCode/BCIT-Asignments/CST/Term2/Comp2510/Lab3/cmake-build-debug"
 		},
 		{
-			"name" : "rotateArray_IS_TOP_LEVEL",
+			"name" : "Lab3_IS_TOP_LEVEL",
 			"properties" : 
 			[
 				{
@@ -1162,7 +1150,7 @@
 			"value" : "ON"
 		},
 		{
-			"name" : "rotateArray_SOURCE_DIR",
+			"name" : "Lab3_SOURCE_DIR",
 			"properties" : 
 			[
 				{
@@ -1172,6 +1160,18 @@
 			],
 			"type" : "STATIC",
 			"value" : "F:/JerryCode/BCIT-Asignments/CST/Term2/Comp2510/Lab3"
+		},
+		{
+			"name" : "_CMAKE_LINKER_PUSHPOP_STATE_SUPPORTED",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "linker supports push/pop state"
+				}
+			],
+			"type" : "INTERNAL",
+			"value" : "TRUE"
 		}
 	],
 	"kind" : "cache",

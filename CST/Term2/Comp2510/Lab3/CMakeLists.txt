@@ -1,7 +1,6 @@
 cmake_minimum_required(VERSION 3.28)
-project(rotateArray C)
+project(Lab3 C)
 
 set(CMAKE_C_STANDARD 11)
 
-add_executable(rotateArray Lab3.c
-        Lab3.c)
+add_executable(Lab3 Lab3.c)

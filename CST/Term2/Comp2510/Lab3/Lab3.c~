@@ -83,7 +83,7 @@ int main(int argc, char **argv) {
     }
 
     // Set the rotation angle
-    n = 90; // Change this to test different angles
+    n = 450; // Change this to test different angles
 
     printf("========INPUT=======\n");
     for (i = 0; i < 5; i++) {
