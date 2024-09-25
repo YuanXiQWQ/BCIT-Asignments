@@ -19,7 +19,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../.." />
   </component>
   <component name="GitToolBoxStore">
     <option name="recentBranches">
@@ -57,18 +57,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "com.codeium.enabled": "true",
-    "git-widget-placeholder": "master",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "F:/JerryCode/YuanXi-WarmNest/Git,GitHub/Others_Repo/baritone",
-    "settings.editor.selected.configurable": "MavenSettings",
-    "应用程序.CreatureTest.executor": "Run",
-    "应用程序.TestDragon.executor": "Run"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;com.codeium.enabled&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;COMP2510Lab3&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;F:/JerryCode/BCIT-Asignments/CST/Term2/Comp2522/comp2522 lab 2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;MavenSettings&quot;,
+    &quot;应用程序.CreatureTest.executor&quot;: &quot;Run&quot;,
+    &quot;应用程序.TestDragon.executor&quot;: &quot;Run&quot;
   }
-}]]></component>
+}</component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -89,6 +89,9 @@
       <workItem from="1726249119793" duration="5195000" />
       <workItem from="1726257406000" duration="179000" />
       <workItem from="1726290515259" duration="25000" />
+      <workItem from="1726782481288" duration="579000" />
+      <workItem from="1726787742100" duration="15000" />
+      <workItem from="1726787766999" duration="298000" />
     </task>
     <servers />
   </component>
