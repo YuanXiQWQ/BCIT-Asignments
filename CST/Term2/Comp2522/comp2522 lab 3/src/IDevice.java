@@ -1,4 +1,13 @@
 /**
+ * Represents a generic device with a specific purpose. This is the parent class for all
+ * iDevices such as iPod, iPad, and iPhone. It contains a method to get the purpose and an
+ * abstract method to print details.
+ *
+ * <p>
+ * Each subclass must implement the abstract method `printDetails()` to display their
+ * specific information.
+ * </p>
+ *
  * @author Daniel Wang
  * @author Jack Le
  * @author Jiarui Xing
@@ -41,11 +50,5 @@ public abstract class IDevice {
     public String toString()
     {
         return "Purpose: " + purpose;
-    }
-
-    @Override
-    public int hashCode()
-    {
-        return purpose.hashCode();
     }
 }
