@@ -4,7 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d6a80070-ff40-4cdd-8998-806e352b2603" name="更改" comment="" />
+    <list default="true" id="d6a80070-ff40-4cdd-8998-806e352b2603" name="更改" comment="">
+      <change beforePath="$PROJECT_DIR$/../../Comp2510/Lab4/cmake-build-debug/.cmake/api/v1/reply/cache-v2-f57f17a3b06ce8450e35.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Comp2510/Lab4/cmake-build-debug/.cmake/api/v1/reply/cmakeFiles-v1-82ad56ce4737abb022b2.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Comp2510/Lab4/cmake-build-debug/.cmake/api/v1/reply/codemodel-v2-6afedcbfbf22ba32e1d6.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Comp2510/Lab4/cmake-build-debug/.cmake/api/v1/reply/index-2024-09-26T19-29-26-0902.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Comp2510/Lab4/cmake-build-debug/.ninja_deps" beforeDir="false" afterPath="$PROJECT_DIR$/../../Comp2510/Lab4/cmake-build-debug/.ninja_deps" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Comp2510/Lab4/cmake-build-debug/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/../../Comp2510/Lab4/cmake-build-debug/.ninja_log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Comp2510/Lab4/cmake-build-debug/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../Comp2510/Lab4/cmake-build-debug/CMakeCache.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Comp2510/Lab4/cmake-build-debug/CMakeFiles/CMakeConfigureLog.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Comp2510/Lab4/cmake-build-debug/CMakeFiles/CMakeConfigureLog.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Comp2510/Lab4/cmake-build-debug/CMakeFiles/Lab4.dir/lab4.c.obj" beforeDir="false" afterPath="$PROJECT_DIR$/../../Comp2510/Lab4/cmake-build-debug/CMakeFiles/Lab4.dir/lab4.c.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Comp2510/Lab4/cmake-build-debug/CMakeFiles/clion-Debug-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../Comp2510/Lab4/cmake-build-debug/CMakeFiles/clion-Debug-log.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Comp2510/Lab4/cmake-build-debug/CMakeFiles/rules.ninja" beforeDir="false" afterPath="$PROJECT_DIR$/../../Comp2510/Lab4/cmake-build-debug/CMakeFiles/rules.ninja" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Comp2510/Lab4/cmake-build-debug/Lab4.exe" beforeDir="false" afterPath="$PROJECT_DIR$/../../Comp2510/Lab4/cmake-build-debug/Lab4.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Comp2510/Lab4/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/../../Comp2510/Lab4/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Comp2510/Lab4/cmake-build-debug/build.ninja" beforeDir="false" afterPath="$PROJECT_DIR$/../../Comp2510/Lab4/cmake-build-debug/build.ninja" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Comp2510/Lab4/lab4.c" beforeDir="false" afterPath="$PROJECT_DIR$/../../Comp2510/Lab4/lab4.c" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -62,6 +78,7 @@
     "com.codeium.enabled": "true",
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "F:/JerryCode/BCIT-Asignments/CST/Term2/Comp2522/comp2522 lab 1",
     "settings.editor.selected.configurable": "preferences.sourceCode.Java"
   }
 }]]></component>
@@ -81,7 +98,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-28b599e66164-intellij.indexing.shared.core-IU-242.22855.74" />
+        <option value="bundled-jdk-9823dce3aa75-28b599e66164-intellij.indexing.shared.core-IU-242.23339.11" />
       </set>
     </attachedChunks>
   </component>
@@ -96,6 +113,7 @@
       <workItem from="1726788071229" duration="95000" />
       <workItem from="1726788218239" duration="2736000" />
       <workItem from="1727271314920" duration="9000" />
+      <workItem from="1727387015238" duration="28000" />
     </task>
     <servers />
   </component>

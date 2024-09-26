@@ -78,6 +78,7 @@ int playGame(int *totalGames, int *wins, int *losses) {
         } else {
             printf("Congratulations! You guessed the number in %d attempts.\n", attempts);
             displayGuesses(guesses, attempts);
+            // Increment wins and total games
             (*wins)++;
             (*totalGames)++;
             return 1;

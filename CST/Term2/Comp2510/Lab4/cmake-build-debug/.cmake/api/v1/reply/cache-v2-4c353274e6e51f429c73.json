@@ -79,7 +79,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "28"
+			"value" : "29"
 		},
 		{
 			"name" : "CMAKE_CACHE_PATCH_VERSION",
@@ -91,7 +91,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "1"
+			"value" : "6"
 		},
 		{
 			"name" : "CMAKE_COLOR_DIAGNOSTICS",
@@ -154,7 +154,7 @@
 					"value" : "C compiler"
 				}
 			],
-			"type" : "FILEPATH",
+			"type" : "STRING",
 			"value" : "E:/JetBrains/CLion 2023.3.2/bin/mingw/bin/gcc.exe"
 		},
 		{
@@ -883,7 +883,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "E:/JetBrains/CLion 2023.3.2/bin/cmake/win/x64/share/cmake-3.28"
+			"value" : "E:/JetBrains/CLion 2023.3.2/bin/cmake/win/x64/share/cmake-3.29"
 		},
 		{
 			"name" : "CMAKE_SHARED_LINKER_FLAGS",
