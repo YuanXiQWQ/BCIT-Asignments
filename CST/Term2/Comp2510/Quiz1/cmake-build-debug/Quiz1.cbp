@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="Quiz1"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="F:/JerryCode/BCIT-Asignments/CST/Term2/Comp2510/Quiz1/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="E:/JetBrains/CLion 2023.3.2/bin/mingw/bin/mingw32-make.exe -f &quot;F:/JerryCode/BCIT-Asignments/CST/Term2/Comp2510/Quiz1/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="E:/JetBrains/CLion 2023.3.2/bin/mingw/bin/mingw32-make.exe -f &quot;F:/JerryCode/BCIT-Asignments/CST/Term2/Comp2510/Quiz1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="E:/JetBrains/CLion 2023.3.2/bin/mingw/bin/mingw32-make.exe -f &quot;F:/JerryCode/BCIT-Asignments/CST/Term2/Comp2510/Quiz1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="E:/JetBrains/CLion 2023.3.2/bin/mingw/bin/mingw32-make.exe -f &quot;F:/JerryCode/BCIT-Asignments/CST/Term2/Comp2510/Quiz1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Quiz1">
+				<Option output="F:/JerryCode/BCIT-Asignments/CST/Term2/Comp2510/Quiz1/cmake-build-debug/Quiz1.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="F:/JerryCode/BCIT-Asignments/CST/Term2/Comp2510/Quiz1/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="E:/JetBrains/CLion 2023.3.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include"/>
+					<Add directory="E:/JetBrains/CLion 2023.3.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../include"/>
+					<Add directory="E:/JetBrains/CLion 2023.3.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include-fixed"/>
+					<Add directory="E:/JetBrains/CLion 2023.3.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="E:/JetBrains/CLion 2023.3.2/bin/mingw/bin/mingw32-make.exe -f &quot;F:/JerryCode/BCIT-Asignments/CST/Term2/Comp2510/Quiz1/cmake-build-debug/Makefile&quot;  VERBOSE=1 Quiz1"/>
+					<CompileFile command="E:/JetBrains/CLion 2023.3.2/bin/mingw/bin/mingw32-make.exe -f &quot;F:/JerryCode/BCIT-Asignments/CST/Term2/Comp2510/Quiz1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="E:/JetBrains/CLion 2023.3.2/bin/mingw/bin/mingw32-make.exe -f &quot;F:/JerryCode/BCIT-Asignments/CST/Term2/Comp2510/Quiz1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="E:/JetBrains/CLion 2023.3.2/bin/mingw/bin/mingw32-make.exe -f &quot;F:/JerryCode/BCIT-Asignments/CST/Term2/Comp2510/Quiz1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Quiz1/fast">
+				<Option output="F:/JerryCode/BCIT-Asignments/CST/Term2/Comp2510/Quiz1/cmake-build-debug/Quiz1.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="F:/JerryCode/BCIT-Asignments/CST/Term2/Comp2510/Quiz1/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="E:/JetBrains/CLion 2023.3.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include"/>
+					<Add directory="E:/JetBrains/CLion 2023.3.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../include"/>
+					<Add directory="E:/JetBrains/CLion 2023.3.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include-fixed"/>
+					<Add directory="E:/JetBrains/CLion 2023.3.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="E:/JetBrains/CLion 2023.3.2/bin/mingw/bin/mingw32-make.exe -f &quot;F:/JerryCode/BCIT-Asignments/CST/Term2/Comp2510/Quiz1/cmake-build-debug/Makefile&quot;  VERBOSE=1 Quiz1/fast"/>
+					<CompileFile command="E:/JetBrains/CLion 2023.3.2/bin/mingw/bin/mingw32-make.exe -f &quot;F:/JerryCode/BCIT-Asignments/CST/Term2/Comp2510/Quiz1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="E:/JetBrains/CLion 2023.3.2/bin/mingw/bin/mingw32-make.exe -f &quot;F:/JerryCode/BCIT-Asignments/CST/Term2/Comp2510/Quiz1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="E:/JetBrains/CLion 2023.3.2/bin/mingw/bin/mingw32-make.exe -f &quot;F:/JerryCode/BCIT-Asignments/CST/Term2/Comp2510/Quiz1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="F:/JerryCode/BCIT-Asignments/CST/Term2/Comp2510/Quiz1/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="E:/JetBrains/CLion 2023.3.2/bin/mingw/bin/mingw32-make.exe -f &quot;F:/JerryCode/BCIT-Asignments/CST/Term2/Comp2510/Quiz1/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="E:/JetBrains/CLion 2023.3.2/bin/mingw/bin/mingw32-make.exe -f &quot;F:/JerryCode/BCIT-Asignments/CST/Term2/Comp2510/Quiz1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="E:/JetBrains/CLion 2023.3.2/bin/mingw/bin/mingw32-make.exe -f &quot;F:/JerryCode/BCIT-Asignments/CST/Term2/Comp2510/Quiz1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="E:/JetBrains/CLion 2023.3.2/bin/mingw/bin/mingw32-make.exe -f &quot;F:/JerryCode/BCIT-Asignments/CST/Term2/Comp2510/Quiz1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="F:/JerryCode/BCIT-Asignments/CST/Term2/Comp2510/Quiz1/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="E:/JetBrains/CLion 2023.3.2/bin/mingw/bin/mingw32-make.exe -f &quot;F:/JerryCode/BCIT-Asignments/CST/Term2/Comp2510/Quiz1/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="E:/JetBrains/CLion 2023.3.2/bin/mingw/bin/mingw32-make.exe -f &quot;F:/JerryCode/BCIT-Asignments/CST/Term2/Comp2510/Quiz1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="E:/JetBrains/CLion 2023.3.2/bin/mingw/bin/mingw32-make.exe -f &quot;F:/JerryCode/BCIT-Asignments/CST/Term2/Comp2510/Quiz1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="E:/JetBrains/CLion 2023.3.2/bin/mingw/bin/mingw32-make.exe -f &quot;F:/JerryCode/BCIT-Asignments/CST/Term2/Comp2510/Quiz1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="F:/JerryCode/BCIT-Asignments/CST/Term2/Comp2510/Quiz1/quiz1.c">
+			<Option target="Quiz1"/>
+		</Unit>
+		<Unit filename="F:/JerryCode/BCIT-Asignments/CST/Term2/Comp2510/Quiz1/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

@@ -1,0 +1,3 @@
+"E:\JetBrains\CLion 2023.3.2\bin\cmake\win\x64\bin\cmake.exe" -E rm -f CMakeFiles\Quiz1.dir/objects.a
+"E:\JetBrains\CLion 2023.3.2\bin\mingw\bin\ar.exe" qc CMakeFiles\Quiz1.dir/objects.a @CMakeFiles\Quiz1.dir\objects1.rsp
+"E:\JetBrains\CLion 2023.3.2\bin\mingw\bin\gcc.exe" -g -Wl,--whole-archive CMakeFiles\Quiz1.dir/objects.a -Wl,--no-whole-archive -o Quiz1.exe -Wl,--out-implib,libQuiz1.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\Quiz1.dir\linkLibs.rsp
