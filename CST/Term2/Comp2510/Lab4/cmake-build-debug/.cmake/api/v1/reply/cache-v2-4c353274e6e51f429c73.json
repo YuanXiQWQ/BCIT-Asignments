@@ -55,7 +55,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "f:/JerryCode/BCIT-Asignments/CST/Term2/Comp2510/Quiz1/cmake-build-debug"
+			"value" : "f:/JerryCode/BCIT-Asignments/CST/Term2/Comp2510/Lab4/cmake-build-debug"
 		},
 		{
 			"name" : "CMAKE_CACHE_MAJOR_VERSION",
@@ -79,7 +79,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "28"
+			"value" : "29"
 		},
 		{
 			"name" : "CMAKE_CACHE_PATCH_VERSION",
@@ -91,7 +91,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "1"
+			"value" : "6"
 		},
 		{
 			"name" : "CMAKE_COLOR_DIAGNOSTICS",
@@ -154,7 +154,7 @@
 					"value" : "C compiler"
 				}
 			],
-			"type" : "FILEPATH",
+			"type" : "STRING",
 			"value" : "E:/JetBrains/CLion 2023.3.2/bin/mingw/bin/gcc.exe"
 		},
 		{
@@ -431,7 +431,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "F:/JerryCode/BCIT-Asignments/CST/Term2/Comp2510/Quiz1/cmake-build-debug/CMakeFiles/pkgRedirects"
+			"value" : "F:/JerryCode/BCIT-Asignments/CST/Term2/Comp2510/Lab4/cmake-build-debug/CMakeFiles/pkgRedirects"
 		},
 		{
 			"name" : "CMAKE_GENERATOR",
@@ -503,7 +503,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "F:/JerryCode/BCIT-Asignments/CST/Term2/Comp2510/Quiz1"
+			"value" : "F:/JerryCode/BCIT-Asignments/CST/Term2/Comp2510/Lab4"
 		},
 		{
 			"name" : "CMAKE_INSTALL_PREFIX",
@@ -515,7 +515,7 @@
 				}
 			],
 			"type" : "PATH",
-			"value" : "C:/Program Files (x86)/Quiz1"
+			"value" : "C:/Program Files (x86)/Lab4"
 		},
 		{
 			"name" : "CMAKE_LINKER",
@@ -731,7 +731,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "Quiz1"
+			"value" : "Lab4"
 		},
 		{
 			"name" : "CMAKE_RANLIB",
@@ -883,7 +883,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "E:/JetBrains/CLion 2023.3.2/bin/cmake/win/x64/share/cmake-3.28"
+			"value" : "E:/JetBrains/CLion 2023.3.2/bin/cmake/win/x64/share/cmake-3.29"
 		},
 		{
 			"name" : "CMAKE_SHARED_LINKER_FLAGS",
@@ -1126,7 +1126,7 @@
 			"value" : "FALSE"
 		},
 		{
-			"name" : "Quiz1_BINARY_DIR",
+			"name" : "Lab4_BINARY_DIR",
 			"properties" : 
 			[
 				{
@@ -1135,10 +1135,10 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "F:/JerryCode/BCIT-Asignments/CST/Term2/Comp2510/Quiz1/cmake-build-debug"
+			"value" : "F:/JerryCode/BCIT-Asignments/CST/Term2/Comp2510/Lab4/cmake-build-debug"
 		},
 		{
-			"name" : "Quiz1_IS_TOP_LEVEL",
+			"name" : "Lab4_IS_TOP_LEVEL",
 			"properties" : 
 			[
 				{
@@ -1150,7 +1150,7 @@
 			"value" : "ON"
 		},
 		{
-			"name" : "Quiz1_SOURCE_DIR",
+			"name" : "Lab4_SOURCE_DIR",
 			"properties" : 
 			[
 				{
@@ -1159,7 +1159,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "F:/JerryCode/BCIT-Asignments/CST/Term2/Comp2510/Quiz1"
+			"value" : "F:/JerryCode/BCIT-Asignments/CST/Term2/Comp2510/Lab4"
 		},
 		{
 			"name" : "_CMAKE_LINKER_PUSHPOP_STATE_SUPPORTED",
