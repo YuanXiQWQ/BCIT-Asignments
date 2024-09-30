@@ -19,7 +19,7 @@ public class Author extends Person implements Printable {
      * genre.
      *
      * @param name        the name of the author, must not be null
-     * @param dateOfBirth the birth date, must not be null
+     * @param dateOfBirth the birthdate, must not be null
      * @param dateOfDeath the death date, can be null
      * @param genre       the genre of the author, must not be null, blank, and less than
      *                    30 characters
@@ -63,11 +63,13 @@ public class Author extends Person implements Printable {
     @Override
     public boolean equals(Object obj)
     {
-        if(this == obj) return true;
-        if(!(obj instanceof Author)) return false;
-        if(!super.equals(obj)) return false;
-        Author other = (Author) obj;
-        return genre.equals(other.genre);
+        if(this == obj) {
+            return true;
+        }
+        if(!(obj instanceof Author other)) {
+            return false;
+        }
+        return this.getName().equals(other.getName()) && this.genre.equals(other.genre);
     }
 
     /**

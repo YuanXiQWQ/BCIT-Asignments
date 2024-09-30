@@ -69,10 +69,7 @@ public class Author extends Person implements Printable {
         if(!(obj instanceof Author other)) {
             return false;
         }
-        if(!super.equals(obj)) {
-            return false;
-        }
-        return genre.equals(other.genre);
+        return this.getName().equals(other.getName()) && this.genre.equals(other.genre);
     }
 
     /**
@@ -83,6 +80,6 @@ public class Author extends Person implements Printable {
     @Override
     public int hashCode()
     {
-        return Objects.hash(super.hashCode(), genre);
+        return Objects.hash(getName(), genre);
     }
 }

@@ -1,182 +1,239 @@
 package bookstore;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-
 /**
- * The main class to simulate the Enhanced Bookstore System.
+ * Represents a date with year, month, and day.
  *
- * @author Daniel
- * @author Jack
- * @author Jiarui
- * @author Uppnoor
+ * @author Daniel Wang
+ * @author Jack Le
+ * @author Jiarui Xing
+ * @author Uppnoor Panesar
  * @version 1.0
  */
-public class Main {
-    public static void main(String[] args)
+public record Date(int year, int month, int day) implements Printable {
+    private static final int SATURDAY = 0;
+    private static final int SUNDAY = 1;
+    private static final int MONDAY = 2;
+    private static final int TUESDAY = 3;
+    private static final int WEDNESDAY = 4;
+    private static final int THURSDAY = 5;
+    private static final int FRIDAY = 6;
+
+    /**
+     * Constructs a Date object with the specified year, month, and day.
+     *
+     * @param year  the year, must be between 1600 and the current year
+     * @param month the month, must be between 1 and 12
+     * @param day   the day, must be valid for the given month and year
+     * @throws IllegalArgumentException if any argument is invalid
+     */
+    public Date
     {
-        try {
-            // Create Authors
-            Author georgeOrwell = new Author(new Name("George", "Orwell"),
-                    new Date(1903, 6, 25), null, "Dystopian");
-            Author harperLee = new Author(new Name("Harper", "Lee"),
-                    new Date(1926, 4, 28), new Date(2016, 2, 19), "Southern Gothic");
-            Author janeAusten = new Author(new Name("Jane", "Austen"),
-                    new Date(1775, 12, 16), new Date(1817, 7, 18), "Romance");
-            Author fScottFitzgerald = new Author(new Name("F. Scott", "Fitzgerald"),
-                    new Date(1896, 9, 24), new Date(1940, 12, 21), "Tragedy");
-            Author hermanMelville = new Author(new Name("Herman", "Melville"),
-                    new Date(1819, 8, 1), new Date(1891, 9, 28), "Adventure");
-
-            // Create Books
-            Book book1 = new Book("1984", 1949, georgeOrwell);
-            Book book2 = new Book("To Kill a Mockingbird", 1960, harperLee);
-            Book book3 = new Book("Pride and Prejudice", 1813, janeAusten);
-            Book book4 = new Book("The Great Gatsby", 1925, fScottFitzgerald);
-            Book book5 = new Book("Moby-Dick", 1851, hermanMelville);
-
-            // Create Persons for Biographies
-            Person robertMoses = new Person(new Name("Robert", "Moses"),
-                    new Date(1888, 7, 18), new Date(1981, 2, 29));
-            Person steveJobs = new Person(new Name("Steve", "Jobs"),
-                    new Date(1955, 2, 24), new Date(2011, 10, 5));
-            Person winstonChurchill = new Person(new Name("Winston", "Churchill"),
-                    new Date(1874, 11, 30), new Date(1965, 1, 24));
-            Person alexanderHamilton = new Person(new Name("Alexander", "Hamilton"),
-                    new Date(1755, 1, 11), new Date(1804, 7, 12));
-            Person albertEinstein = new Person(new Name("Albert", "Einstein"),
-                    new Date(1879, 3, 14), new Date(1955, 4, 18));
-
-            // Create Authors for Biographies
-            Author robertCaro = new Author(new Name("Robert", "Caro"),
-                    new Date(1935, 10, 30), null, "Political Biography");
-            Author walterIsaacson = new Author(new Name("Walter", "Isaacson"),
-                    new Date(1952, 5, 20), null, "Biography");
-            Author martinGilbert = new Author(new Name("Martin", "Gilbert"),
-                    new Date(1936, 2, 20), new Date(2015, 1, 2), "Historical Biography");
-            Author ronChernow = new Author(new Name("Ron", "Chernow"),
-                    new Date(1949, 3, 3), null, "Biography");
-
-            // Create Biographies
-            Biography bio1 =
-                    new Biography("The Power Broker", 1974, robertCaro, robertMoses);
-            Biography bio2 = new Biography("Steve Jobs", 2011, walterIsaacson, steveJobs);
-            Biography bio3 = new Biography("Churchill: A Life", 1991, martinGilbert,
-                    winstonChurchill);
-            Biography bio4 = new Biography("Alexander Hamilton", 2004, ronChernow,
-                    alexanderHamilton);
-            Biography bio5 =
-                    new Biography("Einstein: His Life and Universe", 2007, walterIsaacson,
-                            albertEinstein);
-
-            // Create Authors for Autobiographies
-            Author anneFrank = new Author(new Name("Anne", "Frank"),
-                    new Date(1929, 6, 12), new Date(1945, 3, 1), "Autobiography");
-            Author nelsonMandela = new Author(new Name("Nelson", "Mandela"),
-                    new Date(1918, 7, 18), new Date(2013, 12, 5), "Autobiography");
-            Author mahatmaGandhi = new Author(new Name("Mahatma", "Gandhi"),
-                    new Date(1869, 10, 2), new Date(1948, 1, 30), "Autobiography");
-            Author mayaAngelou = new Author(new Name("Maya", "Angelou"),
-                    new Date(1928, 4, 4), new Date(2014, 5, 28), "Autobiography");
-
-            // Create Composite Author for Autobiography of Malcolm X
-            Author malcolmXAndAlexHaley =
-                    new Author(new Name("Malcolm X and Alex", "Haley"),
-                            new Date(1925, 5, 19), new Date(1965, 2, 21),
-                            "Autobiography");
-
-            // Create Autobiographies
-            Autobiography auto1 =
-                    new Autobiography("The Diary of a Young Girl", 1947, anneFrank);
-            Autobiography auto2 =
-                    new Autobiography("Long Walk to Freedom", 1994, nelsonMandela);
-            Autobiography auto3 =
-                    new Autobiography("The Story of My Experiments with Truth", 1927,
-                            mahatmaGandhi);
-            Autobiography auto4 =
-                    new Autobiography("I Know Why the Caged Bird Sings", 1969,
-                            mayaAngelou);
-            Autobiography auto5 = new Autobiography("Autobiography of Malcolm X", 1965,
-                    malcolmXAndAlexHaley);
-
-            // Collect all books, biographies, and autobiographies
-            List<Book> books = new ArrayList<>();
-            Collections.addAll(books, book1, book2, book3, book4, book5);
-
-            List<Biography> biographies = new ArrayList<>();
-            Collections.addAll(biographies, bio1, bio2, bio3, bio4, bio5);
-
-            List<Autobiography> autobiographies = new ArrayList<>();
-            Collections.addAll(autobiographies, auto1, auto2, auto3, auto4, auto5);
-
-            // Display all books
-            System.out.println("=== Books ===");
-            for(Book book : books) {
-                book.display();
-                book.backward();
-                System.out.println();
-            }
-
-            // Display all biographies
-            System.out.println("=== Biographies ===");
-            for(Biography bio : biographies) {
-                bio.display();
-                bio.backward();
-                System.out.println();
-            }
-
-            // Display all autobiographies
-            System.out.println("=== Autobiographies ===");
-            for(Autobiography auto : autobiographies) {
-                auto.display();
-                auto.backward();
-                System.out.println();
-            }
-
-            // Perform comparisons
-            System.out.println("=== Comparisons ===");
-
-            // Compare books by publication year
-            Collections.sort(books);
-            System.out.println("Books sorted by publication year:");
-            for(Book book : books) {
-                System.out.println(
-                        book.getTitle() + " (" + book.getYearPublished() + ")");
-            }
-            System.out.println();
-
-            // Compare authors by birthdate
-            List<Author> authors = new ArrayList<>();
-            authors.add(georgeOrwell);
-            authors.add(harperLee);
-            authors.add(janeAusten);
-            authors.add(fScottFitzgerald);
-            authors.add(hermanMelville);
-            Collections.sort(authors);
-            System.out.println("Authors sorted by birth year:");
-            for(Author author : authors) {
-                System.out.println(author.getName().getFullName() + " (" +
-                        author.getDateOfBirth().getYear() + ")");
-            }
-            System.out.println();
-
-            // Compare biographies by subjects
-            biographies.sort((b1, b2) -> b1.getSubject().compareTo(b2.getSubject()));
-            System.out.println("Biographies sorted by subjects' birth year:");
-            for(Biography bio : biographies) {
-                System.out.println(bio.getTitle() + " about " +
-                        bio.getSubject().getName().getFullName()
-                        + " (" + bio.getSubject().getDateOfBirth().getYear() + ")");
-            }
-            System.out.println();
-
-            // Example of equals() method
-            System.out.println("=== Equality Checks ===");
-            System.out.println("bio1 equals bio2: " + bio1.equals(bio2));
-            System.out.println("auto1 equals auto2: " + auto1.equals(auto2));
-        } catch(IllegalArgumentException e) {
-            System.err.println("Error creating objects: " + e.getMessage());
+        int currentYear = java.time.Year.now().getValue();
+        if(year < 1600 || year > currentYear) {
+            throw new IllegalArgumentException(
+                    "Year must be between 1600 and " + currentYear);
         }
+        if(month < 1 || month > 12) {
+            throw new IllegalArgumentException("Month must be between 1 and 12.");
+        }
+        if(day < 1 || day > daysInMonth(year, month)) {
+            throw new IllegalArgumentException(
+                    "Invalid day for the given month and year.");
+        }
+    }
+
+    /**
+     * Returns the day of the month.
+     *
+     * @return the day
+     */
+    @Override
+    public int day()
+    {
+        return day;
+    }
+
+    /**
+     * Returns the month.
+     *
+     * @return the month
+     */
+    @Override
+    public int month()
+    {
+        return month;
+    }
+
+    /**
+     * Returns the year.
+     *
+     * @return the year
+     */
+    @Override
+    public int year()
+    {
+        return year;
+    }
+
+    /**
+     * Returns the date in YYYY-MM-DD format.
+     *
+     * @return the formatted date
+     */
+    public String getYYYYMMDD()
+    {
+        return String.format("%04d-%02d-%02d", year, month, day);
+    }
+
+    /**
+     * Calculates and returns the day of the week.
+     *
+     * @return the day of the week as a string (e.g., "Monday")
+     */
+    public String getDayOfTheWeek()
+    {
+        int code = calculateDayOfWeek();
+        return switch(code) {
+            case SATURDAY -> "Saturday";
+            case SUNDAY -> "Sunday";
+            case MONDAY -> "Monday";
+            case TUESDAY -> "Tuesday";
+            case WEDNESDAY -> "Wednesday";
+            case THURSDAY -> "Thursday";
+            case FRIDAY -> "Friday";
+            default -> "Unknown";
+        };
+    }
+
+    /**
+     * Displays the date in a formatted manner.
+     */
+    @Override
+    public void display()
+    {
+        System.out.println(getYYYYMMDD());
+    }
+
+    /**
+     * Helper method to determine the number of days in a given month.
+     *
+     * @param year  the year
+     * @param month the month
+     * @return the number of days in the month
+     */
+    private int daysInMonth(int year, int month)
+    {
+        return switch(month) {
+            case 2 -> (isLeapYear(year)) ? 29 : 28;
+            case 4, 6, 9, 11 -> 30;
+            default -> 31;
+        };
+    }
+
+    /**
+     * Helper method to determine if a year is a leap year.
+     *
+     * @param year the year
+     * @return true if leap year, false otherwise
+     */
+    private boolean isLeapYear(int year)
+    {
+        return (year % 4 == 0 && (year % 100 != 0 || year % 400 == 0));
+    }
+
+    /**
+     * Calculates the day of the week based on the specified algorithm.
+     *
+     * @return the day of the week code
+     */
+    private int calculateDayOfWeek()
+    {
+        int number = 0;
+        // Step 0: Adjust based on the century
+        if(year >= 1600 && year < 1700) {
+            number += 6;
+        } else if(year >= 1700 && year < 1800) {
+            number += 4;
+        } else if(year >= 1800 && year < 1900) {
+            number += 2;
+        } else if(year >= 2000) {
+            number += 6;
+        }
+
+        int yy = year % 100;
+        // Step 1: Calculate the number of twelves in the last two digits
+        number += yy / 12;
+        // Step 2: Remainder after removing twelves
+        number += yy % 12;
+        // Step 3: Number of fours in the remainder
+        number += (yy % 12) / 4;
+        // Step 4: Add the day of the month
+        number += day;
+        // Step 5: Add the month code
+        number += getMonthCode(month, isLeapYear(year));
+        // Step 6: Modulo 7
+        number %= 7;
+        return number;
+    }
+
+    /**
+     * Returns the month code based on the month and leap year status.
+     *
+     * @param month  the month
+     * @param isLeap whether it's a leap year
+     * @return the month code
+     */
+    private int getMonthCode(int month, boolean isLeap)
+    {
+        // Month codes: jfmamjjasond: 1,4,4,0,2,5,0,3,6,1,4,6
+        int[] monthCodes = {1, 4, 4, 0, 2, 5, 0, 3, 6, 1, 4, 6};
+        int code = monthCodes[month - 1];
+        // Adjust for January and February in leap years
+        if(isLeap && (month == 1 || month == 2)) {
+            code += 6;
+        }
+        return code;
+    }
+
+    /**
+     * Overrides equals to compare year, month, and day.
+     *
+     * @param obj the object to compare
+     * @return true if dates are equal, false otherwise
+     */
+    @Override
+    public boolean equals(Object obj)
+    {
+        if(this == obj) {
+            return true;
+        }
+        if(!(obj instanceof Date other)) {
+            return false;
+        }
+        return year == other.year && month == other.month && day == other.day;
+    }
+
+    /**
+     * Returns a string representation of the date.
+     *
+     * @return the formatted date string
+     */
+    @Override
+    public String toString()
+    {
+        return getDayOfTheWeek() + ", " + getMonthName() + " " + day + ", " + year;
+    }
+
+    /**
+     * Returns the month name based on the month number.
+     *
+     * @return the month name
+     */
+    private String getMonthName()
+    {
+        String[] months =
+                {"January", "February", "March", "April", "May", "June", "July", "August",
+                        "September", "October", "November", "December"};
+        return months[month - 1];
     }
 }

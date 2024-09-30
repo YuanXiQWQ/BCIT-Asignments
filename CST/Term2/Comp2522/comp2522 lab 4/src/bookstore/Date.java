@@ -156,6 +156,8 @@ public record Date(int year, int month, int day) implements Printable {
             number += 4;
         } else if(year >= 1800 && year < 1900) {
             number += 2;
+        } else if(year >= 1900 && year < 2000) {
+            number += 0;
         } else if(year >= 2000) {
             number += 6;
         }
