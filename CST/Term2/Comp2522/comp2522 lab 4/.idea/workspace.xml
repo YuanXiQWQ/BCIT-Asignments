@@ -4,7 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b4f38f25-ae9f-4924-bfef-875a21802092" name="更改" comment="" />
+    <list default="true" id="b4f38f25-ae9f-4924-bfef-875a21802092" name="更改" comment="">
+      <change beforePath="$PROJECT_DIR$/../../Comp2121/Assignment1/Q2/cmake-build-debug/.cmake/api/v1/reply/cache-v2-bf6a1df0ba0214aeb6c2.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Comp2121/Assignment1/Q2/cmake-build-debug/.cmake/api/v1/reply/cmakeFiles-v1-772db1ba267f5bbc56e0.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Comp2121/Assignment1/Q2/cmake-build-debug/.cmake/api/v1/reply/index-2024-09-29T19-08-28-0958.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Comp2121/Assignment1/Q2/cmake-build-debug/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../Comp2121/Assignment1/Q2/cmake-build-debug/CMakeCache.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Comp2121/Assignment1/Q2/cmake-build-debug/CMakeFiles/3.29.6/CMakeDetermineCompilerABI_C.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../../Comp2121/Assignment1/Q2/cmake-build-debug/CMakeFiles/3.29.6/CMakeDetermineCompilerABI_C.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Comp2121/Assignment1/Q2/cmake-build-debug/CMakeFiles/3.29.6/CompilerIdC/a.exe" beforeDir="false" afterPath="$PROJECT_DIR$/../../Comp2121/Assignment1/Q2/cmake-build-debug/CMakeFiles/3.29.6/CompilerIdC/a.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Comp2121/Assignment1/Q2/cmake-build-debug/CMakeFiles/CMakeConfigureLog.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Comp2121/Assignment1/Q2/cmake-build-debug/CMakeFiles/CMakeConfigureLog.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Comp2121/Assignment1/Q2/cmake-build-debug/CMakeFiles/Q2.dir/main.c.obj" beforeDir="false" afterPath="$PROJECT_DIR$/../../Comp2121/Assignment1/Q2/cmake-build-debug/CMakeFiles/Q2.dir/main.c.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Comp2121/Assignment1/Q2/cmake-build-debug/CMakeFiles/clion-Debug-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../Comp2121/Assignment1/Q2/cmake-build-debug/CMakeFiles/clion-Debug-log.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Comp2121/Assignment1/Q2/cmake-build-debug/CMakeFiles/clion-environment.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../Comp2121/Assignment1/Q2/cmake-build-debug/CMakeFiles/clion-environment.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Comp2121/Assignment1/Q2/cmake-build-debug/CMakeFiles/rules.ninja" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Comp2121/Assignment1/Q2/cmake-build-debug/Q2.exe" beforeDir="false" afterPath="$PROJECT_DIR$/../../Comp2121/Assignment1/Q2/cmake-build-debug/Q2.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Comp2121/Assignment1/Q2/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/../../Comp2121/Assignment1/Q2/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -45,9 +59,9 @@
       </RecentBranches>
     </option>
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 1
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 1
+}</component>
   <component name="ProjectId" id="2mcuq25bZCSZSfvGXlyzDhtT1DY" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="1" id="Add" />
@@ -60,7 +74,7 @@
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "com.codeium.enabled": "true",
-    "git-widget-placeholder": "COMP2522",
+    "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
     "settings.editor.selected.configurable": "MavenSettings"
   }
@@ -81,6 +95,7 @@
       <option name="presentableId" value="Default" />
       <updated>1727388375703</updated>
       <workItem from="1727388376724" duration="4562000" />
+      <workItem from="1727701476087" duration="792000" />
     </task>
     <servers />
   </component>

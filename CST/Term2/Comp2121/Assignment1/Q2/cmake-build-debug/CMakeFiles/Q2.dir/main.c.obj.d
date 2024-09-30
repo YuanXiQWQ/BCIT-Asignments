@@ -1,0 +1,13 @@
+CMakeFiles/Q2.dir/main.c.obj: \
+ F:\JerryCode\BCIT-Asignments\CST\Term2\Comp2121\Assignment1\Q2\main.c \
+ E:/JetBrains/CLion\ 2023.3.2/bin/mingw/x86_64-w64-mingw32/include/stdio.h \
+ E:/JetBrains/CLion\ 2023.3.2/bin/mingw/x86_64-w64-mingw32/include/corecrt_stdio_config.h \
+ E:/JetBrains/CLion\ 2023.3.2/bin/mingw/x86_64-w64-mingw32/include/corecrt.h \
+ E:/JetBrains/CLion\ 2023.3.2/bin/mingw/x86_64-w64-mingw32/include/_mingw.h \
+ E:/JetBrains/CLion\ 2023.3.2/bin/mingw/x86_64-w64-mingw32/include/_mingw_mac.h \
+ E:/JetBrains/CLion\ 2023.3.2/bin/mingw/x86_64-w64-mingw32/include/_mingw_secapi.h \
+ E:/JetBrains/CLion\ 2023.3.2/bin/mingw/x86_64-w64-mingw32/include/vadefs.h \
+ E:/JetBrains/CLion\ 2023.3.2/bin/mingw/x86_64-w64-mingw32/include/sdks/_mingw_ddk.h \
+ E:/JetBrains/CLion\ 2023.3.2/bin/mingw/x86_64-w64-mingw32/include/_mingw_off_t.h \
+ E:/JetBrains/CLion\ 2023.3.2/bin/mingw/x86_64-w64-mingw32/include/swprintf.inl \
+ E:/JetBrains/CLion\ 2023.3.2/bin/mingw/x86_64-w64-mingw32/include/sec_api/stdio_s.h

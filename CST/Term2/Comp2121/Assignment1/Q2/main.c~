@@ -9,8 +9,10 @@ int main(void) {
             counter += 22;
             for(int k = j + 1; k <= n + 8; k++) {
                 counter += 33;
+                printf("%d %d %d\n", i, j, k);
             }
         }
     }
-
+    printf("%d\n", counter);
+    return 0;
 }
