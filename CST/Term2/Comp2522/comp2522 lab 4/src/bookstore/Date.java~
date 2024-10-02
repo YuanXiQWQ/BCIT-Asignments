@@ -44,9 +44,6 @@ public record Date(int year, int month, int day) implements Printable {
     private static final int THURSDAY = 5;
     private static final int FRIDAY = 6;
 
-    private static final int JANUARY = 1;
-    private static final int FEBRUARY = 2;
-
     private static final int DAYS_IN_WEEK = 7;
 
     private static final int LEAP_YEAR_DIVISOR_4 = 4;
@@ -234,7 +231,7 @@ public record Date(int year, int month, int day) implements Printable {
         // Month codes: jfmamjjasond: 1,4,4,0,2,5,0,3,6,1,4,6
         int code = MONTH_CODES[month - MONTH_INDEX_OFFSET];
         // Adjust for January and February in leap years
-        if(isLeap && (month == JANUARY || month == FEBRUARY)) {
+        if(isLeap && (month == 1 || month == 2)) {
             code += LEAP_YEAR_JAN_FEB_ADJUSTMENT;
         }
         return code;

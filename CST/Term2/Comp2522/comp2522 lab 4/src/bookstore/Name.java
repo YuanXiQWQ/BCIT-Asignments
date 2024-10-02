@@ -10,6 +10,9 @@ package bookstore;
  * @version 1.0
  */
 public record Name(String first, String last) implements Printable, Reversible {
+    private static final int MAX_FIRST_LENGTH = 50;
+    private static final String ADMIN_KEY_WORD = "admin";
+
     /**
      * Constructs a Name object with the given first and last names.
      *
@@ -21,12 +24,12 @@ public record Name(String first, String last) implements Printable, Reversible {
      */
     public Name
     {
-        if(first == null || first.isBlank() || first.length() >= 50 ||
-                first.toLowerCase().contains("admin")) {
+        if(first == null || first.isBlank() || first.length() >= MAX_FIRST_LENGTH ||
+                first.toLowerCase().contains(ADMIN_KEY_WORD)) {
             throw new IllegalArgumentException("Invalid first name.");
         }
-        if(last == null || last.isBlank() || last.length() >= 50 ||
-                last.toLowerCase().contains("admin")) {
+        if(last == null || last.isBlank() || last.length() >= MAX_FIRST_LENGTH ||
+                last.toLowerCase().contains(ADMIN_KEY_WORD)) {
             throw new IllegalArgumentException("Invalid last name.");
         }
     }
