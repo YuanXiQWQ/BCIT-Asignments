@@ -3,7 +3,7 @@ package bookstore;
 import java.util.Objects;
 
 /**
- * Represents a book with a title, publication year, and author.
+ * private static Represents a book with a title, publication year, and author.
  *
  * @author Daniel Wang
  * @author Jack Le
@@ -12,9 +12,13 @@ import java.util.Objects;
  * @version 1.0
  */
 public class Book implements Comparable<Book>, Printable, Reversible {
+    private static final int MAX_TITLE_LENGTH = 100;
+    private static final int MIN_YEAR_PUBLISHED = 1;
+
     private final String title;
     private final int yearPublished;
     private final Author author;
+
 
     /**
      * Constructs a Book object with the specified title, publication year, and author.
@@ -28,12 +32,12 @@ public class Book implements Comparable<Book>, Printable, Reversible {
      */
     public Book(String title, int yearPublished, Author author)
     {
-        if(title == null || title.isBlank() || title.length() >= 100) {
+        if(title == null || title.isBlank() || title.length() >= MAX_TITLE_LENGTH) {
             throw new IllegalArgumentException(
                     "Title must not be null, blank, or exceed 100 characters.");
         }
         int currentYear = java.time.Year.now().getValue();
-        if(yearPublished < 1 || yearPublished > currentYear) {
+        if(yearPublished < MIN_YEAR_PUBLISHED || yearPublished > currentYear) {
             throw new IllegalArgumentException(
                     "Year published must be between 1 and " + currentYear + ".");
         }
