@@ -47,7 +47,80 @@ int verify_input(int argc, char *argv[], int *line_length)
 }
 
 /**
- * @brief Main function to run the program with formatted file output.
+ * Function to read and save the file content into memory, and returns a pointer to it if
+ * successful.
+ *
+ * @param file The file pointer to the input file
+ * @return char* The pointer to the string content of the file
+ *         NULL if an error occurred
+ *         A donut if Ayesha is hungry
+ * */
+char *read_file(FILE *file)
+{
+    // Move the file pointer to the end of the file to get its size
+    /* Function doc:
+     * fseek(FILE *stream, long offset, int origin);
+     * *stream: file pointer
+     * offset: offset from whence
+     * origin: 0 - SEEK_SET (defined)
+     *         1 - SEEK_CUR
+     *         2 - SEEK_END
+     * return 0 if successful
+     * */
+    if(fseek(file, 0, SEEK_END) != 0)
+    {
+        return NULL;
+    }
+
+    // Get the file size
+    /* Function doc:
+     * long ftell(FILE *stream);
+     * *stream: file pointer
+     * return long -1L if an error occurred
+     * */
+    long file_size = ftell(file);
+    if(file_size == - 1L)
+    {
+        return NULL;
+    }
+
+    // Move the file pointer to the beginning of the file
+    if(fseek(file, 0, SEEK_SET) != 0)
+    {
+        return NULL;
+    }
+
+    // Allocate memory for the file content using the size just calculated, +1 for \0
+    char *content = (char *) malloc(file_size + 1);
+    if(content == NULL)
+    {
+        return NULL;
+    }
+
+    // Read the file content
+    /* Function doc:
+     * size_t fread(void *ptr, size_t size, size_t nmemb, FILE *stream);
+     * *ptr: pointer to the buffer, where the content will be written
+     * size: size of each element
+     * nmemb: number of elements
+     * *stream: file pointer
+     * return size_t the number of bytes successfully read
+     */
+    size_t bytes_read = fread(content, 1, file_size, file);
+    // If the data read from content is not complete
+    if(bytes_read != file_size)
+    {
+        free(content);
+        return NULL;
+    }
+
+    // Add \0 to the end(C string rule)
+    content[file_size] = '\0';
+    return content;
+}
+
+/**
+ * Main function to run the program with formatted file output.
  *
  * This program requires 3 command-line arguments:
  * 1. The name of the executable.
@@ -61,7 +134,7 @@ int verify_input(int argc, char *argv[], int *line_length)
  *
  * Features:
  * - Cmd parameter parsing
- * TODO- Read input file content
+ * - Read input file content
  * TODO- Split text into words
  * TODO- Align both ends of the text
  * TODO- Deal with hyphenated words
@@ -86,8 +159,6 @@ int main(int argc, char *argv[])
     {
         return 1;
     }
-
-    // TODO: Open the input file and read its content
 
     // Check the input file
     FILE *file = fopen(argv[2], "r");
