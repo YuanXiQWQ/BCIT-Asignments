@@ -25,10 +25,15 @@ public class Author extends Person implements Printable {
      *                    30 characters
      * @throws IllegalArgumentException if any argument is invalid
      */
-    public Author(Name name, Date dateOfBirth, Date dateOfDeath, String genre)
+    public Author(final Name name,
+                  Date dateOfBirth,
+                  final Date dateOfDeath,
+                  final String genre)
     {
         super(name, dateOfBirth, dateOfDeath);
-        if(genre == null || genre.isBlank() || genre.length() >= 30) {
+        if(genre == null ||
+                genre.isBlank() ||
+                genre.length() >= 30) {
             throw new IllegalArgumentException(
                     "Genre must not be null, blank, or exceed 30 characters.");
         }
@@ -51,7 +56,10 @@ public class Author extends Person implements Printable {
     @Override
     public void display()
     {
-        System.out.println("Author: " + getName().getFullName() + ", Genre: " + genre);
+        System.out.println("Author: " +
+                getName().getFullName() +
+                ", Genre: " +
+                genre);
     }
 
     /**
@@ -60,6 +68,7 @@ public class Author extends Person implements Printable {
      * @param obj the object to compare
      * @return true if both authors have the same name and genre, false otherwise
      */
+
     @Override
     public boolean equals(Object obj)
     {
@@ -69,7 +78,8 @@ public class Author extends Person implements Printable {
         if(!(obj instanceof Author other)) {
             return false;
         }
-        return this.getName().equals(other.getName()) && this.genre.equals(other.genre);
+        return this.getName().equals(other.getName()) &&
+                this.genre.equals(other.genre);
     }
 
     /**

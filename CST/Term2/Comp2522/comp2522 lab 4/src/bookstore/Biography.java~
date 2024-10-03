@@ -26,10 +26,7 @@ public class Biography extends Book implements Printable {
      * @param subject       the subject of the biography, must not be null
      * @throws IllegalArgumentException if any argument is invalid
      */
-    public Biography(final String title,
-                     final int yearPublished,
-                     final Author author,
-                     final Person subject)
+    public Biography(String title, int yearPublished, Author author, Person subject)
     {
         super(title, yearPublished, author);
         if(subject == null) {
@@ -55,15 +52,9 @@ public class Biography extends Book implements Printable {
     public void display()
     {
         System.out.println(
-                "Title: " +
-                        getTitle() +
-                        ", Year Published: " +
-                        getYearPublished() +
-                        ", Author: " +
-                        getAuthor().getName().getFullName() +
-
-                        ", Subject: " +
-                        subject.getName().getFullName());
+                "Title: " + getTitle() + ", Year Published: " + getYearPublished() +
+                        ", Author: " + getAuthor().getName().getFullName() +
+                        ", Subject: " + subject.getName().getFullName());
     }
 
     /**

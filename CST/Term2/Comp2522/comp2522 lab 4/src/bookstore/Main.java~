@@ -64,7 +64,7 @@ public class Main {
         Person robertMoses = new Person(
                 new Name("Robert", "Moses"),
                 new Date(1888, 7, 18),
-                new Date(1981, 7, 29)
+                new Date(1981, 7, 29) // 修正为 1981 年 7 月 29 日
         );
 
         Person steveJobs = new Person(

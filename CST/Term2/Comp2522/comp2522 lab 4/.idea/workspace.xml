@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b4f38f25-ae9f-4924-bfef-875a21802092" name="更改" comment="" />
+    <list default="true" id="b4f38f25-ae9f-4924-bfef-875a21802092" name="更改" comment="">
+      <change beforePath="$PROJECT_DIR$/src/bookstore/Author.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bookstore/Author.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bookstore/Autobiography.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bookstore/Autobiography.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bookstore/Biography.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bookstore/Biography.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -72,9 +76,10 @@
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "com.codeium.enabled": "true",
-    "git-widget-placeholder": "master",
+    "git-widget-placeholder": "COMP2510",
     "kotlin-language-version-configured": "true",
-    "settings.editor.selected.configurable": "MavenSettings"
+    "settings.editor.selected.configurable": "MavenSettings",
+    "应用程序.Main.executor": "Run"
   }
 }]]></component>
   <component name="SharedIndexes">
@@ -98,7 +103,8 @@
       <workItem from="1727897438759" duration="14000" />
       <workItem from="1727897510979" duration="14000" />
       <workItem from="1727897833927" duration="589000" />
-      <workItem from="1727898658775" duration="2808000" />
+      <workItem from="1727898658775" duration="2593000" />
+      <workItem from="1727990115619" duration="410000" />
     </task>
     <servers />
   </component>

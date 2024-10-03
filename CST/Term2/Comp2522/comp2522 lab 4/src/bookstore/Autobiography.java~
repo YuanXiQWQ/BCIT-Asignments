@@ -22,9 +22,7 @@ public class Autobiography extends Biography implements Printable {
      * @param author        the author of the autobiography, must not be null
      * @throws IllegalArgumentException if any argument is invalid
      */
-    public Autobiography(final String title,
-                         final int yearPublished,
-                         final Author author)
+    public Autobiography(String title, int yearPublished, Author author)
     {
         super(title, yearPublished, author, author);
     }
@@ -35,11 +33,8 @@ public class Autobiography extends Biography implements Printable {
     @Override
     public void display()
     {
-        System.out.println("Autobiography Title: " +
-                getTitle() +
-                ", Year Published: " +
+        System.out.println("Autobiography Title: " + getTitle() + ", Year Published: " +
                 getYearPublished() +
-                ", Author: " +
-                getAuthor().getName().getFullName());
+                ", Author: " + getAuthor().getName().getFullName());
     }
 }
