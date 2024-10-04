@@ -1,4 +1,4 @@
-# Install script for directory: F:/JerryCode/BCIT-Asignments/CST/Term2/Comp2510/Assignment1
+# Install script for directory: F:/JerryCode/BCIT-Assignments/CST/Term2/Comp2510/Assignment1
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "F:/JerryCode/BCIT-Asignments/CST/Term2/Comp2510/Assignment1/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "F:/JerryCode/BCIT-Assignments/CST/Term2/Comp2510/Assignment1/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

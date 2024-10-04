@@ -4,7 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b4f38f25-ae9f-4924-bfef-875a21802092" name="更改" comment="" />
+    <list default="true" id="b4f38f25-ae9f-4924-bfef-875a21802092" name="更改" comment="">
+      <change beforePath="$PROJECT_DIR$/../../Comp2510/Assignment1/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Comp2510/Assignment1/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Comp2510/Assignment1/a1.c" beforeDir="false" afterPath="$PROJECT_DIR$/../../Comp2510/Assignment1/a1.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Comp2510/Assignment1/cmake-build-debug/.ninja_deps" beforeDir="false" afterPath="$PROJECT_DIR$/../../Comp2510/Assignment1/cmake-build-debug/.ninja_deps" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Comp2510/Assignment1/cmake-build-debug/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/../../Comp2510/Assignment1/cmake-build-debug/.ninja_log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Comp2510/Assignment1/cmake-build-debug/Assignment1.exe" beforeDir="false" afterPath="$PROJECT_DIR$/../../Comp2510/Assignment1/cmake-build-debug/Assignment1.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Comp2510/Assignment1/cmake-build-debug/CMakeFiles/Assignment1.dir/a1.c.obj" beforeDir="false" afterPath="$PROJECT_DIR$/../../Comp2510/Assignment1/cmake-build-debug/CMakeFiles/Assignment1.dir/a1.c.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Comp2510/Assignment1/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/../../Comp2510/Assignment1/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -72,15 +80,15 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "com.codeium.enabled": "true",
-    "git-widget-placeholder": "COMP2510",
-    "kotlin-language-version-configured": "true",
-    "settings.editor.selected.configurable": "MavenSettings"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;com.codeium.enabled&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;COMP2510&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
-}]]></component>
+}</component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -103,6 +111,8 @@
       <workItem from="1727897510979" duration="14000" />
       <workItem from="1727897833927" duration="589000" />
       <workItem from="1727898658775" duration="2593000" />
+      <workItem from="1728079044377" duration="59000" />
+      <workItem from="1728079111699" duration="594000" />
     </task>
     <servers />
   </component>
