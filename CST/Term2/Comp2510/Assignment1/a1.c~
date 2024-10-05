@@ -192,6 +192,7 @@ void split_words(char *content, char ***words, int *word_count, int *words_capac
             strncpy(word, &content[word_start], word_length);
             word[word_length] = '\0';
 
+            // Check if the words array needs to be resized
             if(*word_count >= *words_capacity)
             {
                 *words_capacity *= 2;
@@ -222,6 +223,7 @@ void split_words(char *content, char ***words, int *word_count, int *words_capac
 void justify_line(char **words, int word_count, int line_length)
 {
     if(word_count == 1)
+    // Centre aligned
     {
         size_t total_spaces = line_length - strlen(words[0]);
         size_t left_spaces = total_spaces / 2 + (total_spaces % 2);
@@ -357,12 +359,24 @@ int main(int argc, char *argv[])
     free(content);
 
     char **current_line_words = malloc(100 * sizeof(char *));
+    if(current_line_words == NULL)
+    {
+        fprintf(stderr, "Error: Memory allocation failed for current_line_words.\n");
+        return 1;
+    }
+
     int current_word_count = 0;
     int current_line_capacity = 100;
     size_t current_line_length = 0;
 
     for(int i = 0; i < word_count; i ++)
     {
+        if(words[i] == NULL)
+        {
+            fprintf(stderr, "Error: Word at index %d is NULL.\n", i);
+            continue;
+        }
+
         size_t word_len = strlen(words[i]);
         int extra_space = (current_word_count > 0) ? 1 : 0;
 
@@ -380,7 +394,8 @@ int main(int argc, char *argv[])
                                       current_line_capacity * sizeof(char *));
                 if(temp == NULL)
                 {
-                    fprintf(stderr, "Error: Memory allocation failed.\n");
+                    fprintf(stderr,
+                            "Error: Memory allocation failed during reallocation.\n");
                     return 1;
                 }
                 current_line_words = temp;
@@ -403,12 +418,17 @@ int main(int argc, char *argv[])
         justify_line(current_line_words, current_word_count, line_length);
     }
 
+    // Free memory allocated for words
     for(int i = 0; i < word_count; i ++)
     {
-        free(words[i]);
+        if(words[i] != NULL)
+        {
+            free(words[i]);
+        }
     }
     free(words);
     free(current_line_words);
 
     return 0;
 }
+
