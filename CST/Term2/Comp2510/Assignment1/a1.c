@@ -339,41 +339,18 @@ void print_remaining_line(char **current_line_words, int current_word_count,
 }
 
 /**
- * Main function to run the program with formatted file output.
+ * Processes the command-line input and reads the file content.
  *
- * This program requires 3 command-line arguments:
- * 1. The name of the executable.
- * 2. The maximum number of characters per line (line_length).
- * 3. The input file name containing the text to format.
- *
- * Example usage:
- *     ./a1 10 input.txt
- * This will format the content of the file `input.txt` with a maximum of 10 characters
- * per line, ensuring proper justification.
- *
- * Features:
- * - Cmd parameter parsing
- * - Read input file content
- * - Split text into words
- * - Align both ends of the text
- * - Handle hyphenated words
- * - Error handling for long lines
- *
- * @param argc The number of arguments passed to the program.
- * @param argv An array of strings representing the arguments.
- *        argv[0] - the name of the executable
- *        argv[1] - the maximum number of characters per line (line_length)
- *        argv[2] - the input file name
- *
- * @return 0 on successful execution.
- *         1 if the number of arguments is incorrect or an error occurs.
- */
-int main(int argc, char *argv[])
+ * @param argc The number of command-line arguments.
+ * @param argv The array of command-line arguments.
+ * @param line_length Pointer to store the line length.
+ * @param content Pointer to store the file content.
+ * @return 0 if successful, 1 if an error occurs.
+ * */
+int process_input(int argc, char *argv[], int *line_length, char **content)
 {
-    int line_length;
-
-    // Check the input arguments.
-    if(verify_input(argc, argv, &line_length) != 0)
+    // Verify input arguments
+    if(verify_input(argc, argv, line_length) != 0)
     {
         return 1;
     }
@@ -387,22 +364,31 @@ int main(int argc, char *argv[])
     }
 
     // Read the file content
-    char *content = read_file(file);
+    *content = read_file(file);
     fclose(file);
-    if(content == NULL)
+    if(*content == NULL)
     {
         fprintf(stderr, ERROR_READING_FILE, argv[2]);
         return 1;
     }
 
-    // Split the content into words
+    return 0;
+}
+
+/**
+ * Formats the text content and handles the justification.
+ *
+ * @param content The text content to format.
+ * @param line_length The maximum number of characters per line.
+ * @return 0 if successful, 1 if an error occurs.
+ * */
+int format_text(char *content, int line_length)
+{
     char **words = NULL;
     int word_count = 0;
     int words_capacity = 0;
     split_words(content, &words, &word_count, &words_capacity);
-    free(content);
 
-    // Allocate memory for the current line
     char **current_line_words = malloc(100 * sizeof(char *));
     if(current_line_words == NULL)
     {
@@ -411,12 +397,12 @@ int main(int argc, char *argv[])
         return 1;
     }
 
-    // Process each word
     int current_word_count = 0;
     int current_line_capacity = 100;
     size_t current_line_length = 0;
     int error_flag = 0;
 
+    // Process each word
     for(int word_index = 0; word_index < word_count; word_index ++)
     {
         if(words[word_index] == NULL)
@@ -428,6 +414,7 @@ int main(int argc, char *argv[])
         // Check if the current word can be added to the current line
         size_t word_len = strlen(words[word_index]);
 
+        // Handle words longer than the line length
         while(word_len > line_length)
         {
             // Find the hyphen within the allowed range
@@ -436,7 +423,7 @@ int main(int argc, char *argv[])
             {
                 // Split the word into two parts, including the hyphen in the first part
                 char *first_part = malloc(
-                        (hyphen_index + 2) * sizeof(char));
+                        (hyphen_index + 2) * sizeof(char)); // +1 for hyphen, +1 for '\0'
                 if(first_part == NULL)
                 {
                     fprintf(stderr, ERROR_MEMORY_ALLOCATION_FAILED);
@@ -456,10 +443,12 @@ int main(int argc, char *argv[])
                     break;
                 }
 
+                // Replace the current word with the second part
                 free(words[word_index]);
                 words[word_index] = second_part;
                 word_len = strlen(words[word_index]);
 
+                // Add the first part to the current line
                 if(current_line_length + strlen(first_part) +
                    (current_word_count > 0 ? 1 : 0) > line_length)
                 {
@@ -473,7 +462,6 @@ int main(int argc, char *argv[])
                         strlen(first_part) + (current_word_count > 1 ? 1 : 0);
             } else
             {
-                // Cannot split the word further
                 error_flag = 1;
                 break;
             }
@@ -492,8 +480,8 @@ int main(int argc, char *argv[])
             break;
         }
 
-        // Check if the current word can be added to the current line
         int extra_space = (current_word_count > 0) ? 1 : 0;
+
         if(current_line_length + extra_space + word_len <= line_length)
         {
             if(current_word_count > 0)
@@ -539,4 +527,52 @@ int main(int argc, char *argv[])
     free(current_line_words);
 
     return (error_flag ? 1 : 0);
+}
+
+/**
+ * Main function to run the program with formatted file output.
+ *
+ * This program requires 3 command-line arguments:
+ * 1. The name of the executable.
+ * 2. The maximum number of characters per line (line_length).
+ * 3. The input file name containing the text to format.
+ *
+ * Example usage:
+ *     ./a1 10 input.txt
+ * This will format the content of the file `input.txt` with a maximum of 10 characters
+ * per line, ensuring proper justification.
+ *
+ * Features:
+ * - Cmd parameter parsing
+ * - Read input file content
+ * - Split text into words
+ * - Align both ends of the text
+ * - Handle hyphenated words
+ * - Error handling for long lines
+ *
+ * @param argc The number of arguments passed to the program.
+ * @param argv An array of strings representing the arguments.
+ *        argv[0] - the name of the executable
+ *        argv[1] - the maximum number of characters per line (line_length)
+ *        argv[2] - the input file name
+ *
+ * @return 0 on successful execution.
+ *         1 if the number of arguments is incorrect or an error occurs.
+ * */
+int main(int argc, char *argv[])
+{
+    int line_length;
+    char *content = NULL;
+
+    // Process input arguments and read file content
+    if(process_input(argc, argv, &line_length, &content) != 0)
+    {
+        return 1;
+    }
+
+    // Format and justify the text
+    int result = format_text(content, line_length);
+
+    free(content);
+    return result;
 }
