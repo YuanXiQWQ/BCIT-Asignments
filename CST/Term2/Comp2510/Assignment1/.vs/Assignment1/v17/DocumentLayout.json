@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "F:\\JerryCode\\BCIT-Assignments\\CST\\Term2\\Comp2510\\Assignment1\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{36D8489F-F2A3-4AB7-A867-E83727012EF7}|\u89E3\u51B3\u65B9\u6848\u9879{36D8489F-F2A3-4AB7-A867-E83727012EF7}|F:\\JerryCode\\BCIT-Assignments\\CST\\Term2\\Comp2510\\Assignment1\\a1.c||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{36D8489F-F2A3-4AB7-A867-E83727012EF7}|\u89E3\u51B3\u65B9\u6848\u9879{36D8489F-F2A3-4AB7-A867-E83727012EF7}|solutionrelative:a1.c||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "a1.c",
+              "DocumentMoniker": "F:\\JerryCode\\BCIT-Assignments\\CST\\Term2\\Comp2510\\Assignment1\\a1.c",
+              "RelativeDocumentMoniker": "a1.c",
+              "ToolTip": "F:\\JerryCode\\BCIT-Assignments\\CST\\Term2\\Comp2510\\Assignment1\\a1.c",
+              "RelativeToolTip": "a1.c",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2024-10-04T22:22:56.916Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
