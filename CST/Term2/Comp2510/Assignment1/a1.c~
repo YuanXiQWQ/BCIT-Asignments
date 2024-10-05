@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include <string.h>
 
+#define INITIAL_CAPACITY 100
+#define MAX_WORD_LENGTH 50
 #define ERROR_FREAD_FAILED "Error: fread failed. Bytes read: %zu, Expected: %ld.\n"
 #define ERROR_INVALID_ARGUMENT_LINE_LENGTH "Error: Line length must be a positive integer.\n"
 #define ERROR_INVALID_ARGUMENT_USAGE "Usage: %s <line_length> <input_file>\n"
@@ -16,7 +18,7 @@
  *
  * @param ch The character to check.
  * @return 1 if the character is a whitespace character, 0 otherwise.
- */
+ * */
 int is_space(char ch)
 {
     return ch == ' ' || ch == '\n' || ch == '\t' || ch == '\r' || ch == '\v' ||
@@ -36,7 +38,7 @@ int is_space(char ch)
  *
  * @return 0 if the input arguments are valid.
  *         1 if the input arguments are invalid.
- */
+ * */
 int verify_input(int argc, char *argv[], int *line_length)
 {
     // Check the input arguments number, should be 3(<executable> <line_length> <input_file>)
@@ -77,7 +79,8 @@ int verify_input(int argc, char *argv[], int *line_length)
  * @param file The file pointer to the input file
  * @return char* The pointer to the string content of the file
  *         NULL if an error occurred
- */
+ *         A donut if Ayesha is hungry
+ * */
 char *read_file(FILE *file)
 {
     // Move the file pointer to the end of the file to get its size
@@ -89,7 +92,7 @@ char *read_file(FILE *file)
      *         1 - SEEK_CUR
      *         2 - SEEK_END
      * return 0 if successful
-     */
+     * */
     if(fseek(file, 0, SEEK_END) != 0)
     {
         return NULL;
@@ -100,7 +103,7 @@ char *read_file(FILE *file)
      * long ftell(FILE *stream);
      * *stream: file pointer
      * return long -1L if an error occurred
-     */
+     * */
     long file_size = ftell(file);
     if(file_size == - 1L)
     {
@@ -152,13 +155,13 @@ char *read_file(FILE *file)
  * @param words A pointer to a dynamically allocated array to store the extracted words.
  * @param word_count A pointer to an integer to store the total number of words extracted.
  * @param words_capacity A pointer to an integer storing the current capacity of the words array.
- */
+ * */
 void split_words(char *content, char ***words, int *word_count, int *words_capacity)
 {
     int char_index = 0;
     size_t content_len = strlen(content);
     *word_count = 0;
-    *words_capacity = 100;
+    *words_capacity = INITIAL_CAPACITY;
     *words = malloc(*words_capacity * sizeof(char *));
     if(*words == NULL)
     {
@@ -187,10 +190,19 @@ void split_words(char *content, char ***words, int *word_count, int *words_capac
         {
             // Add the word to the words array
             int word_length = word_end - word_start;
+
+            // Removed the MAX_WORD_LENGTH check as per suggestions
+
             char *word = malloc((word_length + 1) * sizeof(char));
             if(word == NULL)
             {
                 fprintf(stderr, ERROR_MEMORY_ALLOCATION_FAILED);
+                // Free already allocated words
+                for(int i = 0; i < *word_count; i ++)
+                {
+                    free((*words)[i]);
+                }
+                free(*words);
                 exit(1);
             }
             strncpy(word, &content[word_start], word_length);
@@ -204,6 +216,13 @@ void split_words(char *content, char ***words, int *word_count, int *words_capac
                 if(temp == NULL)
                 {
                     fprintf(stderr, ERROR_MEMORY_ALLOCATION_FAILED);
+                    // Free already allocated words and current word
+                    for(int i = 0; i < *word_count; i ++)
+                    {
+                        free((*words)[i]);
+                    }
+                    free(word);
+                    free(*words);
                     exit(1);
                 }
                 *words = temp;
@@ -223,9 +242,45 @@ void split_words(char *content, char ***words, int *word_count, int *words_capac
  * @param words A dynamically allocated array containing the words in the current line.
  * @param word_count The number of words in the current line.
  * @param line_length The maximum number of characters per line.
- */
-void justify_line(char **words, int word_count, int line_length)
+ * @param is_last_line A flag indicating whether this is the last line.
+ * */
+void printJustifiedLine(char **words, int word_count, int line_length, int is_last_line)
 {
+    if(is_last_line)
+    {
+        if(word_count == 1)
+        {
+            // Centre aligned
+            size_t total_spaces = line_length - strlen(words[0]);
+            size_t left_spaces = total_spaces / 2 + (total_spaces % 2);
+            size_t right_spaces = total_spaces / 2;
+            for(int i = 0; i < left_spaces; i ++)
+            {
+                printf(" ");
+            }
+            printf("%s", words[0]);
+            for(int i = 0; i < right_spaces; i ++)
+            {
+                printf(" ");
+            }
+            printf("\n");
+            return;
+        } else
+        {
+            // Left aligned
+            for(int i = 0; i < word_count; i ++)
+            {
+                printf("%s", words[i]);
+                if(i < word_count - 1)
+                {
+                    printf(" ");
+                }
+            }
+            printf("\n");
+            return;
+        }
+    }
+
     if(word_count == 1)
     {
         // Centre aligned
@@ -288,7 +343,7 @@ void justify_line(char **words, int word_count, int line_length)
  *
  * @return The index of the hyphen if found within the range.
  *         -1 if no hyphen is found within the specified range.
- */
+ * */
 int find_hyphen(const char *word, int max_index)
 {
     for(int i = max_index; i >= 0; i --)
@@ -306,7 +361,7 @@ int find_hyphen(const char *word, int max_index)
  *
  * @param words The array of words.
  * @param word_count The number of words.
- */
+ * */
 void free_words(char **words, int word_count)
 {
     for(int i = 0; i < word_count; i ++)
@@ -327,14 +382,151 @@ void free_words(char **words, int word_count)
  * @param current_line_words The array of words in the current line.
  * @param current_word_count The number of words in the current line.
  * @param line_length The maximum number of characters per line.
- */
+ * */
 void print_remaining_line(char **current_line_words, int current_word_count,
                           int line_length)
 {
     if(current_word_count > 0)
     {
-        justify_line(current_line_words, current_word_count, line_length);
+        printJustifiedLine(current_line_words, current_word_count, line_length, 1);
     }
+}
+
+/**
+ * Handles words that are longer than the line length by splitting at hyphens.
+ *
+ * @param current_line_words Pointer to the array of words in the current line.
+ * @param current_word_count Pointer to the number of words in the current line.
+ * @param current_line_length Pointer to the current line length.
+ * @param line_length The maximum number of characters per line.
+ * @param word Pointer to the word to be processed (may be modified if split).
+ * @return 0 if successful, 1 if an error occurs.
+ * */
+int processHyphenatedWord(char ***current_line_words, int *current_word_count,
+                          size_t *current_line_length, int line_length, char **word)
+{
+    size_t word_len = strlen(*word);
+
+    while(word_len > line_length)
+    {
+        // Find hyphen
+        int hyphen_index = find_hyphen(*word, line_length - 1);
+        if(hyphen_index > 0)
+        {
+            // Split the word
+            char *first_part = malloc(
+                    (hyphen_index + 2) * sizeof(char));
+            if(first_part == NULL)
+            {
+                fprintf(stderr, ERROR_MEMORY_ALLOCATION_FAILED);
+                return 1;
+            }
+            strncpy(first_part, *word, hyphen_index + 1);
+            first_part[hyphen_index + 1] = '\0';
+
+            // Second part
+            char *second_part = strdup(&(*word)[hyphen_index + 1]);
+            if(second_part == NULL)
+            {
+                fprintf(stderr, ERROR_MEMORY_ALLOCATION_FAILED);
+                free(first_part);
+                return 1;
+            }
+
+            // Replace the current word with the second part
+            free(*word);
+            *word = second_part;
+            word_len = strlen(*word);
+
+            // Add first part
+            if(*current_line_length + strlen(first_part) +
+               ((*current_word_count > 0) ? 1 : 0) > line_length)
+            {
+                free(first_part);
+                free(second_part);
+                return 1;
+            }
+
+            // Check if the current_line_words array needs to be resized
+            // Assuming INITIAL_CAPACITY is sufficient, but for robustness:
+            // This can be optimized further if needed
+            (*current_line_words)[(*current_word_count) ++] = first_part;
+            *current_line_length +=
+                    strlen(first_part) + ((*current_word_count > 1) ? 1 : 0);
+        } else
+        {
+            return 1;
+        }
+    }
+
+    return 0;
+}
+
+/**
+ * Adds a word to the current line, justifying and resetting the line if necessary.
+ *
+ * @param current_line_words Pointer to the array of words in the current line.
+ * @param current_word_count Pointer to the number of words in the current line.
+ * @param current_line_length Pointer to the current line length.
+ * @param current_line_capacity Pointer to the current capacity of the line words array.
+ * @param line_length The maximum number of characters per line.
+ * @param word The word to add to the line.
+ * @return 0 if successful
+ *         1 if an error occurs
+ * */
+int add_word_to_line(char ***current_line_words, int *current_word_count,
+                     size_t *current_line_length, int *current_line_capacity,
+                     int line_length, char *word)
+{
+    size_t word_len = strlen(word);
+    int extra_space = (*current_word_count > 0) ? 1 : 0;
+
+    if(*current_line_length + extra_space + word_len <= line_length)
+    {
+        if(*current_word_count > 0)
+        {
+            *current_line_length += 1;
+        }
+
+        if(*current_word_count >= *current_line_capacity)
+        {
+            *current_line_capacity *= 2;
+            char **temp = realloc(*current_line_words,
+                                  (*current_line_capacity) * sizeof(char *));
+            if(temp == NULL)
+            {
+                fprintf(stderr, ERROR_MEMORY_ALLOCATION_FAILED);
+                return 1;
+            }
+            *current_line_words = temp;
+        }
+
+        (*current_line_words)[(*current_word_count) ++] = word;
+        *current_line_length += word_len;
+    } else
+    {
+        printJustifiedLine(*current_line_words, *current_word_count, line_length, 0);
+        *current_line_length = 0;
+        *current_word_count = 0;
+
+        // Start a new line with the word
+        if(*current_word_count >= *current_line_capacity)
+        {
+            *current_line_capacity *= 2;
+            char **temp = realloc(*current_line_words,
+                                  (*current_line_capacity) * sizeof(char *));
+            if(temp == NULL)
+            {
+                fprintf(stderr, ERROR_MEMORY_ALLOCATION_FAILED);
+                return 1;
+            }
+            *current_line_words = temp;
+        }
+        (*current_line_words)[(*current_word_count) ++] = word;
+        *current_line_length += word_len;
+    }
+
+    return 0;
 }
 
 /**
@@ -345,7 +537,7 @@ void print_remaining_line(char **current_line_words, int current_word_count,
  * @param line_length Pointer to store the line length.
  * @param content Pointer to store the file content.
  * @return 0 if successful, 1 if an error occurs.
- */
+ * */
 int process_input(int argc, char *argv[], int *line_length, char **content)
 {
     // Verify input arguments
@@ -354,7 +546,7 @@ int process_input(int argc, char *argv[], int *line_length, char **content)
         return 1;
     }
 
-    // Open and read the input file
+    // Open and check the input file
     FILE *file = fopen(argv[2], "rb");
     if(file == NULL)
     {
@@ -383,21 +575,24 @@ int process_input(int argc, char *argv[], int *line_length, char **content)
  * */
 int format_text(char *content, int line_length)
 {
+    // Split the content into words
     char **words = NULL;
     int word_count = 0;
     int words_capacity = 0;
     split_words(content, &words, &word_count, &words_capacity);
 
-    char **current_line_words = malloc(100 * sizeof(char *));
+    // Init line
+    char **current_line_words = malloc(INITIAL_CAPACITY * sizeof(char *));
     if(current_line_words == NULL)
     {
         fprintf(stderr, ERROR_MEMORY_ALLOCATION_FAILED);
         free_words(words, word_count);
+        free(content); // Ensure content is freed before exiting
         return 1;
     }
 
     int current_word_count = 0;
-    int current_line_capacity = 100;
+    int current_line_capacity = INITIAL_CAPACITY;
     size_t current_line_length = 0;
     int error_flag = 0;
 
@@ -410,60 +605,21 @@ int format_text(char *content, int line_length)
             continue;
         }
 
-        // Check if the current word can be added to the current line
+        // Check if word can be added to the line
         size_t word_len = strlen(words[word_index]);
 
         // Handle words longer than the line length
         while(word_len > line_length)
         {
-            // Find the hyphen within the allowed range
-            int hyphen_index = find_hyphen(words[word_index], line_length - 1);
-            if(hyphen_index > 0)
-            {
-                // Split the word into two parts, including the hyphen in the first part
-                char *first_part = malloc(
-                        (hyphen_index + 2) * sizeof(char)); // +1 for hyphen, +1 for '\0'
-                if(first_part == NULL)
-                {
-                    fprintf(stderr, ERROR_MEMORY_ALLOCATION_FAILED);
-                    error_flag = 1;
-                    break;
-                }
-                strncpy(first_part, words[word_index], hyphen_index + 1);
-                first_part[hyphen_index + 1] = '\0';
-
-                // The second part
-                char *second_part = strdup(&words[word_index][hyphen_index + 1]);
-                if(second_part == NULL)
-                {
-                    fprintf(stderr, ERROR_MEMORY_ALLOCATION_FAILED);
-                    free(first_part);
-                    error_flag = 1;
-                    break;
-                }
-
-                // Replace the current word with the second part
-                free(words[word_index]);
-                words[word_index] = second_part;
-                word_len = strlen(words[word_index]);
-
-                // Add the first part to the current line
-                if(current_line_length + strlen(first_part) +
-                   (current_word_count > 0 ? 1 : 0) > line_length)
-                {
-                    justify_line(current_line_words, current_word_count, line_length);
-                    current_word_count = 0;
-                    current_line_length = 0;
-                }
-
-                current_line_words[current_word_count ++] = first_part;
-                current_line_length +=
-                        strlen(first_part) + (current_word_count > 1 ? 1 : 0);
-            } else
+            // Handle long words by splitting at hyphens
+            if(processHyphenatedWord(&current_line_words, &current_word_count,
+                                     &current_line_length, line_length,
+                                     &words[word_index]) != 0)
             {
                 error_flag = 1;
                 break;
             }
+            word_len = strlen(words[word_index]);
         }
 
         if(error_flag)
@@ -471,50 +627,17 @@ int format_text(char *content, int line_length)
             break;
         }
 
-        // Check again
-        if(word_len > line_length)
+        // Add word to the line
+        if(add_word_to_line(&current_line_words, &current_word_count,
+                            &current_line_length, &current_line_capacity,
+                            line_length, words[word_index]) != 0)
         {
-            // Still too long and cannot be split
             error_flag = 1;
             break;
         }
-
-        int extra_space = (current_word_count > 0) ? 1 : 0;
-
-        if(current_line_length + extra_space + word_len <= line_length)
-        {
-            if(current_word_count > 0)
-            {
-                current_line_length += 1;
-            }
-
-            if(current_word_count >= current_line_capacity)
-            {
-                current_line_capacity *= 2;
-                char **temp = realloc(current_line_words,
-                                      current_line_capacity * sizeof(char *));
-                if(temp == NULL)
-                {
-                    fprintf(stderr, ERROR_MEMORY_ALLOCATION_FAILED);
-                    error_flag = 1;
-                    break;
-                }
-                current_line_words = temp;
-            }
-
-            current_line_words[current_word_count ++] = words[word_index];
-            current_line_length += word_len;
-        } else
-        {
-            justify_line(current_line_words, current_word_count, line_length);
-            current_line_length = 0;
-            current_word_count = 0;
-
-            current_line_words[current_word_count ++] = words[word_index];
-            current_line_length += word_len;
-        }
     }
 
+    // Remaining words (last line)
     print_remaining_line(current_line_words, current_word_count, line_length);
 
     if(error_flag)
