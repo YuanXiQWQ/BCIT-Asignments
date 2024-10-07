@@ -25,9 +25,7 @@
   <component name="ChangeListManager">
     <list default="true" id="d058c5bc-e903-4e55-970c-ba861e27a910" name="更改" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.exe" beforeDir="false" afterPath="$PROJECT_DIR$/main.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/submit/a1.c" beforeDir="false" afterPath="$PROJECT_DIR$/submit/a1.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/submit/output.png" beforeDir="false" afterPath="$PROJECT_DIR$/submit/output.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,7 +62,7 @@
     &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
     &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
     &quot;com.codeium.enabled&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;COMP2510&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;last_opened_file_path&quot;: &quot;F:/JerryCode/BCIT-Assignments/CST/Term2/Comp2510/Assignment1&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -78,11 +76,6 @@
 }</component>
   <component name="RunManager">
     <configuration name="Assignment1" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Assignment1" TARGET_NAME="Assignment1" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="Assignment1" RUN_TARGET_NAME="Assignment1">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -101,6 +94,8 @@
       <workItem from="1728072192253" duration="7910000" />
       <workItem from="1728080274256" duration="4884000" />
       <workItem from="1728156828987" duration="10716000" />
+      <workItem from="1728270187150" duration="373000" />
+      <workItem from="1728271089087" duration="682000" />
     </task>
     <servers />
   </component>
