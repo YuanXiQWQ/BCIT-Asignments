@@ -5,4 +5,4 @@ set(CMAKE_C_STANDARD 23)
 
 add_executable(Lab5 main.c
         tic_tac_toe.h
-        tuc_tac_toe.c)
+        tic_tac_toe.c)

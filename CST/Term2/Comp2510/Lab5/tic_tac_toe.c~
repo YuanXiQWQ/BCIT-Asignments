@@ -2,15 +2,22 @@
 #include <stdlib.h>
 #include "tic_tac_toe.h"
 
-// Initialize a new game with the given number of players
+/**
+ * Initialise the game.
+ *
+ * @param num_players The number of players
+ * @return            A pointer to the initialised game
+ */
 Game *init_game(int num_players)
 {
+    // Check if the number of players is within the allowed range
     if(num_players < 2 || num_players > MAX_PLAYERS)
     {
         printf("Number of players must be between 2 and %d.\n", MAX_PLAYERS);
-        return NULL;
+        return nullptr;
     }
 
+    // Allocate memory for the Game structure
     Game *game = (Game *) malloc(sizeof(Game));
     if(game == NULL)
     {
@@ -18,7 +25,7 @@ Game *init_game(int num_players)
         exit(1);
     }
 
-    // Initialize the board to empty spaces
+    // Initialise the game board with empty spaces
     for(int i = 0; i < SIZE; i ++)
     {
         for(int j = 0; j < SIZE; j ++)
@@ -30,18 +37,21 @@ Game *init_game(int num_players)
     game -> num_players = num_players;
     game -> current_player_index = 0;
 
-    // Assign unique symbols to each player
     char symbols[MAX_PLAYERS] = {'X', 'O', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'};
     for(int i = 0; i < num_players; i ++)
     {
         game -> players[i] = symbols[i];
-        game -> move_counts[i] = 0;  // Initialize move counts to zero
+        game -> move_counts[i] = 0;
     }
 
     return game;
 }
 
-// Display the current state of the game board
+/**
+ * Display the game board.
+ *
+ * @param game A pointer to the game
+ */
 void display_board(const Game *game)
 {
     printf("\n");
@@ -51,16 +61,28 @@ void display_board(const Game *game)
         {
             printf(" %c ", game -> board[i][j]);
             if(j < SIZE - 1)
-            { printf("|"); }
+            {
+                printf("|");
+            }
         }
         printf("\n");
         if(i < SIZE - 1)
-        { printf("---|---|---\n"); }
+        {
+            printf("---|---|---\n");
+        }
     }
     printf("\n");
 }
 
-// Attempt to make a move for the current player at (row, col)
+/**
+ * Make a move on the game board.
+ *
+ * @param game A pointer to the game
+ * @param row  The row of the move
+ * @param col  The column of the move
+ * @return     1 if the move was successful
+ *             0 if the move was invalid
+ */
 int make_move(Game *game, int row, int col)
 {
     if(row < 0 || row >= SIZE || col < 0 || col >= SIZE)
@@ -78,14 +100,18 @@ int make_move(Game *game, int row, int col)
     game -> board[row][col] = current_player;
     game -> move_counts[game -> current_player_index] ++;
 
-    // Switch to the next player
     game -> current_player_index =
             (game -> current_player_index + 1) % game -> num_players;
 
     return 1;
 }
 
-// Check if there's a winner. Returns the winning symbol or ' ' if no winner
+/**
+ * Check if there is a winner.
+ *
+ * @param game A pointer to the game
+ * @return     The symbol of the winner
+ */
 char check_winner(const Game *game)
 {
     // Check rows
@@ -103,7 +129,7 @@ char check_winner(const Game *game)
         }
     }
 
-    // Check columns
+    // Check cols
     for(int i = 0; i < SIZE; i ++)
     {
         for(int p = 0; p < game -> num_players; p ++)
@@ -122,14 +148,17 @@ char check_winner(const Game *game)
     for(int p = 0; p < game -> num_players; p ++)
     {
         char player_symbol = game -> players[p];
-        // Top-left to bottom-right diagonal
+
+        // Check main diagonal
         if(game -> board[0][0] == player_symbol &&
            game -> board[1][1] == player_symbol &&
            game -> board[2][2] == player_symbol)
         {
+            // Return the symbol of the winning player
             return player_symbol;
         }
-        // Top-right to bottom-left diagonal
+
+        // Check anti-diagonal
         if(game -> board[0][2] == player_symbol &&
            game -> board[1][1] == player_symbol &&
            game -> board[2][0] == player_symbol)
@@ -138,15 +167,17 @@ char check_winner(const Game *game)
         }
     }
 
-    // No winner
+    // No winner found
     return ' ';
 }
 
-// Free the memory allocated for the game
+
 void free_game(Game *game)
 {
+    // Check if the game pointer is not NULL
     if(game != NULL)
     {
+        // Free the allocated memory
         free(game);
     }
 }

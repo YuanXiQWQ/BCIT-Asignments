@@ -17,6 +17,7 @@ int main()
 
     printf("Welcome to Multi-player Tic-Tac-Toe!\n");
 
+    // Prompt and read the number of players
     printf("Enter the number of players (2-%d): ", MAX_PLAYERS);
     scanf("%d", &num_players);
     while(num_players < 2 || num_players > MAX_PLAYERS)
@@ -29,7 +30,7 @@ int main()
     // Main game loop
     while(play_again == 'y' || play_again == 'Y')
     {
-        // Init new game
+        // Initialize a new game
         Game *game = init_game(num_players);
         if(game == NULL)
         {
@@ -74,7 +75,7 @@ int main()
 
             move_count ++;
 
-            // Check for a winner
+            // Check for a winner after the move
             winner = check_winner(game);
         }
 
@@ -146,6 +147,7 @@ int main()
             }
         }
 
+        // Free the game resources
         free_game(game);
     }
 
