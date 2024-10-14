@@ -149,16 +149,15 @@ char check_winner(const Game *game)
     {
         char player_symbol = game -> players[p];
 
-        // Check main diagonal
+        // Main diagonal
         if(game -> board[0][0] == player_symbol &&
            game -> board[1][1] == player_symbol &&
            game -> board[2][2] == player_symbol)
         {
-            // Return the symbol of the winning player
             return player_symbol;
         }
 
-        // Check anti-diagonal
+        // Anti-diagonal
         if(game -> board[0][2] == player_symbol &&
            game -> board[1][1] == player_symbol &&
            game -> board[2][0] == player_symbol)
@@ -171,13 +170,15 @@ char check_winner(const Game *game)
     return ' ';
 }
 
-
+/**
+ * Free the memory used by the game.
+ *
+ * @param game A pointer to the game
+ */
 void free_game(Game *game)
 {
-    // Check if the game pointer is not NULL
     if(game != NULL)
     {
-        // Free the allocated memory
         free(game);
     }
 }

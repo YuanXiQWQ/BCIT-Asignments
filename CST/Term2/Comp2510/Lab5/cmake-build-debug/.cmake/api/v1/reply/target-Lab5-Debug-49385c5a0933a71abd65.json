@@ -118,7 +118,7 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "tuc_tac_toe.c",
+			"path" : "tic_tac_toe.c",
 			"sourceGroupIndex" : 0
 		}
 	],

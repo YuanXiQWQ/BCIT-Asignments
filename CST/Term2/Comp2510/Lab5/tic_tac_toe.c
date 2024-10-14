@@ -7,6 +7,7 @@
  *
  * @param num_players The number of players
  * @return            A pointer to the initialised game
+ *                    NULL if the game could not be initialised
  */
 Game *init_game(int num_players)
 {
@@ -14,7 +15,7 @@ Game *init_game(int num_players)
     if(num_players < 2 || num_players > MAX_PLAYERS)
     {
         printf("Number of players must be between 2 and %d.\n", MAX_PLAYERS);
-        return nullptr;
+        return NULL;
     }
 
     // Allocate memory for the Game structure
