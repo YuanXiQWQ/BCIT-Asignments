@@ -301,4 +301,9 @@ public class BookStore {
         }
         return result;
     }
+
+    public String getName()
+    {
+        return name;
+    }
 }

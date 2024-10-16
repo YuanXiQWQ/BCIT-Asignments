@@ -1,0 +1,13 @@
+package ca.bcit.comp2522.book;
+
+/**
+ * An abstract class representing a piece of literature.
+ */
+public abstract class Literature {
+    /**
+     * Gets the title of the literature.
+     *
+     * @return the title
+     */
+    public abstract String getTitle();
+}

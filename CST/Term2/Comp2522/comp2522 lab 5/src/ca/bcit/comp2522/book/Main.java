@@ -7,8 +7,8 @@ public class Main {
     public static void main(final String[] args) {
 
         final BookStore bookstore;
-        final Novel oldest;
-        final List<Novel> fifteenCharTitles;
+        final ca.bcit.comp2522.book.Novel oldest;
+        final List<ca.bcit.comp2522.book.Novel> fifteenCharTitles;
         bookstore = new BookStore("Classic Novels Collection");
         System.out.println("All Titles in UPPERCASE:");
         bookstore.printAllTitles();
