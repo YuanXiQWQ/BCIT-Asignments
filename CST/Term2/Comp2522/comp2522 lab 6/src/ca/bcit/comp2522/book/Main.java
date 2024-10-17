@@ -18,7 +18,7 @@ public class Main {
     public static void main(final String[] args)
     {
 
-        BookStore<Literature> store = new BookStore<>("Mixed Literature Store");
+        final BookStore<Literature> store = new BookStore<>("Mixed Literature Store");
         store.addItem(new Novel("War and Peace", "Leo Tolstoy", 1869));
         store.addItem(new ComicBook("Spider-Man"));
         store.addItem(new Magazine("National Geographic"));
@@ -27,11 +27,11 @@ public class Main {
         store.printItems();
 
         // Use the static nested class
-        BookStore.BookStoreInfo info = new BookStore.BookStoreInfo();
+        final BookStore.BookStoreInfo info = new BookStore.BookStoreInfo();
         info.displayInfo(store.getName(), store.getItems().size());
 
         // Use the inner class
-        BookStore<Literature>.NovelStatistics stats = store.new NovelStatistics();
+        final BookStore<Literature>.NovelStatistics stats = store.new NovelStatistics();
         System.out.println("\nAverage Novel Title Length: " + stats.averageTitleLength());
 
         // Use lambda expression for searching titles
@@ -43,7 +43,7 @@ public class Main {
         store.printTitlesInAlphaOrder();
 
         // PECS principal method
-        List<Literature> novelCollection = new ArrayList<>();
+        final List<Literature> novelCollection = new ArrayList<>();
         store.addNovelsToCollection(novelCollection);
         System.out.println("\nNovels added to collection:");
         for(Literature lit : novelCollection)
@@ -53,7 +53,7 @@ public class Main {
 
         store.sortItems(new Comparator<Literature>() {
             @Override
-            public int compare(Literature o1, Literature o2)
+            public int compare(final Literature o1, final Literature o2)
             {
                 return Integer.compare(o1.getTitle().length(), o2.getTitle().length());
             }

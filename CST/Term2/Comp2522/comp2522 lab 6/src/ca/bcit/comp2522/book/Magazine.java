@@ -18,7 +18,7 @@ public class Magazine extends Literature {
      *
      * @param title the title of the magazine
      */
-    public Magazine(String title)
+    public Magazine(final String title)
     {
         if(title == null ||
                 title.isEmpty())

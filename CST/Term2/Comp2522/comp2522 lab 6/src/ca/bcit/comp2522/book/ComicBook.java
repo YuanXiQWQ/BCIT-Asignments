@@ -19,7 +19,7 @@ public class ComicBook extends Literature {
      *
      * @param title the title of the comic book
      */
-    public ComicBook(String title)
+    public ComicBook(final String title)
     {
         if(title == null ||
                 title.isEmpty())

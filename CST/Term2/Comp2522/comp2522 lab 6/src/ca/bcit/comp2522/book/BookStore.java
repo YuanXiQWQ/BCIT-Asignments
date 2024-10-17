@@ -19,6 +19,8 @@ import java.util.Objects;
 public class BookStore<T extends Literature> {
 
     private static final int DECADE_RANGE = 10;
+    private static final int INIT_INT = 0;
+    private static final int RETURN_FOR_INIT_INT = 0;
     private final String name;
     private final List<T> items;
 
@@ -53,7 +55,7 @@ public class BookStore<T extends Literature> {
      *
      * @param item the item to add
      */
-    public void addItem(T item)
+    public void addItem(final T item)
     {
         items.add(Objects.requireNonNull(item, "Item cannot be null"));
     }
@@ -80,7 +82,7 @@ public class BookStore<T extends Literature> {
      *
      * @param title the substring to search for in the titles
      */
-    public void printBookTitle(String title)
+    public void printBookTitle(final String title)
     {
         items.forEach(item ->
         {
@@ -106,7 +108,7 @@ public class BookStore<T extends Literature> {
      *
      * @param comparator the comparator to determine the order of the items
      */
-    public void sortItems(Comparator<? super T> comparator)
+    public void sortItems(final Comparator<? super T> comparator)
     {
         items.sort(comparator);
     }
@@ -116,7 +118,7 @@ public class BookStore<T extends Literature> {
      *
      * @param novelCollection the collection to add novels to
      */
-    public void addNovelsToCollection(List<? super Novel> novelCollection)
+    public void addNovelsToCollection(final List<? super Novel> novelCollection)
     {
         for(T item : items)
         {
@@ -157,7 +159,7 @@ public class BookStore<T extends Literature> {
          * @param storeName the name of the store
          * @param itemCount the number of items
          */
-        public void displayInfo(String storeName, int itemCount)
+        public void displayInfo(final String storeName,final int itemCount)
         {
             System.out.println("BookStore: " + storeName + ", Items: " + itemCount);
         }
@@ -174,8 +176,8 @@ public class BookStore<T extends Literature> {
          */
         public double averageTitleLength()
         {
-            int totalLength = 0;
-            int novelCount = 0;
+            int totalLength = INIT_INT;
+            int novelCount = INIT_INT;
             for(T item : items)
             {
                 if(item instanceof Novel)
@@ -184,7 +186,8 @@ public class BookStore<T extends Literature> {
                     novelCount++;
                 }
             }
-            return novelCount == 0 ? 0 : (double) totalLength / novelCount;
+            return novelCount == INIT_INT ? RETURN_FOR_INIT_INT :
+                   (double) totalLength / novelCount;
         }
     }
 
@@ -193,13 +196,13 @@ public class BookStore<T extends Literature> {
      *
      * @param decade the starting year of the decade
      */
-    public void printNovelsFromDecade(int decade)
+    public void printNovelsFromDecade(final int decade)
     {
         for(T item : items)
         {
             if(item instanceof Novel novel)
             {
-                int year = novel.getYearPublished();
+                final int year = novel.getYearPublished();
                 if(year >= decade && year < decade + DECADE_RANGE)
                 {
                     System.out.println(novel.getTitle());

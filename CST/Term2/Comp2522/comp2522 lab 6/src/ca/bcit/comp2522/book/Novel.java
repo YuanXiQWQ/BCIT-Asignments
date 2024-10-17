@@ -112,7 +112,7 @@ public class Novel extends Literature {
      */
     @Override
     public String toString() {
-        StringBuilder book = new StringBuilder();
+        final StringBuilder book = new StringBuilder();
         book.append(title)
                 .append(" by ")
                 .append(authorName)
