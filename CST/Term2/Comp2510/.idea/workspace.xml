@@ -4,9 +4,7 @@
     <option name="flavorId" value="CMakePlainProjectFlavor" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9a80051a-4102-45c6-81fc-bde5ad3bcca2" name="更改" comment="">
-      <change beforePath="$PROJECT_DIR$/Lab5/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/Lab5/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
-    </list>
+    <list default="true" id="9a80051a-4102-45c6-81fc-bde5ad3bcca2" name="更改" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -18,9 +16,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 8
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
   <component name="ProjectId" id="2nvfO0Yg1Rtxjm2I9mdu9PVEQlL" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -35,6 +33,7 @@
     "cidr.known.project.marker": "true",
     "com.codeium.enabled": "true",
     "git-widget-placeholder": "master",
+    "last_opened_file_path": "F:/JerryCode/BCIT-Assignments/CST/Term2/Comp2510",
     "nodejs_package_manager_path": "npm",
     "vue.rearranger.settings.migration": "true"
   }
@@ -48,6 +47,7 @@
       <option name="presentableId" value="Default" />
       <updated>1729858434370</updated>
       <workItem from="1729858435395" duration="11000" />
+      <workItem from="1729908808500" duration="8000" />
     </task>
     <servers />
   </component>
