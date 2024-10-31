@@ -1,0 +1,17 @@
+student.c / student.h
+
+
+-1. structure for international & domestic students
+2. write a function - parse each line of input file (domestic cases, international cases, error in parsing)
+3. write a function - writeinternationalstudent (writes domestic students to output file)
+4. write a function - writedomesticstudent (writes international students to output file)
+
+
+
+main.c
+5. file opening - closing (main.c) read and write
+6. loops - options
+
+
+makefile
+- make sure your header file uses macros; define, ifndef, etc.
