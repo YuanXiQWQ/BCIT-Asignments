@@ -71,5 +71,6 @@ int main(int argc, char *argv[]){
 
     // Confirm successful write
     printf(SUCCESS_WRITE_FILE, output_file);
+    printf(DONUT);
     return 0;
 }
