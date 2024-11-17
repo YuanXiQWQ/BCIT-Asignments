@@ -1,5 +1,3 @@
-import java.util.Stack;
-
 /**
  * The Controller class acts as the invoker in the Command design pattern.
  * It stores and executes commands and maintains a history for undo operations.
@@ -8,13 +6,14 @@ import java.util.Stack;
  */
 public class Controller {
     private Command currentCommand;
-    private final Stack<Command> commandHistory;
+    private Command lastCommand;
 
     /**
-     * Constructs a Controller with an empty command history.
+     * Constructs a Controller.
      */
     public Controller() {
-        commandHistory = new Stack<>();
+        this.currentCommand = null;
+        this.lastCommand = null;
     }
 
     /**
@@ -22,18 +21,18 @@ public class Controller {
      *
      * @param command The command to be set.
      */
-    public void setCommand(Command command) {
+    public void setCommand(final Command command) {
         this.currentCommand = command;
     }
 
     /**
-     * Executes the current command and adds it to the history.
+     * Executes the current command and stores it as the last command for undo.
      */
     public void pressButton() {
         if (currentCommand != null) {
             currentCommand.execute();
-            // Record the executed command
-            commandHistory.push(currentCommand);
+            // Store the current command as the last command(for undo)
+            lastCommand = currentCommand;
         }
     }
 
@@ -41,9 +40,9 @@ public class Controller {
      * Undoes the last executed command.
      */
     public void pressUndo() {
-        if (!commandHistory.isEmpty()) {
-            Command lastCommand = commandHistory.pop();
+        if (lastCommand != null) {
             lastCommand.undo();
+            lastCommand = null;
         } else {
             System.out.println("No commands to undo.");
         }
