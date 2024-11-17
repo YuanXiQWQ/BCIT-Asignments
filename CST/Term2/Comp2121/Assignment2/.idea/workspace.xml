@@ -24,10 +24,10 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../.." />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 3
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 3
+}</component>
   <component name="ProjectId" id="2oX82rdrg126SGA29YokOhe34Js" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -42,6 +42,7 @@
     "cidr.known.project.marker": "true",
     "com.codeium.enabled": "true",
     "git-widget-placeholder": "COMP2510",
+    "last_opened_file_path": "F:/JerryCode/BCIT-Assignments/CST/Term2/Comp2510/Assignment2/code",
     "nodejs_package_manager_path": "npm",
     "vue.rearranger.settings.migration": "true"
   }
@@ -55,6 +56,7 @@
       <option name="presentableId" value="Default" />
       <updated>1731004361325</updated>
       <workItem from="1731004363787" duration="85000" />
+      <workItem from="1731881239181" duration="23000" />
     </task>
     <servers />
   </component>
