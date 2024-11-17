@@ -56,7 +56,7 @@ int monthStrToEnum(const char *monthStr){
     int MONTHS_PER_YEAR = 12;
     for(int i = 0; i < MONTHS_PER_YEAR; i++){
         if(strcmp(monthStr, months[i]) == 0){
-            return i;  // Return the corresponding month index
+            return i;
         }
     }
     return -1;
@@ -73,7 +73,7 @@ int isInternational(const Student* student) {
 }
 
 /**
- * Convert a single character to lowercase without using ctype.h
+ * Convert a single character to lowercase
  * @param c The character to convert
  * @return Lowercase version of the character if it's uppercase, otherwise the original character
  */
@@ -85,7 +85,7 @@ char toLowerChar(char c){
 }
 
 /**
- * Convert a string to lowercase without using ctype.h
+ * Convert a string to lowercase
  *
  * @param str The string to convert
  */
@@ -158,12 +158,12 @@ int compareStudents(const void *a, const void *b){
     if(isInternational(s1) && isInternational(s2)){
         return s1->toeflScore - s2->toeflScore;
     } else if(isInternational(s1)){
-        return 1; // Domestic students take precedence
+        // 8. Domestic > International
+        return 1;
     } else if(isInternational(s2)){
         return -1;
     }
 
-    // 8. Domestic > International (already handled above)
     return 0;
 }
 
@@ -236,7 +236,7 @@ void mergeStudents(Student *arr, int left, int mid, int right){
 
 /**
  * Capitalize the first letter of the month string and make the rest lowercase
- * Ensures that month abbreviations are in the correct format
+ *
  * @param str The month string to capitalize
  */
 void capitalizeMonth(char *str){
@@ -260,6 +260,7 @@ void capitalizeMonth(char *str){
  *         1 on failure
  */
 int main(int argc, char *argv[]){
+    // Validate number of arguments
     if(argc != 4){
         fprintf(stderr, "Error: Incorrect number of arguments.\n");
         return 1;
@@ -326,7 +327,6 @@ int main(int argc, char *argv[]){
         int offset = 0;
 
         // First, parse the mandatory fields
-        // Updated format string to include status and capture offset
         fieldsRead = sscanf(line, "%63s %63s %3[^-]-%d-%d %f %c%n",
                             firstName, lastName, monthStr, &day, &year, &gpa, &status, &offset);
 
@@ -423,7 +423,6 @@ int main(int argc, char *argv[]){
         int international = isInternational(&tempStudent);
 
         if(international){
-            // Parse TOEFL score using a separate offset
             int toeflOffset = 0;
             int toeflFieldsRead = sscanf(line + offset, " %d%n", &toefl, &toeflOffset);
             if(toeflFieldsRead < 1){
@@ -463,7 +462,6 @@ int main(int argc, char *argv[]){
             }
         } else{
             // For domestic students, ensure no TOEFL score is present
-            // Skip any whitespace and check if there's additional data
             int tempOffset = offset;
             while(line[tempOffset] == ' ' || line[tempOffset] == '\t'){
                 tempOffset++;
