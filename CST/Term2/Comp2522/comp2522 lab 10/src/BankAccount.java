@@ -1,11 +1,28 @@
 /**
- * A class representing a bank account.
+ * <p>This class provides functionalities to manage a bank account, including depositing,
+ * withdrawing, transferring funds, and querying the account balance.
+ * </p>
+ *
+ * <p>All methods that can throw runtime exceptions have been documented using
+ * {@code @throws} tags to inform users about potential errors.</p>
+ *
+ * <p>Example usage:
+ * <pre>{@code
+ * BankAccount account = new BankAccount("12345", 1000.0);
+ * account.deposit(500.0);
+ * account.withdraw(200.0);
+ * }</pre>
+ * </p>
+ *
+ * <p>Note: This class does not handle thread safety. If used in a multithreaded
+ * environment,
+ * external synchronization is required.</p>
  *
  * @author Daniel Wang
  * @author Uppnoor Panesar
  * @author Jack Le
  * @author Jiarui Xing
- * @version 1.0
+ * @version 1.2
  */
 public class BankAccount {
     private static final double MIN_BALANCE = 0;
@@ -18,6 +35,8 @@ public class BankAccount {
      *
      * @param accountId      the unique identifier for the account
      * @param initialBalance the starting balance of the account
+     * @throws IllegalArgumentException if {@code accountId} is null or empty, or if
+     *                                  {@code initialBalance} is negative
      */
     public BankAccount(final String accountId, final double initialBalance)
     {
@@ -37,6 +56,7 @@ public class BankAccount {
      * Deposits the specified amount into the account.
      *
      * @param amount the amount to deposit
+     * @throws IllegalArgumentException if {@code amount} is not positive
      */
     public void deposit(final double amount)
     {
@@ -51,6 +71,8 @@ public class BankAccount {
      * Withdraws the specified amount from the account.
      *
      * @param amount the amount to withdraw
+     * @throws IllegalArgumentException if {@code amount} is not positive or if the
+     *                                  withdrawal amount exceeds the current balance
      */
     public void withdraw(final double amount)
     {
@@ -71,6 +93,10 @@ public class BankAccount {
      * @param destination the account to transfer funds to
      * @param sourceId    the source account ID
      * @param amount      the amount to transfer
+     * @throws IllegalArgumentException if the {@code sourceId} does not match this
+     *                                  account's ID, if {@code destination} is null, if
+     *                                  {@code amount} is not positive, or if the
+     *                                  withdrawal amount exceeds the current balance
      */
     public void transferToBank(final BankAccount destination,
                                final String sourceId,
@@ -82,7 +108,7 @@ public class BankAccount {
         }
         if(destination == null)
         {
-            throw new IllegalArgumentException("Destination account not found");
+            throw new IllegalArgumentException("Destination account cannot be null");
         }
         this.withdraw(amount);
         destination.deposit(amount);

@@ -2,13 +2,35 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * A class representing a bank.
+ * <p>This class manages a collection of {@link BankAccount} objects, providing
+ * functionalities
+ * to add new accounts, retrieve existing accounts by their unique IDs, and calculate the
+ * total balance across all accounts.</p>
+ *
+ * <p>All methods that can throw runtime exceptions have been documented using
+ * {@code @throws} tags to inform users about potential errors.</p>
+ *
+ * <p>Example usage:
+ * <pre>{@code
+ * Bank bank = new Bank();
+ * BankAccount account1 = new BankAccount("12345", 1000.0);
+ * BankAccount account2 = new BankAccount("67890", 500.0);
+ * bank.addAccount(account1);
+ * bank.addAccount(account2);
+ * double total = bank.totalBalanceUsd(); // total = 1500.0
+ * BankAccount retrieved = bank.retrieveAccount("12345");
+ * }</pre>
+ * </p>
+ *
+ * <p>Note: This class does not handle thread safety. If used in a multithreaded
+ * environment,
+ * external synchronisation is required.</p>
  *
  * @author Daniel Wang
  * @author Uppnoor Panesar
  * @author Jack Le
  * @author Jiarui Xing
- * @version 1.0
+ * @version 1.2
  */
 public class Bank {
     private final Map<String, BankAccount> accounts;
@@ -22,9 +44,12 @@ public class Bank {
     }
 
     /**
-     * Adds a new BankAccount to the bank.
+     * Adds a new {@link BankAccount} to the bank.
      *
-     * @param account the BankAccount to add
+     * @param account the {@code BankAccount} to add
+     * @throws IllegalArgumentException if {@code account} is {@code null} or if an
+     *                                  account with the same ID already exists in the
+     *                                  bank
      */
     public void addAccount(final BankAccount account)
     {
@@ -42,18 +67,20 @@ public class Bank {
     }
 
     /**
-     * Retrieves a BankAccount by its ID.
+     * Retrieves a {@link BankAccount} by its ID.
      *
      * @param accountId the ID of the account to retrieve
-     * @return the BankAccount with the specified ID
+     * @return the {@code BankAccount} with the specified ID
+     *
+     * @throws IllegalArgumentException if no account with the specified ID is found
      */
     public BankAccount retrieveAccount(final String accountId)
     {
-        final BankAccount account;
-        account = accounts.get(accountId);
+        final BankAccount account = accounts.get(accountId);
         if(account == null)
         {
-            throw new IllegalArgumentException("Account not found");
+            throw new IllegalArgumentException(
+                    "Account not found");
         }
         return account;
     }
