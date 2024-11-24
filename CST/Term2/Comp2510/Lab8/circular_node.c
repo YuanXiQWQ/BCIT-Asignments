@@ -37,7 +37,7 @@ void deleteNode(struct Node **head, const char *signal){
 
     struct Node *temp = *head, *prev = NULL;
 
-    // If the head node itself holds the signal to be deleted and it's the only node
+    // If the head node itself holds the signal to be deleted, and it's the only node
     if(strcmp(temp->signal, signal) == 0 && temp->next == *head){
         *head = NULL;
         free(temp);
@@ -86,17 +86,30 @@ void displayList(struct Node *head){
     printf("%s (head)\n\n", head->signal); // Indicate the circular nature
 }
 
-// Function to update the duration of a given signal
+/**
+ * Updates the duration of a signal in the circular linked list based on its signal name.
+ *
+ * @param head the head of the circular linked list
+ * @param signal the name of the signal
+ * @param newDuration the new duration
+ */
 void updateDuration(struct Node *head, const char *signal, int newDuration){
-    if(head == NULL){ return; }
+    // Check if the list is empty
+    if(head == NULL){
+        return;
+    }
 
+    // Search for the signal in the list
     struct Node *temp = head;
     do{
+        // If the signal is found, update its duration
         if(strcmp(temp->signal, signal) == 0){
             temp->duration = newDuration;
             printf("Updated duration of '%s' to %d seconds.\n\n", signal, newDuration);
             return;
         }
+
+        // Move to the next node
         temp = temp->next;
     } while(temp != head);
     printf("Signal '%s' not found. Duration not updated.\n\n", signal);

@@ -2,7 +2,8 @@
 #include "circular_node.h"
 
 int main(){
-    struct Node *head = NULL; // Initialize head to NULL
+    // Initialize head to NULL
+    struct Node *head = NULL;
 
     // Insert nodes
     insertAtEnd(&head, "Red", 30);
