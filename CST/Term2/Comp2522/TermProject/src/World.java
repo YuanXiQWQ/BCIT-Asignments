@@ -4,52 +4,89 @@ import java.io.IOException;
 import java.util.HashMap;
 
 /**
+ * Manages a collection of countries loaded from data files. Used in the Word Game to
+ * provide country data for questions.
+ *
  * @author Jiarui Xing
  */
 public class World {
     private final HashMap<String, Country> countries;
 
-    public World() {
+    /**
+     * Constructs an empty World.
+     */
+    public World()
+    {
         countries = new HashMap<>();
     }
 
-    public void loadCountries(String filename) {
-        try (BufferedReader br = new BufferedReader(new FileReader(filename))) {
+    /**
+     * Loads countries from the specified file and adds them to the world.
+     *
+     * @param filename the name of the file to load countries from
+     */
+    public void loadCountries(String filename)
+    {
+        try(BufferedReader br = new BufferedReader(new FileReader(filename)))
+        {
             String line;
-            String name = "";
-            String capital = "";
+            String name = null;
+            String capital = null;
             String[] facts = new String[3];
             int factIndex = 0;
 
-            while ((line = br.readLine()) != null) {
-                if (line.contains(":")) {
+            while((line = br.readLine()) != null)
+            {
+                line = line.trim();
+                if(line.isEmpty())
+                {
+                    // Empty line indicates separation between countries
+                    if(name != null && capital != null && factIndex > 0)
+                    {
+                        Country country = new Country(name, capital, facts);
+                        countries.put(name, country);
+                        // Reset variables for the next country
+                        name = null;
+                        capital = null;
+                        facts = new String[3];
+                        factIndex = 0;
+                    }
+                } else if(line.contains(":"))
+                {
+                    // Line contains country and capital
                     String[] parts = line.split(":", 2);
                     name = parts[0].trim();
                     capital = parts[1].trim();
-                    factIndex = 0;
-                    facts = new String[3];
-                } else if (!line.trim().isEmpty()) {
-                    facts[factIndex++] = line.trim();
-                    if (factIndex == 3) {
-                        Country country = new Country(name, capital, facts);
-                        countries.put(name, country);
+                } else
+                {
+                    // Line contains a fact
+                    if(factIndex < facts.length)
+                    {
+                        facts[factIndex++] = line;
                     }
                 }
             }
-
-            // In case the last country does not have exactly 3 facts
-            if (factIndex > 0 && factIndex <= 3) {
+            // Add the last country if the file doesn't end with an empty line
+            if(name != null && capital != null && factIndex > 0)
+            {
                 Country country = new Country(name, capital, facts);
                 countries.put(name, country);
             }
 
-        } catch (IOException e) {
+        } catch(IOException e)
+        {
             System.out.println("Error reading file: " + filename);
             e.printStackTrace();
         }
     }
 
-    public HashMap<String, Country> getCountries() {
+    /**
+     * Gets the HashMap of countries.
+     *
+     * @return the countries HashMap
+     */
+    public HashMap<String, Country> getCountries()
+    {
         return countries;
     }
 }

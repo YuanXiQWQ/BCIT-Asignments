@@ -1,13 +1,28 @@
-// Main.java
 import java.util.Scanner;
 
+/**
+ * The main entry point of the application. Displays the menu and handles user choices to
+ * start different games. Ensures the program runs in a loop until the user decides to
+ * quit.
+ * <p>
+ *
+ * @author Jiarui Xing
+ */
 public class Main {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        while (true) {
+    /**
+     * The main method that starts the application.
+     *
+     * @param args command-line arguments (not used)
+     */
+    public static void main(String[] args)
+    {
+        final Scanner scanner = new Scanner(System.in);
+        while(true)
+        {
             printMenu();
             String choice = scanner.nextLine().trim().toLowerCase();
-            switch (choice) {
+            switch(choice)
+            {
                 case "w":
                     WordGame wordGame = new WordGame();
                     wordGame.start();
@@ -30,7 +45,11 @@ public class Main {
         }
     }
 
-    private static void printMenu() {
+    /**
+     * Prints the main menu options to the console.
+     */
+    private static void printMenu()
+    {
         System.out.println("Press W to play the Word game.");
         System.out.println("Press N to play the Number game.");
         System.out.println("Press M to play the MyGame.");
