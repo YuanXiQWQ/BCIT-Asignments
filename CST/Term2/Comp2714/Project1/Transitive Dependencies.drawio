@@ -1,0 +1,40 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/24.7.17 Chrome/128.0.6613.36 Electron/32.0.1 Safari/537.36" version="24.7.17">
+  <diagram name="第 1 页" id="Rk2AdE9gHm00xe2lMqVw">
+    <mxGraphModel dx="1164" dy="1069" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="EfMGP3iTbsy4oNZMzjr8-106" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fillColor=#f8cecc;strokeColor=#b85450;" edge="1" parent="1" source="EfMGP3iTbsy4oNZMzjr8-107" target="EfMGP3iTbsy4oNZMzjr8-109">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="EfMGP3iTbsy4oNZMzjr8-107" value="Member_ID" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="10" y="1040" width="110" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="EfMGP3iTbsy4oNZMzjr8-108" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fillColor=#f8cecc;strokeColor=#b85450;" edge="1" parent="1" source="EfMGP3iTbsy4oNZMzjr8-109" target="EfMGP3iTbsy4oNZMzjr8-111">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="EfMGP3iTbsy4oNZMzjr8-109" value="Phone_Number" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="120" y="1040" width="110" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="EfMGP3iTbsy4oNZMzjr8-111" value="Name" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="230" y="1040" width="110" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="EfMGP3iTbsy4oNZMzjr8-119" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fillColor=#f8cecc;strokeColor=#b85450;" edge="1" parent="1" source="EfMGP3iTbsy4oNZMzjr8-120" target="EfMGP3iTbsy4oNZMzjr8-122">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="EfMGP3iTbsy4oNZMzjr8-120" value="Book_ID" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="10" y="1120" width="110" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="EfMGP3iTbsy4oNZMzjr8-121" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fillColor=#f8cecc;strokeColor=#b85450;" edge="1" parent="1" source="EfMGP3iTbsy4oNZMzjr8-122" target="EfMGP3iTbsy4oNZMzjr8-124">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="EfMGP3iTbsy4oNZMzjr8-122" value="Category_ID" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="120" y="1120" width="110" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="EfMGP3iTbsy4oNZMzjr8-124" value="Category_Name" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="230" y="1120" width="110" height="40" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
