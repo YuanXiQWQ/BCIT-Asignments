@@ -288,26 +288,28 @@ public class NumberGameApp extends Application {
      */
     private void showStatistics()
     {
-        int gamesWon = gameInstance.getGamesWon();
-        int gamesLost = gameInstance.getGamesLost();
-        int totalPlacements = gameInstance.getTotalSuccessfulPlacements();
-        int gamesPlayed = gamesWon + gamesLost;
-        double averagePlacements = gamesPlayed > 0
-                                   ? (double) totalPlacements / gamesPlayed
-                                   : 0;
+        final int gamesWon = gameInstance.getGamesWon();
+        final int gamesLost = gameInstance.getGamesLost();
+        final int totalPlacements = gameInstance.getTotalSuccessfulPlacements();
+        final int gamesPlayed = gamesWon + gamesLost;
+        final double averagePlacements = gamesPlayed > 0
+                                         ? (double) totalPlacements / gamesPlayed
+                                         : 0;
+
+        StringBuilder sb;
+        sb = new StringBuilder();
+        sb.append("Game Statistics:")
+                .append("\nTotal Games Played: ").append(gamesPlayed)
+                .append("\nGames Won: ").append(gamesWon)
+                .append("\nGames Lost: ").append(gamesLost)
+                .append("\nTotal Successful Placements: ").append(totalPlacements)
+                .append("\nAverage Successful Placements per Game: ")
+                .append(String.format("%.2f", averagePlacements));
 
         final Alert statsAlert = new Alert(Alert.AlertType.INFORMATION);
         statsAlert.setTitle("Statistics");
         statsAlert.setHeaderText(null);
-        statsAlert.setContentText(String.format(
-                "Game Statistics:\n" +
-                        "Total Games Played: %d\n" +
-                        "Games Won: %d\n" +
-                        "Games Lost: %d\n" +
-                        "Total Successful Placements: %d\n" +
-                        "Average Successful Placements per Game: %.2f",
-                gamesPlayed, gamesWon, gamesLost, totalPlacements, averagePlacements
-        ));
+        statsAlert.setContentText(sb.toString());
         statsAlert.showAndWait();
     }
 

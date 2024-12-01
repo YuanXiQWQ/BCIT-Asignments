@@ -10,13 +10,9 @@ import java.util.List;
  *
  * @author Jiarui Xing
  */
-public class Score{
-    public final LocalDateTime dateTimePlayed;
-    public final int numGamesPlayed;
-    public final int numCorrectFirstAttempt;
-    public final int numCorrectSecondAttempt;
-    public final int numIncorrectTwoAttempts;
-
+public record Score(LocalDateTime dateTimePlayed, int numGamesPlayed,
+                    int numCorrectFirstAttempt, int numCorrectSecondAttempt,
+                    int numIncorrectTwoAttempts) {
     private static final DateTimeFormatter FORMATTER =
             DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 
@@ -29,15 +25,8 @@ public class Score{
      * @param numCorrectSecondAttempt the number of second-attempt correct answers
      * @param numIncorrectTwoAttempts the number of incorrect answers after two attempts
      */
-    public Score(LocalDateTime dateTimePlayed, int numGamesPlayed,
-                 int numCorrectFirstAttempt, int numCorrectSecondAttempt,
-                 int numIncorrectTwoAttempts)
+    public Score
     {
-        this.dateTimePlayed = dateTimePlayed;
-        this.numGamesPlayed = numGamesPlayed;
-        this.numCorrectFirstAttempt = numCorrectFirstAttempt;
-        this.numCorrectSecondAttempt = numCorrectSecondAttempt;
-        this.numIncorrectTwoAttempts = numIncorrectTwoAttempts;
     }
 
     /**
@@ -47,10 +36,10 @@ public class Score{
      */
     public int getScore()
     {
-        final int FIRST_ATTEMPT_POINTS = 2;
-        final int SECOND_ATTEMPT_POINTS = 1;
-        return (numCorrectFirstAttempt * FIRST_ATTEMPT_POINTS) +
-                (numCorrectSecondAttempt * SECOND_ATTEMPT_POINTS);
+        final int firstAttemptPoints = 2;
+        final int secondAttemptPoints = 1;
+        return (numCorrectFirstAttempt * firstAttemptPoints) +
+                (numCorrectSecondAttempt * secondAttemptPoints);
     }
 
     /**
@@ -65,13 +54,18 @@ public class Score{
 
     private StringBuilder buildString()
     {
-        final StringBuilder sb = new StringBuilder();
-        sb.append(String.format("Date and Time: %s\n", dateTimePlayed.format(FORMATTER)));
-        sb.append(String.format("Games Played: %d\n", numGamesPlayed));
-        sb.append(String.format("Correct First Attempts: %d\n", numCorrectFirstAttempt));
-        sb.append(
-                String.format("Correct Second Attempts: %d\n", numCorrectSecondAttempt));
-        sb.append(String.format("Incorrect Attempts: %d\n", numIncorrectTwoAttempts));
+        final StringBuilder sb;
+        sb = new StringBuilder()
+                .append("Date and Time: ")
+                .append(dateTimePlayed.format(FORMATTER))
+                .append("\nGames Played: ")
+                .append(numGamesPlayed)
+                .append("\nCorrect First Attempts: ")
+                .append(numCorrectFirstAttempt)
+                .append("\nCorrect Second Attempts: ")
+                .append(numCorrectSecondAttempt)
+                .append("\nIncorrect Attempts: ")
+                .append(numIncorrectTwoAttempts);
         return sb;
     }
 
@@ -83,18 +77,25 @@ public class Score{
     @Override
     public String toString()
     {
-        StringBuilder sb = buildString();
-        sb.append(String.format("Score: %d points\n", getScore()));
-        return sb.toString();
+        return buildString()
+                .append("Score: ")
+                .append(getScore())
+                .append(" points\n")
+                .toString();
     }
 
     public String toFileString()
     {
-        StringBuilder sb = buildString();
-        sb.append(String.format("Total Score: %d points\n", getScore()));
-        sb.append(String.format("Average Score: %.2f points/game\n", getAverageScore()));
-        return sb.toString();
+        return buildString()
+                .append("Total Score: ")
+                .append(getScore())
+                .append(" points\n")
+                .append("Average Score: ")
+                .append(String.format("%.2f", getAverageScore()))
+                .append(" points/game\n")
+                .toString();
     }
+
 
     /**
      * Appends the score to the specified file.
@@ -103,11 +104,12 @@ public class Score{
      * @param filename the name of the file
      * @throws IOException if an I/O error occurs
      */
-    public static void appendScoreToFile(Score score, String filename) throws IOException
+    public static void appendScoreToFile(final Score score, final String filename)
+            throws IOException
     {
-        try(FileWriter fw = new FileWriter(filename, true);
-            BufferedWriter bw = new BufferedWriter(fw);
-            PrintWriter out = new PrintWriter(bw))
+        try(final FileWriter fw = new FileWriter(filename, true);
+            final BufferedWriter bw = new BufferedWriter(fw);
+            final PrintWriter out = new PrintWriter(bw))
         {
             out.println(score.toFileString());
         }
@@ -121,16 +123,16 @@ public class Score{
      *
      * @throws IOException if an I/O error occurs
      */
-    public static List<Score> readScoresFromFile(String filename) throws IOException
+    public static List<Score> readScoresFromFile(final String filename) throws IOException
     {
-        List<Score> scores = new ArrayList<>();
-        File file = new File(filename);
+        final List<Score> scores = new ArrayList<>();
+        final File file = new File(filename);
         if(!file.exists())
         {
             return scores;
         }
 
-        try(BufferedReader br = new BufferedReader(new FileReader(file)))
+        try(final BufferedReader br = new BufferedReader(new FileReader(file)))
         {
             String line;
             LocalDateTime dateTime = null;
@@ -143,7 +145,8 @@ public class Score{
             {
                 if(line.startsWith("Date and Time:"))
                 {
-                    String dateTimeStr = line.substring("Date and Time:".length()).trim();
+                    final String dateTimeStr =
+                            line.substring("Date and Time:".length()).trim();
                     dateTime = LocalDateTime.parse(dateTimeStr, FORMATTER);
                 } else if(line.startsWith("Games Played:"))
                 {
@@ -161,15 +164,12 @@ public class Score{
                 {
                     numIncorrectTwoAttempts = Integer.parseInt(
                             line.substring("Incorrect Attempts:".length()).trim());
-                } else if(line.startsWith("Total Score:"))
-                {
-                    // Ignore, total score is calculated
                 } else if(line.startsWith("Average Score:"))
                 {
                     // End of one score entry, create Score object
                     if(dateTime != null)
                     {
-                        Score score = new Score(dateTime, numGamesPlayed,
+                        final Score score = new Score(dateTime, numGamesPlayed,
                                 numCorrectFirstAttempt, numCorrectSecondAttempt,
                                 numIncorrectTwoAttempts);
                         scores.add(score);
@@ -183,7 +183,6 @@ public class Score{
                 }
             }
         }
-
         return scores;
     }
 }

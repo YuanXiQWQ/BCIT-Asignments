@@ -1,5 +1,8 @@
 import java.util.Scanner;
 
+/**
+ * @author YuanXi
+ */
 public class MyGame implements Game {
     private final Scanner scanner;
 

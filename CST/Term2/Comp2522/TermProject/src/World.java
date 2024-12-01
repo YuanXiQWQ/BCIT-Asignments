@@ -25,7 +25,7 @@ public class World {
      *
      * @param filename the name of the file to load countries from
      */
-    public void loadCountries(String filename)
+    public void loadCountries(final String filename)
     {
         try(BufferedReader br = new BufferedReader(new FileReader(filename)))
         {
@@ -41,9 +41,9 @@ public class World {
                 if(line.isEmpty())
                 {
                     // Empty line indicates separation between countries
-                    if(name != null && capital != null && factIndex > 0)
+                    if(name != null && factIndex > 0)
                     {
-                        Country country = new Country(name, capital, facts);
+                        final Country country = new Country(name, capital, facts);
                         countries.put(name, country);
                         // Reset variables for the next country
                         name = null;
@@ -54,7 +54,7 @@ public class World {
                 } else if(line.contains(":"))
                 {
                     // Line contains country and capital
-                    String[] parts = line.split(":", 2);
+                    final String[] parts = line.split(":", 2);
                     name = parts[0].trim();
                     capital = parts[1].trim();
                 } else
@@ -67,9 +67,9 @@ public class World {
                 }
             }
             // Add the last country if the file doesn't end with an empty line
-            if(name != null && capital != null && factIndex > 0)
+            if(name != null && factIndex > 0)
             {
-                Country country = new Country(name, capital, facts);
+                final Country country = new Country(name, capital, facts);
                 countries.put(name, country);
             }
 

@@ -4,11 +4,7 @@
  *
  * @author Jiarui Xing
  */
-public class Country {
-    private final String name;
-    private final String capitalCityName;
-    private final String[] facts;
-
+public record Country(String name, String capitalCityName, String[] facts) {
     /**
      * Constructs a Country with the given name, capital city, and facts.
      *
@@ -16,11 +12,8 @@ public class Country {
      * @param capitalCityName the capital city of the country
      * @param facts           an array of facts about the country
      */
-    public Country(String name, String capitalCityName, String[] facts)
+    public Country
     {
-        this.name = name;
-        this.capitalCityName = capitalCityName;
-        this.facts = facts;
     }
 
     /**
@@ -28,7 +21,8 @@ public class Country {
      *
      * @return the country name
      */
-    public String getName()
+    @Override
+    public String name()
     {
         return name;
     }
@@ -38,7 +32,8 @@ public class Country {
      *
      * @return the capital city name
      */
-    public String getCapitalCityName()
+    @Override
+    public String capitalCityName()
     {
         return capitalCityName;
     }
@@ -48,7 +43,8 @@ public class Country {
      *
      * @return the facts array
      */
-    public String[] getFacts()
+    @Override
+    public String[] facts()
     {
         return facts;
     }

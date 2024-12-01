@@ -4,7 +4,6 @@ import java.util.Scanner;
  * The main entry point of the application. Displays the menu and handles user choices to
  * start different games. Ensures the program runs in a loop until the user decides to
  * quit.
- * <p>
  *
  * @author Jiarui Xing
  */
@@ -14,7 +13,7 @@ public class Main {
      *
      * @param args command-line arguments (not used)
      */
-    public static void main(String[] args)
+    public static void main(final String[] args)
     {
         final Scanner scanner = new Scanner(System.in);
         while(true)
@@ -50,10 +49,13 @@ public class Main {
      */
     private static void printMenu()
     {
-        System.out.println("Press W to play the Word game.");
-        System.out.println("Press N to play the Number game.");
-        System.out.println("Press M to play the MyGame.");
-        System.out.println("Press Q to quit.");
-        System.out.print("Your choice: ");
+        StringBuilder sb;
+        sb = new StringBuilder();
+        sb.append("Press W to play the Word game.\n")
+                .append("Press N to play the Number game.\n")
+                .append("Press M to play the MyGame.\n")
+                .append("Press Q to quit.\n")
+                .append("Your choice: ");
+        System.out.print(sb);
     }
 }

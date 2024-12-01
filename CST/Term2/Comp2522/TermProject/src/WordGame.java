@@ -46,8 +46,8 @@ public class WordGame implements Game {
     {
         for(char c = 'a'; c <= 'z'; c++)
         {
-            String filename = c + ".txt";
-            File file = new File(filename);
+            final String filename = c + ".txt";
+            final File file = new File(filename);
             if(file.exists())
             {
                 world.loadCountries(filename);
@@ -69,17 +69,23 @@ public class WordGame implements Game {
 
         while(playAgain)
         {
-            GameResult result = playSingleGame();
+            final GameResult result = playSingleGame();
             totalGamesPlayed += 1;
             totalCorrectFirst += result.correctFirst;
             totalCorrectSecond += result.correctSecond;
             totalIncorrect += result.incorrect;
 
-            System.out.printf(
-                    "- %d word game(s) played\n- %d correct answers on the first " +
-                            "attempt\n- %d correct answers on the second attempt\n- %d " +
-                            "incorrect answers on two attempts each%n", totalGamesPlayed,
-                    totalCorrectFirst, totalCorrectSecond, totalIncorrect);
+            final StringBuilder sb;
+            sb = new StringBuilder();
+            sb.append("- ").append(totalGamesPlayed)
+                    .append(" word game(s) played\n")
+                    .append("- ").append(totalCorrectFirst)
+                    .append(" correct answers on the first attempt\n")
+                    .append("- ").append(totalCorrectSecond)
+                    .append(" correct answers on the second attempt\n")
+                    .append("- ").append(totalIncorrect)
+                    .append(" incorrect answers on two attempts each\n");
+            System.out.print(sb);
 
             // Ask if the user wants to play again
             boolean validResponse = false;
@@ -101,9 +107,9 @@ public class WordGame implements Game {
             }
         }
 
-        final Score finalScore =
-                new Score(LocalDateTime.now(), totalGamesPlayed, totalCorrectFirst,
-                        totalCorrectSecond, totalIncorrect);
+        final Score finalScore;
+        finalScore = new Score(LocalDateTime.now(), totalGamesPlayed, totalCorrectFirst,
+                totalCorrectSecond, totalIncorrect);
 
         // Check for high score
         checkHighScore(finalScore);
@@ -131,7 +137,8 @@ public class WordGame implements Game {
         int incorrect = 0;
 
         // Prepare list of countries
-        List<Country> countryList = new ArrayList<>(world.getCountries().values());
+        final List<Country> countryList;
+        countryList = new ArrayList<>(world.getCountries().values());
         if(countryList.size() < QUESTIONS_PER_GAME)
         {
             System.out.println("Not enough countries loaded to play the game.");
@@ -140,13 +147,14 @@ public class WordGame implements Game {
 
         // Shuffle and select questions
         Collections.shuffle(countryList);
-        List<Country> selectedCountries = countryList.subList(0, QUESTIONS_PER_GAME);
+        final List<Country> selectedCountries;
+        selectedCountries = countryList.subList(0, QUESTIONS_PER_GAME);
 
-        for(Country country : selectedCountries)
+        for(final Country country : selectedCountries)
         {
-            int questionType = random.nextInt(3);
-            String question;
-            String answer;
+            final int questionType = random.nextInt(3);
+            final String question;
+            final String answer;
             String userAnswer;
 
             switch(questionType)
@@ -154,26 +162,25 @@ public class WordGame implements Game {
                 case 0:
                     // Show capital, ask for country
                     question = String.format("What country has the capital city %s?",
-                            country.getCapitalCityName());
-                    answer = country.getName();
+                            country.capitalCityName());
+                    answer = country.name();
                     break;
                 case 1:
                     // Show country, ask for capital
                     question = String.format("What is the capital city of %s?",
-                            country.getName());
-                    answer = country.getCapitalCityName();
+                            country.name());
+                    answer = country.capitalCityName();
                     break;
                 case 2:
                     // Show a fact, ask for country
-                    String[] facts = country.getFacts();
-                    int factIndex = random.nextInt(MAX_FACTS);
+                    final String[] facts = country.facts();
+                    final int factIndex = random.nextInt(MAX_FACTS);
                     question = String.format(
                             "Which country is described by the following fact: %s",
                             facts[factIndex]);
-                    answer = country.getName();
+                    answer = country.name();
                     break;
                 default:
-                    // Should not reach here
                     continue;
             }
 
@@ -203,7 +210,6 @@ public class WordGame implements Game {
                 }
             }
         }
-
         return new GameResult(correctFirst, correctSecond, incorrect);
     }
 
@@ -212,49 +218,57 @@ public class WordGame implements Game {
      *
      * @param currentScore the current score
      */
-    private void checkHighScore(Score currentScore)
+    private void checkHighScore(final Score currentScore)
     {
-        double averageScore = currentScore.getAverageScore();
+        final double averageScore = currentScore.getAverageScore();
 
         // Find the highest average score in existing scores
         double highestAverage = 0.0;
         LocalDateTime highScoreTime = null;
         if(!scores.isEmpty())
         {
-            for(Score score : scores)
+            for(final Score score : scores)
             {
                 if(score == currentScore)
                 {
                     continue;
                 }
-                double avg = score.getAverageScore();
+                final double avg = score.getAverageScore();
                 if(avg > highestAverage)
                 {
                     highestAverage = avg;
-                    highScoreTime = score.dateTimePlayed;
+                    highScoreTime = score.dateTimePlayed();
                 }
             }
         }
 
+        final StringBuilder sb = new StringBuilder();
         if(averageScore > highestAverage)
         {
-            System.out.printf(
-                    "CONGRATULATIONS! You are the new high score with an average of %" +
-                            ".2f points per game; the previous record was %.2f points " +
-                            "per game on %s.%n", averageScore, highestAverage,
-                    highScoreTime != null
-                    ? highScoreTime.format(
+            sb.append("CONGRATULATIONS! You are the new high score with an average of ")
+                    .append(String.format("%.2f", averageScore))
+                    .append(" points per game; the previous record was ")
+                    .append(String.format("%.2f", highestAverage))
+                    .append(" points per game on ")
+                    .append(highScoreTime != null
+                            ? highScoreTime.format(
                             DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))
-                    : "N/A");
+                            : "N/A")
+                    .append(".\n");
+
         } else
         {
-            System.out.printf(
-                    "You did not beat the high score of %.2f points per game from %s.%n",
-                    highestAverage, highScoreTime != null
-                                    ? highScoreTime.format(
+            sb.append("You did not beat the high score of ")
+                    .append(String.format("%.2f", highestAverage))
+                    .append(" points per game from ")
+                    .append(highScoreTime != null
+                            ? highScoreTime.format(
                             DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))
-                                    : "N/A");
+                            : "N/A")
+                    .append(".\n");
+
         }
+        System.out.print(sb);
     }
 
     /**

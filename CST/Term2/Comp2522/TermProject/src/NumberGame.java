@@ -4,6 +4,9 @@
  * @author Jiarui Xing
  */
 public class NumberGame extends AbstractGame {
+    /**
+     * Starts the NumberGame application.
+     */
     @Override
     public void start()
     {
