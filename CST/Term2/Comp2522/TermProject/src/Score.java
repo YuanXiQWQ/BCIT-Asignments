@@ -10,7 +10,7 @@ import java.util.List;
  *
  * @author Jiarui Xing
  */
-public class Score {
+public class Score{
     public final LocalDateTime dateTimePlayed;
     public final int numGamesPlayed;
     public final int numCorrectFirstAttempt;

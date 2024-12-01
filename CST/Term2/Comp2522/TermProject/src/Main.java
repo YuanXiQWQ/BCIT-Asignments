@@ -20,19 +20,19 @@ public class Main {
         while(true)
         {
             printMenu();
-            String choice = scanner.nextLine().trim().toLowerCase();
+            final String choice = scanner.nextLine().trim().toLowerCase();
             switch(choice)
             {
                 case "w":
-                    WordGame wordGame = new WordGame();
+                    final WordGame wordGame = new WordGame();
                     wordGame.start();
                     break;
                 case "n":
-                    NumberGame numberGame = new NumberGame();
+                    final NumberGame numberGame = new NumberGame();
                     numberGame.start();
                     break;
                 case "m":
-                    MyGame myGame = new MyGame();
+                    final MyGame myGame = new MyGame();
                     myGame.start();
                     break;
                 case "q":

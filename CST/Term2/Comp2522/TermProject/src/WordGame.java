@@ -10,7 +10,7 @@ import java.util.*;
  *
  * @author Jiarui Xing
  */
-public class WordGame {
+public class WordGame implements Game {
     private final World world;
     private final Scanner scanner;
     private final List<Score> scores;
@@ -58,6 +58,7 @@ public class WordGame {
     /**
      * Starts the Word Game, handling game loops and user interactions.
      */
+    @Override
     public void start()
     {
         boolean playAgain = true;

@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class MyGame {
+public class MyGame implements Game {
     private final Scanner scanner;
 
     public MyGame()
@@ -8,6 +8,7 @@ public class MyGame {
         scanner = new Scanner(System.in);
     }
 
+    @Override
     public void start()
     {
         // 示例游戏：简单的数学谜题
