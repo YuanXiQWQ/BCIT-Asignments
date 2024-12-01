@@ -78,7 +78,7 @@ public record Score(LocalDateTime dateTimePlayed, int numGamesPlayed,
     public String toString()
     {
         return buildString()
-                .append("Score: ")
+                .append("\nScore: ")
                 .append(getScore())
                 .append(" points\n")
                 .toString();
@@ -87,7 +87,7 @@ public record Score(LocalDateTime dateTimePlayed, int numGamesPlayed,
     public String toFileString()
     {
         return buildString()
-                .append("Total Score: ")
+                .append("\nTotal Score: ")
                 .append(getScore())
                 .append(" points\n")
                 .append("Average Score: ")

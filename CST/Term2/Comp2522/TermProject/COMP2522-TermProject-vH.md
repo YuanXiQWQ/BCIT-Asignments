@@ -2,11 +2,11 @@
 
 This project is to be done on your own. 
 
-This project consists of creating three games: WordGame, NumberGame, and MyGame.
+This project consists of creating three games: WordGame, NumberGame, and MinecraftItem.
 
 Use the best practices that we have learned in this course. A perfectly-running game with extremely bad style can lose up to 50% of the marks!!!
 
-Create at least these four classes: Main, WordGame, NumberGame, and MyGame.
+Create at least these four classes: Main, WordGame, NumberGame, and MinecraftItem.
 ## Main
 Offers a menu (in the terminal; i.e. no GUI) in an infinite loop until the user presses Q (or q): 
 
@@ -183,7 +183,7 @@ The game continues until the user wins or runs out of squares in which to place 
 ![](Aspose.Words.f0df9575-d88d-4616-b791-a8f770ae0c22.005.png)
 
 If the user clicks Try Again, keep track of the score (e.g. "You lost 1 out of 1 game, with 12 successful placements, an average of 12 per game", or "You lost 4 out of 4 games, with 57 successful placements, an average of 14.25 per game", or "You won 1 out of 2 games and you lost 1 out of 2 games, with 24 successful placements, an average of 12 per game", etc…. When the user quits, show their score status again (as in the previous sentence) and close the game window, and re-show the main menu again. 
-## MyGame
+## MinecraftItem
 Your code must apply code from every lesson of our course (with the possible exception of a GUI, which has already been tested in the NumberGame). Include a text file named **applications.txt** which shows where in your own personal game code you applied the lesson. If you do not submit this file you will lose 10% of the overall grade. Example:
 
 applications.txt
@@ -227,7 +227,7 @@ WordGame.java
 Country.java
 Score.java
 NumberGame.java
-MyGame.java
+MinecraftItem.java
 score.txt
 applications.txt
 prompts.txt
@@ -243,14 +243,14 @@ Scoring Rubric
 |High score functionality (pass the ScoreTest tests)|15|
 |NumberGame functionality|30|
 |applications.txt has data for each lesson|10|
-|MyGame is fun and unique and clear how to play|30|
+|MinecraftItem is fun and unique and clear how to play|30|
 |prompts.txt is clear and useful|10|
 |Video (details below)|50|
 |Total|185|
 
 NOTE: you can lose all your marks if your coding style is unsafe, inconsistent, etc….
 
-NOTE: your AI game must be unique; if the entire game (or almost all of the game) is findable online as-is, then you can score zero for the entire project; put time into MyGame to ensure it is substantially YOURS (yours plus the AI's).
+NOTE: your AI game must be unique; if the entire game (or almost all of the game) is findable online as-is, then you can score zero for the entire project; put time into MinecraftItem to ensure it is substantially YOURS (yours plus the AI's).
 
 
 

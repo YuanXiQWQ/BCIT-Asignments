@@ -296,7 +296,7 @@ public class NumberGameApp extends Application {
                                          ? (double) totalPlacements / gamesPlayed
                                          : 0;
 
-        StringBuilder sb;
+        final StringBuilder sb;
         sb = new StringBuilder();
         sb.append("Game Statistics:")
                 .append("\nTotal Games Played: ").append(gamesPlayed)

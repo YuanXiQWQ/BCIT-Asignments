@@ -31,8 +31,8 @@ public class Main {
                     numberGame.start();
                     break;
                 case "m":
-                    final MyGame myGame = new MyGame();
-                    myGame.start();
+                    final MinecraftItem minecraftItem = new MinecraftItem();
+                    minecraftItem.start();
                     break;
                 case "q":
                     System.out.println("Quitting the program. Goodbye!");
@@ -49,11 +49,11 @@ public class Main {
      */
     private static void printMenu()
     {
-        StringBuilder sb;
+        final StringBuilder sb;
         sb = new StringBuilder();
         sb.append("Press W to play the Word game.\n")
                 .append("Press N to play the Number game.\n")
-                .append("Press M to play the MyGame.\n")
+                .append("Press M to play the MinecraftItem.\n")
                 .append("Press Q to quit.\n")
                 .append("Your choice: ");
         System.out.print(sb);
