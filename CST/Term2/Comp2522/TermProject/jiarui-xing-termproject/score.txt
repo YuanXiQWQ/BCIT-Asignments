@@ -1,0 +1,16 @@
+Date and Time: 2024-12-01 22:50:35
+Games Played: 1
+Correct First Attempts: 0
+Correct Second Attempts: 0
+Incorrect Attempts: 10
+Total Score: 0 points
+Average Score: 0.00 points/game
+
+Date and Time: 2024-12-01 22:51:36
+Games Played: 1
+Correct First Attempts: 1
+Correct Second Attempts: 0
+Incorrect Attempts: 9
+Total Score: 2 points
+Average Score: 2.00 points/game
+

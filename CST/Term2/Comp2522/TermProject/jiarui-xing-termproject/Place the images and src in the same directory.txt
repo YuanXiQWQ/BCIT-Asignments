@@ -1,0 +1,5 @@
+Place the images and src directories in the same directory:)
+
+ProjectRoot/
+├── images/
+└──src/
