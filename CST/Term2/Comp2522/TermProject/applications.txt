@@ -1,0 +1,50 @@
+Lesson 1:
+Validation in class Recipe, constructor of Position  
+StringBuilder in class GameController, method endGame  
+
+Lesson 2:
+Inheritance in class CraftingItem  
+Inheritance in class MaterialItem  
+Polymorphism in class GameController  
+Exception Handling in class MinecraftItem, method loadImage  
+Exception Handling in class Recipe, constructor of Position  
+
+Lesson 3:
+Abstract Class in class Item  
+
+Lesson 4:
+Interfaces in class Game  
+Interfaces in class Craftable  
+
+Lesson 5:
+Arrays in class GameController, method generateTransformedRecipes  
+Collections (List, Map) in class GameController  
+Collections (Map) in class Recipe  
+Enhanced For Loop in class GameController, method getMaterialItemByName  
+Generics Collections in class GameController  
+Generics Collections in class Recipe  
+
+Lesson 6:
+Nested Classes in class Recipe, inner class Position  
+
+Lesson 7:
+Lambdas in class MinecraftItem, method skipButton.setOnAction  
+Lambdas in class MinecraftItem, method pause.setOnFinished  
+Lambdas in class GameController, method endGame  
+
+Lesson 8:
+Files in class MinecraftItem, method loadImage  
+Scanner in class Main, method main  
+Random in class GameController, method generateOptions  
+
+Lesson 9:
+JavaFX in class MinecraftItem  
+Threading in class MinecraftItem, method Platform.runLater  
+Threading in class GameController, method endGame
+
+Lesson 10:
+JUnit tests in class ControllerTest
+
+Lesson 11:
+Factory in class ItemFactory, methods createMaterialItem and createCraftingItem
+Singleton in class GameController, method getInstance

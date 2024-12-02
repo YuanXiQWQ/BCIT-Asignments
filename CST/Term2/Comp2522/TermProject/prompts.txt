@@ -1,0 +1,19 @@
+### Advantages of Using AI:  
+1. AI helped me quickly generate foundational code for implementing classes and methods.  
+2. AI could rapidly write test classes based on my requirements. For instance, if I wanted to test whether a method
+behaved as expected, AI could directly generate the test code for me.
+3. AI assisted in refining my game concept. Initially, I had a vague idea with no clear goal, but I could share my
+scattered inspirations with AI, and it eventually helped me consolidate them into a complete concept.
+
+### Disadvantages of Using AI:  
+1. Some of the generated code did not align with the specific project requirements and required substantial
+modifications.
+2. AI occasionally misunderstood my questions.  
+3. Debugging became challenging when AI's suggestions led to unexpected issues in the game logic.  
+4. AI performed poorly in bug fixing. The modifications it made often introduced even more bugs.  
+
+### Summary and Suggestions:  
+Overall, using AI significantly reduced the time I spent on repetitive tasks and provided creative ideas for game
+development. However, I found that AI's suggestions sometimes needed further refinement to meet specific project
+requirements. If I were to use AI for similar projects in the future, I would spend more time formulating precise
+prompts to minimize miscommunication and would prefer to fix bugs myself whenever possible.
