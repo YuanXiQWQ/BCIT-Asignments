@@ -1,0 +1,5 @@
+# ninja log v6
+3	1586	7557293203253678	build.ninja	a2f955c462342abe
+5	246	7557271975056781	CMakeFiles/FinalExam.dir/main.c.obj	d1e9bbc543112441
+2	324	7557271445056232	CMakeFiles/FinalExam.dir/array_utils.c.obj	c17021879a43122a
+7	246	7557272801699747	libFinalExam.a	f7d710c2141320f4

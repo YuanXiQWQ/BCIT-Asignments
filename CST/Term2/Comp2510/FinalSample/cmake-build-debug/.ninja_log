@@ -1,0 +1,6 @@
+# ninja log v6
+3	108	7556731721700955	CMakeFiles/FinalSample.dir/main.c.obj	56f534b4e55bd07a
+0	122	7556739834387231	CMakeFiles/FinalSample.dir/q1.c.obj	d4cfdd2d42dcb7c4
+108	193	7556731722753702	FinalSample.exe	fceb04b16400fe97
+1	248	7557223684179783	build.ninja	6578bdd0ed90e410
+12	128	7556739834503966	CMakeFiles/FinalSample.dir/q2.c.obj	a79a80a88d56e92
