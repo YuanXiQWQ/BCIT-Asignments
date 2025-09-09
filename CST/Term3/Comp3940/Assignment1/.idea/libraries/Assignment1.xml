@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="Assignment1">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/triviaapi.zip!/" />
+      <root url="jar://$PROJECT_DIR$/trivia.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
