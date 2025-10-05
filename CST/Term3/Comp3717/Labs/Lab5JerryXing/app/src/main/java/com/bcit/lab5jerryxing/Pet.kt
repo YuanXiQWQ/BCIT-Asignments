@@ -16,4 +16,3 @@ interface Feedable{
 interface Pet : Playable, Interactable, Feedable{
     val name:String
 }
-

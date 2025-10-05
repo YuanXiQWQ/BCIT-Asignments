@@ -6,7 +6,6 @@ package com.bcit.lab5jerryxing
 */
 
 fun main() {
-
     val simulator = PetSimulator()
     simulator.start()
 }
