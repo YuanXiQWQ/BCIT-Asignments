@@ -1,0 +1,106 @@
+---
+title: "Lab 7"
+author: "Jerry Xing"
+output:
+  html_document:
+    df_print: paged
+---
+
+# Question 1
+
+X is the number of Aces obtained: X ~ H (32, 4, 8)
+
+- Therefore:
+
+```{R}
+N <- 52
+K <- 4
+n <- 8
+```
+
+The probability distribution is as follows:
+
+```{R}
+X.vals <- 0:8
+d.vals <- as.table(dhyper(X.vals, K, N-K, n))
+names(d.vals) <- X.vals
+d.vals
+```
+
+The barplot is below:
+
+```{R echo=FALSE}
+barplot(d.vals,
+        space = 0,
+        main = "Prob Hist of Number of Aces",
+        xlab = "x (Number of successes)",
+        ylab = "P(X = x)",
+        col = "lightblue")
+```
+
+# Question 2
+## a.
+
+```{R}
+DrawCards <- function(n.cards, m.trials){
+  X.vals <- numeric(m.trials)
+  for(i.trials in 1:m.trials){
+    X.vals[i.trials] <- sum(sample(c(rep("A", 4), rep("B", 52-4)), n.cards, replace = FALSE) == "A")
+    
+  }
+}
+```
+
+# Question 4
+
+X the number of tickets the student has bought when they first win a prize: X ~ G(p)
+
+- Therefore:
+
+```{R}
+p <- 1/3
+```
+
+The probability distribution is as follows:
+
+```{R}
+X.max <- 10
+
+X.vals <- 1:X.max
+d.vals <- dgeom(X.vals, p)
+d.vals
+```
+
+The barplot is below:
+
+```{R}
+barplot(height   = d.vals,
+        names.arg= X.vals,
+        space    = 0,
+        xlab     = "Number of tickets (X)",
+        ylab     = "Probability")
+```
+
+# Question 5
+
+```{R}
+SimulateLotteryTickets <- function(p.win, m.trials){
+  X.vals <- numeric(m.trials)
+  for(i in 1:m.trials){
+    have.won <- FALSE
+    n.tickets <- 0
+    while(!have.won){
+      ticket <- sample(c("Win", "Lose"), 1, prob = c(p.win,  1-p.win))
+      n.tickets <- n.tickets + 1
+      if(ticket == "Win"){
+        have.won = TRUE
+      }
+    }
+  }
+}
+
+print(table(X.vals))
+barplot(table(X.vals))
+
+SimulateLotteryTickets(1/3, 10000)
+```
