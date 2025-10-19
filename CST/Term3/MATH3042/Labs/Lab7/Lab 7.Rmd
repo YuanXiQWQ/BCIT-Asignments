@@ -4,11 +4,12 @@ author: "Jerry Xing"
 output:
   html_document:
     df_print: paged
+  pdf_document: default
 ---
 
 # Question 1
 
-X is the number of Aces obtained: X ~ H (32, 4, 8)
+X is the number of Aces obtained: X ~ H (52, 4, 8)
 
 - Therefore:
 
@@ -38,22 +39,73 @@ barplot(d.vals,
         col = "lightblue")
 ```
 
+---
+
 # Question 2
+
 ## a.
 
 ```{R}
 DrawCards <- function(n.cards, m.trials){
-  X.vals <- numeric(m.trials)
-  for(i.trials in 1:m.trials){
-    X.vals[i.trials] <- sum(sample(c(rep("A", 4), rep("B", 52-4)), n.cards, replace = FALSE) == "A")
-    
+  X.vals <- integer(m.trials)
+  deck <- c(rep("A", 4), rep("B", 48))
+  for(i in seq_len(m.trials)){
+    X.vals[i] <- sum(sample(deck, n.cards, replace = FALSE) == "A")
   }
+  return(prop.table(table(X.vals)))
 }
+
+set.seed(69)
+rel <- DrawCards(n.cards = 8, m.trials = 10^6)
+
+print(rel)
+barplot(rel, space=0,
+        main = "Relative Frequency: #A in 8 cards (sample)",
+        xlab = "X = # of Aces",
+        ylab = "Relative frequency")
 ```
+
+## b.
+```{R}
+DrawCards_rhyper <- function(n.cards, m.trials){
+  X <- rhyper(m.trials, m = 4, n = 52 - 4, k = n.cards)
+  rel <- prop.table(table(X))
+  barplot(rel, space = 0,
+          main = "Relative Frequency: #A in 8 cards (rhyper)",
+          xlab = "X = # of Aces", ylab = "Relative frequency")
+  return(rel)
+}
+
+set.seed(1)
+rel_rhyper <- DrawCards_rhyper(n.cards = 8, m.trials = 10^6)
+```
+
+---
+
+# Question 3
+```{R}
+m <- 333
+n <- 999 - m
+k <- 300
+
+a_100_exact <- dhyper(100, m, n, k)
+b_le_100    <- phyper(100, m, n, k)
+c_lt_100    <- phyper(99,  m, n, k)
+d_ge_110    <- 1 - phyper(109, m, n, k)
+e_90_110    <- phyper(110, m, n, k) - phyper(89, m, n, k)
+
+a_100_exact
+b_le_100
+c_lt_100
+d_ge_110
+e_90_110
+```
+
+---
 
 # Question 4
 
-X the number of tickets the student has bought when they first win a prize: X ~ G(p)
+X is the number of tickets the student has bought when they first win a prize: X ~ G(p)
 
 - Therefore:
 
@@ -64,43 +116,181 @@ p <- 1/3
 The probability distribution is as follows:
 
 ```{R}
-X.max <- 10
+cutoff <- 0.00005
+X <- c()
+P <- c()
+k <- 1L
+repeat{
+  pk <- dgeom(k - 1L, prob = p)
+  if(pk < cutoff) break
+  X <- c(X, k); P <- c(P, pk)
+  k <- k + 1L
+}
 
-X.vals <- 1:X.max
-d.vals <- dgeom(X.vals, p)
-d.vals
+pmf <- setNames(P, X)
+pmf
+
+barplot(height = pmf, space = 0,
+        main = "PMF of X (tickets until first win), p = 1/3",
+        xlab = "X = # tickets", ylab = "P(X = x)")
 ```
 
-The barplot is below:
-
-```{R}
-barplot(height   = d.vals,
-        names.arg= X.vals,
-        space    = 0,
-        xlab     = "Number of tickets (X)",
-        ylab     = "Probability")
-```
+---
 
 # Question 5
 
+## a.
+
 ```{R}
 SimulateLotteryTickets <- function(p.win, m.trials){
-  X.vals <- numeric(m.trials)
-  for(i in 1:m.trials){
-    have.won <- FALSE
-    n.tickets <- 0
+  X.vals <- integer(m.trials)
+  for(i in seq_len(m.trials)){
+    have.won  <- FALSE
+    n.tickets <- 0L
     while(!have.won){
-      ticket <- sample(c("Win", "Lose"), 1, prob = c(p.win,  1-p.win))
-      n.tickets <- n.tickets + 1
-      if(ticket == "Win"){
-        have.won = TRUE
+      ticket <- sample(c("Win", "Lose"), 1, prob = c(p.win, 1 - p.win))
+      n.tickets <- n.tickets + 1L
+      if (ticket == "Win"){
+        have.won <- TRUE
       }
     }
+    X.vals[i] <- n.tickets
   }
+  X.vals
+}
+set.seed(1)
+res <- SimulateLotteryTickets(1/3, 10^6)
+rel_res <- prop.table(table(res))
+print(rel_res)
+barplot(rel_res, space = 0,
+        xlab = "X (tickets until first win)",
+        ylab = "Relative frequency",
+        main = "Geometric simulation (p = 1/3)")
+
+```
+
+## b.
+
+```{R}
+SimulateLottery_rgeom <- function(p.win, m.trials){
+  X <- rgeom(m.trials, prob = p.win) + 1L
+  rel <- prop.table(table(X))
+  barplot(rel, space = 0,
+          main = sprintf("Geometric simulation via rgeom (p=%.3f)", p.win),
+          xlab = "X (tickets until first win)", ylab = "Relative frequency")
+  invisible(rel)
 }
 
-print(table(X.vals))
-barplot(table(X.vals))
-
-SimulateLotteryTickets(1/3, 10000)
+set.seed(1)
+rel_sim_rgeom <- SimulateLottery_rgeom(1/3, 1e6)
 ```
+
+---
+
+# Question 6
+
+```{R}
+p_fail <- 0.001
+
+a_by_500    <- pgeom(499,  p_fail)
+b_atleast_1200 <- 1 - pgeom(1198, p_fail)
+c_1000_2000 <- pgeom(1999, p_fail) - pgeom(998, p_fail)
+
+a_by_500
+b_atleast_1200
+c_1000_2000
+```
+
+---
+
+# Question 7
+
+```{R echo=FALSE}
+lambda <- 0.75
+cutoff <- 5e-5
+
+x <- 0L
+px <- dpois(x, lambda)
+X <- x
+P <- px
+repeat{
+x <- x + 1L
+px <- dpois(x, lambda)
+if (px < cutoff) break
+X <- c(X, x)
+P <- c(P, px)
+}
+
+pois_pmf <- setNames(P, X)
+pois_pmf
+
+barplot(pois_pmf,
+        space = 0,
+        main = "PMF of flaws per meter",
+        xlab = "X = # of flaws",
+        ylab = "P(X = x)")
+```
+
+---
+
+# Question 8
+
+```{R echo=FALSE}
+set.seed(1)
+m.reps <- 10^6
+X <- rpois(m.reps, lambda = 0.75)
+rel <- prop.table(table(X))
+rel
+
+barplot(rel,
+        space = 0,
+        main = "Relative Frequency: flaws per meter",
+        xlab = "X = # of flaws",
+        ylab = "Relative frequency")
+```
+
+---
+
+# Question 9
+
+```{R}
+lam <- 34
+
+a_exact_34 <- dpois(34, lam)
+b_le_30    <- ppois(30, lam)
+c_lt_30    <- ppois(29, lam)
+d_gt_38    <- 1 - ppois(38, lam)
+e_ge_38    <- 1 - ppois(37, lam)
+f_30_40    <- ppois(40, lam) - ppois(29, lam)
+
+g_two_years_each_le_34 <- ppois(34, lam)^2
+h_two_years_total_le_68 <- ppois(68, 2 * lam)
+
+a_exact_34
+b_le_30
+c_lt_30
+d_gt_38
+e_ge_38
+f_30_40
+g_two_years_each_le_34
+h_two_years_total_le_68
+```
+
+---
+
+# Question 10
+
+## a.
+\begin{align*}
+X &\sim Poisson(5) \\
+P(X = 4) &= \frac{e^{-5} \cdot 5^{4}}{4!} \\
+&= \frac{e^{-5} \cdot 625}{24} \\
+&\approx 0.1754674
+\end{align*}
+
+## b.
+\begin{align*}
+Y &\sim B(10^{6}, \frac{5}{10^{6}}) \\
+P(X = 4) &= \binom{10^{6}}{4} \cdot (\frac{5}{10^{6}}))^{4} \cdot (1 - (\frac{5}{10^{6}}))^{10^{6}-4} \\
+&\approx 0.1754676
+\end{align*}
