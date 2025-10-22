@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Midterm.iml" filepath="$PROJECT_DIR$/Midterm.iml" />
+      <module fileurl="file://$PROJECT_DIR$/PartA/trivia/trivia.iml" filepath="$PROJECT_DIR$/PartA/trivia/trivia.iml" />
+      <module fileurl="file://$PROJECT_DIR$/PartA/triviaapi/triviaapi.iml" filepath="$PROJECT_DIR$/PartA/triviaapi/triviaapi.iml" />
+      <module fileurl="file://$PROJECT_DIR$/PartA/upload/upload.iml" filepath="$PROJECT_DIR$/PartA/upload/upload.iml" />
+    </modules>
+  </component>
+</project>
