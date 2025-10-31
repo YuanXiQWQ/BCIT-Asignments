@@ -4,7 +4,7 @@ private:
     int denominator;
 
 public:
-public
+public:
 
     Fraction(int numerator, int denominator){
         try{

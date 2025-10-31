@@ -1,0 +1,210 @@
+---
+title: "Lab 8 Assignment"
+author: "Jerry Xing"
+date: "Oct 30, 2025"
+output:
+  html_document:
+    df_print: paged
+---
+
+```{r setup}
+library(mosaic)
+```
+
+## Experiment 1: Waiting for a Bus
+
+```{r}
+X.min <- 0
+X.max <- 20
+```
+
+#### Q1a
+
+We can sample $m=100$ values of $X$ using `runif`. A histogram of the data follows.
+
+```{r}
+# code to generate the X values
+hist.X.vals <- function(vals){
+  histogram(
+    ~vals,
+    type = "density",
+    right = FALSE,
+    breaks = seq(0, 20, by = 1),
+    main = paste("Histogram of X for m =", length(vals)),
+    xlab = "X values"
+  )
+}
+
+#now make a histogram
+X.vals.100 <- runif(n = 100, min = 0, max = 20)
+hist.X.vals(X.vals.100)
+
+X.vals.100000 <- runif(n = 10^5, min = 0, max = 20)
+hist.X.vals(X.vals.100000)
+```
+
+Using the $m=100$ simulated values, the probability that $X<6$ is:
+
+```{r}
+p.hat.100 <- mean(X.vals.100 < 6)
+p.hat.100
+```
+
+Now do it again with $m=10^5$.
+
+```{r}
+p.hat.100000 <- mean(X.vals.100000 < 6)
+p.hat.100000
+```
+
+#### Q1b
+
+When m becomes larger, the distribution looks more uniform, more consistent with the name "uniform distribution"
+
+#### Q1c
+
+Assuming $X$ is uniformly distributed on the interval $[0, 20]$, the probability that $X < 6$ is:
+
+$X \sim Unif[a,b]$
+
+$P(X<6) = \frac{6-0}{20-0} = \frac{6}{20} = 0.3$
+
+
+## Experiment 2: Still Waiting (Exponential)
+
+```{r}
+beta <- 20 #mean waiting time
+lambda <- 1 / beta
+```
+
+#### Q2a
+
+```{r}
+pexp(6, lambda)
+```
+#### Q2b
+
+```{r}
+# P(X < 10)
+p.less.10 <- pexp(10, lambda)
+
+# P(X > 15)
+p.greater.15 <- 1 - pexp(15, lambda)
+
+# P(5 < X < 10)
+p.between.5.10 <- pexp(10, lambda) - pexp(5, lambda)
+
+c("P(X<10)" = p.less.10,
+  "P(X>15)" = p.greater.15,
+  "P(5<X<10)" = p.between.5.10)
+```
+
+#### Q2c
+
+```{r}
+median_wait <- qexp(0.5, lambda)
+median_wait
+
+pexp(15, 1/20)
+```
+
+#### Q2d
+
+```{r}
+Q1 <- qexp(0.25, lambda)
+Q3 <- qexp(0.75, lambda)
+IQR <- Q3 - Q1
+
+c(Q1 = Q1, Q3 = Q3, IQR = IQR)
+```
+
+#### Q2e
+
+The distribution of X is positively skewed.
+
+```{r}
+mu  <- beta
+sdX <- beta
+3 * (mu - median_wait) / sdX
+```
+
+#### Q2f
+
+```{r}
+hist.exp <- function(vals, m){
+  histogram(
+    ~ vals,
+    type  = "density",
+    right = FALSE,
+    main  = paste("Histogram of Exponential(β=20), m =", m),
+    xlab  = "Waiting time X (minutes)"
+  )
+}
+
+X.exp.100 <- rexp(n = 100, lambda)
+hist.exp(X.exp.100, 100)
+
+X.exp.100000 <- rexp(n = 10^5, lambda)
+hist.exp(X.exp.100000, 100000)
+```
+
+As m increases from 100 to 100000, the histogram becomes smoother and aligns more closely with the exponential shape.
+
+#### Q2g
+
+```{r}
+mean(rexp(n = 10^5, lambda) < 6)
+```
+
+#### Q2h
+
+$X \sim Exp(\lambda = \frac{1}{\beta})$
+
+$P(X<6) = 1 - e^{- \frac{6}{20}} \approx 0.2592$
+
+## Experiment 3: Quality Control (Normal Distribution)
+
+```{r}
+mu <- 9.01
+sig <- 0.05
+```
+
+#### Q3a
+
+```{r}
+p.less.9.03 <- pnorm(9.03, mu, sig)
+p.greater.9.02 <- 1 - pnorm(9.02, mu, sig)
+p.between.8.9.9.1 <- pnorm(9.1,mu, sd = sig) - pnorm(8.9,  mu, sig)
+
+c("P(X<9.03)"=p.less.9.03,
+  "P(X>9.02)" = p.greater.9.02,
+  "P(8.9<X<9.1)" = p.between.8.9.9.1)
+```
+
+#### Q3b
+
+```{r}
+q.95 <- qnorm(0.95, mu, sig)
+q.5 <- qnorm(0.05, mu, sig)
+q.25 <- qnorm(0.25, mu, sig)
+
+c("Q95" = q.95, "Q5" = q.5, "Q25" = q.25)
+```
+
+#### Q3c
+
+```{r}
+X.sim.100 <- rnorm(100, mu, sig)
+mean(X.sim.100 > 8.9 & X.sim.100 < 9.1)
+
+X.sim.100000 <- rnorm(10^5, mu, sig)
+mean(X.sim.100000 > 8.9 & X.sim.100000 < 9.1)
+```
+
+#### Q3d
+
+$P(8.9 < X < 9.1) = P(\frac{8.9 - \mu}{\sigma} < Z < \frac{9.1 - \mu}{\sigma}) = P(-2.2 < Z < 1.8) = \Phi(1.8) - \Phi(-2.2) = \Phi(1.8) - (1 - \Phi(2.2))$
+
+$\Phi(1.8)\approx 0.9641, \Phi(2.2)\approx 0.9861 \rightarrow \Phi(-2.2)=1-0.9861=0.0139$
+
+$\Rightarrow\ P(8.9<X<9.1)\approx 0.9641-0.0139=0.9502$
