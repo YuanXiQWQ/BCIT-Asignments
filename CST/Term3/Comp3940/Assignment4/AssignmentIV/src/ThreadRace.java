@@ -124,11 +124,11 @@ class SimpleThread extends Thread {
             if(shouldWait)
             {
                 shouldWait = false;
-                synchronized(this)
+                synchronized(raceStatus)
                 {
                     try
                     {
-                        wait();
+                        raceStatus.wait();
                     } catch(Exception e)
                     {
                     }
