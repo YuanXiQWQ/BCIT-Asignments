@@ -14,7 +14,10 @@ public:
 
     int getCount() const;
 
+    void makeItWait();
+
 private:
     RaceStatus *raceStatus;
     int curDistance;
+    bool shouldWait;
 };
