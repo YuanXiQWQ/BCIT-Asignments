@@ -7,4 +7,8 @@ add_executable(AssignmentIV Thread.h
         ThreadRace.cpp
         ThreadRace.cpp
         SimpleThread.cpp
-        Thread.cpp)
+        Thread.cpp
+        RaceStatus.h
+        RaceStatus.cpp
+        ThreadRace.cpp
+)

@@ -2,14 +2,19 @@
 
 #include "Thread.h"
 
+class RaceStatus;
+
 class SimpleThread : public Thread{
 public:
-    SimpleThread(char *name);
+    explicit SimpleThread(RaceStatus *raceStatus);
 
     void run();
 
     ~SimpleThread();
 
+    int getCount() const;
+
 private:
-    char *_name;
+    RaceStatus *raceStatus;
+    int curDistance;
 };

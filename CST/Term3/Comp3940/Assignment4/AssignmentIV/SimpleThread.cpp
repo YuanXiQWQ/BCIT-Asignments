@@ -1,19 +1,21 @@
 #include "SimpleThread.h"
+#include "RaceStatus.h"
 #include <unistd.h>
-#include <stdio.h>
+#include <stdlib.h>
 
-SimpleThread::SimpleThread(char *name) : Thread(this){
-    this->_name = name;
+SimpleThread::SimpleThread(RaceStatus *raceStatus) : Thread(this){
+    this->raceStatus = raceStatus;
+    this->curDistance = 0;
+    this->raceStatus->addMe(this);
 }
 
 void SimpleThread::run(){
-    for(int i = 0; i < 10; i ++){
-        printf("%s\n", this->_name);
-        sleep(1);
+    for(int i = 0; i < 10000; i ++){
+        usleep((useconds_t) ((rand() % 100) * 1000));
+        curDistance ++;
     }
-
 }
 
-SimpleThread::~SimpleThread(){
+int SimpleThread::getCount() const{ return curDistance; }
 
-}
+SimpleThread::~SimpleThread(){}
