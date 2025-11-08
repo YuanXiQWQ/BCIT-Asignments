@@ -1,0 +1,133 @@
+---
+title: "Lab 09"
+author: "Jerry Xing"
+date: "Nov 4, 2025"
+output:
+  word_document: default
+  html_notebook: default
+---
+
+```{R setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(mosaic)
+```
+
+### Question 1
+
+```{R}
+NormalMeans <- function(n.sample, n.trials){
+  sample.mean <- replicate(n.trials, mean(rnorm(n.sample, 0, 1)))
+  grand.mean <- mean(sample.mean)
+  sd <- sd(sample.mean)
+  
+  print(paste0("n.sample = ", n.sample))
+  print(paste0("mean = ", grand.mean))
+  print(paste0("sd = ", sd))
+  hist(sample.mean, 
+       breaks = 100,
+       probability = TRUE,
+       main = paste("Sampling Distribution (n =", n.sample, ")"),
+       xlab = "Sample Means",
+       ylab = "Frequency")
+}
+
+NormalMeans(1,1e5)
+NormalMeans(2,1e5)
+NormalMeans(10,1e5)
+NormalMeans(50,1e5)
+NormalMeans(100,1e5)
+```
+When `n.sample` increase, the mean and sd gradually approach 0;
+
+From the histogram, it can be seen that as `n.sample` increases, the distribution of the sample means becomes more concentrated, shrinking from the range of -4 to 4 to approximately -0.4 to 0.4. If they are plotted on the same coordinate axis, the graph should become narrower as the `n.sample` increases.
+
+
+### Question 2
+
+```{R}
+ExponentialMeans <- function(n.sample, n.trials){
+    sample.mean <- replicate(n.trials, mean(rexp(n.sample, 1)))
+  grand.mean <- mean(sample.mean)
+  sd <- sd(sample.mean)
+  
+  print(paste0("n.sample = ", n.sample))
+  print(paste0("mean = ", grand.mean))
+  print(paste0("sd = ", sd))
+  hist(sample.mean, 
+       breaks = 100,
+       probability = TRUE,
+       main = paste("Sampling Distribution (n =", n.sample, ")"),
+       xlab = "Sample Means",
+       ylab = "Frequency")
+}
+
+ExponentialMeans(1,1e5)
+ExponentialMeans(2,1e5)
+ExponentialMeans(10,1e5)
+ExponentialMeans(50,1e5)
+ExponentialMeans(100,1e5)
+```
+When `n.sample` increase, the mean gradually approaches 1, and the sd gradually approaches 0.
+
+From the histogram, it can be seen that as `n.sample` increases, the distribution of the sample means becomes more concentrated (or narrower), and its shape gradually resembles a normal distribution.
+
+
+### Question 3
+
+```{R, results='hide'}
+ExponentialMeansProb <- function(n.trials, beta, n.sample, z){
+  mu <- beta
+  sigma <- beta
+  
+  sample.means <- replicate(n.trials, mean(rexp(n.sample, 1/beta)))
+  
+  lower.val <- mu - z * sigma/sqrt(n.sample)
+  upper.val <- mu + z * sigma/sqrt(n.sample)
+  
+  result <- mean(sample.means > lower.val & sample.means < upper.val)
+    print(result)
+}
+
+ExponentialMeansProb(1e5, 1, 1, 1)
+ExponentialMeansProb(1e5, 1, 1, 2)
+ExponentialMeansProb(1e5, 1, 1, 3)
+ExponentialMeansProb(1e5, 1, 5, 1)
+ExponentialMeansProb(1e5, 1, 5, 2)
+ExponentialMeansProb(1e5, 1, 5, 3)
+ExponentialMeansProb(1e5, 1, 50, 1)
+ExponentialMeansProb(1e5, 1, 50, 2)
+ExponentialMeansProb(1e5, 1, 50, 3)
+```
+
+|                  |  $z=1$  |  $z=2$  |  $z=3$  |
+|:----------------:|:-------:|:-------:|:-------:|
+| `n.sample` $=1$  | 0.86536 | 0.95022 | 0.98208 |
+| `n.sample` $=5$  | 0.70228 | 0.95956 | 0.99099 |
+| `n.sample` $=50$ | 0.68454 | 0.95553 | 0.99638 |
+
+When `n.sample` is small, the range for `z = 1` does not follow the empirical rule, while the others mostly do; as `n.sample` increases, the results align more closely with the empirical rule.
+
+### Question 4
+```{R}
+library(MASS)
+data("genotype")
+
+A <- subset(genotype, Litter == "A")
+B <- subset(genotype, Litter == "B")
+I <- subset(genotype, Litter == "I")
+J <- subset(genotype, Litter == "J")
+
+qq.Plot <- function(set){
+  qqnorm(set$Wt,
+         main = paste0("QQ Plot for Genotype ",unique(set$Litter))
+         )
+  qqline(set$Wt, col="red", lty="dashed")
+}
+
+qq.Plot(A)
+qq.Plot(B)
+qq.Plot(I)
+qq.Plot(J)
+```
+
+They appear to follow a normal distribution because all four QQ plots are approximately linear overall. For group `I`, there may be some deviations, but it still generally lies along the straight line.
