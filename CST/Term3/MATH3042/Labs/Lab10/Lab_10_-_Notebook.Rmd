@@ -1,0 +1,32 @@
+---
+title: "Lab 09"
+date: Nov 4, 2025
+author: someone
+output: html_notebook
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(mosaic)
+```
+
+### Question 1
+
+
+### Question 2
+
+
+### Question 3
+
+
+|                  | $z=1$ | $z=2$ | $z=3$ |
+|:-----------------|:--------|:--------|:--------|
+| `n.sample` $=1$  |         |         |         |
+| `n.sample` $=5$  |         |         |         |
+| `n.sample` $=50$ |         |         |         |
+
+
+### Question 4
+
+
+

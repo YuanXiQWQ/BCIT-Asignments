@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Lecture8</string>
+    <string name="sponge">Spongebob</string>
+    <array name="cartoons">
+        <item>Mr.Krabs</item>
+        <item>Patrick</item>
+        <item>Pearl</item>
+        <item>Sandy</item>
+        <item>Squidward</item>
+    </array>
+</resources>
