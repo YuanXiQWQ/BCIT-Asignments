@@ -21,12 +21,14 @@ fun MainContent() {
     val colors = listOf(
         0xFFBD7FFFL,
         0xFF002FA7L,
-        0xFF9C27B0L,
-        0xFF3F51B5L,
-        0xFF2196F3L,
-        0xFF009688L,
-        0xFF4CAF50L,
-        0xFFFFEB3BL
+        0xFF173D68L,
+        0xFFF7E34BL,
+        0xFFFF0000L,
+        0xFF00FF00L,
+        0xFF0000FFL,
+        0xFFFFFFFFL,
+        0xFF000000L,
+        0xFF808080L
     )
     var selectedColor by remember { mutableStateOf<Long?>(null) }
 
@@ -51,7 +53,6 @@ fun MainContent() {
                         selectedColor = color
                     },
                     onInfoClick = { color ->
-                        selectedColor = color
                         navController.navigate("info/$color")
                     }
                 )

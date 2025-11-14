@@ -8,6 +8,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.unit.sp
 
 @Composable
 fun Info(color: Long) {
@@ -18,6 +19,10 @@ fun Info(color: Long) {
             .background(Color(color)),
         contentAlignment = Alignment.Center
     ) {
-        Text(text = hex)
+        Text(
+            text = hex,
+            fontSize = 48.sp
+        )
+
     }
 }

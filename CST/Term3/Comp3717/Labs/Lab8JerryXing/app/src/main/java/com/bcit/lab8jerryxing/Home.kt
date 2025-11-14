@@ -11,7 +11,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Info
+import androidx.compose.material.icons.outlined.Info
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.runtime.Composable
@@ -29,7 +29,7 @@ fun Home(
     LazyColumn(
         modifier = Modifier
             .fillMaxSize()
-            .padding(16.dp),
+            .padding(horizontal = 16.dp, vertical = 16.dp),
         verticalArrangement = Arrangement.spacedBy(16.dp)
     ) {
         items(colors) { color ->
@@ -57,12 +57,14 @@ fun ColorRow(
     ) {
         IconButton(
             onClick = { onInfoClick(color) },
-            modifier = Modifier.align(Alignment.CenterEnd)
+            modifier = Modifier
+                .align(Alignment.TopEnd)
+                .padding(top = 8.dp, end = 8.dp)
         ) {
             Icon(
-                imageVector = Icons.Filled.Info,
+                Icons.Outlined.Info,
                 contentDescription = null,
-                tint = Color.DarkGray
+                tint = Color.Black
             )
         }
     }
