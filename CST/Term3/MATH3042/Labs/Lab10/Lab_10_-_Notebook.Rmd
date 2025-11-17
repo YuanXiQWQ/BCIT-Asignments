@@ -1,32 +1,107 @@
 ---
-title: "Lab 09"
-date: Nov 4, 2025
+title: "Lab 10"
+date: Nov 16, 2025
 author: someone
-output: html_notebook
+output: word_document
 ---
 
-```{r setup, include=FALSE}
+```{R setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 library(mosaic)
+data(TenMileRace)
+library(MASS)
+data(cats)
 ```
 
 ### Question 1
+#### a
+```{R}
+n <- 20
+racetimes.sample <- sample(TenMileRace$net, n)
+t.test(racetimes.sample, conf.level = 0.95)$conf.int
+t.test(racetimes.sample, conf.level = 0.90)$conf.int
+t.test(racetimes.sample, conf.level = 0.75)$conf.int
+```
+As the confidence level decreases from 95% to 90% and then to 75%, the width of the confidence interval becomes narrower.
 
+#### b
+```{R}
+mu.true <- mean(TenMileRace$net)
+
+n.sample <- 20
+n.sim <- 100
+
+in.interval <- replicate(n.sim, {
+  sample.values <- sample(TenMileRace$net, n.sample)
+  ci <- t.test(sample.values, conf.level = 0.95)$conf.int
+  (mu.true >= ci[1] && mu.true <= ci[2])
+})
+
+table(in.interval)
+```
+At a 95% confidence level, when many repeated samples are taken, roughly 95% of the confidence intervals will contain the true value. Therefore, in 100 simulations, the number of intervals that contain the true value will be approximately 95.
 
 ### Question 2
+```{R}
+conf.int.net <- function(n, alpha = 0.05) {
+  sample.values <- sample(TenMileRace$net, n)
+  xbar <- mean(sample.values)
+  s <- sd(sample.values)
+  tcrit <- qt(1 - alpha / 2, df = n - 1)
+  me <- tcrit * s / sqrt(n)
+  c(xbar - me, xbar + me)
+}
 
+ci50 <- conf.int.net(50, alpha = 0.05)
+ci100 <- conf.int.net(100, alpha = 0.05)
+ci150 <- conf.int.net(150, alpha = 0.05)
+
+print.ci <- function(n, ci) {
+  print(paste0("With a sample size of n = ", n, ", we are 95% confident that the population mean μ lies between ", ci[1], " and ", ci[2], "."))
+}
+
+print.ci(50, ci50)
+print.ci(100, ci100)
+print.ci(150, ci150)
+```
+The larger the sample size, the narrower the confidence interval.
 
 ### Question 3
+#### a
+```{R}
+ci.F.Bwt <- t.test(cats$Bwt[cats$Sex == "F"], conf.level = 0.95)$conf.int
+ci.M.Bwt <- t.test(cats$Bwt[cats$Sex == "M"], conf.level = 0.95)$conf.int
+ci.F.Hwt <- t.test(cats$Hwt[cats$Sex == "F"], conf.level = 0.95)$conf.int
+ci.M.Hwt <- t.test(cats$Hwt[cats$Sex == "M"], conf.level = 0.95)$conf.int
 
+print.ci.sentence <- function(group.label, var.label, ci, unit) {
+  print(paste0("For ", group.label, " cats, we are 95% confident that the mean ", var.label, " weight lies between ", ci[1], " and ", ci[2], " ", unit, "."))
+}
 
-|                  | $z=1$ | $z=2$ | $z=3$ |
-|:-----------------|:--------|:--------|:--------|
-| `n.sample` $=1$  |         |         |         |
-| `n.sample` $=5$  |         |         |         |
-| `n.sample` $=50$ |         |         |         |
+print.ci.sentence("female", "body", ci.F.Bwt, "kilograms")
+print.ci.sentence("male", "body", ci.M.Bwt, "kilograms")
+print.ci.sentence("female", "heart", ci.F.Hwt, "grams")
+print.ci.sentence("male", "heart", ci.M.Hwt, "grams")
+```
 
+#### b
+The mean heart weight and body weight of male and female cats differ significantly, with male cats having heavier hearts and greater body weight.
 
 ### Question 4
+```{R}
+interpret.conf.int <- function(data, var, unit, conf.level = 0.95) {
+  c.int <- t.test(data, conf.level = conf.level)$conf.int
+  lim.low <- c.int[1]
+  lim.high <- c.int[2]
+  paste0(
+    "We are ", 100 * conf.level, "% confident that the ",
+    var, " is between ", lim.low, " and ", lim.high, " ", unit, "."
+  )
+}
 
+interpret.conf.int(cats$Hwt[cats$Sex == "F"], "mean heart weight of female cats", "grams")
+interpret.conf.int(cats$Bwt[cats$Sex == "M"], "mean body weight of male cats", "kilograms")
+interpret.conf.int(cats$Hwt[cats$Sex == "M"], "mean heart weight of male cats", "grams", conf.level = 0.99)
+```
 
 
