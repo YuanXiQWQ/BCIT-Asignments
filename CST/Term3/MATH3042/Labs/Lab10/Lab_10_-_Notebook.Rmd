@@ -1,7 +1,7 @@
 ---
 title: "Lab 10"
 date: Nov 16, 2025
-author: someone
+author: Jerry Xing
 output: word_document
 ---
 

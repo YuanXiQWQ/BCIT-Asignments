@@ -1,0 +1,156 @@
+---
+title: "Lab 11 - Hypothesis Testing"
+date: Nov 20, 2025
+author: Jerry Xing
+output: word_document
+---
+
+```{R setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(MASS)
+library(mosaic)
+library(dplyr)
+data(survey)
+hist(survey$Age, breaks = 40)
+c.int <- t.test(survey$Age, conf.level = 0.95)$conf.int
+lim.lower <- round(c.int[1],2)
+lim.upper <- round(c.int[2],2)
+t.test(survey$Age, mu = 19, alternative = "two.sided")
+t.test(survey$Age, mu = 21, alternative = "less")
+```
+
+### Question 1
+```{R}
+n <- sum(!is.na(survey$Pulse))
+hist(survey$Pulse, breaks = 15)
+```
+
+#### a
+$H_{0}: \mu = 75$
+
+$H_{1}: \mu \ne 75$
+```{R}
+t.test(survey$Pulse, mu = 75, alternative = "two.sided")$p.value
+```
+**There is not enough evidence to reject the claim that the mean pulse of students at University of Adelaide is 75.0 beats per minute(p-value = 0.3154)**
+
+#### b
+$H_{0}: \mu \le 75$
+
+$H_{1}: \mu \gt 75$
+```{R}
+female.pulse <- filter(survey, survey$Sex == "Female")$Pulse
+t.test(female.pulse, mu = 75, alternative = "greater")$p.value
+```
+**There is insufficient evidence at the 0.05 significance level to support the claim that the mean pulse rate of students at University of Adelaide is greater than 75 beats per minute(p-value = 0.4571 > 0.05)**
+
+### Question 2
+#### a
+```{R}
+runHypothesis <- function(X.data, alpha, var, unit, mu0, alt){
+  p.val <- t.test(X.data, mu = mu0, alternative = alt)$p.value
+    if(p.val < alpha){
+      do.have <- "have"
+    }else{
+      do.have <- "do not have"
+    }
+  
+    if(alt == "greater"){
+      relation <- "is greater than"
+    }else if(alt == "less"){
+      relation <- "is less than"
+    }else{
+      relation <- "is different from"
+    }
+  formatted.alpha <- paste0(alpha * 100, "%")
+  res <- paste(
+    "We",
+    do.have,
+    "strong enough evidence to support the claim that the mean",
+    var, 
+    relation,mu0,unit,
+    "at the",
+    formatted.alpha,
+    "significance level."
+  )
+  print(res)
+}
+
+print("Test Q1a")
+runHypothesis(survey$Age, 0.01, "student age", "years", 20, "greater")
+```
+The larger the sample size, the narrower the confidence interval.
+
+#### b
+```{R}
+runHypothesis(survey$Pulse, 0.1, "student pulse", "beats per minute", 70, "greater")
+```
+####c
+```{R}
+runHypothesis(survey$Age, 0.05, "student age", "years", 25, "less")
+```
+
+### Question 3
+#### a
+$h_{0}: \mu_{1} = \mu_{2}$
+
+$h_{1}: \mu_{1} \ne \mu_{2}$
+```{R}
+t.test(Pulse ~ Sex, data = survey, alternative = "two.sided")$p.value
+```
+**There is not enough evidence at the 5% significance level to reject the claim that the mean Pulse rates for male and female students at the University of Adelaide are equal (p-value = 0.2564 > 0.05).**
+
+#### b
+$h_{0}: \mu_{1} = \mu_{2}$
+
+$h_{1}: \mu_{1} \ne \mu_{2}$
+```{R}
+t.test(Age ~ Sex, data = survey, alternative = "two.sided")$p.value
+```
+**There is insufficient evidence at the 5% significance level to support the claim that female students are older on average than male students at the University of Adelaide**
+
+### Question 4
+```{R}
+t.test(survey$Wr.Hnd, survey$NW.Hnd, paired = TRUE, alternative = "two.sided")$p.value
+```
+**We have strong enough evidence to support the claim that the span of students writing hand differs from the span of their non-writing hands at the 5% significance level(p-value = 0.0345 < 0.05)**
+
+### Question 5
+#### a
+$h_{0}: p = 0.10$
+
+$h_{1}: p \gt 0.10$
+```{R}
+female.data <- subset(survey, Sex == "Female")
+x <- sum(female.data$W.Hnd == "Left", na.rm = TRUE)
+n <- sum(!is.na(female.data$W.Hnd))
+prop.test(x, n, p = 0.10, alternative = "greater")$p.value
+```
+**There is insufficient evidence to conclude that the proportion of left-handed female students at the University of Adelaide is greater than 10%(p-value = 0.9022 > 0.05)**
+
+#### b
+$h_{0}: p = 0.10$
+
+$h_{1}: p \gt 0.10$
+```{R}
+right.data <- subset(survey, W.Hnd == "Right")
+x <- sum(right.data$Exer == "Freq", na.rm = TRUE)
+n <- sum(!is.na(right.data$Exer))
+prop.test(x, n, p = 0.5, alternative = "two.sided")$p.value
+```
+**There is insufficient evidence to conclude that the proportion of frequent exercisers among right-handed students is different from 50%(p-value = 0.8390 > 0.05)**
+
+#### c
+$h_{0}: p_{1} = p_{2}$
+
+$h_{1}: p_{1} \ne p_{2}$
+```{R}
+never.data <- subset(survey, Smoke == "Never")
+heavy.data <- subset(survey, Smoke == "Heavy")
+x <- c(sum(never.data$Exer == "Freq", na.rm = TRUE),
+       sum(heavy.data$Exer == "Freq", na.rm = TRUE))
+n <- c(sum(!is.na(never.data$Exer)), sum(!is.na(heavy.data$Exer)))
+prop.test(x, n, alternative = "two.sided")$p.value
+```
+**There is insufficient evidence to conclude that the proportion of frequent exercisers differs between students who never smoke and those who are heavy smokers(p-value = 0.4085 > 0.05)**
+
