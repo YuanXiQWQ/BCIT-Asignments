@@ -1,0 +1,20 @@
+---
+title: "Lab 12 - Correlation and Regression"
+date: Nov 27, 2025
+author: Jerry Xing
+output: word_document
+---
+
+```{R setup, include=FALSE}
+library(MASS)
+library(dplyr)
+data(survey)
+```
+
+### Question 1
+```{R}
+cor(X, Y, use="complete.obs")
+
+cor.test(survey$Age, survey$Height, alternative = "two.sided")
+```
+**Conclusion: There is no evidence for correlation between Age and Height at the population level(p-value = 0.5921)**

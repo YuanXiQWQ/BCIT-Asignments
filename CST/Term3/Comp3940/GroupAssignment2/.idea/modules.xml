@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/GroupAssignment2.iml" filepath="$PROJECT_DIR$/.idea/GroupAssignment2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/TestTensorflow.iml" filepath="$PROJECT_DIR$/.idea/TestTensorflow.iml" />
     </modules>
   </component>
 </project>
