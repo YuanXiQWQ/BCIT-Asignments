@@ -62,6 +62,11 @@ private sealed class BottomDestination(
     object Profile : BottomDestination("profile", "Profile", Icons.Filled.Person)
 }
 
+/**
+ * Root UI hosting navigation and bottom bar structure for the gallery experience.
+ *
+ * @param viewModel The shared ViewModel providing UI state and events.
+ */
 @Composable
 fun ArtGalleryApp(viewModel: ArtworkViewModel) {
     val navController = rememberNavController()
@@ -140,10 +145,21 @@ fun ArtGalleryApp(viewModel: ArtworkViewModel) {
     }
 }
 
+/**
+ * Helper for comparing navigation destinations when updating the bottom bar selection.
+ *
+ * @param route The route string to compare against the current destination.
+ * @return True if the destination's route matches the given string.
+ */
 private fun NavDestination?.isCurrentRoute(route: String): Boolean {
     return this?.route == route
 }
 
+/**
+ * Displays online artwork fetched from the API and allows adding to favourites.
+ *
+ * @param viewModel The shared ViewModel providing UI state and events.
+ */
 @Composable
 fun OnlineArtScreen(viewModel: ArtworkViewModel) {
     val artworks = viewModel.onlineArtworks
@@ -204,6 +220,11 @@ fun OnlineArtScreen(viewModel: ArtworkViewModel) {
     }
 }
 
+/**
+ * Shows the user’s saved favourites and lets them remove items.
+ *
+ * @param viewModel The shared ViewModel providing UI state and events.
+ */
 @Composable
 fun FavouritesScreen(viewModel: ArtworkViewModel) {
     val favourites by viewModel.favouriteArtworks.collectAsState(initial = emptyList())
@@ -243,6 +264,12 @@ fun FavouritesScreen(viewModel: ArtworkViewModel) {
     }
 }
 
+/**
+ * Profile editor that loads cached values and exposes save/cancel actions.
+ *
+ * @param viewModel The shared ViewModel providing profile state and save actions.
+ * @param snackbarHostState The Scaffold's SnackbarHostState for showing confirmation messages.
+ */
 @Composable
 fun ProfileScreen(
     viewModel: ArtworkViewModel,
@@ -337,6 +364,13 @@ fun ProfileScreen(
     }
 }
 
+/**
+ * Reusable card that renders artwork details plus a customizable action button.
+ *
+ * @param artwork The artwork data to display.
+ * @param buttonText The text label for the action button.
+ * @param onButtonClick The callback invoked when the action button is clicked.
+ */
 @Composable
 fun ArtworkRow(
     artwork: Artwork,
