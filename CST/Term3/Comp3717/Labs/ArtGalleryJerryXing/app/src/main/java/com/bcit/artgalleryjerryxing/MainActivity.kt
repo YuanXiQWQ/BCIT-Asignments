@@ -9,6 +9,10 @@ import com.bcit.artgalleryjerryxing.ui.ArtworkViewModel
 import com.bcit.artgalleryjerryxing.ui.ArtworkViewModelFactory
 import com.bcit.artgalleryjerryxing.ui.theme.ArtGalleryJerryXingTheme
 
+/**
+ * Main activity for the Art Gallery application.
+ * @author Jerry Xing | A01354731
+ */
 class MainActivity : ComponentActivity() {
 
     private val appContainer: AppContainer by lazy {
@@ -19,6 +23,9 @@ class MainActivity : ComponentActivity() {
         ArtworkViewModelFactory(appContainer.artworkRepository)
     }
 
+    /**
+     * Sets up the UI content for the activity.
+     */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {

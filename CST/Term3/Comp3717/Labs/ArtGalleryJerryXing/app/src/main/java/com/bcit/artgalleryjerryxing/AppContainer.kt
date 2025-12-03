@@ -9,6 +9,11 @@ import io.ktor.client.engine.android.Android
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
 import io.ktor.serialization.gson.gson
 
+/**
+ * Service locator wiring shared dependencies such as Room and HTTP client.
+ *
+ * @param context The application context, used to initialize the Room database.
+ */
 class AppContainer(context: Context) {
 
     private val database: ArtDatabase = Room.databaseBuilder(
@@ -23,6 +28,6 @@ class AppContainer(context: Context) {
         }
     }
 
-    val artworkRepository: ArtworkRepository =
+    val artworkRepository: ArtworkRepository = 
         ArtworkRepository(httpClient, database.artworkDao(), database.profileDao())
 }
