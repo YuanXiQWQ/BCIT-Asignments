@@ -15,6 +15,8 @@ int main(int argc, char* argv[]) {
 		fprintf(stderr, "Must be specify exactly 1 file\n");
 		exit(0);
 	}
+Canine* caninePtr = new Canine;
+Animal* animalPtr = caninePtr; // 向上转型为 Animal 类型
 
 	if(pipe(fd) < 0)
 		exit(1); 
