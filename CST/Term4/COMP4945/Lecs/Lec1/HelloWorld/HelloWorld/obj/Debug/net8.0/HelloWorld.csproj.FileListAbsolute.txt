@@ -1,0 +1,15 @@
+F:\JerryCode\BCIT-Assignments\CST\Term4\COMP4941\Week1\HelloWorld\HelloWorld\bin\Debug\net8.0\HelloWorld.exe
+F:\JerryCode\BCIT-Assignments\CST\Term4\COMP4941\Week1\HelloWorld\HelloWorld\bin\Debug\net8.0\HelloWorld.deps.json
+F:\JerryCode\BCIT-Assignments\CST\Term4\COMP4941\Week1\HelloWorld\HelloWorld\bin\Debug\net8.0\HelloWorld.runtimeconfig.json
+F:\JerryCode\BCIT-Assignments\CST\Term4\COMP4941\Week1\HelloWorld\HelloWorld\bin\Debug\net8.0\HelloWorld.dll
+F:\JerryCode\BCIT-Assignments\CST\Term4\COMP4941\Week1\HelloWorld\HelloWorld\bin\Debug\net8.0\HelloWorld.pdb
+F:\JerryCode\BCIT-Assignments\CST\Term4\COMP4941\Week1\HelloWorld\HelloWorld\obj\Debug\net8.0\HelloWorld.GeneratedMSBuildEditorConfig.editorconfig
+F:\JerryCode\BCIT-Assignments\CST\Term4\COMP4941\Week1\HelloWorld\HelloWorld\obj\Debug\net8.0\HelloWorld.AssemblyInfoInputs.cache
+F:\JerryCode\BCIT-Assignments\CST\Term4\COMP4941\Week1\HelloWorld\HelloWorld\obj\Debug\net8.0\HelloWorld.AssemblyInfo.cs
+F:\JerryCode\BCIT-Assignments\CST\Term4\COMP4941\Week1\HelloWorld\HelloWorld\obj\Debug\net8.0\HelloWorld.csproj.CoreCompileInputs.cache
+F:\JerryCode\BCIT-Assignments\CST\Term4\COMP4941\Week1\HelloWorld\HelloWorld\obj\Debug\net8.0\HelloWorld.sourcelink.json
+F:\JerryCode\BCIT-Assignments\CST\Term4\COMP4941\Week1\HelloWorld\HelloWorld\obj\Debug\net8.0\HelloWorld.dll
+F:\JerryCode\BCIT-Assignments\CST\Term4\COMP4941\Week1\HelloWorld\HelloWorld\obj\Debug\net8.0\refint\HelloWorld.dll
+F:\JerryCode\BCIT-Assignments\CST\Term4\COMP4941\Week1\HelloWorld\HelloWorld\obj\Debug\net8.0\HelloWorld.pdb
+F:\JerryCode\BCIT-Assignments\CST\Term4\COMP4941\Week1\HelloWorld\HelloWorld\obj\Debug\net8.0\HelloWorld.genruntimeconfig.cache
+F:\JerryCode\BCIT-Assignments\CST\Term4\COMP4941\Week1\HelloWorld\HelloWorld\obj\Debug\net8.0\ref\HelloWorld.dll
