@@ -7390,11 +7390,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\JerryCode\\BCIT-Assignments\\CST\\Term4\\COMP4941\\Lecs\\Lec1\\OrgMgmt\\OrgMgmt.csproj",
+      "projectUniqueName": "F:\\JerryCode\\BCIT-Assignments\\CST\\Term4\\COMP4945\\Lecs\\Lec1\\OrgMgmt\\OrgMgmt.csproj",
       "projectName": "OrgMgmt",
-      "projectPath": "F:\\JerryCode\\BCIT-Assignments\\CST\\Term4\\COMP4941\\Lecs\\Lec1\\OrgMgmt\\OrgMgmt.csproj",
+      "projectPath": "F:\\JerryCode\\BCIT-Assignments\\CST\\Term4\\COMP4945\\Lecs\\Lec1\\OrgMgmt\\OrgMgmt.csproj",
       "packagesPath": "C:\\Users\\YuanXi\\.nuget\\packages\\",
-      "outputPath": "F:\\JerryCode\\BCIT-Assignments\\CST\\Term4\\COMP4941\\Lecs\\Lec1\\OrgMgmt\\obj\\",
+      "outputPath": "F:\\JerryCode\\BCIT-Assignments\\CST\\Term4\\COMP4945\\Lecs\\Lec1\\OrgMgmt\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
