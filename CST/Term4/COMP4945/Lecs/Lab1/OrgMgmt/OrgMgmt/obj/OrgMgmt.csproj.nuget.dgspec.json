@@ -67,6 +67,14 @@
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
               "version": "[10.0.1, )"
+            },
+            "Selenium.Support": {
+              "target": "Package",
+              "version": "[4.39.0, )"
+            },
+            "Selenium.WebDriver": {
+              "target": "Package",
+              "version": "[4.39.0, )"
             }
           },
           "imports": [

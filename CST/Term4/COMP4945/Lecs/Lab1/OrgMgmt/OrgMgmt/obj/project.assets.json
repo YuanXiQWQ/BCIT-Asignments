@@ -2157,6 +2157,52 @@
           }
         }
       },
+      "Selenium.Support/4.39.0": {
+        "type": "package",
+        "dependencies": {
+          "Selenium.WebDriver": "4.39.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/WebDriver.Support.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/WebDriver.Support.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Selenium.WebDriver/4.39.0": {
+        "type": "package",
+        "compile": {
+          "lib/net8.0/WebDriver.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/WebDriver.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/Selenium.WebDriver.targets": {}
+        },
+        "runtimeTargets": {
+          "runtimes/linux/native/selenium-manager": {
+            "assetType": "native",
+            "rid": "linux"
+          },
+          "runtimes/osx/native/selenium-manager": {
+            "assetType": "native",
+            "rid": "osx"
+          },
+          "runtimes/win/native/selenium-manager.exe": {
+            "assetType": "native",
+            "rid": "win"
+          }
+        }
+      },
       "System.ClientModel/1.5.1": {
         "type": "package",
         "dependencies": {
@@ -5948,6 +5994,44 @@
         "nuget.versioning.nuspec"
       ]
     },
+    "Selenium.Support/4.39.0": {
+      "sha512": "G27Hr8k9gGZ0lxdFqTnoJEwZ2l8nq+GFOs5AB9OqGXkHRznS13uDG7CFtMMgG9k4Dy06XTYJLrnENYTa/nVFhw==",
+      "type": "package",
+      "path": "selenium.support/4.39.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "icon.png",
+        "lib/netstandard2.0/WebDriver.Support.dll",
+        "lib/netstandard2.0/WebDriver.Support.xml",
+        "selenium.support.4.39.0.nupkg.sha512",
+        "selenium.support.nuspec"
+      ]
+    },
+    "Selenium.WebDriver/4.39.0": {
+      "sha512": "LbiWOVW/PA/YVHKAXxMPLwwoupj3XLWKwjnGNkGFF0dG0rX2MJHDWgSf9WPSRWb9Msr3vTWFg0EsEAdNs68NiA==",
+      "type": "package",
+      "path": "selenium.webdriver/4.39.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "build/Selenium.WebDriver.targets",
+        "buildTransitive/Selenium.WebDriver.targets",
+        "icon.png",
+        "lib/net462/WebDriver.dll",
+        "lib/net462/WebDriver.xml",
+        "lib/net8.0/WebDriver.dll",
+        "lib/net8.0/WebDriver.xml",
+        "lib/netstandard2.0/WebDriver.dll",
+        "lib/netstandard2.0/WebDriver.xml",
+        "runtimes/linux/native/selenium-manager",
+        "runtimes/osx/native/selenium-manager",
+        "runtimes/win/native/selenium-manager.exe",
+        "selenium.webdriver.4.39.0.nupkg.sha512",
+        "selenium.webdriver.nuspec"
+      ]
+    },
     "System.ClientModel/1.5.1": {
       "sha512": "k2jKSO0X45IqhVOT9iQB4xralNN9foRQsRvXBTyRpAVxyzCJlG895T9qYrQWbcJ6OQXxOouJQ37x5nZH5XKK+A==",
       "type": "package",
@@ -6467,7 +6551,9 @@
       "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore >= 10.0.1",
       "Microsoft.EntityFrameworkCore.SqlServer >= 10.0.1",
       "Microsoft.EntityFrameworkCore.Tools >= 10.0.1",
-      "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 10.0.1"
+      "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 10.0.1",
+      "Selenium.Support >= 4.39.0",
+      "Selenium.WebDriver >= 4.39.0"
     ]
   },
   "packageFolders": {
@@ -6537,6 +6623,14 @@
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
             "target": "Package",
             "version": "[10.0.1, )"
+          },
+          "Selenium.Support": {
+            "target": "Package",
+            "version": "[4.39.0, )"
+          },
+          "Selenium.WebDriver": {
+            "target": "Package",
+            "version": "[4.39.0, )"
           }
         },
         "imports": [

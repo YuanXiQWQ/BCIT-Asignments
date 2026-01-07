@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "DTsstQqH3Ho=",
+  "dgSpecHash": "cC8CV7dRgJE=",
   "success": true,
   "projectFilePath": "F:\\JerryCode\\BCIT-Assignments\\CST\\Term4\\COMP4945\\Lecs\\Lab1\\OrgMgmt\\OrgMgmt\\OrgMgmt.csproj",
   "expectedPackageFiles": [
@@ -116,6 +116,8 @@
     "C:\\Users\\YuanXi\\.nuget\\packages\\nuget.projectmodel\\6.12.1\\nuget.projectmodel.6.12.1.nupkg.sha512",
     "C:\\Users\\YuanXi\\.nuget\\packages\\nuget.protocol\\6.12.1\\nuget.protocol.6.12.1.nupkg.sha512",
     "C:\\Users\\YuanXi\\.nuget\\packages\\nuget.versioning\\6.12.1\\nuget.versioning.6.12.1.nupkg.sha512",
+    "C:\\Users\\YuanXi\\.nuget\\packages\\selenium.support\\4.39.0\\selenium.support.4.39.0.nupkg.sha512",
+    "C:\\Users\\YuanXi\\.nuget\\packages\\selenium.webdriver\\4.39.0\\selenium.webdriver.4.39.0.nupkg.sha512",
     "C:\\Users\\YuanXi\\.nuget\\packages\\system.clientmodel\\1.5.1\\system.clientmodel.1.5.1.nupkg.sha512",
     "C:\\Users\\YuanXi\\.nuget\\packages\\system.codedom\\9.0.0\\system.codedom.9.0.0.nupkg.sha512",
     "C:\\Users\\YuanXi\\.nuget\\packages\\system.composition\\9.0.0\\system.composition.9.0.0.nupkg.sha512",

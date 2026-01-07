@@ -346,3 +346,8 @@ F:\JerryCode\BCIT-Assignments\CST\Term4\COMP4945\Lecs\Lab1\OrgMgmt\OrgMgmt\obj\D
 F:\JerryCode\BCIT-Assignments\CST\Term4\COMP4945\Lecs\Lab1\OrgMgmt\OrgMgmt\obj\Debug\net10.0\OrgMgmt.pdb
 F:\JerryCode\BCIT-Assignments\CST\Term4\COMP4945\Lecs\Lab1\OrgMgmt\OrgMgmt\obj\Debug\net10.0\OrgMgmt.genruntimeconfig.cache
 F:\JerryCode\BCIT-Assignments\CST\Term4\COMP4945\Lecs\Lab1\OrgMgmt\OrgMgmt\obj\Debug\net10.0\ref\OrgMgmt.dll
+F:\JerryCode\BCIT-Assignments\CST\Term4\COMP4945\Lecs\Lab1\OrgMgmt\OrgMgmt\bin\Debug\net10.0\WebDriver.Support.dll
+F:\JerryCode\BCIT-Assignments\CST\Term4\COMP4945\Lecs\Lab1\OrgMgmt\OrgMgmt\bin\Debug\net10.0\WebDriver.dll
+F:\JerryCode\BCIT-Assignments\CST\Term4\COMP4945\Lecs\Lab1\OrgMgmt\OrgMgmt\bin\Debug\net10.0\runtimes\linux\native\selenium-manager
+F:\JerryCode\BCIT-Assignments\CST\Term4\COMP4945\Lecs\Lab1\OrgMgmt\OrgMgmt\bin\Debug\net10.0\runtimes\osx\native\selenium-manager
+F:\JerryCode\BCIT-Assignments\CST\Term4\COMP4945\Lecs\Lab1\OrgMgmt\OrgMgmt\bin\Debug\net10.0\runtimes\win\native\selenium-manager.exe
