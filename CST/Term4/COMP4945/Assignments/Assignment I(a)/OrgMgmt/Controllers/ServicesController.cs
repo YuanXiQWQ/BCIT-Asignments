@@ -10,22 +10,22 @@ using OrgMgmt.Models;
 
 namespace OrgMgmt.Controllers
 {
-    public class ClientsController : Controller
+    public class ServicesController : Controller
     {
         private readonly OrgDbContext _context;
 
-        public ClientsController(OrgDbContext context)
+        public ServicesController(OrgDbContext context)
         {
             _context = context;
         }
 
-        // GET: Clients
+        // GET: Services
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Clients.ToListAsync());
+            return View(await _context.Services.ToListAsync());
         }
 
-        // GET: Clients/Details/5
+        // GET: Services/Details/5
         public async Task<IActionResult> Details(Guid? id)
         {
             if (id == null)
@@ -33,40 +33,40 @@ namespace OrgMgmt.Controllers
                 return NotFound();
             }
 
-            var client = await _context.Clients
+            var service = await _context.Services
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (client == null)
+            if (service == null)
             {
                 return NotFound();
             }
 
-            return View(client);
+            return View(service);
         }
 
-        // GET: Clients/Create
+        // GET: Services/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Clients/Create
+        // POST: Services/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Balance,Id,Name,Address,DateOfBirth,Photo")] Client client)
+        public async Task<IActionResult> Create([Bind("Id,Type,Rate")] Service service)
         {
             if (ModelState.IsValid)
             {
-                client.Id = Guid.NewGuid();
-                _context.Add(client);
+                service.Id = Guid.NewGuid();
+                _context.Add(service);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(client);
+            return View(service);
         }
 
-        // GET: Clients/Edit/5
+        // GET: Services/Edit/5
         public async Task<IActionResult> Edit(Guid? id)
         {
             if (id == null)
@@ -74,22 +74,22 @@ namespace OrgMgmt.Controllers
                 return NotFound();
             }
 
-            var client = await _context.Clients.FindAsync(id);
-            if (client == null)
+            var service = await _context.Services.FindAsync(id);
+            if (service == null)
             {
                 return NotFound();
             }
-            return View(client);
+            return View(service);
         }
 
-        // POST: Clients/Edit/5
+        // POST: Services/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Guid id, [Bind("Balance,Id,Name,Address,DateOfBirth,Photo")] Client client)
+        public async Task<IActionResult> Edit(Guid id, [Bind("Id,Type,Rate")] Service service)
         {
-            if (id != client.Id)
+            if (id != service.Id)
             {
                 return NotFound();
             }
@@ -98,12 +98,12 @@ namespace OrgMgmt.Controllers
             {
                 try
                 {
-                    _context.Update(client);
+                    _context.Update(service);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!ClientExists(client.Id))
+                    if (!ServiceExists(service.Id))
                     {
                         return NotFound();
                     }
@@ -114,10 +114,10 @@ namespace OrgMgmt.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(client);
+            return View(service);
         }
 
-        // GET: Clients/Delete/5
+        // GET: Services/Delete/5
         public async Task<IActionResult> Delete(Guid? id)
         {
             if (id == null)
@@ -125,34 +125,34 @@ namespace OrgMgmt.Controllers
                 return NotFound();
             }
 
-            var client = await _context.Clients
+            var service = await _context.Services
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (client == null)
+            if (service == null)
             {
                 return NotFound();
             }
 
-            return View(client);
+            return View(service);
         }
 
-        // POST: Clients/Delete/5
+        // POST: Services/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(Guid id)
         {
-            var client = await _context.Clients.FindAsync(id);
-            if (client != null)
+            var service = await _context.Services.FindAsync(id);
+            if (service != null)
             {
-                _context.Clients.Remove(client);
+                _context.Services.Remove(service);
             }
 
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool ClientExists(Guid id)
+        private bool ServiceExists(Guid id)
         {
-            return _context.Clients.Any(e => e.Id == id);
+            return _context.Services.Any(e => e.Id == id);
         }
     }
 }

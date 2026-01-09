@@ -10,22 +10,22 @@ using OrgMgmt.Models;
 
 namespace OrgMgmt.Controllers
 {
-    public class ClientsController : Controller
+    public class EmployeesController : Controller
     {
         private readonly OrgDbContext _context;
 
-        public ClientsController(OrgDbContext context)
+        public EmployeesController(OrgDbContext context)
         {
             _context = context;
         }
 
-        // GET: Clients
+        // GET: Employees
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Clients.ToListAsync());
+            return View(await _context.Employees.ToListAsync());
         }
 
-        // GET: Clients/Details/5
+        // GET: Employees/Details/5
         public async Task<IActionResult> Details(Guid? id)
         {
             if (id == null)
@@ -33,40 +33,40 @@ namespace OrgMgmt.Controllers
                 return NotFound();
             }
 
-            var client = await _context.Clients
+            var employee = await _context.Employees
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (client == null)
+            if (employee == null)
             {
                 return NotFound();
             }
 
-            return View(client);
+            return View(employee);
         }
 
-        // GET: Clients/Create
+        // GET: Employees/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Clients/Create
+        // POST: Employees/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Balance,Id,Name,Address,DateOfBirth,Photo")] Client client)
+        public async Task<IActionResult> Create([Bind("Salary,ServiceId,Id,Name,Address,DateOfBirth,Photo")] Employee employee)
         {
             if (ModelState.IsValid)
             {
-                client.Id = Guid.NewGuid();
-                _context.Add(client);
+                employee.Id = Guid.NewGuid();
+                _context.Add(employee);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(client);
+            return View(employee);
         }
 
-        // GET: Clients/Edit/5
+        // GET: Employees/Edit/5
         public async Task<IActionResult> Edit(Guid? id)
         {
             if (id == null)
@@ -74,22 +74,22 @@ namespace OrgMgmt.Controllers
                 return NotFound();
             }
 
-            var client = await _context.Clients.FindAsync(id);
-            if (client == null)
+            var employee = await _context.Employees.FindAsync(id);
+            if (employee == null)
             {
                 return NotFound();
             }
-            return View(client);
+            return View(employee);
         }
 
-        // POST: Clients/Edit/5
+        // POST: Employees/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Guid id, [Bind("Balance,Id,Name,Address,DateOfBirth,Photo")] Client client)
+        public async Task<IActionResult> Edit(Guid id, [Bind("Salary,ServiceId,Id,Name,Address,DateOfBirth,Photo")] Employee employee)
         {
-            if (id != client.Id)
+            if (id != employee.Id)
             {
                 return NotFound();
             }
@@ -98,12 +98,12 @@ namespace OrgMgmt.Controllers
             {
                 try
                 {
-                    _context.Update(client);
+                    _context.Update(employee);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!ClientExists(client.Id))
+                    if (!EmployeeExists(employee.Id))
                     {
                         return NotFound();
                     }
@@ -114,10 +114,10 @@ namespace OrgMgmt.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(client);
+            return View(employee);
         }
 
-        // GET: Clients/Delete/5
+        // GET: Employees/Delete/5
         public async Task<IActionResult> Delete(Guid? id)
         {
             if (id == null)
@@ -125,34 +125,34 @@ namespace OrgMgmt.Controllers
                 return NotFound();
             }
 
-            var client = await _context.Clients
+            var employee = await _context.Employees
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (client == null)
+            if (employee == null)
             {
                 return NotFound();
             }
 
-            return View(client);
+            return View(employee);
         }
 
-        // POST: Clients/Delete/5
+        // POST: Employees/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(Guid id)
         {
-            var client = await _context.Clients.FindAsync(id);
-            if (client != null)
+            var employee = await _context.Employees.FindAsync(id);
+            if (employee != null)
             {
-                _context.Clients.Remove(client);
+                _context.Employees.Remove(employee);
             }
 
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool ClientExists(Guid id)
+        private bool EmployeeExists(Guid id)
         {
-            return _context.Clients.Any(e => e.Id == id);
+            return _context.Employees.Any(e => e.Id == id);
         }
     }
 }

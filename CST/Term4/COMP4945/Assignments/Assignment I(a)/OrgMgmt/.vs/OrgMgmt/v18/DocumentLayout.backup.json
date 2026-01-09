@@ -3,16 +3,24 @@
   "WorkspaceRootPath": "F:\\JerryCode\\BCIT-Assignments\\CST\\Term4\\COMP4945\\Assignments\\Assignment I(a)\\OrgMgmt\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{AE3C4236-A27F-44C6-8D24-E3AE0D79395A}|OrgMgmt.csproj|f:\\jerrycode\\bcit-assignments\\cst\\term4\\comp4945\\assignments\\assignment i(a)\\orgmgmt\\controllers\\servicescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AE3C4236-A27F-44C6-8D24-E3AE0D79395A}|OrgMgmt.csproj|solutionrelative:controllers\\servicescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AE3C4236-A27F-44C6-8D24-E3AE0D79395A}|OrgMgmt.csproj|f:\\jerrycode\\bcit-assignments\\cst\\term4\\comp4945\\assignments\\assignment i(a)\\orgmgmt\\controllers\\employeescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AE3C4236-A27F-44C6-8D24-E3AE0D79395A}|OrgMgmt.csproj|solutionrelative:controllers\\employeescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AE3C4236-A27F-44C6-8D24-E3AE0D79395A}|OrgMgmt.csproj|f:\\jerrycode\\bcit-assignments\\cst\\term4\\comp4945\\assignments\\assignment i(a)\\orgmgmt\\controllers\\clientscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AE3C4236-A27F-44C6-8D24-E3AE0D79395A}|OrgMgmt.csproj|solutionrelative:controllers\\clientscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{AE3C4236-A27F-44C6-8D24-E3AE0D79395A}|OrgMgmt.csproj|f:\\jerrycode\\bcit-assignments\\cst\\term4\\comp4945\\assignments\\assignment i(a)\\orgmgmt\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{AE3C4236-A27F-44C6-8D24-E3AE0D79395A}|OrgMgmt.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{AE3C4236-A27F-44C6-8D24-E3AE0D79395A}|OrgMgmt.csproj|f:\\jerrycode\\bcit-assignments\\cst\\term4\\comp4945\\assignments\\assignment i(a)\\orgmgmt\\models\\client.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{AE3C4236-A27F-44C6-8D24-E3AE0D79395A}|OrgMgmt.csproj|solutionrelative:models\\client.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AE3C4236-A27F-44C6-8D24-E3AE0D79395A}|OrgMgmt.csproj|f:\\jerrycode\\bcit-assignments\\cst\\term4\\comp4945\\assignments\\assignment i(a)\\orgmgmt\\controllers\\clientscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AE3C4236-A27F-44C6-8D24-E3AE0D79395A}|OrgMgmt.csproj|solutionrelative:controllers\\clientscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{AE3C4236-A27F-44C6-8D24-E3AE0D79395A}|OrgMgmt.csproj|f:\\jerrycode\\bcit-assignments\\cst\\term4\\comp4945\\assignments\\assignment i(a)\\orgmgmt\\models\\service.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -42,7 +50,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 12,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Bookmark",
@@ -74,32 +82,46 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ServicesController.cs",
+              "DocumentMoniker": "F:\\JerryCode\\BCIT-Assignments\\CST\\Term4\\COMP4945\\Assignments\\Assignment I(a)\\OrgMgmt\\Controllers\\ServicesController.cs",
+              "RelativeDocumentMoniker": "Controllers\\ServicesController.cs",
+              "ToolTip": "F:\\JerryCode\\BCIT-Assignments\\CST\\Term4\\COMP4945\\Assignments\\Assignment I(a)\\OrgMgmt\\Controllers\\ServicesController.cs",
+              "RelativeToolTip": "Controllers\\ServicesController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-09T23:03:13.527Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "EmployeesController.cs",
+              "DocumentMoniker": "F:\\JerryCode\\BCIT-Assignments\\CST\\Term4\\COMP4945\\Assignments\\Assignment I(a)\\OrgMgmt\\Controllers\\EmployeesController.cs",
+              "RelativeDocumentMoniker": "Controllers\\EmployeesController.cs",
+              "ToolTip": "F:\\JerryCode\\BCIT-Assignments\\CST\\Term4\\COMP4945\\Assignments\\Assignment I(a)\\OrgMgmt\\Controllers\\EmployeesController.cs",
+              "RelativeToolTip": "Controllers\\EmployeesController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-09T23:02:32.962Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 2,
               "Title": "ClientsController.cs",
               "DocumentMoniker": "F:\\JerryCode\\BCIT-Assignments\\CST\\Term4\\COMP4945\\Assignments\\Assignment I(a)\\OrgMgmt\\Controllers\\ClientsController.cs",
               "RelativeDocumentMoniker": "Controllers\\ClientsController.cs",
               "ToolTip": "F:\\JerryCode\\BCIT-Assignments\\CST\\Term4\\COMP4945\\Assignments\\Assignment I(a)\\OrgMgmt\\Controllers\\ClientsController.cs",
               "RelativeToolTip": "Controllers\\ClientsController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-09T21:57:43.26Z",
+              "WhenOpened": "2026-01-09T23:01:55.589Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Service.cs",
-              "DocumentMoniker": "F:\\JerryCode\\BCIT-Assignments\\CST\\Term4\\COMP4945\\Assignments\\Assignment I(a)\\OrgMgmt\\Models\\Service.cs",
-              "RelativeDocumentMoniker": "Models\\Service.cs",
-              "ToolTip": "F:\\JerryCode\\BCIT-Assignments\\CST\\Term4\\COMP4945\\Assignments\\Assignment I(a)\\OrgMgmt\\Models\\Service.cs",
-              "RelativeToolTip": "Models\\Service.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAUAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-09T21:54:14.605Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "_Layout.cshtml",
               "DocumentMoniker": "F:\\JerryCode\\BCIT-Assignments\\CST\\Term4\\COMP4945\\Assignments\\Assignment I(a)\\OrgMgmt\\Views\\Shared\\_Layout.cshtml",
               "RelativeDocumentMoniker": "Views\\Shared\\_Layout.cshtml",
@@ -111,7 +133,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 9,
               "Title": "OrgMgmt.csproj",
               "DocumentMoniker": "F:\\JerryCode\\BCIT-Assignments\\CST\\Term4\\COMP4945\\Assignments\\Assignment I(a)\\OrgMgmt\\OrgMgmt.csproj",
               "RelativeDocumentMoniker": "OrgMgmt.csproj",
@@ -123,7 +145,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 7,
               "Title": "appsettings.json",
               "DocumentMoniker": "F:\\JerryCode\\BCIT-Assignments\\CST\\Term4\\COMP4945\\Assignments\\Assignment I(a)\\OrgMgmt\\appsettings.json",
               "RelativeDocumentMoniker": "appsettings.json",
@@ -135,20 +157,32 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "Program.cs",
               "DocumentMoniker": "F:\\JerryCode\\BCIT-Assignments\\CST\\Term4\\COMP4945\\Assignments\\Assignment I(a)\\OrgMgmt\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "F:\\JerryCode\\BCIT-Assignments\\CST\\Term4\\COMP4945\\Assignments\\Assignment I(a)\\OrgMgmt\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAABoAAAAAAAAAAAAiwCIAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAgwBIAAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-01-09T21:49:31.666Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 5,
+              "Title": "Service.cs",
+              "DocumentMoniker": "F:\\JerryCode\\BCIT-Assignments\\CST\\Term4\\COMP4945\\Assignments\\Assignment I(a)\\OrgMgmt\\Models\\Service.cs",
+              "RelativeDocumentMoniker": "Models\\Service.cs",
+              "ToolTip": "F:\\JerryCode\\BCIT-Assignments\\CST\\Term4\\COMP4945\\Assignments\\Assignment I(a)\\OrgMgmt\\Models\\Service.cs",
+              "RelativeToolTip": "Models\\Service.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-09T21:54:14.605Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
               "Title": "OrgDbContext.cs",
               "DocumentMoniker": "F:\\JerryCode\\BCIT-Assignments\\CST\\Term4\\COMP4945\\Assignments\\Assignment I(a)\\OrgMgmt\\OrgDbContext.cs",
               "RelativeDocumentMoniker": "OrgDbContext.cs",
@@ -160,7 +194,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "Client.cs",
               "DocumentMoniker": "F:\\JerryCode\\BCIT-Assignments\\CST\\Term4\\COMP4945\\Assignments\\Assignment I(a)\\OrgMgmt\\Models\\Client.cs",
               "RelativeDocumentMoniker": "Models\\Client.cs",
@@ -168,8 +202,7 @@
               "RelativeToolTip": "Models\\Client.cs",
               "ViewState": "AgIAAAIAAAAAAAAAAAAAwAgAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-09T21:49:31.671Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-09T21:49:31.671Z"
             }
           ]
         },

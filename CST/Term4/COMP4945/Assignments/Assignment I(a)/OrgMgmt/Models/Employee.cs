@@ -1,8 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿namespace OrgMgmt.Models;
 
-namespace OrgMgmt.Models;
-
-[Table("Employees")]
 public class Employee : Person
 {
     public Service? MyService { get; set; }
