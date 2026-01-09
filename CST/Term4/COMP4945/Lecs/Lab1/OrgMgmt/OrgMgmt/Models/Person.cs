@@ -1,13 +1,20 @@
 using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace OrgMgmt.Models
 {
-    public abstract class Person
+    public class Person
     {
-        public Guid ID { get; set; }
-        public string Name { get; set; }
-        public string Address { get; set; }
-        public DateTime DateOfBirth { get; set; }
-        public byte[] Photo { get; set; }
+        [Key] public Guid ID { get; set; } = Guid.NewGuid();
+
+        [Required]
+        [MaxLength(20)]
+        [RegularExpression(@"^[^\d]+$", ErrorMessage = "Name cannot contain digits.")]
+        public string Name { get; set; } = string.Empty;
+
+        public string? Address { get; set; }
+
+        [DataType(DataType.Date)] public DateTime? DateOfBirth { get; set; }
+        public byte[]? Photo { get; set; }
     }
 }

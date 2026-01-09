@@ -339,7 +339,6 @@ F:\JerryCode\BCIT-Assignments\CST\Term4\COMP4945\Lecs\Lab1\OrgMgmt\OrgMgmt\obj\D
 F:\JerryCode\BCIT-Assignments\CST\Term4\COMP4945\Lecs\Lab1\OrgMgmt\OrgMgmt\obj\Debug\net10.0\staticwebassets.development.json
 F:\JerryCode\BCIT-Assignments\CST\Term4\COMP4945\Lecs\Lab1\OrgMgmt\OrgMgmt\obj\Debug\net10.0\staticwebassets.build.endpoints.json
 F:\JerryCode\BCIT-Assignments\CST\Term4\COMP4945\Lecs\Lab1\OrgMgmt\OrgMgmt\obj\Debug\net10.0\swae.build.ex.cache
-F:\JerryCode\BCIT-Assignments\CST\Term4\COMP4945\Lecs\Lab1\OrgMgmt\OrgMgmt\obj\Debug\net10.0\staticwebassets.upToDateCheck.txt
 F:\JerryCode\BCIT-Assignments\CST\Term4\COMP4945\Lecs\Lab1\OrgMgmt\OrgMgmt\obj\Debug\net10.0\OrgMgmt.csproj.Up2Date
 F:\JerryCode\BCIT-Assignments\CST\Term4\COMP4945\Lecs\Lab1\OrgMgmt\OrgMgmt\obj\Debug\net10.0\OrgMgmt.dll
 F:\JerryCode\BCIT-Assignments\CST\Term4\COMP4945\Lecs\Lab1\OrgMgmt\OrgMgmt\obj\Debug\net10.0\refint\OrgMgmt.dll

@@ -26,7 +26,7 @@ namespace OrgMgmt.Controllers
         }
 
         // GET: Clients/Details/5
-        public async Task<IActionResult> Details(int? id)
+        public async Task<IActionResult> Details(Guid? id)
         {
             if (id == null)
             {
@@ -54,10 +54,11 @@ namespace OrgMgmt.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,Name,Address")] Client client)
+        public async Task<IActionResult> Create([Bind("Balance,ID,Name,Address,DateOfBirth,Photo")] Client client)
         {
             if (ModelState.IsValid)
             {
+                client.ID = Guid.NewGuid();
                 _context.Add(client);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -66,7 +67,7 @@ namespace OrgMgmt.Controllers
         }
 
         // GET: Clients/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+        public async Task<IActionResult> Edit(Guid? id)
         {
             if (id == null)
             {
@@ -86,7 +87,7 @@ namespace OrgMgmt.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ID,Name,Address")] Client client)
+        public async Task<IActionResult> Edit(Guid id, [Bind("Balance,ID,Name,Address,DateOfBirth,Photo")] Client client)
         {
             if (id != client.ID)
             {
@@ -117,7 +118,7 @@ namespace OrgMgmt.Controllers
         }
 
         // GET: Clients/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+        public async Task<IActionResult> Delete(Guid? id)
         {
             if (id == null)
             {
@@ -137,7 +138,7 @@ namespace OrgMgmt.Controllers
         // POST: Clients/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        public async Task<IActionResult> DeleteConfirmed(Guid id)
         {
             var client = await _context.Clients.FindAsync(id);
             if (client != null)
@@ -149,7 +150,7 @@ namespace OrgMgmt.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        private bool ClientExists(int id)
+        private bool ClientExists(Guid id)
         {
             return _context.Clients.Any(e => e.ID == id);
         }

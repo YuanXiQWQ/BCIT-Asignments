@@ -1,0 +1,67 @@
+﻿@model OrgMgmt.Models.ViewModels.QueryResultsViewModel
+
+@{
+    ViewData["Title"] = "LINQ Query Results";
+}
+
+<h1>Index</h1>
+
+<h3>i) Number of clients in each city (sorted by city)</h3>
+
+@if (Model.ClientsPerCity.Count == 0)
+{
+    <p>No clients found.</p>
+}
+else
+{
+    <table class="table">
+        <thead>
+        <tr>
+            <th><strong>City</strong></th>
+            <th><strong>Client Count</strong></th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var row in Model.ClientsPerCity)
+        {
+            <tr>
+                <td>@row.City</td>
+                <td>@row.ClientCount</td>
+            </tr>
+        }
+        </tbody>
+    </table>
+}
+
+<hr/>
+
+<h3>ii) Clients who are not registered for any service</h3>
+
+@if (Model.ClientsWithoutServices.Count == 0)
+{
+    <p>No such clients found.</p>
+}
+else
+{
+    <table class="table">
+        <thead>
+        <tr>
+            <th><strong>ID</strong></th>
+            <th><strong>Name</strong></th>
+            <th><strong>Address</strong></th>
+            <th><strong>Balance</strong></th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var client in Model.ClientsWithoutServices)
+        {
+            <tr>
+                <td>@client.ID</td>
+                <td>@client.Name</td>
+                <td>@(client.Address ?? "")</td>
+                <td>@client.Balance</td>
+            </tr>
+        }
+        </tbody>
+    </table>
+}
