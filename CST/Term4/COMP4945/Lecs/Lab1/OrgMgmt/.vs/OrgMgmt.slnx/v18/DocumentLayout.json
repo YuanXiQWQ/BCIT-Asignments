@@ -3,44 +3,40 @@
   "WorkspaceRootPath": "F:\\JerryCode\\BCIT-Assignments\\CST\\Term4\\COMP4945\\Lecs\\Lab1\\OrgMgmt\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{1CF1D1D8-842C-A669-535D-995C3D49D336}|OrgMgmt\\OrgMgmt.csproj|f:\\jerrycode\\bcit-assignments\\cst\\term4\\comp4945\\lecs\\lab1\\orgmgmt\\orgmgmt\\models\\clientserice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1CF1D1D8-842C-A669-535D-995C3D49D336}|OrgMgmt\\OrgMgmt.csproj|solutionrelative:orgmgmt\\models\\clientserice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{1CF1D1D8-842C-A669-535D-995C3D49D336}|OrgMgmt\\OrgMgmt.csproj|f:\\jerrycode\\bcit-assignments\\cst\\term4\\comp4945\\lecs\\lab1\\orgmgmt\\orgmgmt\\models\\person.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1CF1D1D8-842C-A669-535D-995C3D49D336}|OrgMgmt\\OrgMgmt.csproj|solutionrelative:orgmgmt\\models\\person.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1CF1D1D8-842C-A669-535D-995C3D49D336}|OrgMgmt\\OrgMgmt.csproj|f:\\jerrycode\\bcit-assignments\\cst\\term4\\comp4945\\lecs\\lab1\\orgmgmt\\orgmgmt\\controllers\\clientservicescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1CF1D1D8-842C-A669-535D-995C3D49D336}|OrgMgmt\\OrgMgmt.csproj|solutionrelative:orgmgmt\\controllers\\clientservicescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1CF1D1D8-842C-A669-535D-995C3D49D336}|OrgMgmt\\OrgMgmt.csproj|f:\\jerrycode\\bcit-assignments\\cst\\term4\\comp4945\\lecs\\lab1\\orgmgmt\\orgmgmt\\controllers\\clientscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1CF1D1D8-842C-A669-535D-995C3D49D336}|OrgMgmt\\OrgMgmt.csproj|solutionrelative:orgmgmt\\controllers\\clientscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1CF1D1D8-842C-A669-535D-995C3D49D336}|OrgMgmt\\OrgMgmt.csproj|f:\\jerrycode\\bcit-assignments\\cst\\term4\\comp4945\\lecs\\lab1\\orgmgmt\\orgmgmt\\controllers\\servicescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1CF1D1D8-842C-A669-535D-995C3D49D336}|OrgMgmt\\OrgMgmt.csproj|solutionrelative:orgmgmt\\controllers\\servicescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1CF1D1D8-842C-A669-535D-995C3D49D336}|OrgMgmt\\OrgMgmt.csproj|f:\\jerrycode\\bcit-assignments\\cst\\term4\\comp4945\\lecs\\lab1\\orgmgmt\\orgmgmt\\controllers\\employeescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1CF1D1D8-842C-A669-535D-995C3D49D336}|OrgMgmt\\OrgMgmt.csproj|solutionrelative:orgmgmt\\controllers\\employeescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{1CF1D1D8-842C-A669-535D-995C3D49D336}|OrgMgmt\\OrgMgmt.csproj|f:\\jerrycode\\bcit-assignments\\cst\\term4\\comp4945\\lecs\\lab1\\orgmgmt\\orgmgmt\\models\\client.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1CF1D1D8-842C-A669-535D-995C3D49D336}|OrgMgmt\\OrgMgmt.csproj|solutionrelative:orgmgmt\\models\\client.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{1CF1D1D8-842C-A669-535D-995C3D49D336}|OrgMgmt\\OrgMgmt.csproj|f:\\jerrycode\\bcit-assignments\\cst\\term4\\comp4945\\lecs\\lab1\\orgmgmt\\orgmgmt\\orgdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1CF1D1D8-842C-A669-535D-995C3D49D336}|OrgMgmt\\OrgMgmt.csproj|solutionrelative:orgmgmt\\orgdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{1CF1D1D8-842C-A669-535D-995C3D49D336}|OrgMgmt\\OrgMgmt.csproj|f:\\jerrycode\\bcit-assignments\\cst\\term4\\comp4945\\lecs\\lab1\\orgmgmt\\orgmgmt\\models\\clientserice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1CF1D1D8-842C-A669-535D-995C3D49D336}|OrgMgmt\\OrgMgmt.csproj|solutionrelative:orgmgmt\\models\\clientserice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1CF1D1D8-842C-A669-535D-995C3D49D336}|OrgMgmt\\OrgMgmt.csproj|f:\\jerrycode\\bcit-assignments\\cst\\term4\\comp4945\\lecs\\lab1\\orgmgmt\\orgmgmt\\models\\employee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1CF1D1D8-842C-A669-535D-995C3D49D336}|OrgMgmt\\OrgMgmt.csproj|solutionrelative:orgmgmt\\models\\employee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1CF1D1D8-842C-A669-535D-995C3D49D336}|OrgMgmt\\OrgMgmt.csproj|f:\\jerrycode\\bcit-assignments\\cst\\term4\\comp4945\\lecs\\lab1\\orgmgmt\\orgmgmt\\models\\service.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1CF1D1D8-842C-A669-535D-995C3D49D336}|OrgMgmt\\OrgMgmt.csproj|solutionrelative:orgmgmt\\models\\service.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{1CF1D1D8-842C-A669-535D-995C3D49D336}|OrgMgmt\\OrgMgmt.csproj|f:\\jerrycode\\bcit-assignments\\cst\\term4\\comp4945\\lecs\\lab1\\orgmgmt\\orgmgmt\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1CF1D1D8-842C-A669-535D-995C3D49D336}|OrgMgmt\\OrgMgmt.csproj|solutionrelative:orgmgmt\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8C3C06E1-F247-42D8-9FA2-6A131F0F5779}|TestOrgMgmt\\TestOrgMgmt.csproj|f:\\jerrycode\\bcit-assignments\\cst\\term4\\comp4945\\lecs\\lab1\\orgmgmt\\testorgmgmt\\unittest1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8C3C06E1-F247-42D8-9FA2-6A131F0F5779}|TestOrgMgmt\\TestOrgMgmt.csproj|solutionrelative:testorgmgmt\\unittest1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{1CF1D1D8-842C-A669-535D-995C3D49D336}|OrgMgmt\\OrgMgmt.csproj|f:\\jerrycode\\bcit-assignments\\cst\\term4\\comp4945\\lecs\\lab1\\orgmgmt\\orgmgmt\\controllers\\employeescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1CF1D1D8-842C-A669-535D-995C3D49D336}|OrgMgmt\\OrgMgmt.csproj|solutionrelative:orgmgmt\\controllers\\employeescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{1CF1D1D8-842C-A669-535D-995C3D49D336}|OrgMgmt\\OrgMgmt.csproj|f:\\jerrycode\\bcit-assignments\\cst\\term4\\comp4945\\lecs\\lab1\\orgmgmt\\orgmgmt\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{1CF1D1D8-842C-A669-535D-995C3D49D336}|OrgMgmt\\OrgMgmt.csproj|solutionrelative:orgmgmt\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1CF1D1D8-842C-A669-535D-995C3D49D336}|OrgMgmt\\OrgMgmt.csproj|f:\\jerrycode\\bcit-assignments\\cst\\term4\\comp4945\\lecs\\lab1\\orgmgmt\\orgmgmt\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{1CF1D1D8-842C-A669-535D-995C3D49D336}|OrgMgmt\\OrgMgmt.csproj|solutionrelative:orgmgmt\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{1CF1D1D8-842C-A669-535D-995C3D49D336}|OrgMgmt\\OrgMgmt.csproj|f:\\jerrycode\\bcit-assignments\\cst\\term4\\comp4945\\lecs\\lab1\\orgmgmt\\orgmgmt\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
@@ -54,8 +50,34 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 13,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "EmployeesController.cs",
+              "DocumentMoniker": "F:\\JerryCode\\BCIT-Assignments\\CST\\Term4\\COMP4945\\Lecs\\Lab1\\OrgMgmt\\OrgMgmt\\Controllers\\EmployeesController.cs",
+              "RelativeDocumentMoniker": "OrgMgmt\\Controllers\\EmployeesController.cs",
+              "ToolTip": "F:\\JerryCode\\BCIT-Assignments\\CST\\Term4\\COMP4945\\Lecs\\Lab1\\OrgMgmt\\OrgMgmt\\Controllers\\EmployeesController.cs",
+              "RelativeToolTip": "OrgMgmt\\Controllers\\EmployeesController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-09T08:28:39.366Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "OrgDbContext.cs",
+              "DocumentMoniker": "F:\\JerryCode\\BCIT-Assignments\\CST\\Term4\\COMP4945\\Lecs\\Lab1\\OrgMgmt\\OrgMgmt\\OrgDbContext.cs",
+              "RelativeDocumentMoniker": "OrgMgmt\\OrgDbContext.cs",
+              "ToolTip": "F:\\JerryCode\\BCIT-Assignments\\CST\\Term4\\COMP4945\\Lecs\\Lab1\\OrgMgmt\\OrgMgmt\\OrgDbContext.cs",
+              "RelativeToolTip": "OrgMgmt\\OrgDbContext.cs",
+              "ViewState": "AgIAABIAAAAAAAAAAAAgwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-09T21:23:46.77Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:5:0:{57d563b6-44a5-47df-85be-f4199ad6b651}"
@@ -86,100 +108,68 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "ClientSerice.cs",
               "DocumentMoniker": "F:\\JerryCode\\BCIT-Assignments\\CST\\Term4\\COMP4945\\Lecs\\Lab1\\OrgMgmt\\OrgMgmt\\Models\\ClientSerice.cs",
               "RelativeDocumentMoniker": "OrgMgmt\\Models\\ClientSerice.cs",
               "ToolTip": "F:\\JerryCode\\BCIT-Assignments\\CST\\Term4\\COMP4945\\Lecs\\Lab1\\OrgMgmt\\OrgMgmt\\Models\\ClientSerice.cs",
               "RelativeToolTip": "OrgMgmt\\Models\\ClientSerice.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-09T08:37:22.698Z",
+              "WhenOpened": "2026-01-09T21:01:26.459Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "ClientServicesController.cs",
-              "DocumentMoniker": "F:\\JerryCode\\BCIT-Assignments\\CST\\Term4\\COMP4945\\Lecs\\Lab1\\OrgMgmt\\OrgMgmt\\Controllers\\ClientServicesController.cs",
-              "RelativeDocumentMoniker": "OrgMgmt\\Controllers\\ClientServicesController.cs",
-              "ToolTip": "F:\\JerryCode\\BCIT-Assignments\\CST\\Term4\\COMP4945\\Lecs\\Lab1\\OrgMgmt\\OrgMgmt\\Controllers\\ClientServicesController.cs",
-              "RelativeToolTip": "OrgMgmt\\Controllers\\ClientServicesController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Title": "Client.cs",
+              "DocumentMoniker": "F:\\JerryCode\\BCIT-Assignments\\CST\\Term4\\COMP4945\\Lecs\\Lab1\\OrgMgmt\\OrgMgmt\\Models\\Client.cs",
+              "RelativeDocumentMoniker": "OrgMgmt\\Models\\Client.cs",
+              "ToolTip": "F:\\JerryCode\\BCIT-Assignments\\CST\\Term4\\COMP4945\\Lecs\\Lab1\\OrgMgmt\\OrgMgmt\\Models\\Client.cs",
+              "RelativeToolTip": "OrgMgmt\\Models\\Client.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-09T08:37:19.272Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "ClientsController.cs",
-              "DocumentMoniker": "F:\\JerryCode\\BCIT-Assignments\\CST\\Term4\\COMP4945\\Lecs\\Lab1\\OrgMgmt\\OrgMgmt\\Controllers\\ClientsController.cs",
-              "RelativeDocumentMoniker": "OrgMgmt\\Controllers\\ClientsController.cs",
-              "ToolTip": "F:\\JerryCode\\BCIT-Assignments\\CST\\Term4\\COMP4945\\Lecs\\Lab1\\OrgMgmt\\OrgMgmt\\Controllers\\ClientsController.cs",
-              "RelativeToolTip": "OrgMgmt\\Controllers\\ClientsController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-09T08:31:36.838Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "ServicesController.cs",
-              "DocumentMoniker": "F:\\JerryCode\\BCIT-Assignments\\CST\\Term4\\COMP4945\\Lecs\\Lab1\\OrgMgmt\\OrgMgmt\\Controllers\\ServicesController.cs",
-              "RelativeDocumentMoniker": "OrgMgmt\\Controllers\\ServicesController.cs",
-              "ToolTip": "F:\\JerryCode\\BCIT-Assignments\\CST\\Term4\\COMP4945\\Lecs\\Lab1\\OrgMgmt\\OrgMgmt\\Controllers\\ServicesController.cs",
-              "RelativeToolTip": "OrgMgmt\\Controllers\\ServicesController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-09T08:29:28.699Z"
+              "WhenOpened": "2026-01-09T21:01:15.963Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "EmployeesController.cs",
-              "DocumentMoniker": "F:\\JerryCode\\BCIT-Assignments\\CST\\Term4\\COMP4945\\Lecs\\Lab1\\OrgMgmt\\OrgMgmt\\Controllers\\EmployeesController.cs",
-              "RelativeDocumentMoniker": "OrgMgmt\\Controllers\\EmployeesController.cs",
-              "ToolTip": "F:\\JerryCode\\BCIT-Assignments\\CST\\Term4\\COMP4945\\Lecs\\Lab1\\OrgMgmt\\OrgMgmt\\Controllers\\EmployeesController.cs",
-              "RelativeToolTip": "OrgMgmt\\Controllers\\EmployeesController.cs",
+              "Title": "Employee.cs",
+              "DocumentMoniker": "F:\\JerryCode\\BCIT-Assignments\\CST\\Term4\\COMP4945\\Lecs\\Lab1\\OrgMgmt\\OrgMgmt\\Models\\Employee.cs",
+              "RelativeDocumentMoniker": "OrgMgmt\\Models\\Employee.cs",
+              "ToolTip": "F:\\JerryCode\\BCIT-Assignments\\CST\\Term4\\COMP4945\\Lecs\\Lab1\\OrgMgmt\\OrgMgmt\\Models\\Employee.cs",
+              "RelativeToolTip": "OrgMgmt\\Models\\Employee.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-09T08:28:39.366Z"
+              "WhenOpened": "2026-01-09T21:01:11.013Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "OrgDbContext.cs",
-              "DocumentMoniker": "F:\\JerryCode\\BCIT-Assignments\\CST\\Term4\\COMP4945\\Lecs\\Lab1\\OrgMgmt\\OrgMgmt\\OrgDbContext.cs",
-              "RelativeDocumentMoniker": "OrgMgmt\\OrgDbContext.cs",
-              "ToolTip": "F:\\JerryCode\\BCIT-Assignments\\CST\\Term4\\COMP4945\\Lecs\\Lab1\\OrgMgmt\\OrgMgmt\\OrgDbContext.cs",
-              "RelativeToolTip": "OrgMgmt\\OrgDbContext.cs",
-              "ViewState": "AgIAABIAAAAAAAAAAAAUwBwAAAA0AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-09T08:05:23.507Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "UnitTest1.cs",
-              "DocumentMoniker": "F:\\JerryCode\\BCIT-Assignments\\CST\\Term4\\COMP4945\\Lecs\\Lab1\\OrgMgmt\\TestOrgMgmt\\UnitTest1.cs",
-              "RelativeDocumentMoniker": "TestOrgMgmt\\UnitTest1.cs",
-              "ToolTip": "F:\\JerryCode\\BCIT-Assignments\\CST\\Term4\\COMP4945\\Lecs\\Lab1\\OrgMgmt\\TestOrgMgmt\\UnitTest1.cs",
-              "RelativeToolTip": "TestOrgMgmt\\UnitTest1.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAAAbAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-08T18:27:41.273Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "launchSettings.json",
-              "DocumentMoniker": "F:\\JerryCode\\BCIT-Assignments\\CST\\Term4\\COMP4945\\Lecs\\Lab1\\OrgMgmt\\OrgMgmt\\Properties\\launchSettings.json",
-              "RelativeDocumentMoniker": "OrgMgmt\\Properties\\launchSettings.json",
-              "ToolTip": "F:\\JerryCode\\BCIT-Assignments\\CST\\Term4\\COMP4945\\Lecs\\Lab1\\OrgMgmt\\OrgMgmt\\Properties\\launchSettings.json",
-              "RelativeToolTip": "OrgMgmt\\Properties\\launchSettings.json",
+              "Title": "Service.cs",
+              "DocumentMoniker": "F:\\JerryCode\\BCIT-Assignments\\CST\\Term4\\COMP4945\\Lecs\\Lab1\\OrgMgmt\\OrgMgmt\\Models\\Service.cs",
+              "RelativeDocumentMoniker": "OrgMgmt\\Models\\Service.cs",
+              "ToolTip": "F:\\JerryCode\\BCIT-Assignments\\CST\\Term4\\COMP4945\\Lecs\\Lab1\\OrgMgmt\\OrgMgmt\\Models\\Service.cs",
+              "RelativeToolTip": "OrgMgmt\\Models\\Service.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2026-01-06T00:23:59.36Z"
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-09T21:00:43.579Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Person.cs",
+              "DocumentMoniker": "F:\\JerryCode\\BCIT-Assignments\\CST\\Term4\\COMP4945\\Lecs\\Lab1\\OrgMgmt\\OrgMgmt\\Models\\Person.cs",
+              "RelativeDocumentMoniker": "OrgMgmt\\Models\\Person.cs",
+              "ToolTip": "F:\\JerryCode\\BCIT-Assignments\\CST\\Term4\\COMP4945\\Lecs\\Lab1\\OrgMgmt\\OrgMgmt\\Models\\Person.cs",
+              "RelativeToolTip": "OrgMgmt\\Models\\Person.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-09T21:00:35.837Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -189,9 +179,10 @@
               "RelativeDocumentMoniker": "OrgMgmt\\Program.cs",
               "ToolTip": "F:\\JerryCode\\BCIT-Assignments\\CST\\Term4\\COMP4945\\Lecs\\Lab1\\OrgMgmt\\OrgMgmt\\Program.cs",
               "RelativeToolTip": "OrgMgmt\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAAKAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-06T00:15:22.205Z"
+              "WhenOpened": "2026-01-06T00:15:22.205Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -207,7 +198,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 9,
               "Title": "appsettings.json",
               "DocumentMoniker": "F:\\JerryCode\\BCIT-Assignments\\CST\\Term4\\COMP4945\\Lecs\\Lab1\\OrgMgmt\\OrgMgmt\\appsettings.json",
               "RelativeDocumentMoniker": "OrgMgmt\\appsettings.json",

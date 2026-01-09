@@ -1,10 +1,12 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace OrgMgmt.Models;
 
+[Table("Employees")]
 public class Employee : Person
 {
-    public decimal Salary { get; set; }
-
-    public ICollection<Service> Services { get; set; } = new List<Service>();
+    public Service? MyService { get; set; }
+    public int Salary { get; set; }
+    public int? ServiceId { get; set; }
 }

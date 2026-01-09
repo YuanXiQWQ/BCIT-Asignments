@@ -1,8 +1,10 @@
 using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace OrgMgmt.Models
 {
+    [Table("People")]
     public class Person
     {
         [Key] public Guid ID { get; set; } = Guid.NewGuid();

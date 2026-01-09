@@ -1,10 +1,16 @@
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace OrgMgmt.Models
 {
+    [Table("Clients")]
     public class Client : Person
     {
+        public Client()
+        {
+            Services = new HashSet<Service>();
+        }
         public decimal Balance { get; set; }
-        public ICollection<ClientService> ClientServices { get; set; } = new List<ClientService>();
+        public virtual ICollection<Service> Services { get; set; }
     }
 }
