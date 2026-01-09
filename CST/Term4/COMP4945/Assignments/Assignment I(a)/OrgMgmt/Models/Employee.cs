@@ -3,6 +3,6 @@
 public class Employee : Person
 {
     public Service? MyService { get; set; }
-    public int Salary { get; set; }
-    public int? ServiceId { get; set; }
+    public decimal Salary { get; set; }
+    public Guid? ServiceId { get; set; }
 }

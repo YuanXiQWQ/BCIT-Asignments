@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using OrgMgmt;
 using OrgMgmt.Models;
 
 namespace OrgMgmt.Controllers
@@ -22,7 +16,22 @@ namespace OrgMgmt.Controllers
         // GET: Clients
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Clients.ToListAsync());
+            var clients = await _context.Clients
+                .Include(c => c.Services)
+                .ToListAsync();
+
+            var clientsPerCity = clients
+                .GroupBy(c => c.Address)
+                .Select(g => new { City = g.Key, Count = g.Count() })
+                .OrderBy(x => x.City)
+                .ToList();
+            ViewBag.ClientsPerCity = clientsPerCity;
+
+            ViewBag.ClientsWithoutServices = clients
+                .Where(c => c.Services.Count == 0)
+                .ToList();
+
+            return View(clients);
         }
 
         // GET: Clients/Details/5
@@ -63,6 +72,7 @@ namespace OrgMgmt.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+
             return View(client);
         }
 
@@ -79,6 +89,7 @@ namespace OrgMgmt.Controllers
             {
                 return NotFound();
             }
+
             return View(client);
         }
 
@@ -112,8 +123,10 @@ namespace OrgMgmt.Controllers
                         throw;
                     }
                 }
+
                 return RedirectToAction(nameof(Index));
             }
+
             return View(client);
         }
 

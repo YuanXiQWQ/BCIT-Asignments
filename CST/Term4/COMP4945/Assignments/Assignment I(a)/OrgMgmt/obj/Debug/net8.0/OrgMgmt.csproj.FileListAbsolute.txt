@@ -508,7 +508,6 @@ F:\JerryCode\BCIT-Assignments\CST\Term4\COMP4945\Assignments\Assignment I(a)\Org
 F:\JerryCode\BCIT-Assignments\CST\Term4\COMP4945\Assignments\Assignment I(a)\OrgMgmt\obj\Debug\net8.0\staticwebassets.development.json
 F:\JerryCode\BCIT-Assignments\CST\Term4\COMP4945\Assignments\Assignment I(a)\OrgMgmt\obj\Debug\net8.0\staticwebassets.build.endpoints.json
 F:\JerryCode\BCIT-Assignments\CST\Term4\COMP4945\Assignments\Assignment I(a)\OrgMgmt\obj\Debug\net8.0\swae.build.ex.cache
-F:\JerryCode\BCIT-Assignments\CST\Term4\COMP4945\Assignments\Assignment I(a)\OrgMgmt\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 F:\JerryCode\BCIT-Assignments\CST\Term4\COMP4945\Assignments\Assignment I(a)\OrgMgmt\obj\Debug\net8.0\OrgMgmt.csproj.Up2Date
 F:\JerryCode\BCIT-Assignments\CST\Term4\COMP4945\Assignments\Assignment I(a)\OrgMgmt\obj\Debug\net8.0\OrgMgmt.genruntimeconfig.cache
 F:\JerryCode\BCIT-Assignments\CST\Term4\COMP4945\Assignments\Assignment I(a)\OrgMgmt\obj\Debug\net8.0\ref\OrgMgmt.dll
