@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using OrgMgmt.Models;
 
@@ -40,6 +41,7 @@ namespace OrgMgmt.Controllers
         // GET: Employees/Create
         public IActionResult Create()
         {
+            PopulateServicesDropDown();
             return View();
         }
 
@@ -57,6 +59,8 @@ namespace OrgMgmt.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+
+            PopulateServicesDropDown(employee.ServiceId);
             return View(employee);
         }
 
@@ -73,6 +77,8 @@ namespace OrgMgmt.Controllers
             {
                 return NotFound();
             }
+
+            PopulateServicesDropDown(employee.ServiceId);
             return View(employee);
         }
 
@@ -108,6 +114,8 @@ namespace OrgMgmt.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+
+            PopulateServicesDropDown(employee.ServiceId);
             return View(employee);
         }
 
@@ -147,6 +155,11 @@ namespace OrgMgmt.Controllers
         private bool EmployeeExists(Guid id)
         {
             return _context.Employees.Any(e => e.Id == id);
+        }
+
+        private void PopulateServicesDropDown(Guid? selectedServiceId = null)
+        {
+            ViewData["ServiceId"] = new SelectList(_context.Services, "Id", "Type", selectedServiceId);
         }
     }
 }
