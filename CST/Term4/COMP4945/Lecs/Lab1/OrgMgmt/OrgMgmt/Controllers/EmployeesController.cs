@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using OrgMgmt;
 using OrgMgmt.Models;
 
 namespace OrgMgmt.Controllers
@@ -34,7 +28,7 @@ namespace OrgMgmt.Controllers
             }
 
             var employee = await _context.Employees
-                .FirstOrDefaultAsync(m => m.ID == id);
+                .FirstOrDefaultAsync(m => m.Id == id);
             if (employee == null)
             {
                 return NotFound();
@@ -54,11 +48,11 @@ namespace OrgMgmt.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Salary,ID,Name,Address,DateOfBirth,Photo")] Employee employee)
+        public async Task<IActionResult> Create([Bind("Salary,ServiceId,Id,Name,Address,DateOfBirth,Photo")] Employee employee)
         {
             if (ModelState.IsValid)
             {
-                employee.ID = Guid.NewGuid();
+                employee.Id = Guid.NewGuid();
                 _context.Add(employee);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -87,9 +81,9 @@ namespace OrgMgmt.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Guid id, [Bind("Salary,ID,Name,Address,DateOfBirth,Photo")] Employee employee)
+        public async Task<IActionResult> Edit(Guid id, [Bind("Salary,ServiceId,Id,Name,Address,DateOfBirth,Photo")] Employee employee)
         {
-            if (id != employee.ID)
+            if (id != employee.Id)
             {
                 return NotFound();
             }
@@ -103,7 +97,7 @@ namespace OrgMgmt.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!EmployeeExists(employee.ID))
+                    if (!EmployeeExists(employee.Id))
                     {
                         return NotFound();
                     }
@@ -126,7 +120,7 @@ namespace OrgMgmt.Controllers
             }
 
             var employee = await _context.Employees
-                .FirstOrDefaultAsync(m => m.ID == id);
+                .FirstOrDefaultAsync(m => m.Id == id);
             if (employee == null)
             {
                 return NotFound();
@@ -152,7 +146,7 @@ namespace OrgMgmt.Controllers
 
         private bool EmployeeExists(Guid id)
         {
-            return _context.Employees.Any(e => e.ID == id);
+            return _context.Employees.Any(e => e.Id == id);
         }
     }
 }

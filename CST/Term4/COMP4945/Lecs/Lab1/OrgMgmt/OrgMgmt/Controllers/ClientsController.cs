@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using OrgMgmt;
 using OrgMgmt.Models;
 
 namespace OrgMgmt.Controllers
@@ -22,7 +16,22 @@ namespace OrgMgmt.Controllers
         // GET: Clients
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Clients.ToListAsync());
+            var clients = await _context.Clients
+                .Include(c => c.Services)
+                .ToListAsync();
+
+            var clientsPerCity = clients
+                .GroupBy(c => c.Address)
+                .Select(g => new { City = g.Key, Count = g.Count() })
+                .OrderBy(x => x.City)
+                .ToList();
+            ViewBag.ClientsPerCity = clientsPerCity;
+
+            ViewBag.ClientsWithoutServices = clients
+                .Where(c => c.Services.Count == 0)
+                .ToList();
+
+            return View(clients);
         }
 
         // GET: Clients/Details/5
@@ -34,7 +43,7 @@ namespace OrgMgmt.Controllers
             }
 
             var client = await _context.Clients
-                .FirstOrDefaultAsync(m => m.ID == id);
+                .FirstOrDefaultAsync(m => m.Id == id);
             if (client == null)
             {
                 return NotFound();
@@ -54,15 +63,16 @@ namespace OrgMgmt.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Balance,ID,Name,Address,DateOfBirth,Photo")] Client client)
+        public async Task<IActionResult> Create([Bind("Balance,Id,Name,Address,DateOfBirth,Photo")] Client client)
         {
             if (ModelState.IsValid)
             {
-                client.ID = Guid.NewGuid();
+                client.Id = Guid.NewGuid();
                 _context.Add(client);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+
             return View(client);
         }
 
@@ -79,6 +89,7 @@ namespace OrgMgmt.Controllers
             {
                 return NotFound();
             }
+
             return View(client);
         }
 
@@ -87,9 +98,9 @@ namespace OrgMgmt.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Guid id, [Bind("Balance,ID,Name,Address,DateOfBirth,Photo")] Client client)
+        public async Task<IActionResult> Edit(Guid id, [Bind("Balance,Id,Name,Address,DateOfBirth,Photo")] Client client)
         {
-            if (id != client.ID)
+            if (id != client.Id)
             {
                 return NotFound();
             }
@@ -103,7 +114,7 @@ namespace OrgMgmt.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!ClientExists(client.ID))
+                    if (!ClientExists(client.Id))
                     {
                         return NotFound();
                     }
@@ -112,8 +123,10 @@ namespace OrgMgmt.Controllers
                         throw;
                     }
                 }
+
                 return RedirectToAction(nameof(Index));
             }
+
             return View(client);
         }
 
@@ -126,7 +139,7 @@ namespace OrgMgmt.Controllers
             }
 
             var client = await _context.Clients
-                .FirstOrDefaultAsync(m => m.ID == id);
+                .FirstOrDefaultAsync(m => m.Id == id);
             if (client == null)
             {
                 return NotFound();
@@ -152,7 +165,7 @@ namespace OrgMgmt.Controllers
 
         private bool ClientExists(Guid id)
         {
-            return _context.Clients.Any(e => e.ID == id);
+            return _context.Clients.Any(e => e.Id == id);
         }
     }
 }

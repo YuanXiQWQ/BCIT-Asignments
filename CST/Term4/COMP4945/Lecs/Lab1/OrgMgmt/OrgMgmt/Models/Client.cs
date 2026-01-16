@@ -1,9 +1,5 @@
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
-
-namespace OrgMgmt.Models
+﻿namespace OrgMgmt.Models
 {
-    [Table("Clients")]
     public class Client : Person
     {
         public Client()
@@ -11,6 +7,7 @@ namespace OrgMgmt.Models
             Services = new HashSet<Service>();
         }
         public decimal Balance { get; set; }
+        
         public virtual ICollection<Service> Services { get; set; }
     }
 }

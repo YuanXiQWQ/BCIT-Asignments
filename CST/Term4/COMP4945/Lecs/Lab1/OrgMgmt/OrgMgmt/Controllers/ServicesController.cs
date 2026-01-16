@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using OrgMgmt;
 using OrgMgmt.Models;
 
 namespace OrgMgmt.Controllers
@@ -22,8 +16,7 @@ namespace OrgMgmt.Controllers
         // GET: Services
         public async Task<IActionResult> Index()
         {
-            var orgDbContext = _context.Services.Include(s => s.Employee);
-            return View(await orgDbContext.ToListAsync());
+            return View(await _context.Services.ToListAsync());
         }
 
         // GET: Services/Details/5
@@ -35,8 +28,7 @@ namespace OrgMgmt.Controllers
             }
 
             var service = await _context.Services
-                .Include(s => s.Employee)
-                .FirstOrDefaultAsync(m => m.ID == id);
+                .FirstOrDefaultAsync(m => m.Id == id);
             if (service == null)
             {
                 return NotFound();
@@ -48,7 +40,6 @@ namespace OrgMgmt.Controllers
         // GET: Services/Create
         public IActionResult Create()
         {
-            ViewData["EmployeeId"] = new SelectList(_context.Employees, "ID", "Name");
             return View();
         }
 
@@ -57,16 +48,15 @@ namespace OrgMgmt.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,Type,Rate,EmployeeId")] Service service)
+        public async Task<IActionResult> Create([Bind("Id,Type,Rate")] Service service)
         {
             if (ModelState.IsValid)
             {
-                service.ID = Guid.NewGuid();
+                service.Id = Guid.NewGuid();
                 _context.Add(service);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["EmployeeId"] = new SelectList(_context.Employees, "ID", "Name", service.EmployeeId);
             return View(service);
         }
 
@@ -83,7 +73,6 @@ namespace OrgMgmt.Controllers
             {
                 return NotFound();
             }
-            ViewData["EmployeeId"] = new SelectList(_context.Employees, "ID", "Name", service.EmployeeId);
             return View(service);
         }
 
@@ -92,9 +81,9 @@ namespace OrgMgmt.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Guid id, [Bind("ID,Type,Rate,EmployeeId")] Service service)
+        public async Task<IActionResult> Edit(Guid id, [Bind("Id,Type,Rate")] Service service)
         {
-            if (id != service.ID)
+            if (id != service.Id)
             {
                 return NotFound();
             }
@@ -108,7 +97,7 @@ namespace OrgMgmt.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!ServiceExists(service.ID))
+                    if (!ServiceExists(service.Id))
                     {
                         return NotFound();
                     }
@@ -119,7 +108,6 @@ namespace OrgMgmt.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["EmployeeId"] = new SelectList(_context.Employees, "ID", "Name", service.EmployeeId);
             return View(service);
         }
 
@@ -132,8 +120,7 @@ namespace OrgMgmt.Controllers
             }
 
             var service = await _context.Services
-                .Include(s => s.Employee)
-                .FirstOrDefaultAsync(m => m.ID == id);
+                .FirstOrDefaultAsync(m => m.Id == id);
             if (service == null)
             {
                 return NotFound();
@@ -159,7 +146,7 @@ namespace OrgMgmt.Controllers
 
         private bool ServiceExists(Guid id)
         {
-            return _context.Services.Any(e => e.ID == id);
+            return _context.Services.Any(e => e.Id == id);
         }
     }
 }

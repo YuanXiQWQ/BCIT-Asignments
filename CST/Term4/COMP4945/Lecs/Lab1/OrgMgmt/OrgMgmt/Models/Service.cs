@@ -1,20 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace OrgMgmt.Models;
 
 public class Service
 {
-    [Key] public Guid ID { get; set; }
+    public Service()
+    {
+        Clients = new HashSet<Client>();
+        Employees = new HashSet<Employee>();
+    }
 
-    [Required] public string Type { get; set; } = string.Empty;
+    public Guid Id { get; set; }
+    [MaxLength(20)] public string Type { get; set; } = string.Empty;
 
-    [Range(0, double.MaxValue, ErrorMessage = "Rate cannot be negative.")]
-    public decimal Rate { get; set; }
+    [Range(typeof(decimal), "0", "99999")] public decimal Rate { get; set; }
 
-    public Guid EmployeeId { get; set; }
-    public Employee? Employee { get; set; }
-
-    public ICollection<ClientService> ClientServices { get; set; } = new List<ClientService>();
+    public virtual ICollection<Client> Clients { get; set; }
+    public virtual ICollection<Employee> Employees { get; set; }
 }

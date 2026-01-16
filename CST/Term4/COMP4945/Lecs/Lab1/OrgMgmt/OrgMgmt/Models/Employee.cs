@@ -1,12 +1,11 @@
-﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace OrgMgmt.Models;
 
-[Table("Employees")]
 public class Employee : Person
 {
-    public Service? MyService { get; set; }
-    public int Salary { get; set; }
-    public int? ServiceId { get; set; }
+    [ForeignKey(nameof(ServiceId))]
+    public Service? Service { get; set; }
+    public decimal Salary { get; set; }
+    public Guid? ServiceId { get; set; }
 }
