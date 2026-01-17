@@ -55,6 +55,7 @@ namespace OrgMgmt.Controllers
         // GET: Clients/Create
         public IActionResult Create()
         {
+            ViewBag.Services = _context.Services.ToList();
             return View();
         }
 
@@ -98,6 +99,7 @@ namespace OrgMgmt.Controllers
                 return NotFound();
             }
 
+            ViewBag.Services = _context.Services.ToList();
             return View(client);
         }
 

@@ -1,27 +1,23 @@
 /*
  * Selenium UI Automation Tests for OrgMgmt Application.
+ * http://localhost:5123
  *
  * This test suite covers the following areas:
  * - ClientsTests: CRUD operations for Clients (Create, Read, Edit, Delete)
  * - EmployeesTests: CRUD operations for Employees (Create, Read, Edit, Delete)
  * - ServicesTests: CRUD operations for Services (Create, Read, Edit, Delete)
- * - PhotoUploadTests: Photo upload, replace for Clients and Employees
- * - ServiceAssociationTests: Assign/Remove services to/from Employees
+ * - PhotoUploadTests: Photo upload, replace, delete for Clients and Employees
+ * - ServiceAssociationTests: Assign/Remove services to/from Clients and Employees
  * - DatePickerTests: Automated date picker selection for DateOfBirth field
- *
- * Prerequisites:
- * - OrgMgmt application must be running on http://localhost:5123
- * - ChromeDriver must be present in the drivers folder
  */
 
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Support.UI;
 
 namespace TestOrgMgmt
 {
-    /// <summary>
-    /// Tests for Client CRUD operations.
-    /// </summary>
+    // Tests for Client CRUD operations.
     [TestFixture]
     public class ClientsTests
     {
@@ -46,9 +42,7 @@ namespace TestOrgMgmt
             _driver.Dispose();
         }
 
-        /// <summary>
-        /// Tests creating a single client and verifies it appears in the Index view.
-        /// </summary>
+        // Tests creating a single client and verifies it appears in the Index view.
         [Test]
         public void CreateOneClient_ShouldDisplayInIndex()
         {
@@ -56,26 +50,22 @@ namespace TestOrgMgmt
             _driver.FindElement(By.LinkText("Clients")).Click();
             _driver.FindElement(By.LinkText("Create New")).Click();
 
-            _driver.FindElement(By.Id("Name")).SendKeys("Alice Test");
+            _driver.FindElement(By.Id("Name")).SendKeys("ClientA");
             _driver.FindElement(By.Id("Address")).SendKeys("Vancouver");
             _driver.FindElement(By.Id("Balance")).Clear();
             _driver.FindElement(By.Id("Balance")).SendKeys("100.50");
 
-            // Date picker automation - set date via JavaScript for HTML5 date input
             var dobInput = _driver.FindElement(By.Id("DateOfBirth"));
-            ((IJavaScriptExecutor)_driver).ExecuteScript("arguments[0].value = '1990-05-15';", dobInput);
+            ((IJavaScriptExecutor)_driver).ExecuteScript("arguments[0].value = '1999-12-31';", dobInput);
 
             _driver.FindElement(By.XPath("//input[@type='submit']")).Click();
 
-            // Verify client appears in Index
             var pageSource = _driver.PageSource;
-            Assert.That(pageSource, Does.Contain("Alice Test"));
+            Assert.That(pageSource, Does.Contain("ClientA"));
             Assert.That(pageSource, Does.Contain("Vancouver"));
         }
 
-        /// <summary>
-        /// Tests creating three clients and verifies all appear in the Index view.
-        /// </summary>
+        // Tests creating three clients and verifies all appear in the Index view.
         [Test]
         public void CreateThreeClients_ShouldDisplayAllInIndex()
         {
@@ -83,9 +73,9 @@ namespace TestOrgMgmt
 
             var clients = new[]
             {
-                ("Bob One", "Toronto", "200.00", "1985-03-10"),
-                ("Carol Two", "Montreal", "300.00", "1992-07-22"),
-                ("Dave Three", "Calgary", "400.00", "1988-11-05")
+                ("ClientB", "Surrey", "200.00", "2000-01-01"),
+                ("ClientC", "Burnaby", "300.00", "1998-06-15"),
+                ("ClientD", "Richmond", "400.00", "2001-03-20")
             };
 
             foreach (var (name, address, balance, dob) in clients)
@@ -103,25 +93,22 @@ namespace TestOrgMgmt
             }
 
             var pageSource = _driver.PageSource;
-            Assert.That(pageSource, Does.Contain("Bob One"));
-            Assert.That(pageSource, Does.Contain("Carol Two"));
-            Assert.That(pageSource, Does.Contain("Dave Three"));
+            Assert.That(pageSource, Does.Contain("ClientB"));
+            Assert.That(pageSource, Does.Contain("ClientC"));
+            Assert.That(pageSource, Does.Contain("ClientD"));
         }
 
-        /// <summary>
-        /// Tests editing a client and verifies changes appear in the Details view.
-        /// </summary>
+        // Tests editing a client and verifies changes appear in the Details view.
         [Test]
         public void EditSecondClient_ShouldReflectInDetails()
         {
             _driver.Navigate().GoToUrl($"{_baseUrl}/Clients");
 
-            // Create 3 clients first
             var clients = new[]
             {
-                ("Edit One", "City A", "100.00"),
-                ("Edit Two", "City B", "200.00"),
-                ("Edit Three", "City C", "300.00")
+                ("EditClientA", "Coquitlam", "100.00"),
+                ("EditClientB", "Toronto", "200.00"),
+                ("EditClientC", "Ottawa", "300.00")
             };
 
             foreach (var (name, address, balance) in clients)
@@ -134,25 +121,22 @@ namespace TestOrgMgmt
                 _driver.FindElement(By.XPath("//input[@type='submit']")).Click();
             }
 
-            // Find and click Edit on the second row
             var rows = _driver.FindElements(By.CssSelector("table.table tbody tr"));
-            var targetRow = rows.FirstOrDefault(r => r.Text.Contains("Edit Two"));
-            Assert.That(targetRow, Is.Not.Null, "Edit Two row should exist");
+            var targetRow = rows.FirstOrDefault(r => r.Text.Contains("EditClientB"));
+            Assert.That(targetRow, Is.Not.Null, "EditClientB row should exist");
             var editLink = targetRow!.FindElement(By.LinkText("Edit"));
             ((IJavaScriptExecutor)_driver).ExecuteScript("arguments[0].scrollIntoView(true); arguments[0].click();", editLink);
 
-            // Edit the client
             var nameField = _driver.FindElement(By.Id("Name"));
             nameField.Clear();
             nameField.SendKeys("Edited Client");
 
             var addressField = _driver.FindElement(By.Id("Address"));
             addressField.Clear();
-            addressField.SendKeys("Edited City");
+            addressField.SendKeys("Montreal");
 
             _driver.FindElement(By.XPath("//input[@type='submit']")).Click();
 
-            // Navigate to Details of the edited client
             rows = _driver.FindElements(By.CssSelector("table.table tbody tr"));
             var editedRow = rows.FirstOrDefault(r => r.Text.Contains("Edited Client"));
             Assert.That(editedRow, Is.Not.Null);
@@ -161,12 +145,10 @@ namespace TestOrgMgmt
 
             var pageSource = _driver.PageSource;
             Assert.That(pageSource, Does.Contain("Edited Client"));
-            Assert.That(pageSource, Does.Contain("Edited City"));
+            Assert.That(pageSource, Does.Contain("Montreal"));
         }
 
-        /// <summary>
-        /// Tests deleting a client and verifies it no longer appears in the Index view.
-        /// </summary>
+        // Tests deleting a client and verifies it no longer appears in the Index view.
         [Test]
         public void DeleteThirdClient_ShouldNotAppearInIndex()
         {
@@ -174,12 +156,11 @@ namespace TestOrgMgmt
                 .Replace("4", "E").Replace("5", "F").Replace("6", "G").Replace("7", "H").Replace("8", "I").Replace("9", "J");
             _driver.Navigate().GoToUrl($"{_baseUrl}/Clients");
 
-            // Create 3 clients with unique names
             var clients = new[]
             {
-                ($"DelA{uniqueId}", "City X", "100.00"),
-                ($"DelB{uniqueId}", "City Y", "200.00"),
-                ($"DelC{uniqueId}", "City Z", "300.00")
+                ($"DelClientA{uniqueId}", "Vancouver", "100.00"),
+                ($"DelClientB{uniqueId}", "Surrey", "200.00"),
+                ($"DelClientC{uniqueId}", "Burnaby", "300.00")
             };
 
             foreach (var (name, address, balance) in clients)
@@ -192,27 +173,22 @@ namespace TestOrgMgmt
                 _driver.FindElement(By.XPath("//input[@type='submit']")).Click();
             }
 
-            // Find and click Delete on the third client by unique name
             var rows = _driver.FindElements(By.CssSelector("table.table tbody tr"));
-            var targetRow = rows.FirstOrDefault(r => r.Text.Contains($"DelC{uniqueId}"));
-            Assert.That(targetRow, Is.Not.Null, "DelC row should exist before deletion");
+            var targetRow = rows.FirstOrDefault(r => r.Text.Contains($"DelClientC{uniqueId}"));
+            Assert.That(targetRow, Is.Not.Null, "DelClientC row should exist before deletion");
             var deleteLink = targetRow!.FindElement(By.LinkText("Delete"));
             ((IJavaScriptExecutor)_driver).ExecuteScript("arguments[0].scrollIntoView(true); arguments[0].click();", deleteLink);
 
-            // Confirm deletion
             _driver.FindElement(By.XPath("//input[@type='submit']")).Click();
 
-            // Verify: DelA and DelB still exist, DelC is gone
             var pageSource = _driver.PageSource;
-            Assert.That(pageSource, Does.Contain($"DelA{uniqueId}"));
-            Assert.That(pageSource, Does.Contain($"DelB{uniqueId}"));
-            Assert.That(pageSource, Does.Not.Contain($"DelC{uniqueId}"));
+            Assert.That(pageSource, Does.Contain($"DelClientA{uniqueId}"));
+            Assert.That(pageSource, Does.Contain($"DelClientB{uniqueId}"));
+            Assert.That(pageSource, Does.Not.Contain($"DelClientC{uniqueId}"));
         }
     }
 
-    /// <summary>
-    /// Tests for Employee CRUD operations.
-    /// </summary>
+    // Tests for Employee CRUD operations.
     [TestFixture]
     public class EmployeesTests
     {
@@ -237,9 +213,7 @@ namespace TestOrgMgmt
             _driver.Dispose();
         }
 
-        /// <summary>
-        /// Tests creating a single employee and verifies it appears in the Index view.
-        /// </summary>
+        // Tests creating a single employee and verifies it appears in the Index view.
         [Test]
         public void CreateOneEmployee_ShouldDisplayInIndex()
         {
@@ -247,27 +221,24 @@ namespace TestOrgMgmt
             _driver.FindElement(By.LinkText("Employees")).Click();
             _driver.FindElement(By.LinkText("Create New")).Click();
 
-            _driver.FindElement(By.Id("Name")).SendKeys("John Emp");
-            _driver.FindElement(By.Id("Address")).SendKeys("Burnaby");
+            _driver.FindElement(By.Id("Name")).SendKeys("EmployeeA");
+            _driver.FindElement(By.Id("Address")).SendKeys("Richmond");
             _driver.FindElement(By.Id("Salary")).Clear();
             _driver.FindElement(By.Id("Salary")).SendKeys("50000");
 
-            // Date picker automation
             var dobInput = _driver.FindElement(By.Id("DateOfBirth"));
-            ((IJavaScriptExecutor)_driver).ExecuteScript("arguments[0].value = '1985-08-20';", dobInput);
+            ((IJavaScriptExecutor)_driver).ExecuteScript("arguments[0].value = '1995-07-15';", dobInput);
 
             var submitBtn = _driver.FindElement(By.XPath("//input[@type='submit']"));
             ((IJavaScriptExecutor)_driver).ExecuteScript("arguments[0].click();", submitBtn);
             Thread.Sleep(500);
 
             var pageSource = _driver.PageSource;
-            Assert.That(pageSource, Does.Contain("John Emp"));
-            Assert.That(pageSource, Does.Contain("Burnaby"));
+            Assert.That(pageSource, Does.Contain("EmployeeA"));
+            Assert.That(pageSource, Does.Contain("Richmond"));
         }
 
-        /// <summary>
-        /// Tests creating three employees and verifies all appear in the Index view.
-        /// </summary>
+        // Tests creating three employees and verifies all appear in the Index view.
         [Test]
         public void CreateThreeEmployees_ShouldDisplayAllInIndex()
         {
@@ -275,9 +246,9 @@ namespace TestOrgMgmt
 
             var employees = new[]
             {
-                ("Emp One", "City A", "40000", "1980-01-15"),
-                ("Emp Two", "City B", "50000", "1985-06-20"),
-                ("Emp Three", "City C", "60000", "1990-12-25")
+                ("EmployeeB", "Coquitlam", "40000", "1997-02-28"),
+                ("EmployeeC", "Toronto", "50000", "2000-01-01"),
+                ("EmployeeD", "Ottawa", "60000", "2002-11-11")
             };
 
             foreach (var (name, address, salary, dob) in employees)
@@ -295,14 +266,12 @@ namespace TestOrgMgmt
             }
 
             var pageSource = _driver.PageSource;
-            Assert.That(pageSource, Does.Contain("Emp One"));
-            Assert.That(pageSource, Does.Contain("Emp Two"));
-            Assert.That(pageSource, Does.Contain("Emp Three"));
+            Assert.That(pageSource, Does.Contain("EmployeeB"));
+            Assert.That(pageSource, Does.Contain("EmployeeC"));
+            Assert.That(pageSource, Does.Contain("EmployeeD"));
         }
 
-        /// <summary>
-        /// Tests editing an employee and verifies changes appear in the Details view.
-        /// </summary>
+        // Tests editing an employee and verifies changes appear in the Details view.
         [Test]
         public void EditSecondEmployee_ShouldReflectInDetails()
         {
@@ -310,9 +279,9 @@ namespace TestOrgMgmt
 
             var employees = new[]
             {
-                ("EmpEdit One", "Loc A", "30000"),
-                ("EmpEdit Two", "Loc B", "40000"),
-                ("EmpEdit Three", "Loc C", "50000")
+                ("EditEmpA", "Vancouver", "30000"),
+                ("EditEmpB", "Surrey", "40000"),
+                ("EditEmpC", "Burnaby", "50000")
             };
 
             foreach (var (name, address, salary) in employees)
@@ -326,35 +295,33 @@ namespace TestOrgMgmt
             }
 
             var rows = _driver.FindElements(By.CssSelector("table.table tbody tr"));
-            var targetRow = rows.FirstOrDefault(r => r.Text.Contains("EmpEdit Two") || r.Text.Contains("SvcEdit Two") || r.Text.Contains("Edit Two"));
-            Assert.That(targetRow, Is.Not.Null, "Target row should exist");
+            var targetRow = rows.FirstOrDefault(r => r.Text.Contains("EditEmpB"));
+            Assert.That(targetRow, Is.Not.Null, "EditEmpB row should exist");
             var editLink = targetRow!.FindElement(By.LinkText("Edit"));
             ((IJavaScriptExecutor)_driver).ExecuteScript("arguments[0].scrollIntoView(true); arguments[0].click();", editLink);
 
             var nameField = _driver.FindElement(By.Id("Name"));
             nameField.Clear();
-            nameField.SendKeys("Edited Emp");
+            nameField.SendKeys("EditedEmployee");
 
             var addressField = _driver.FindElement(By.Id("Address"));
             addressField.Clear();
-            addressField.SendKeys("Edited Loc");
+            addressField.SendKeys("Calgary");
 
             _driver.FindElement(By.XPath("//input[@type='submit']")).Click();
 
             rows = _driver.FindElements(By.CssSelector("table.table tbody tr"));
-            var editedRow = rows.FirstOrDefault(r => r.Text.Contains("Edited Emp"));
+            var editedRow = rows.FirstOrDefault(r => r.Text.Contains("EditedEmployee"));
             Assert.That(editedRow, Is.Not.Null);
             var detailsLink = editedRow!.FindElement(By.LinkText("Details"));
             ((IJavaScriptExecutor)_driver).ExecuteScript("arguments[0].scrollIntoView(true); arguments[0].click();", detailsLink);
 
             var pageSource = _driver.PageSource;
-            Assert.That(pageSource, Does.Contain("Edited Emp"));
-            Assert.That(pageSource, Does.Contain("Edited Loc"));
+            Assert.That(pageSource, Does.Contain("EditedEmployee"));
+            Assert.That(pageSource, Does.Contain("Calgary"));
         }
 
-        /// <summary>
-        /// Tests deleting an employee and verifies it no longer appears in the Index view.
-        /// </summary>
+        // Tests deleting an employee and verifies it no longer appears in the Index view.
         [Test]
         public void DeleteThirdEmployee_ShouldNotAppearInIndex()
         {
@@ -362,9 +329,9 @@ namespace TestOrgMgmt
 
             var employees = new[]
             {
-                ("EmpDel One", "Place X", "25000"),
-                ("EmpDel Two", "Place Y", "35000"),
-                ("EmpDel Three", "Place Z", "45000")
+                ("DelEmpA", "Richmond", "25000"),
+                ("DelEmpB", "Coquitlam", "35000"),
+                ("DelEmpC", "Toronto", "45000")
             };
 
             foreach (var (name, address, salary) in employees)
@@ -378,8 +345,8 @@ namespace TestOrgMgmt
             }
 
             var rows = _driver.FindElements(By.CssSelector("table.table tbody tr"));
-            var targetRow = rows.FirstOrDefault(r => r.Text.Contains("EmpDel Three") || r.Text.Contains("SvcDel Three") || r.Text.Contains("Del Three"));
-            Assert.That(targetRow, Is.Not.Null, "Target row should exist before deletion");
+            var targetRow = rows.FirstOrDefault(r => r.Text.Contains("DelEmpC"));
+            Assert.That(targetRow, Is.Not.Null, "DelEmpC row should exist before deletion");
             var deleteLink = targetRow!.FindElement(By.LinkText("Delete"));
             ((IJavaScriptExecutor)_driver).ExecuteScript("arguments[0].scrollIntoView(true); arguments[0].click();", deleteLink);
 
@@ -388,15 +355,13 @@ namespace TestOrgMgmt
             Thread.Sleep(500);
 
             var pageSource = _driver.PageSource;
-            Assert.That(pageSource, Does.Contain("EmpDel One"));
-            Assert.That(pageSource, Does.Contain("EmpDel Two"));
-            Assert.That(pageSource, Does.Not.Contain("EmpDel Three"));
+            Assert.That(pageSource, Does.Contain("DelEmpA"));
+            Assert.That(pageSource, Does.Contain("DelEmpB"));
+            Assert.That(pageSource, Does.Not.Contain("DelEmpC"));
         }
     }
 
-    /// <summary>
-    /// Tests for Service CRUD operations.
-    /// </summary>
+    // Tests for Service CRUD operations.
     [TestFixture]
     public class ServicesTests
     {
@@ -421,9 +386,7 @@ namespace TestOrgMgmt
             _driver.Dispose();
         }
 
-        /// <summary>
-        /// Tests creating a single service and verifies it appears in the Index view.
-        /// </summary>
+        // Tests creating a single service and verifies it appears in the Index view.
         [Test]
         public void CreateOneService_ShouldDisplayInIndex()
         {
@@ -444,9 +407,7 @@ namespace TestOrgMgmt
             Assert.That(pageSource, Does.Contain("150"));
         }
 
-        /// <summary>
-        /// Tests creating three services and verifies all appear in the Index view.
-        /// </summary>
+        // Tests creating three services and verifies all appear in the Index view.
         [Test]
         public void CreateThreeServices_ShouldDisplayAllInIndex()
         {
@@ -474,9 +435,7 @@ namespace TestOrgMgmt
             Assert.That(pageSource, Does.Contain("Testing"));
         }
 
-        /// <summary>
-        /// Tests editing a service and verifies changes appear in the Details view.
-        /// </summary>
+        // Tests editing a service and verifies changes appear in the Details view.
         [Test]
         public void EditSecondService_ShouldReflectInDetails()
         {
@@ -484,9 +443,9 @@ namespace TestOrgMgmt
 
             var services = new[]
             {
-                ("SvcEdit One", "50.00"),
-                ("SvcEdit Two", "60.00"),
-                ("SvcEdit Three", "70.00")
+                ("EditSvcA", "50.00"),
+                ("EditSvcB", "60.00"),
+                ("EditSvcC", "70.00")
             };
 
             foreach (var (type, rate) in services)
@@ -499,14 +458,14 @@ namespace TestOrgMgmt
             }
 
             var rows = _driver.FindElements(By.CssSelector("table.table tbody tr"));
-            var targetRow = rows.FirstOrDefault(r => r.Text.Contains("EmpEdit Two") || r.Text.Contains("SvcEdit Two") || r.Text.Contains("Edit Two"));
-            Assert.That(targetRow, Is.Not.Null, "Target row should exist");
+            var targetRow = rows.FirstOrDefault(r => r.Text.Contains("EditSvcB"));
+            Assert.That(targetRow, Is.Not.Null, "EditSvcB row should exist");
             var editLink = targetRow!.FindElement(By.LinkText("Edit"));
             ((IJavaScriptExecutor)_driver).ExecuteScript("arguments[0].scrollIntoView(true); arguments[0].click();", editLink);
 
             var typeField = _driver.FindElement(By.Id("Type"));
             typeField.Clear();
-            typeField.SendKeys("Edited Svc");
+            typeField.SendKeys("EditedService");
 
             var rateField = _driver.FindElement(By.Id("Rate"));
             rateField.Clear();
@@ -515,19 +474,17 @@ namespace TestOrgMgmt
             _driver.FindElement(By.XPath("//input[@type='submit']")).Click();
 
             rows = _driver.FindElements(By.CssSelector("table.table tbody tr"));
-            var editedRow = rows.FirstOrDefault(r => r.Text.Contains("Edited Svc"));
+            var editedRow = rows.FirstOrDefault(r => r.Text.Contains("EditedService"));
             Assert.That(editedRow, Is.Not.Null);
             var detailsLink = editedRow!.FindElement(By.LinkText("Details"));
             ((IJavaScriptExecutor)_driver).ExecuteScript("arguments[0].scrollIntoView(true); arguments[0].click();", detailsLink);
 
             var pageSource = _driver.PageSource;
-            Assert.That(pageSource, Does.Contain("Edited Svc"));
+            Assert.That(pageSource, Does.Contain("EditedService"));
             Assert.That(pageSource, Does.Contain("999"));
         }
 
-        /// <summary>
-        /// Tests deleting a service and verifies it no longer appears in the Index view.
-        /// </summary>
+        // Tests deleting a service and verifies it no longer appears in the Index view.
         [Test]
         public void DeleteThirdService_ShouldNotAppearInIndex()
         {
@@ -535,9 +492,9 @@ namespace TestOrgMgmt
 
             var services = new[]
             {
-                ("SvcDel One", "80.00"),
-                ("SvcDel Two", "90.00"),
-                ("SvcDel Three", "100.00")
+                ("DelSvcA", "80.00"),
+                ("DelSvcB", "90.00"),
+                ("DelSvcC", "100.00")
             };
 
             foreach (var (type, rate) in services)
@@ -550,8 +507,8 @@ namespace TestOrgMgmt
             }
 
             var rows = _driver.FindElements(By.CssSelector("table.table tbody tr"));
-            var targetRow = rows.FirstOrDefault(r => r.Text.Contains("EmpDel Three") || r.Text.Contains("SvcDel Three") || r.Text.Contains("Del Three"));
-            Assert.That(targetRow, Is.Not.Null, "Target row should exist before deletion");
+            var targetRow = rows.FirstOrDefault(r => r.Text.Contains("DelSvcC"));
+            Assert.That(targetRow, Is.Not.Null, "DelSvcC row should exist before deletion");
             var deleteLink = targetRow!.FindElement(By.LinkText("Delete"));
             ((IJavaScriptExecutor)_driver).ExecuteScript("arguments[0].scrollIntoView(true); arguments[0].click();", deleteLink);
 
@@ -560,15 +517,13 @@ namespace TestOrgMgmt
             Thread.Sleep(500);
 
             var pageSource = _driver.PageSource;
-            Assert.That(pageSource, Does.Contain("SvcDel One"));
-            Assert.That(pageSource, Does.Contain("SvcDel Two"));
-            Assert.That(pageSource, Does.Not.Contain("SvcDel Three"));
+            Assert.That(pageSource, Does.Contain("DelSvcA"));
+            Assert.That(pageSource, Does.Contain("DelSvcB"));
+            Assert.That(pageSource, Does.Not.Contain("DelSvcC"));
         }
     }
 
-    /// <summary>
-    /// Tests for photo upload functionality for Clients and Employees.
-    /// </summary>
+    // Tests for photo upload functionality for Clients and Employees.
     [TestFixture]
     public class PhotoUploadTests
     {
@@ -586,9 +541,10 @@ namespace TestOrgMgmt
             _driver.Manage().Window.Maximize();
             _driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
 
-            // Create a test image file for upload tests
-            _testImagePath = Path.Combine(Path.GetTempPath(), "test_photo.png");
-            CreateTestImage(_testImagePath);
+            var testImgFolder = Path.Combine(Directory.GetParent(Environment.CurrentDirectory)!.Parent!.Parent!.FullName, "testImg");
+            var imageFiles = new[] { "1.jpg", "2.png", "3.png", "4.png" };
+            var random = new Random();
+            _testImagePath = Path.Combine(testImgFolder, imageFiles[random.Next(imageFiles.Length)]);
         }
 
         [TearDown]
@@ -596,36 +552,20 @@ namespace TestOrgMgmt
         {
             _driver.Quit();
             _driver.Dispose();
-
-            if (File.Exists(_testImagePath))
-            {
-                File.Delete(_testImagePath);
-            }
         }
 
-        private void CreateTestImage(string path)
-        {
-            // Create a minimal valid PNG file (1x1 pixel)
-            byte[] pngBytes = Convert.FromBase64String(
-                "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==");
-            File.WriteAllBytes(path, pngBytes);
-        }
-
-        /// <summary>
-        /// Tests uploading a photo for a new client via file input.
-        /// </summary>
+        // Tests uploading a photo for a new client via file input.
         [Test]
         public void UploadClientPhoto_ShouldSucceed()
         {
             _driver.Navigate().GoToUrl($"{_baseUrl}/Clients");
             _driver.FindElement(By.LinkText("Create New")).Click();
 
-            _driver.FindElement(By.Id("Name")).SendKeys("Photo Client");
-            _driver.FindElement(By.Id("Address")).SendKeys("Photo City");
+            _driver.FindElement(By.Id("Name")).SendKeys("PhotoClientA");
+            _driver.FindElement(By.Id("Address")).SendKeys("Vancouver");
             _driver.FindElement(By.Id("Balance")).Clear();
             _driver.FindElement(By.Id("Balance")).SendKeys("500");
 
-            // Upload photo via file input - SendKeys with file path works for file inputs
             var photoInput = _driver.FindElement(By.Id("Photo"));
             photoInput.SendKeys(_testImagePath);
 
@@ -634,20 +574,18 @@ namespace TestOrgMgmt
             Thread.Sleep(500);
 
             var pageSource = _driver.PageSource;
-            Assert.That(pageSource, Does.Contain("Photo Client"));
+            Assert.That(pageSource, Does.Contain("PhotoClientA"));
         }
 
-        /// <summary>
-        /// Tests uploading a photo for a new employee via file input.
-        /// </summary>
+        // Tests uploading a photo for a new employee via file input.
         [Test]
         public void UploadEmployeePhoto_ShouldSucceed()
         {
             _driver.Navigate().GoToUrl($"{_baseUrl}/Employees");
             _driver.FindElement(By.LinkText("Create New")).Click();
 
-            _driver.FindElement(By.Id("Name")).SendKeys("Photo Emp");
-            _driver.FindElement(By.Id("Address")).SendKeys("Photo Place");
+            _driver.FindElement(By.Id("Name")).SendKeys("PhotoEmpA");
+            _driver.FindElement(By.Id("Address")).SendKeys("Surrey");
             _driver.FindElement(By.Id("Salary")).Clear();
             _driver.FindElement(By.Id("Salary")).SendKeys("75000");
 
@@ -659,21 +597,18 @@ namespace TestOrgMgmt
             Thread.Sleep(500);
 
             var pageSource = _driver.PageSource;
-            Assert.That(pageSource, Does.Contain("Photo Emp"));
+            Assert.That(pageSource, Does.Contain("PhotoEmpA"));
         }
 
-        /// <summary>
-        /// Tests replacing an existing client photo with a new one.
-        /// </summary>
+        // Tests replacing an existing client photo with a new one.
         [Test]
         public void ReplaceClientPhoto_ShouldSucceed()
         {
-            // First create a client with a photo
             _driver.Navigate().GoToUrl($"{_baseUrl}/Clients");
             _driver.FindElement(By.LinkText("Create New")).Click();
 
-            _driver.FindElement(By.Id("Name")).SendKeys("Replace Photo");
-            _driver.FindElement(By.Id("Address")).SendKeys("Replace City");
+            _driver.FindElement(By.Id("Name")).SendKeys("ReplacePhotoClient");
+            _driver.FindElement(By.Id("Address")).SendKeys("Burnaby");
             _driver.FindElement(By.Id("Balance")).Clear();
             _driver.FindElement(By.Id("Balance")).SendKeys("600");
 
@@ -682,50 +617,37 @@ namespace TestOrgMgmt
 
             _driver.FindElement(By.XPath("//input[@type='submit']")).Click();
 
-            // Now edit and replace the photo
             var rows = _driver.FindElements(By.CssSelector("table.table tbody tr"));
-            var targetRow = rows.FirstOrDefault(r => r.Text.Contains("Replace Photo"));
+            var targetRow = rows.FirstOrDefault(r => r.Text.Contains("ReplacePhotoClient"));
             Assert.That(targetRow, Is.Not.Null);
             var editLink = targetRow!.FindElement(By.LinkText("Edit"));
             ((IJavaScriptExecutor)_driver).ExecuteScript("arguments[0].scrollIntoView(true); arguments[0].click();", editLink);
 
-            // Create a second test image
-            var newImagePath = Path.Combine(Path.GetTempPath(), "test_photo_new.png");
-            CreateTestImage(newImagePath);
+            var testImgFolder = Path.Combine(Directory.GetParent(Environment.CurrentDirectory)!.Parent!.Parent!.FullName, "testImg");
+            var imageFiles = new[] { "1.jpg", "2.png", "3.png", "4.png" };
+            var random = new Random();
+            var newImagePath = Path.Combine(testImgFolder, imageFiles[random.Next(imageFiles.Length)]);
 
-            try
-            {
-                var editPhotoInput = _driver.FindElement(By.Id("Photo"));
-                editPhotoInput.SendKeys(newImagePath);
+            var editPhotoInput = _driver.FindElement(By.Id("Photo"));
+            editPhotoInput.SendKeys(newImagePath);
 
-                var submitBtn = _driver.FindElement(By.XPath("//input[@type='submit']"));
-                ((IJavaScriptExecutor)_driver).ExecuteScript("arguments[0].click();", submitBtn);
-                Thread.Sleep(500);
+            var submitBtn = _driver.FindElement(By.XPath("//input[@type='submit']"));
+            ((IJavaScriptExecutor)_driver).ExecuteScript("arguments[0].click();", submitBtn);
+            Thread.Sleep(500);
 
-                var pageSource = _driver.PageSource;
-                Assert.That(pageSource, Does.Contain("Replace Photo"));
-            }
-            finally
-            {
-                if (File.Exists(newImagePath))
-                {
-                    File.Delete(newImagePath);
-                }
-            }
+            var pageSource = _driver.PageSource;
+            Assert.That(pageSource, Does.Contain("ReplacePhotoClient"));
         }
 
-        /// <summary>
-        /// Tests replacing an existing employee photo with a new one.
-        /// </summary>
+        // Tests replacing an existing employee photo with a new one.
         [Test]
         public void ReplaceEmployeePhoto_ShouldSucceed()
         {
-            // First create an employee with a photo
             _driver.Navigate().GoToUrl($"{_baseUrl}/Employees");
             _driver.FindElement(By.LinkText("Create New")).Click();
 
-            _driver.FindElement(By.Id("Name")).SendKeys("Replace Emp Photo");
-            _driver.FindElement(By.Id("Address")).SendKeys("Replace Emp City");
+            _driver.FindElement(By.Id("Name")).SendKeys("ReplacePhotoEmp");
+            _driver.FindElement(By.Id("Address")).SendKeys("Richmond");
             _driver.FindElement(By.Id("Salary")).Clear();
             _driver.FindElement(By.Id("Salary")).SendKeys("65000");
 
@@ -734,56 +656,41 @@ namespace TestOrgMgmt
 
             _driver.FindElement(By.XPath("//input[@type='submit']")).Click();
 
-            // Now edit and replace the photo
             var rows = _driver.FindElements(By.CssSelector("table.table tbody tr"));
-            var targetRow = rows.FirstOrDefault(r => r.Text.Contains("Replace Emp Photo"));
+            var targetRow = rows.FirstOrDefault(r => r.Text.Contains("ReplacePhotoEmp"));
             Assert.That(targetRow, Is.Not.Null);
             var editLink = targetRow!.FindElement(By.LinkText("Edit"));
             ((IJavaScriptExecutor)_driver).ExecuteScript("arguments[0].scrollIntoView(true); arguments[0].click();", editLink);
 
-            // Create a second test image
-            var newImagePath = Path.Combine(Path.GetTempPath(), "test_photo_emp_new.png");
-            CreateTestImage(newImagePath);
+            var testImgFolder = Path.Combine(Directory.GetParent(Environment.CurrentDirectory)!.Parent!.Parent!.FullName, "testImg");
+            var imageFiles = new[] { "1.jpg", "2.png", "3.png", "4.png" };
+            var random = new Random();
+            var newImagePath = Path.Combine(testImgFolder, imageFiles[random.Next(imageFiles.Length)]);
 
-            try
-            {
-                var editPhotoInput = _driver.FindElement(By.Id("Photo"));
-                editPhotoInput.SendKeys(newImagePath);
+            var editPhotoInput = _driver.FindElement(By.Id("Photo"));
+            editPhotoInput.SendKeys(newImagePath);
 
-                var submitBtn = _driver.FindElement(By.XPath("//input[@type='submit']"));
-                ((IJavaScriptExecutor)_driver).ExecuteScript("arguments[0].click();", submitBtn);
-                Thread.Sleep(500);
+            var submitBtn = _driver.FindElement(By.XPath("//input[@type='submit']"));
+            ((IJavaScriptExecutor)_driver).ExecuteScript("arguments[0].click();", submitBtn);
+            Thread.Sleep(500);
 
-                var pageSource = _driver.PageSource;
-                Assert.That(pageSource, Does.Contain("Replace Emp Photo"));
-            }
-            finally
-            {
-                if (File.Exists(newImagePath))
-                {
-                    File.Delete(newImagePath);
-                }
-            }
+            var pageSource = _driver.PageSource;
+            Assert.That(pageSource, Does.Contain("ReplacePhotoEmp"));
         }
 
-        /// <summary>
-        /// Tests deleting an existing client photo using the DeletePhoto checkbox.
-        /// </summary>
+        // Tests deleting an existing client photo using the DeletePhoto checkbox.
         [Test]
         public void DeleteClientPhoto_ShouldSucceed()
         {
-            var uniqueId = Guid.NewGuid().ToString().Replace("-", "").Substring(0, 6).ToUpper()
-                .Replace("0", "A").Replace("1", "B").Replace("2", "C").Replace("3", "D")
-                .Replace("4", "E").Replace("5", "F").Replace("6", "G").Replace("7", "H")
-                .Replace("8", "I").Replace("9", "J");
+            var random = new Random();
+            var uniqueId = new string(Enumerable.Range(0, 6).Select(_ => (char)('A' + random.Next(26))).ToArray());
             var clientName = $"DelPhoto{uniqueId}";
-            
-            // First create a client with a photo
+
             _driver.Navigate().GoToUrl($"{_baseUrl}/Clients");
             _driver.FindElement(By.LinkText("Create New")).Click();
 
             _driver.FindElement(By.Id("Name")).SendKeys(clientName);
-            _driver.FindElement(By.Id("Address")).SendKeys("Delete Photo City");
+            _driver.FindElement(By.Id("Address")).SendKeys("Coquitlam");
             _driver.FindElement(By.Id("Balance")).Clear();
             _driver.FindElement(By.Id("Balance")).SendKeys("700");
 
@@ -792,14 +699,12 @@ namespace TestOrgMgmt
 
             _driver.FindElement(By.XPath("//input[@type='submit']")).Click();
 
-            // Now edit and delete the photo
             var rows = _driver.FindElements(By.CssSelector("table.table tbody tr"));
             var targetRow = rows.FirstOrDefault(r => r.Text.Contains(clientName));
             Assert.That(targetRow, Is.Not.Null);
             var editLink = targetRow!.FindElement(By.LinkText("Edit"));
             ((IJavaScriptExecutor)_driver).ExecuteScript("arguments[0].scrollIntoView(true); arguments[0].click();", editLink);
 
-            // Check the DeletePhoto checkbox
             var deletePhotoCheckbox = _driver.FindElement(By.Id("DeletePhoto"));
             ((IJavaScriptExecutor)_driver).ExecuteScript("arguments[0].click();", deletePhotoCheckbox);
 
@@ -807,43 +712,35 @@ namespace TestOrgMgmt
             ((IJavaScriptExecutor)_driver).ExecuteScript("arguments[0].click();", submitBtn);
             Thread.Sleep(1000);
 
-            // Navigate back to Index to verify client still exists
             _driver.Navigate().GoToUrl($"{_baseUrl}/Clients");
             Thread.Sleep(500);
 
             var pageSource = _driver.PageSource;
             Assert.That(pageSource, Does.Contain(clientName));
 
-            // Go to edit again and verify photo is gone (no DeletePhoto checkbox should be visible)
             rows = _driver.FindElements(By.CssSelector("table.table tbody tr"));
             targetRow = rows.FirstOrDefault(r => r.Text.Contains(clientName));
             Assert.That(targetRow, Is.Not.Null, $"{clientName} row should exist after photo deletion");
             editLink = targetRow!.FindElement(By.LinkText("Edit"));
             ((IJavaScriptExecutor)_driver).ExecuteScript("arguments[0].scrollIntoView(true); arguments[0].click();", editLink);
 
-            // The DeletePhoto checkbox should not be present if photo was deleted
             var deleteCheckboxes = _driver.FindElements(By.Id("DeletePhoto"));
             Assert.That(deleteCheckboxes.Count, Is.EqualTo(0), "DeletePhoto checkbox should not exist after photo deletion");
         }
 
-        /// <summary>
-        /// Tests deleting an existing employee photo using the DeletePhoto checkbox.
-        /// </summary>
+        // Tests deleting an existing employee photo using the DeletePhoto checkbox.
         [Test]
         public void DeleteEmployeePhoto_ShouldSucceed()
         {
-            var uniqueId = Guid.NewGuid().ToString().Replace("-", "").Substring(0, 6).ToUpper()
-                .Replace("0", "A").Replace("1", "B").Replace("2", "C").Replace("3", "D")
-                .Replace("4", "E").Replace("5", "F").Replace("6", "G").Replace("7", "H")
-                .Replace("8", "I").Replace("9", "J");
+            var random = new Random();
+            var uniqueId = new string(Enumerable.Range(0, 6).Select(_ => (char)('A' + random.Next(26))).ToArray());
             var empName = $"DelPhotoEmp{uniqueId}";
-            
-            // First create an employee with a photo
+
             _driver.Navigate().GoToUrl($"{_baseUrl}/Employees");
             _driver.FindElement(By.LinkText("Create New")).Click();
 
             _driver.FindElement(By.Id("Name")).SendKeys(empName);
-            _driver.FindElement(By.Id("Address")).SendKeys("Delete Photo Place");
+            _driver.FindElement(By.Id("Address")).SendKeys("Toronto");
             _driver.FindElement(By.Id("Salary")).Clear();
             _driver.FindElement(By.Id("Salary")).SendKeys("85000");
 
@@ -852,14 +749,12 @@ namespace TestOrgMgmt
 
             _driver.FindElement(By.XPath("//input[@type='submit']")).Click();
 
-            // Now edit and delete the photo
             var rows = _driver.FindElements(By.CssSelector("table.table tbody tr"));
             var targetRow = rows.FirstOrDefault(r => r.Text.Contains(empName));
             Assert.That(targetRow, Is.Not.Null);
             var editLink = targetRow!.FindElement(By.LinkText("Edit"));
             ((IJavaScriptExecutor)_driver).ExecuteScript("arguments[0].scrollIntoView(true); arguments[0].click();", editLink);
 
-            // Check the DeletePhoto checkbox
             var deletePhotoCheckbox = _driver.FindElement(By.Id("DeletePhoto"));
             ((IJavaScriptExecutor)_driver).ExecuteScript("arguments[0].click();", deletePhotoCheckbox);
 
@@ -867,29 +762,24 @@ namespace TestOrgMgmt
             ((IJavaScriptExecutor)_driver).ExecuteScript("arguments[0].click();", submitBtn);
             Thread.Sleep(1000);
 
-            // Navigate back to Index to verify employee still exists
             _driver.Navigate().GoToUrl($"{_baseUrl}/Employees");
             Thread.Sleep(500);
 
             var pageSource = _driver.PageSource;
             Assert.That(pageSource, Does.Contain(empName));
 
-            // Go to edit again and verify photo is gone
             rows = _driver.FindElements(By.CssSelector("table.table tbody tr"));
             targetRow = rows.FirstOrDefault(r => r.Text.Contains(empName));
             Assert.That(targetRow, Is.Not.Null, $"{empName} row should exist after photo deletion");
             editLink = targetRow!.FindElement(By.LinkText("Edit"));
             ((IJavaScriptExecutor)_driver).ExecuteScript("arguments[0].scrollIntoView(true); arguments[0].click();", editLink);
 
-            // The DeletePhoto checkbox should not be present if photo was deleted
             var deleteCheckboxes = _driver.FindElements(By.Id("DeletePhoto"));
             Assert.That(deleteCheckboxes.Count, Is.EqualTo(0), "DeletePhoto checkbox should not exist after photo deletion");
         }
     }
 
-    /// <summary>
-    /// Tests for assigning and removing services to/from employees.
-    /// </summary>
+    // Tests for assigning and removing services to/from employees.
     [TestFixture]
     public class ServiceAssociationTests
     {
@@ -914,184 +804,164 @@ namespace TestOrgMgmt
             _driver.Dispose();
         }
 
-        /// <summary>
-        /// Tests assigning a service to an employee during creation.
-        /// </summary>
+        // Tests assigning a service to an employee during creation.
         [Test]
         public void AssignServiceToEmployee_ShouldSucceed()
         {
-            // First create a service
             _driver.Navigate().GoToUrl($"{_baseUrl}/Services");
             _driver.FindElement(By.LinkText("Create New")).Click();
-            _driver.FindElement(By.Id("Type")).SendKeys("AssocService");
+            _driver.FindElement(By.Id("Type")).SendKeys("ServiceA");
             _driver.FindElement(By.Id("Rate")).Clear();
             _driver.FindElement(By.Id("Rate")).SendKeys("120");
             _driver.FindElement(By.XPath("//input[@type='submit']")).Click();
 
-            // Get the service ID from the page (we need to extract it)
             var rows = _driver.FindElements(By.CssSelector("table.table tbody tr"));
-            var serviceRow = rows.FirstOrDefault(r => r.Text.Contains("AssocService"));
+            var serviceRow = rows.FirstOrDefault(r => r.Text.Contains("ServiceA"));
             Assert.That(serviceRow, Is.Not.Null);
 
-            // Get the service ID from the Edit link URL
             var editLink = serviceRow!.FindElement(By.LinkText("Edit")).GetAttribute("href");
             var serviceId = editLink.Split('/').Last();
 
-            // Now create an employee with this service
             _driver.Navigate().GoToUrl($"{_baseUrl}/Employees");
             _driver.FindElement(By.LinkText("Create New")).Click();
 
-            _driver.FindElement(By.Id("Name")).SendKeys("Assoc Emp");
-            _driver.FindElement(By.Id("Address")).SendKeys("Assoc City");
+            _driver.FindElement(By.Id("Name")).SendKeys("AssocEmpA");
+            _driver.FindElement(By.Id("Address")).SendKeys("Vancouver");
             _driver.FindElement(By.Id("Salary")).Clear();
             _driver.FindElement(By.Id("Salary")).SendKeys("55000");
-            _driver.FindElement(By.Id("ServiceId")).SendKeys(serviceId);
+            var serviceSelect = new SelectElement(_driver.FindElement(By.Id("ServiceId")));
+            serviceSelect.SelectByValue(serviceId);
 
             var submitBtn = _driver.FindElement(By.XPath("//input[@type='submit']"));
             ((IJavaScriptExecutor)_driver).ExecuteScript("arguments[0].click();", submitBtn);
             Thread.Sleep(500);
 
             var pageSource = _driver.PageSource;
-            Assert.That(pageSource, Does.Contain("Assoc Emp"));
+            Assert.That(pageSource, Does.Contain("AssocEmpA"));
         }
 
-        /// <summary>
-        /// Tests removing a service from an employee by clearing the ServiceId field.
-        /// </summary>
+        // Tests removing a service from an employee by clearing the ServiceId field.
         [Test]
         public void RemoveServiceFromEmployee_ShouldSucceed()
         {
-            // Create a service
             _driver.Navigate().GoToUrl($"{_baseUrl}/Services");
             _driver.FindElement(By.LinkText("Create New")).Click();
-            _driver.FindElement(By.Id("Type")).SendKeys("RemoveService");
+            _driver.FindElement(By.Id("Type")).SendKeys("ServiceB");
             _driver.FindElement(By.Id("Rate")).Clear();
             _driver.FindElement(By.Id("Rate")).SendKeys("130");
             _driver.FindElement(By.XPath("//input[@type='submit']")).Click();
 
             var rows = _driver.FindElements(By.CssSelector("table.table tbody tr"));
-            var serviceRow = rows.FirstOrDefault(r => r.Text.Contains("RemoveService"));
+            var serviceRow = rows.FirstOrDefault(r => r.Text.Contains("ServiceB"));
             var editLink = serviceRow!.FindElement(By.LinkText("Edit")).GetAttribute("href");
             var serviceId = editLink.Split('/').Last();
 
-            // Create employee with service
             _driver.Navigate().GoToUrl($"{_baseUrl}/Employees");
             _driver.FindElement(By.LinkText("Create New")).Click();
-            _driver.FindElement(By.Id("Name")).SendKeys("Remove Svc Emp");
-            _driver.FindElement(By.Id("Address")).SendKeys("Remove City");
+            _driver.FindElement(By.Id("Name")).SendKeys("RemoveSvcEmp");
+            _driver.FindElement(By.Id("Address")).SendKeys("Surrey");
             _driver.FindElement(By.Id("Salary")).Clear();
             _driver.FindElement(By.Id("Salary")).SendKeys("60000");
-            _driver.FindElement(By.Id("ServiceId")).SendKeys(serviceId);
+            var serviceSelect = new SelectElement(_driver.FindElement(By.Id("ServiceId")));
+            serviceSelect.SelectByValue(serviceId);
             _driver.FindElement(By.XPath("//input[@type='submit']")).Click();
 
-            // Edit employee to remove service
             rows = _driver.FindElements(By.CssSelector("table.table tbody tr"));
-            var empRow = rows.FirstOrDefault(r => r.Text.Contains("Remove Svc Emp"));
+            var empRow = rows.FirstOrDefault(r => r.Text.Contains("RemoveSvcEmp"));
             var empEditLink = empRow!.FindElement(By.LinkText("Edit"));
             ((IJavaScriptExecutor)_driver).ExecuteScript("arguments[0].scrollIntoView(true); arguments[0].click();", empEditLink);
 
-            var serviceIdField = _driver.FindElement(By.Id("ServiceId"));
-            serviceIdField.Clear();
+            var serviceSelectEdit = new SelectElement(_driver.FindElement(By.Id("ServiceId")));
+            serviceSelectEdit.SelectByIndex(0);
 
             var submitBtn = _driver.FindElement(By.XPath("//input[@type='submit']"));
             ((IJavaScriptExecutor)_driver).ExecuteScript("arguments[0].click();", submitBtn);
             Thread.Sleep(500);
 
             var pageSource = _driver.PageSource;
-            Assert.That(pageSource, Does.Contain("Remove Svc Emp"));
+            Assert.That(pageSource, Does.Contain("RemoveSvcEmp"));
         }
 
-        /// <summary>
-        /// Tests assigning a service to a client during creation.
-        /// </summary>
+        // Tests assigning a service to a client during creation.
         [Test]
         public void AssignServiceToClient_ShouldSucceed()
         {
-            // First create a service
             _driver.Navigate().GoToUrl($"{_baseUrl}/Services");
             _driver.FindElement(By.LinkText("Create New")).Click();
-            _driver.FindElement(By.Id("Type")).SendKeys("ClientAssocService");
+            _driver.FindElement(By.Id("Type")).SendKeys("ServiceC");
             _driver.FindElement(By.Id("Rate")).Clear();
             _driver.FindElement(By.Id("Rate")).SendKeys("140");
             _driver.FindElement(By.XPath("//input[@type='submit']")).Click();
 
-            // Get the service ID from the page
             var rows = _driver.FindElements(By.CssSelector("table.table tbody tr"));
-            var serviceRow = rows.FirstOrDefault(r => r.Text.Contains("ClientAssocService"));
+            var serviceRow = rows.FirstOrDefault(r => r.Text.Contains("ServiceC"));
             Assert.That(serviceRow, Is.Not.Null);
 
-            // Get the service ID from the Edit link URL
             var editLink = serviceRow!.FindElement(By.LinkText("Edit")).GetAttribute("href");
             var serviceId = editLink.Split('/').Last();
 
-            // Now create a client with this service
             _driver.Navigate().GoToUrl($"{_baseUrl}/Clients");
             _driver.FindElement(By.LinkText("Create New")).Click();
 
-            _driver.FindElement(By.Id("Name")).SendKeys("Assoc Client");
-            _driver.FindElement(By.Id("Address")).SendKeys("Assoc Cl ient City");
+            _driver.FindElement(By.Id("Name")).SendKeys("AssocClientA");
+            _driver.FindElement(By.Id("Address")).SendKeys("Burnaby");
             _driver.FindElement(By.Id("Balance")).Clear();
             _driver.FindElement(By.Id("Balance")).SendKeys("800");
-            _driver.FindElement(By.Id("ServiceId")).SendKeys(serviceId);
+            var serviceSelect = new SelectElement(_driver.FindElement(By.Id("ServiceId")));
+            serviceSelect.SelectByValue(serviceId);
 
             var submitBtn = _driver.FindElement(By.XPath("//input[@type='submit']"));
             ((IJavaScriptExecutor)_driver).ExecuteScript("arguments[0].click();", submitBtn);
             Thread.Sleep(500);
 
             var pageSource2 = _driver.PageSource;
-            Assert.That(pageSource2, Does.Contain("Assoc Client"));
+            Assert.That(pageSource2, Does.Contain("AssocClientA"));
         }
 
-        /// <summary>
-        /// Tests removing a service from a client by clearing the ServiceId field.
-        /// </summary>
+        // Tests removing a service from a client by clearing the ServiceId field.
         [Test]
         public void RemoveServiceFromClient_ShouldSucceed()
         {
-            // Create a service
             _driver.Navigate().GoToUrl($"{_baseUrl}/Services");
             _driver.FindElement(By.LinkText("Create New")).Click();
-            _driver.FindElement(By.Id("Type")).SendKeys("ClientRemoveService");
+            _driver.FindElement(By.Id("Type")).SendKeys("ServiceD");
             _driver.FindElement(By.Id("Rate")).Clear();
             _driver.FindElement(By.Id("Rate")).SendKeys("150");
             _driver.FindElement(By.XPath("//input[@type='submit']")).Click();
 
             var rows = _driver.FindElements(By.CssSelector("table.table tbody tr"));
-            var serviceRow = rows.FirstOrDefault(r => r.Text.Contains("ClientRemoveService"));
+            var serviceRow = rows.FirstOrDefault(r => r.Text.Contains("ServiceD"));
             var editLink = serviceRow!.FindElement(By.LinkText("Edit")).GetAttribute("href");
             var serviceId = editLink.Split('/').Last();
 
-            // Create client with service
             _driver.Navigate().GoToUrl($"{_baseUrl}/Clients");
             _driver.FindElement(By.LinkText("Create New")).Click();
-            _driver.FindElement(By.Id("Name")).SendKeys("Remove Svc Client");
-            _driver.FindElement(By.Id("Address")).SendKeys("Remove Client City");
+            _driver.FindElement(By.Id("Name")).SendKeys("RemoveSvcClient");
+            _driver.FindElement(By.Id("Address")).SendKeys("Richmond");
             _driver.FindElement(By.Id("Balance")).Clear();
             _driver.FindElement(By.Id("Balance")).SendKeys("900");
-            _driver.FindElement(By.Id("ServiceId")).SendKeys(serviceId);
+            var serviceSelect = new SelectElement(_driver.FindElement(By.Id("ServiceId")));
+            serviceSelect.SelectByValue(serviceId);
             _driver.FindElement(By.XPath("//input[@type='submit']")).Click();
 
-            // Edit client to remove service
             rows = _driver.FindElements(By.CssSelector("table.table tbody tr"));
-            var clientRow = rows.FirstOrDefault(r => r.Text.Contains("Remove Svc Client"));
+            var clientRow = rows.FirstOrDefault(r => r.Text.Contains("RemoveSvcClient"));
             var clientEditLink = clientRow!.FindElement(By.LinkText("Edit"));
             ((IJavaScriptExecutor)_driver).ExecuteScript("arguments[0].scrollIntoView(true); arguments[0].click();", clientEditLink);
 
-            var serviceIdField = _driver.FindElement(By.Id("ServiceId"));
-            serviceIdField.Clear();
+            var serviceSelectEdit = new SelectElement(_driver.FindElement(By.Id("ServiceId")));
+            serviceSelectEdit.SelectByIndex(0);
 
             var submitBtn = _driver.FindElement(By.XPath("//input[@type='submit']"));
             ((IJavaScriptExecutor)_driver).ExecuteScript("arguments[0].click();", submitBtn);
             Thread.Sleep(500);
 
             var pageSource2 = _driver.PageSource;
-            Assert.That(pageSource2, Does.Contain("Remove Svc Client"));
+            Assert.That(pageSource2, Does.Contain("RemoveSvcClient"));
         }
     }
 
-    /// <summary>
-    /// Tests for automated date picker selection using JavaScript.
-    /// </summary>
+    // Tests for automated date picker selection using JavaScript.
     [TestFixture]
     public class DatePickerTests
     {
@@ -1116,73 +986,62 @@ namespace TestOrgMgmt
             _driver.Dispose();
         }
 
-        /// <summary>
-        /// Tests selecting a date of birth for a client using JavaScript.
-        /// </summary>
+        // Tests selecting a date of birth for a client using JavaScript.
         [Test]
         public void SelectDateOfBirth_UsingDatePicker_ForClient()
         {
             _driver.Navigate().GoToUrl($"{_baseUrl}/Clients");
             _driver.FindElement(By.LinkText("Create New")).Click();
 
-            _driver.FindElement(By.Id("Name")).SendKeys("DatePick Client");
-            _driver.FindElement(By.Id("Address")).SendKeys("DatePick City");
+            _driver.FindElement(By.Id("Name")).SendKeys("DatePickClient");
+            _driver.FindElement(By.Id("Address")).SendKeys("Ottawa");
             _driver.FindElement(By.Id("Balance")).Clear();
             _driver.FindElement(By.Id("Balance")).SendKeys("700");
 
-            // Automate date picker selection using JavaScript
             var dobInput = _driver.FindElement(By.Id("DateOfBirth"));
-
-            // Method 1: Direct value setting via JavaScript (works for HTML5 date inputs)
-            ((IJavaScriptExecutor)_driver).ExecuteScript("arguments[0].value = '1995-12-25';", dobInput);
-
-            // Trigger change event to ensure the value is registered
+            ((IJavaScriptExecutor)_driver).ExecuteScript("arguments[0].value = '2000-12-25';", dobInput);
             ((IJavaScriptExecutor)_driver).ExecuteScript("arguments[0].dispatchEvent(new Event('change'));", dobInput);
 
             _driver.FindElement(By.XPath("//input[@type='submit']")).Click();
 
-            // Verify in Details
             var rows = _driver.FindElements(By.CssSelector("table.table tbody tr"));
-            var clientRow = rows.FirstOrDefault(r => r.Text.Contains("DatePick Client"));
+            var clientRow = rows.FirstOrDefault(r => r.Text.Contains("DatePickClient"));
             Assert.That(clientRow, Is.Not.Null);
             var detailsLink = clientRow!.FindElement(By.LinkText("Details"));
             ((IJavaScriptExecutor)_driver).ExecuteScript("arguments[0].scrollIntoView(true); arguments[0].click();", detailsLink);
 
             var pageSource = _driver.PageSource;
-            Assert.That(pageSource, Does.Contain("DatePick Client"));
-            // Date format may vary, check for year at minimum
-            Assert.That(pageSource, Does.Contain("1995"));
+            Assert.That(pageSource, Does.Contain("DatePickClient"));
+            Assert.That(pageSource, Does.Contain("2000"));
         }
 
-        /// <summary>
-        /// Tests selecting a date of birth for an employee using JavaScript.
-        /// </summary>
+        // Tests selecting a date of birth for an employee using JavaScript.
         [Test]
         public void SelectDateOfBirth_UsingDatePicker_ForEmployee()
         {
             _driver.Navigate().GoToUrl($"{_baseUrl}/Employees");
             _driver.FindElement(By.LinkText("Create New")).Click();
 
-            _driver.FindElement(By.Id("Name")).SendKeys("DatePick Emp");
-            _driver.FindElement(By.Id("Address")).SendKeys("DatePick Place");
+            _driver.FindElement(By.Id("Name")).SendKeys("DatePickEmp");
+            _driver.FindElement(By.Id("Address")).SendKeys("Calgary");
             _driver.FindElement(By.Id("Salary")).Clear();
             _driver.FindElement(By.Id("Salary")).SendKeys("80000");
 
             var dobInput = _driver.FindElement(By.Id("DateOfBirth"));
-            ((IJavaScriptExecutor)_driver).ExecuteScript("arguments[0].value = '1988-07-04';", dobInput);
+            ((IJavaScriptExecutor)_driver).ExecuteScript("arguments[0].value = '1999-07-04';", dobInput);
             ((IJavaScriptExecutor)_driver).ExecuteScript("arguments[0].dispatchEvent(new Event('change'));", dobInput);
 
             _driver.FindElement(By.XPath("//input[@type='submit']")).Click();
 
             var rows = _driver.FindElements(By.CssSelector("table.table tbody tr"));
-            var empRow = rows.FirstOrDefault(r => r.Text.Contains("DatePick Emp"));
+            var empRow = rows.FirstOrDefault(r => r.Text.Contains("DatePickEmp"));
             Assert.That(empRow, Is.Not.Null);
             var detailsLink = empRow!.FindElement(By.LinkText("Details"));
             ((IJavaScriptExecutor)_driver).ExecuteScript("arguments[0].scrollIntoView(true); arguments[0].click();", detailsLink);
 
             var pageSource = _driver.PageSource;
-            Assert.That(pageSource, Does.Contain("DatePick Emp"));
-            Assert.That(pageSource, Does.Contain("1988"));
+            Assert.That(pageSource, Does.Contain("DatePickEmp"));
+            Assert.That(pageSource, Does.Contain("1999"));
         }
     }
 }

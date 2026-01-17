@@ -40,6 +40,7 @@ namespace OrgMgmt.Controllers
         // GET: Employees/Create
         public IActionResult Create()
         {
+            ViewBag.Services = _context.Services.ToList();
             return View();
         }
 
@@ -65,6 +66,7 @@ namespace OrgMgmt.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            ViewBag.Services = _context.Services.ToList();
             return View(employee);
         }
 
@@ -81,6 +83,7 @@ namespace OrgMgmt.Controllers
             {
                 return NotFound();
             }
+            ViewBag.Services = _context.Services.ToList();
             return View(employee);
         }
 
