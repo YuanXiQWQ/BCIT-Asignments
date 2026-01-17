@@ -34,12 +34,17 @@
                 <span asp-validation-for="DateOfBirth" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="ServiceId" class="control-label"></label>
+                <input asp-for="ServiceId" class="form-control" />
+                <span asp-validation-for="ServiceId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <label class="control-label">Photo</label>
                 <input type="file" name="PhotoFile" id="Photo" class="form-control" accept="image/*" />
-                @if (Model?.Photo != null && Model.Photo.Length > 0)
+                @if (Model.Photo != null && Model.Photo.Length > 0)
                 {
                     <img src="data:image/png;base64,@Convert.ToBase64String(Model.Photo)" alt="Current Photo" style="max-width:100px; margin-top:5px;" />
-                    <input type="checkbox" name="DeletePhoto" id="DeletePhoto" /> <label for="DeletePhoto">Delete Photo</label>
+                    <input type="checkbox" name="DeletePhoto" id="DeletePhoto" value="true" /> <label for="DeletePhoto">Delete Photo</label>
                 }
             </div>
             <div class="form-group">

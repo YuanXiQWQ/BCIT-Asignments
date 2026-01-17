@@ -63,7 +63,7 @@ namespace OrgMgmt.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Balance,Id,Name,Address,DateOfBirth")] Client client, IFormFile? PhotoFile)
+        public async Task<IActionResult> Create([Bind("Balance,Id,Name,Address,DateOfBirth,ServiceId")] Client client, IFormFile? PhotoFile)
         {
             if (ModelState.IsValid)
             {
@@ -106,7 +106,7 @@ namespace OrgMgmt.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Guid id, [Bind("Balance,Id,Name,Address,DateOfBirth")] Client client, IFormFile? PhotoFile, bool DeletePhoto = false)
+        public async Task<IActionResult> Edit(Guid id, [Bind("Balance,Id,Name,Address,DateOfBirth,ServiceId")] Client client, IFormFile? PhotoFile, bool DeletePhoto = false)
         {
             if (id != client.Id)
             {

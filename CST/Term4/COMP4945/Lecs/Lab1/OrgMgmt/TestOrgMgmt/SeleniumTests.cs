@@ -713,6 +713,178 @@ namespace TestOrgMgmt
                 }
             }
         }
+
+        /// <summary>
+        /// Tests replacing an existing employee photo with a new one.
+        /// </summary>
+        [Test]
+        public void ReplaceEmployeePhoto_ShouldSucceed()
+        {
+            // First create an employee with a photo
+            _driver.Navigate().GoToUrl($"{_baseUrl}/Employees");
+            _driver.FindElement(By.LinkText("Create New")).Click();
+
+            _driver.FindElement(By.Id("Name")).SendKeys("Replace Emp Photo");
+            _driver.FindElement(By.Id("Address")).SendKeys("Replace Emp City");
+            _driver.FindElement(By.Id("Salary")).Clear();
+            _driver.FindElement(By.Id("Salary")).SendKeys("65000");
+
+            var photoInput = _driver.FindElement(By.Id("Photo"));
+            photoInput.SendKeys(_testImagePath);
+
+            _driver.FindElement(By.XPath("//input[@type='submit']")).Click();
+
+            // Now edit and replace the photo
+            var rows = _driver.FindElements(By.CssSelector("table.table tbody tr"));
+            var targetRow = rows.FirstOrDefault(r => r.Text.Contains("Replace Emp Photo"));
+            Assert.That(targetRow, Is.Not.Null);
+            var editLink = targetRow!.FindElement(By.LinkText("Edit"));
+            ((IJavaScriptExecutor)_driver).ExecuteScript("arguments[0].scrollIntoView(true); arguments[0].click();", editLink);
+
+            // Create a second test image
+            var newImagePath = Path.Combine(Path.GetTempPath(), "test_photo_emp_new.png");
+            CreateTestImage(newImagePath);
+
+            try
+            {
+                var editPhotoInput = _driver.FindElement(By.Id("Photo"));
+                editPhotoInput.SendKeys(newImagePath);
+
+                var submitBtn = _driver.FindElement(By.XPath("//input[@type='submit']"));
+                ((IJavaScriptExecutor)_driver).ExecuteScript("arguments[0].click();", submitBtn);
+                Thread.Sleep(500);
+
+                var pageSource = _driver.PageSource;
+                Assert.That(pageSource, Does.Contain("Replace Emp Photo"));
+            }
+            finally
+            {
+                if (File.Exists(newImagePath))
+                {
+                    File.Delete(newImagePath);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Tests deleting an existing client photo using the DeletePhoto checkbox.
+        /// </summary>
+        [Test]
+        public void DeleteClientPhoto_ShouldSucceed()
+        {
+            var uniqueId = Guid.NewGuid().ToString().Replace("-", "").Substring(0, 6).ToUpper()
+                .Replace("0", "A").Replace("1", "B").Replace("2", "C").Replace("3", "D")
+                .Replace("4", "E").Replace("5", "F").Replace("6", "G").Replace("7", "H")
+                .Replace("8", "I").Replace("9", "J");
+            var clientName = $"DelPhoto{uniqueId}";
+            
+            // First create a client with a photo
+            _driver.Navigate().GoToUrl($"{_baseUrl}/Clients");
+            _driver.FindElement(By.LinkText("Create New")).Click();
+
+            _driver.FindElement(By.Id("Name")).SendKeys(clientName);
+            _driver.FindElement(By.Id("Address")).SendKeys("Delete Photo City");
+            _driver.FindElement(By.Id("Balance")).Clear();
+            _driver.FindElement(By.Id("Balance")).SendKeys("700");
+
+            var photoInput = _driver.FindElement(By.Id("Photo"));
+            photoInput.SendKeys(_testImagePath);
+
+            _driver.FindElement(By.XPath("//input[@type='submit']")).Click();
+
+            // Now edit and delete the photo
+            var rows = _driver.FindElements(By.CssSelector("table.table tbody tr"));
+            var targetRow = rows.FirstOrDefault(r => r.Text.Contains(clientName));
+            Assert.That(targetRow, Is.Not.Null);
+            var editLink = targetRow!.FindElement(By.LinkText("Edit"));
+            ((IJavaScriptExecutor)_driver).ExecuteScript("arguments[0].scrollIntoView(true); arguments[0].click();", editLink);
+
+            // Check the DeletePhoto checkbox
+            var deletePhotoCheckbox = _driver.FindElement(By.Id("DeletePhoto"));
+            ((IJavaScriptExecutor)_driver).ExecuteScript("arguments[0].click();", deletePhotoCheckbox);
+
+            var submitBtn = _driver.FindElement(By.XPath("//input[@type='submit']"));
+            ((IJavaScriptExecutor)_driver).ExecuteScript("arguments[0].click();", submitBtn);
+            Thread.Sleep(1000);
+
+            // Navigate back to Index to verify client still exists
+            _driver.Navigate().GoToUrl($"{_baseUrl}/Clients");
+            Thread.Sleep(500);
+
+            var pageSource = _driver.PageSource;
+            Assert.That(pageSource, Does.Contain(clientName));
+
+            // Go to edit again and verify photo is gone (no DeletePhoto checkbox should be visible)
+            rows = _driver.FindElements(By.CssSelector("table.table tbody tr"));
+            targetRow = rows.FirstOrDefault(r => r.Text.Contains(clientName));
+            Assert.That(targetRow, Is.Not.Null, $"{clientName} row should exist after photo deletion");
+            editLink = targetRow!.FindElement(By.LinkText("Edit"));
+            ((IJavaScriptExecutor)_driver).ExecuteScript("arguments[0].scrollIntoView(true); arguments[0].click();", editLink);
+
+            // The DeletePhoto checkbox should not be present if photo was deleted
+            var deleteCheckboxes = _driver.FindElements(By.Id("DeletePhoto"));
+            Assert.That(deleteCheckboxes.Count, Is.EqualTo(0), "DeletePhoto checkbox should not exist after photo deletion");
+        }
+
+        /// <summary>
+        /// Tests deleting an existing employee photo using the DeletePhoto checkbox.
+        /// </summary>
+        [Test]
+        public void DeleteEmployeePhoto_ShouldSucceed()
+        {
+            var uniqueId = Guid.NewGuid().ToString().Replace("-", "").Substring(0, 6).ToUpper()
+                .Replace("0", "A").Replace("1", "B").Replace("2", "C").Replace("3", "D")
+                .Replace("4", "E").Replace("5", "F").Replace("6", "G").Replace("7", "H")
+                .Replace("8", "I").Replace("9", "J");
+            var empName = $"DelPhotoEmp{uniqueId}";
+            
+            // First create an employee with a photo
+            _driver.Navigate().GoToUrl($"{_baseUrl}/Employees");
+            _driver.FindElement(By.LinkText("Create New")).Click();
+
+            _driver.FindElement(By.Id("Name")).SendKeys(empName);
+            _driver.FindElement(By.Id("Address")).SendKeys("Delete Photo Place");
+            _driver.FindElement(By.Id("Salary")).Clear();
+            _driver.FindElement(By.Id("Salary")).SendKeys("85000");
+
+            var photoInput = _driver.FindElement(By.Id("Photo"));
+            photoInput.SendKeys(_testImagePath);
+
+            _driver.FindElement(By.XPath("//input[@type='submit']")).Click();
+
+            // Now edit and delete the photo
+            var rows = _driver.FindElements(By.CssSelector("table.table tbody tr"));
+            var targetRow = rows.FirstOrDefault(r => r.Text.Contains(empName));
+            Assert.That(targetRow, Is.Not.Null);
+            var editLink = targetRow!.FindElement(By.LinkText("Edit"));
+            ((IJavaScriptExecutor)_driver).ExecuteScript("arguments[0].scrollIntoView(true); arguments[0].click();", editLink);
+
+            // Check the DeletePhoto checkbox
+            var deletePhotoCheckbox = _driver.FindElement(By.Id("DeletePhoto"));
+            ((IJavaScriptExecutor)_driver).ExecuteScript("arguments[0].click();", deletePhotoCheckbox);
+
+            var submitBtn = _driver.FindElement(By.XPath("//input[@type='submit']"));
+            ((IJavaScriptExecutor)_driver).ExecuteScript("arguments[0].click();", submitBtn);
+            Thread.Sleep(1000);
+
+            // Navigate back to Index to verify employee still exists
+            _driver.Navigate().GoToUrl($"{_baseUrl}/Employees");
+            Thread.Sleep(500);
+
+            var pageSource = _driver.PageSource;
+            Assert.That(pageSource, Does.Contain(empName));
+
+            // Go to edit again and verify photo is gone
+            rows = _driver.FindElements(By.CssSelector("table.table tbody tr"));
+            targetRow = rows.FirstOrDefault(r => r.Text.Contains(empName));
+            Assert.That(targetRow, Is.Not.Null, $"{empName} row should exist after photo deletion");
+            editLink = targetRow!.FindElement(By.LinkText("Edit"));
+            ((IJavaScriptExecutor)_driver).ExecuteScript("arguments[0].scrollIntoView(true); arguments[0].click();", editLink);
+
+            // The DeletePhoto checkbox should not be present if photo was deleted
+            var deleteCheckboxes = _driver.FindElements(By.Id("DeletePhoto"));
+            Assert.That(deleteCheckboxes.Count, Is.EqualTo(0), "DeletePhoto checkbox should not exist after photo deletion");
+        }
     }
 
     /// <summary>
@@ -827,6 +999,93 @@ namespace TestOrgMgmt
 
             var pageSource = _driver.PageSource;
             Assert.That(pageSource, Does.Contain("Remove Svc Emp"));
+        }
+
+        /// <summary>
+        /// Tests assigning a service to a client during creation.
+        /// </summary>
+        [Test]
+        public void AssignServiceToClient_ShouldSucceed()
+        {
+            // First create a service
+            _driver.Navigate().GoToUrl($"{_baseUrl}/Services");
+            _driver.FindElement(By.LinkText("Create New")).Click();
+            _driver.FindElement(By.Id("Type")).SendKeys("ClientAssocService");
+            _driver.FindElement(By.Id("Rate")).Clear();
+            _driver.FindElement(By.Id("Rate")).SendKeys("140");
+            _driver.FindElement(By.XPath("//input[@type='submit']")).Click();
+
+            // Get the service ID from the page
+            var rows = _driver.FindElements(By.CssSelector("table.table tbody tr"));
+            var serviceRow = rows.FirstOrDefault(r => r.Text.Contains("ClientAssocService"));
+            Assert.That(serviceRow, Is.Not.Null);
+
+            // Get the service ID from the Edit link URL
+            var editLink = serviceRow!.FindElement(By.LinkText("Edit")).GetAttribute("href");
+            var serviceId = editLink.Split('/').Last();
+
+            // Now create a client with this service
+            _driver.Navigate().GoToUrl($"{_baseUrl}/Clients");
+            _driver.FindElement(By.LinkText("Create New")).Click();
+
+            _driver.FindElement(By.Id("Name")).SendKeys("Assoc Client");
+            _driver.FindElement(By.Id("Address")).SendKeys("Assoc Cl ient City");
+            _driver.FindElement(By.Id("Balance")).Clear();
+            _driver.FindElement(By.Id("Balance")).SendKeys("800");
+            _driver.FindElement(By.Id("ServiceId")).SendKeys(serviceId);
+
+            var submitBtn = _driver.FindElement(By.XPath("//input[@type='submit']"));
+            ((IJavaScriptExecutor)_driver).ExecuteScript("arguments[0].click();", submitBtn);
+            Thread.Sleep(500);
+
+            var pageSource2 = _driver.PageSource;
+            Assert.That(pageSource2, Does.Contain("Assoc Client"));
+        }
+
+        /// <summary>
+        /// Tests removing a service from a client by clearing the ServiceId field.
+        /// </summary>
+        [Test]
+        public void RemoveServiceFromClient_ShouldSucceed()
+        {
+            // Create a service
+            _driver.Navigate().GoToUrl($"{_baseUrl}/Services");
+            _driver.FindElement(By.LinkText("Create New")).Click();
+            _driver.FindElement(By.Id("Type")).SendKeys("ClientRemoveService");
+            _driver.FindElement(By.Id("Rate")).Clear();
+            _driver.FindElement(By.Id("Rate")).SendKeys("150");
+            _driver.FindElement(By.XPath("//input[@type='submit']")).Click();
+
+            var rows = _driver.FindElements(By.CssSelector("table.table tbody tr"));
+            var serviceRow = rows.FirstOrDefault(r => r.Text.Contains("ClientRemoveService"));
+            var editLink = serviceRow!.FindElement(By.LinkText("Edit")).GetAttribute("href");
+            var serviceId = editLink.Split('/').Last();
+
+            // Create client with service
+            _driver.Navigate().GoToUrl($"{_baseUrl}/Clients");
+            _driver.FindElement(By.LinkText("Create New")).Click();
+            _driver.FindElement(By.Id("Name")).SendKeys("Remove Svc Client");
+            _driver.FindElement(By.Id("Address")).SendKeys("Remove Client City");
+            _driver.FindElement(By.Id("Balance")).Clear();
+            _driver.FindElement(By.Id("Balance")).SendKeys("900");
+            _driver.FindElement(By.Id("ServiceId")).SendKeys(serviceId);
+            _driver.FindElement(By.XPath("//input[@type='submit']")).Click();
+
+            // Edit client to remove service
+            rows = _driver.FindElements(By.CssSelector("table.table tbody tr"));
+            var clientRow = rows.FirstOrDefault(r => r.Text.Contains("Remove Svc Client"));
+            var clientEditLink = clientRow!.FindElement(By.LinkText("Edit"));
+            ((IJavaScriptExecutor)_driver).ExecuteScript("arguments[0].scrollIntoView(true); arguments[0].click();", clientEditLink);
+
+            var serviceIdField = _driver.FindElement(By.Id("ServiceId"));
+            serviceIdField.Clear();
+
+            var submitBtn = _driver.FindElement(By.XPath("//input[@type='submit']"));
+            ((IJavaScriptExecutor)_driver).ExecuteScript("arguments[0].click();", submitBtn);
+            Thread.Sleep(500);
+
+            var pageSource2 = _driver.PageSource;
+            Assert.That(pageSource2, Does.Contain("Remove Svc Client"));
         }
     }
 

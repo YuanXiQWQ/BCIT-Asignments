@@ -1,4 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using OrgMgmt.Models;
 
 namespace OrgMgmt
@@ -16,6 +16,13 @@ namespace OrgMgmt
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+
+            // Configure Client -> Service relationship (single service via ServiceId)
+            modelBuilder.Entity<Client>()
+                .HasOne(c => c.Service)
+                .WithMany()
+                .HasForeignKey(c => c.ServiceId)
+                .OnDelete(DeleteBehavior.SetNull);
         }
 
         public DbSet<Person> People { get; set; }
