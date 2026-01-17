@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using OrgMgmt.Models;
 
@@ -48,11 +48,19 @@ namespace OrgMgmt.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Salary,ServiceId,Id,Name,Address,DateOfBirth,Photo")] Employee employee)
+        public async Task<IActionResult> Create([Bind("Salary,ServiceId,Id,Name,Address,DateOfBirth")] Employee employee, IFormFile? PhotoFile)
         {
             if (ModelState.IsValid)
             {
                 employee.Id = Guid.NewGuid();
+                
+                if (PhotoFile != null && PhotoFile.Length > 0)
+                {
+                    using var ms = new MemoryStream();
+                    await PhotoFile.CopyToAsync(ms);
+                    employee.Photo = ms.ToArray();
+                }
+                
                 _context.Add(employee);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -81,7 +89,7 @@ namespace OrgMgmt.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Guid id, [Bind("Salary,ServiceId,Id,Name,Address,DateOfBirth,Photo")] Employee employee)
+        public async Task<IActionResult> Edit(Guid id, [Bind("Salary,ServiceId,Id,Name,Address,DateOfBirth")] Employee employee, IFormFile? PhotoFile, bool DeletePhoto = false)
         {
             if (id != employee.Id)
             {
@@ -92,6 +100,23 @@ namespace OrgMgmt.Controllers
             {
                 try
                 {
+                    var existingEmployee = await _context.Employees.AsNoTracking().FirstOrDefaultAsync(e => e.Id == id);
+                    
+                    if (DeletePhoto)
+                    {
+                        employee.Photo = null;
+                    }
+                    else if (PhotoFile != null && PhotoFile.Length > 0)
+                    {
+                        using var ms = new MemoryStream();
+                        await PhotoFile.CopyToAsync(ms);
+                        employee.Photo = ms.ToArray();
+                    }
+                    else
+                    {
+                        employee.Photo = existingEmployee?.Photo;
+                    }
+                    
                     _context.Update(employee);
                     await _context.SaveChangesAsync();
                 }

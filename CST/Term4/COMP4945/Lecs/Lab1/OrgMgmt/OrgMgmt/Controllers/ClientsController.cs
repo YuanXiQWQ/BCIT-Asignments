@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using OrgMgmt.Models;
 
@@ -63,11 +63,19 @@ namespace OrgMgmt.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Balance,Id,Name,Address,DateOfBirth,Photo")] Client client)
+        public async Task<IActionResult> Create([Bind("Balance,Id,Name,Address,DateOfBirth")] Client client, IFormFile? PhotoFile)
         {
             if (ModelState.IsValid)
             {
                 client.Id = Guid.NewGuid();
+                
+                if (PhotoFile != null && PhotoFile.Length > 0)
+                {
+                    using var ms = new MemoryStream();
+                    await PhotoFile.CopyToAsync(ms);
+                    client.Photo = ms.ToArray();
+                }
+                
                 _context.Add(client);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -98,7 +106,7 @@ namespace OrgMgmt.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Guid id, [Bind("Balance,Id,Name,Address,DateOfBirth,Photo")] Client client)
+        public async Task<IActionResult> Edit(Guid id, [Bind("Balance,Id,Name,Address,DateOfBirth")] Client client, IFormFile? PhotoFile, bool DeletePhoto = false)
         {
             if (id != client.Id)
             {
@@ -109,6 +117,23 @@ namespace OrgMgmt.Controllers
             {
                 try
                 {
+                    var existingClient = await _context.Clients.AsNoTracking().FirstOrDefaultAsync(c => c.Id == id);
+                    
+                    if (DeletePhoto)
+                    {
+                        client.Photo = null;
+                    }
+                    else if (PhotoFile != null && PhotoFile.Length > 0)
+                    {
+                        using var ms = new MemoryStream();
+                        await PhotoFile.CopyToAsync(ms);
+                        client.Photo = ms.ToArray();
+                    }
+                    else
+                    {
+                        client.Photo = existingClient?.Photo;
+                    }
+                    
                     _context.Update(client);
                     await _context.SaveChangesAsync();
                 }
