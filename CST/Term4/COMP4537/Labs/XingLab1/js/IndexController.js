@@ -1,12 +1,18 @@
+/**
+ * ChatGPT used to:
+ * - Generate part of the stylesheet (.noteText{}, .readOnly{})
+ * - Provide guidance on the load implementation in ReaderController.js and WriterController.js
+ * - Verify assignment requirements after completion
+ * - Recall CSS properties and their functions
+ * - Troubleshoot deployment issues
+ */
 import {STRINGS} from "../lang/messages/en/strings.js";
 import {UserInterface} from "./UserInterface.js";
 
 export class IndexController {
-  constructor() {
-    this.ui = new UserInterface(document.body);
-  }
-
   init() {
+    // Init Title
+    this.ui = new UserInterface();
     this.ui.setAppTitle();
 
     // Init page content
