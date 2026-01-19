@@ -1,0 +1,70 @@
+/* Global */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+#title {
+    text-align: center;
+    margin: 2px auto;
+    width: fit-content;
+}
+
+/* Index */
+#nav-links {
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+    gap: 10px;
+}
+
+/* Writer & Reader */
+.container {
+    display: grid;
+    margin: 1em 5em;
+    flex: 1;
+    grid-template-rows: auto 1fr auto;  /* 时间戳 | notesContainer | 添加按钮 */
+    border: 1px solid blue;
+}
+
+#timestamp {
+    display: flex;
+    height: 1em;
+    margin: 0.25em;
+    justify-content: flex-end;
+}
+
+#timestampLabel {
+    width: fit-content;
+}
+
+#timestampValue {
+    width: 10em;
+}
+
+.button {
+    margin: 0.25em;
+    padding: 0.25em 3em;
+    width: fit-content;
+    height: fit-content;
+    color: white;
+    font-size: 25px;
+    border-radius: 10px;
+}
+
+#backBtn {
+    background-color: #BD7FFF;
+    border: #8e67c3 1px solid;
+}
+
+/* Writer */
+#addBtn {
+    background-color: #7eab54;
+    border: #577440 1px solid;
+    margin: 1em;
+}
