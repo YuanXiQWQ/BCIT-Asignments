@@ -1,0 +1,16 @@
+body {
+    padding: 20px;
+}
+
+.buttonGroup a, .buttonGroup button {
+	width: 25%;
+	margin: 0px auto;
+}
+
+.textArea {
+	min-width: 150px;
+}
+
+.noResize {
+	resize: none;
+}
