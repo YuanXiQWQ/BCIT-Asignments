@@ -767,3 +767,4 @@ F:\JerryCode\BCIT-Assignments\CST\Term4\COMP4945\Lecs\Lab1\OrgMgmt\OrgMgmt\obj\D
 F:\JerryCode\BCIT-Assignments\CST\Term4\COMP4945\Lecs\Lab1\OrgMgmt\OrgMgmt\obj\Debug\net8.0\OrgMgmt.pdb
 F:\JerryCode\BCIT-Assignments\CST\Term4\COMP4945\Lecs\Lab1\OrgMgmt\OrgMgmt\obj\Debug\net8.0\OrgMgmt.genruntimeconfig.cache
 F:\JerryCode\BCIT-Assignments\CST\Term4\COMP4945\Lecs\Lab1\OrgMgmt\OrgMgmt\obj\Debug\net8.0\ref\OrgMgmt.dll
+F:\JerryCode\BCIT-Assignments\CST\Term4\COMP4945\Lecs\Lab1\OrgMgmt\OrgMgmt\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
