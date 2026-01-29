@@ -1,0 +1,16 @@
+<div id="demo">
+  <h1>The XMLHttpRequest Object</h1>
+  <button type="button" onclick="myFunc()">
+    Change Content</button>
+  Count the number of times the readystatechange updates with the value "LOADING " at the client side when you send a single request to http://apiz.ca/readystatechange
+</div>
+<script>
+  function myFunc() {
+    const xhttp = new XMLHttpRequest();
+    xhttp.open("GET", "http://localhost:8888/", true);
+    xhttp.send();
+    xhttp.onreadystatechange = function () {
+      console.log("hello")
+    };
+  }
+</script>

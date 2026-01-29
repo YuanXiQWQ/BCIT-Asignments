@@ -1,0 +1,36 @@
+﻿@using System.Text.Json
+@model ChartDemo.Models.MonthlyCategorySalesViewModel
+<style>
+  .chart-box{
+    width: 600px;
+    height: 600px;
+    margin: 0 auto;
+  }
+</style>
+<h2>Pie Chart (Jan)</h2>
+<div class="chart-box">
+<canvas id="pieChart"></canvas>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+@{
+    var categoryLabelsJson = JsonSerializer.Serialize(new[] { "Electronics", "Clothing", "Home" });
+    var categoryValuesJson = JsonSerializer.Serialize(new[] { Model.Electronics, Model.Clothing, Model.Home });
+}
+
+<script>
+    const pieContext = document.getElementById('pieChart');
+    const data = {
+        labels: @Html.Raw(categoryLabelsJson),
+        datasets: [{data: @Html.Raw(categoryValuesJson)}]
+    }
+
+    new Chart(pieContext, {
+        type: 'pie',
+        data: data,
+        options:{
+            layout:{
+                padding:10
+            }
+        }
+    });
+</script>

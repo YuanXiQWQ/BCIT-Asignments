@@ -1,0 +1,65 @@
+@using System.Text.Json
+@model List<ChartDemo.Models.MonthlyCategorySalesViewModel>
+
+<h2>Bar Chart</h2>
+<canvas id="barChart"></canvas>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+@{
+    var monthLabelsJson = JsonSerializer.Serialize(Model.Select(record => record.Month).ToList());
+    var electronicsValuesJson = JsonSerializer.Serialize(Model.Select(record => record.Electronics).ToList());
+    var clothingValuesJson = JsonSerializer.Serialize(Model.Select(record => record.Clothing).ToList());
+    var homeValuesJson = JsonSerializer.Serialize(Model.Select(record => record.Home).ToList());
+}
+
+<script>
+    const barContext = document.getElementById('barChart');
+    const data = {
+        labels: @Html.Raw(monthLabelsJson),
+        datasets: [
+            { 
+                label: 'Electronics', 
+                data: @Html.Raw(electronicsValuesJson) ,
+                backgroundColor: "rgba(127,127,255,0.8)"
+            },
+            { 
+                label: 'Clothing', 
+                data: @Html.Raw(clothingValuesJson),
+                backgroundColor: "rgba(255,127,127,0.8)"
+            },
+            { 
+                label: 'Home', 
+                data: @Html.Raw(homeValuesJson),
+                backgroundColor: "rgba(255,255,127,0.8)"
+            }
+        ]
+    }
+
+    const options = {
+        scales: { // Configure the scales
+            y: {
+                min: 0, // Minimum value for the y-axis
+                grid: { // Configure the grid lines
+                    display: true,
+                    color: "rgba(189,127,255,0.2)"
+                }
+            }
+        },
+        plugins:{ // Configure the title
+            title:{
+                display: true,
+                text: 'Monthly Sales by Category',
+                color: '#bd7fff'
+            }
+        },
+        animation:{ // Configure the animation
+            duration: 10000,
+            easing: 'easeOutQuart'
+        }
+    };
+
+    new Chart(barContext, {
+        type: 'bar',
+        data: data,
+        options: options
+    });
+</script>
