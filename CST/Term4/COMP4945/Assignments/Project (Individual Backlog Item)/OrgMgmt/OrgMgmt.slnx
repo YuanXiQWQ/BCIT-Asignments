@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="OrgMgmt/OrgMgmt.csproj" />
+  <Project Path="TestOrgMgmt/TestOrgMgmt.csproj" Id="8c3c06e1-f247-42d8-9fa2-6a131f0f5779" />
+</Solution>
