@@ -1,0 +1,28 @@
+<div id="demo">
+ <h1>The XMLHttpRequest Object</h1>
+ <button type="button" onclick="myFunc()">
+  Change Content
+ </button>
+</div>
+
+<script>
+  function myFunc() {
+    const xhttp = new XMLHttpRequest();
+    let count = 0;
+    xhttp.open("GET", "http://apiz.ca/readystatechange", true);
+    xhttp.send();
+    xhttp.onreadystatechange = function () {
+      if (this.readyState === 3 && this.status === 200) {
+        count++;
+      }
+      if (this.readyState === 4 && this.status === 200) {
+        const body = this.responseText;
+        const string = `LOADING count: ${count}
+        Response size (chars): ${body.length}
+        Day of week: ${body.trim()}
+        `
+        console.log(string);
+      }
+    };
+  }
+</script>
