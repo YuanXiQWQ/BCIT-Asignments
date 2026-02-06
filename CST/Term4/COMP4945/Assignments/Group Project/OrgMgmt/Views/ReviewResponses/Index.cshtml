@@ -1,0 +1,53 @@
+@model IEnumerable<OrgMgmt.Models.ReviewResponse>
+
+@{
+    ViewData["Title"] = "Review Responses";
+}
+
+<h1>Review Responses</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.PerformanceReview)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ReviewQuestion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ResponseText)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Rating)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PerformanceReview.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReviewQuestion.QuestionText)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ResponseText)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Rating)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

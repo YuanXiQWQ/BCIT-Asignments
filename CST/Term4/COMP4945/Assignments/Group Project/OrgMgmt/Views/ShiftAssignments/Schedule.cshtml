@@ -1,0 +1,66 @@
+@model IEnumerable<OrgMgmt.Models.ShiftAssignment>
+@{
+    ViewData["Title"] = "Schedule";
+    var employees = ViewData["Employees"] as List<OrgMgmt.Models.Employee>;
+    var shifts = ViewData["Shifts"] as List<OrgMgmt.Models.Shift>;
+    var weekNumber = (int)ViewData["WeekNumber"];
+}
+
+<h1>Weekly Schedule - Week @weekNumber</h1>
+
+<div class="mb-3">
+    <a asp-action="Schedule" asp-route-weekNumber="1" class="btn @(weekNumber == 1 ? "btn-primary" : "btn-outline-primary")">Week 1</a>
+    <a asp-action="Schedule" asp-route-weekNumber="2" class="btn @(weekNumber == 2 ? "btn-primary" : "btn-outline-primary")">Week 2</a>
+</div>
+
+@if (employees == null || !employees.Any())
+{
+    <div class="alert alert-warning">No employees found. Please add employees first.</div>
+}
+else if (shifts == null || !shifts.Any())
+{
+    <div class="alert alert-warning">No shifts found. Please <a asp-controller="Shifts" asp-action="Create">create shifts</a> first.</div>
+}
+else
+{
+    <form asp-action="UpdateGrid" method="post">
+        <input type="hidden" name="weekNumber" value="@weekNumber"/>
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped">
+                <thead class="table-dark">
+                <tr>
+                    <th>Employee</th>
+                    @foreach (var shift in shifts)
+                    {
+                        <th class="text-center">
+                            @shift.Name<br/>
+                            <small>@shift.StartTime.ToString(@"hh\:mm") - @shift.EndTime.ToString(@"hh\:mm")</small><br/>
+                            <small>(@shift.RecurrenceType)</small>
+                        </th>
+                    }
+                </tr>
+                </thead>
+                <tbody>
+                @foreach (var employee in employees)
+                {
+                    <tr>
+                        <td>@employee.Name</td>
+                        @foreach (var shift in shifts)
+                        {
+                            var isAssigned = Model.Any(a => a.EmployeeId == employee.Id && a.ShiftId == shift.Id);
+                            var key = $"{employee.Id}_{shift.Id}";
+                            <td class="text-center">
+                                <input type="checkbox" name="assignments[@key]" value="true" @(isAssigned ? "checked" : "") class="form-check-input"
+                                       style="width: 20px; height: 20px;"/>
+                                <input type="hidden" name="assignments[@key]" value="false"/>
+                            </td>
+                        }
+                    </tr>
+                }
+                </tbody>
+            </table>
+        </div>
+        <button type="submit" class="btn btn-success">Save Schedule</button>
+        <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+    </form>
+}
