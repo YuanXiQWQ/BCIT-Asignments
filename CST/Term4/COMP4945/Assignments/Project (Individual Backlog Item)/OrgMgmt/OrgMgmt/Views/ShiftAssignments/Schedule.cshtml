@@ -3,8 +3,33 @@
     ViewData["Title"] = "Weekly Schedule";
     var employees = ViewData["Employees"] as List<OrgMgmt.Models.Employee>;
     var shifts = ViewData["Shifts"] as List<OrgMgmt.Models.Shift>;
-    var weekNumber = (int)ViewData["WeekNumber"];
+    var weekNumber = (int)(ViewData["WeekNumber"] ?? 1);
+    var dayNames = new[] { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" };
 }
+
+<style>
+    .shift-select {
+        font-weight: 600;
+        font-size: 0.85rem;
+        border-radius: 4px;
+        padding: 4px 6px;
+        min-width: 110px;
+        border: 1px solid #ccc;
+    }
+    .shift-select.shift-none {
+        background-color: #fff;
+        color: #999;
+    }
+    .shift-color-0 { background-color: #ffe082; color: #5d4037; }
+    .shift-color-1 { background-color: #80cbc4; color: #004d40; }
+    .shift-color-2 { background-color: #90caf9; color: #0d47a1; }
+    .shift-color-3 { background-color: #ef9a9a; color: #b71c1c; }
+    .shift-color-4 { background-color: #ce93d8; color: #4a148c; }
+    .shift-color-5 { background-color: #a5d6a7; color: #1b5e20; }
+    .schedule-table th { text-align: center; vertical-align: middle; }
+    .schedule-table td { text-align: center; vertical-align: middle; padding: 6px 4px; }
+    .schedule-table td:first-child { text-align: left; font-weight: 600; white-space: nowrap; }
+</style>
 
 <h1>Weekly Schedule - Week @weekNumber</h1>
 
@@ -28,20 +53,16 @@ else if (shifts == null || !shifts.Any())
 }
 else
 {
-    <form asp-action="UpdateGrid" method="post">
+    <form asp-action="SaveSchedule" method="post">
         <input type="hidden" name="weekNumber" value="@weekNumber"/>
         <div class="table-responsive">
-            <table class="table table-bordered table-striped">
+            <table class="table table-bordered schedule-table">
                 <thead class="table-dark">
                 <tr>
-                    <th>Employee</th>
-                    @foreach (var shift in shifts)
+                    <th style="min-width: 130px;">Employee</th>
+                    @foreach (var dayName in dayNames)
                     {
-                        <th class="text-center">
-                            @shift.Name<br/>
-                            <small>@shift.StartTime.ToString(@"hh\:mm") - @shift.EndTime.ToString(@"hh\:mm")</small><br/>
-                            <small>(@shift.RecurrenceType)</small>
-                        </th>
+                        <th>@dayName</th>
                     }
                 </tr>
                 </thead>
@@ -50,14 +71,32 @@ else
                 {
                     <tr>
                         <td>@employee.Name</td>
-                        @foreach (var shift in shifts)
+                        @for (var day = 0; day < 7; day++)
                         {
-                            var isAssigned = Model.Any(a => a.EmployeeId == employee.Id && a.ShiftId == shift.Id);
-                            var key = $"{employee.Id}_{shift.Id}";
-                            <td class="text-center">
-                                <input type="checkbox" name="assignments[@key]" value="true" @(isAssigned ? "checked" : "") class="form-check-input"
-                                       style="width: 20px; height: 20px;"/>
-                                <input type="hidden" name="assignments[@key]" value="false"/>
+                            var assignment = Model.FirstOrDefault(a => a.EmployeeId == employee.Id && a.DayOfWeek == day);
+                            var currentShiftId = assignment?.ShiftId.ToString() ?? "";
+                            var key = $"{employee.Id}_{day}";
+                            var colorIndex = -1;
+                            if (assignment != null)
+                            {
+                                colorIndex = shifts.FindIndex(s => s.Id == assignment.ShiftId);
+                                if (colorIndex < 0) colorIndex = 0;
+                            }
+                            <td>
+                                <select name="grid[@key]"
+                                        class="shift-select @(string.IsNullOrEmpty(currentShiftId) ? "shift-none" : $"shift-color-{colorIndex % 6}")"
+                                        onchange="updateColor(this)">
+                                    <option value="">-- None --</option>
+                                    @for (var i = 0; i < shifts.Count; i++)
+                                    {
+                                        var s = shifts[i];
+                                        <option value="@s.Id"
+                                                data-color="@(i % 6)"
+                                                selected="@(s.Id.ToString() == currentShiftId)">
+                                            @s.Name
+                                        </option>
+                                    }
+                                </select>
                             </td>
                         }
                     </tr>
@@ -65,7 +104,21 @@ else
                 </tbody>
             </table>
         </div>
-        <button type="submit" class="btn btn-success">Save Schedule</button>
+        <button type="submit" class="btn btn-success">Save</button>
         <a asp-action="Index" class="btn btn-secondary">Back to List</a>
     </form>
+}
+
+@section Scripts {
+<script>
+    function updateColor(sel) {
+        sel.className = 'shift-select';
+        var opt = sel.options[sel.selectedIndex];
+        if (!opt.value) {
+            sel.classList.add('shift-none');
+        } else {
+            sel.classList.add('shift-color-' + opt.getAttribute('data-color'));
+        }
+    }
+</script>
 }

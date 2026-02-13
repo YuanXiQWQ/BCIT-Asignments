@@ -7,17 +7,19 @@ public class ShiftAssignment
 {
     [Key] public Guid Id { get; set; } = Guid.NewGuid();
 
-    [Required] public Guid ShiftId { get; init; }
+    [Required] public Guid ShiftId { get; set; }
 
-    [ForeignKey(nameof(ShiftId))] public Shift? Shift { get; init; }
+    [ForeignKey(nameof(ShiftId))] public Shift? Shift { get; set; }
 
-    [Required] public Guid EmployeeId { get; init; }
+    [Required] public Guid EmployeeId { get; set; }
 
-    [ForeignKey(nameof(EmployeeId))] public Employee? Employee { get; init; }
+    [ForeignKey(nameof(EmployeeId))] public Employee? Employee { get; set; }
 
-    public int WeekNumber { get; init; } = 1;
+    public int WeekNumber { get; set; } = 1;
 
-    [DataType(DataType.Date)] public DateTime? StartDate { get; init; }
+    public int DayOfWeek { get; set; }
 
-    [DataType(DataType.Date)] public DateTime? EndDate { get; init; }
+    [DataType(DataType.Date)] public DateTime? StartDate { get; set; }
+
+    [DataType(DataType.Date)] public DateTime? EndDate { get; set; }
 }

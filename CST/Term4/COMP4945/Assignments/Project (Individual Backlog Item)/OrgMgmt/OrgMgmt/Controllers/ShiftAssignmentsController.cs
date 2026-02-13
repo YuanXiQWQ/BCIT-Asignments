@@ -158,84 +158,68 @@ namespace OrgMgmt.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        
         // GET: ShiftAssignments/Schedule
         public async Task<IActionResult> Schedule(int weekNumber = 1)
         {
             ViewData["Employees"] = await _context.Employees.ToListAsync();
             ViewData["Shifts"] = await _context.Shifts.ToListAsync();
             ViewData["WeekNumber"] = weekNumber;
-            
+
             var assignments = await _context.ShiftAssignments
                 .Include(s => s.Employee)
                 .Include(s => s.Shift)
                 .Where(s => s.WeekNumber == weekNumber)
                 .ToListAsync();
-            
+
             return View(assignments);
         }
 
-        // POST: ShiftAssignments/Schedule
+        // POST: ShiftAssignments/SaveSchedule
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Schedule(List<Guid> employeeIds, List<Guid> shiftIds, int weekNumber)
+        public async Task<IActionResult> SaveSchedule(Dictionary<string, string> grid, int weekNumber)
         {
-            // Remove existing assignments for selected employees in this week
-            var existingAssignments = await _context.ShiftAssignments
-                .Where(s => employeeIds.Contains(s.EmployeeId) && s.WeekNumber == weekNumber)
-                .ToListAsync();
-            _context.ShiftAssignments.RemoveRange(existingAssignments);
+            var employees = await _context.Employees.ToListAsync();
 
-            // Create new assignments
-            foreach (var employeeId in employeeIds)
+            foreach (var employee in employees)
             {
-                foreach (var shiftId in shiftIds)
+                for (int day = 0; day < 7; day++)
                 {
-                    var assignment = new ShiftAssignment
+                    var key = $"{employee.Id}_{day}";
+                    var shiftIdStr = grid.ContainsKey(key) ? grid[key] : "";
+
+                    var existing = await _context.ShiftAssignments
+                        .FirstOrDefaultAsync(s => s.EmployeeId == employee.Id
+                                                  && s.DayOfWeek == day
+                                                  && s.WeekNumber == weekNumber);
+
+                    if (string.IsNullOrEmpty(shiftIdStr))
                     {
-                        EmployeeId = employeeId,
-                        ShiftId = shiftId,
-                        WeekNumber = weekNumber
-                    };
-                    _context.ShiftAssignments.Add(assignment);
+                        if (existing != null)
+                            _context.ShiftAssignments.Remove(existing);
+                    }
+                    else
+                    {
+                        var shiftId = Guid.Parse(shiftIdStr);
+                        if (existing != null)
+                        {
+                            existing.ShiftId = shiftId;
+                            _context.Update(existing);
+                        }
+                        else
+                        {
+                            _context.ShiftAssignments.Add(new ShiftAssignment
+                            {
+                                EmployeeId = employee.Id,
+                                ShiftId = shiftId,
+                                DayOfWeek = day,
+                                WeekNumber = weekNumber
+                            });
+                        }
+                    }
                 }
             }
 
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Schedule), new { weekNumber });
-        }
-
-        // POST: ShiftAssignments/UpdateGrid
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> UpdateGrid(Dictionary<string, bool> assignments, int weekNumber)
-        {
-            foreach (var kvp in assignments)
-            {
-                var parts = kvp.Key.Split('_');
-                if (parts.Length != 2) continue;
-                
-                var employeeId = Guid.Parse(parts[0]);
-                var shiftId = Guid.Parse(parts[1]);
-                
-                var existing = await _context.ShiftAssignments
-                    .FirstOrDefaultAsync(s => s.EmployeeId == employeeId && s.ShiftId == shiftId && s.WeekNumber == weekNumber);
-                
-                if (kvp.Value && existing == null)
-                {
-                    _context.ShiftAssignments.Add(new ShiftAssignment
-                    {
-                        EmployeeId = employeeId,
-                        ShiftId = shiftId,
-                        WeekNumber = weekNumber
-                    });
-                }
-                else if (!kvp.Value && existing != null)
-                {
-                    _context.ShiftAssignments.Remove(existing);
-                }
-            }
-            
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Schedule), new { weekNumber });
         }
