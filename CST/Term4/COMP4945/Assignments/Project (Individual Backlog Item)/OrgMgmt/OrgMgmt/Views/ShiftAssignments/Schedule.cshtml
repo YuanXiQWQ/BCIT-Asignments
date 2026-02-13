@@ -1,6 +1,6 @@
 @model IEnumerable<OrgMgmt.Models.ShiftAssignment>
 @{
-    ViewData["Title"] = "Schedule";
+    ViewData["Title"] = "Weekly Schedule";
     var employees = ViewData["Employees"] as List<OrgMgmt.Models.Employee>;
     var shifts = ViewData["Shifts"] as List<OrgMgmt.Models.Shift>;
     var weekNumber = (int)ViewData["WeekNumber"];
@@ -9,8 +9,13 @@
 <h1>Weekly Schedule - Week @weekNumber</h1>
 
 <div class="mb-3">
-    <a asp-action="Schedule" asp-route-weekNumber="1" class="btn @(weekNumber == 1 ? "btn-primary" : "btn-outline-primary")">Week 1</a>
-    <a asp-action="Schedule" asp-route-weekNumber="2" class="btn @(weekNumber == 2 ? "btn-primary" : "btn-outline-primary")">Week 2</a>
+    @for (var w = 1; w <= 4; w++)
+    {
+        <a asp-action="Schedule" asp-route-weekNumber="@w"
+           class="btn @(weekNumber == w ? "btn-primary" : "btn-outline-primary")">
+            Week @w
+        </a>
+    }
 </div>
 
 @if (employees == null || !employees.Any())

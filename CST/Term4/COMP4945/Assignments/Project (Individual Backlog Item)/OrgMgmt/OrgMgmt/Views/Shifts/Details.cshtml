@@ -1,48 +1,36 @@
 @model OrgMgmt.Models.Shift
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Shift Details";
 }
 
-<h1>Details</h1>
-
-<div>
-    <h4>Shift</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.StartTime)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.StartTime)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.EndTime)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.EndTime)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.RecurrenceType)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.RecurrenceType)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.RecurrencePattern)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.RecurrencePattern)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+<h1>Shift Details</h1>
+<hr/>
+<div class="row">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header bg-light">
+                <h5 class="mb-0">@Model.Name</h5>
+            </div>
+            <div class="card-body">
+                <dl class="row mb-0">
+                    <dt class="col-sm-4">Name</dt>
+                    <dd class="col-sm-8">@Model.Name</dd>
+                    <dt class="col-sm-4">Start Time</dt>
+                    <dd class="col-sm-8">@Model.StartTime.ToString(@"hh\:mm")</dd>
+                    <dt class="col-sm-4">End Time</dt>
+                    <dd class="col-sm-8">@Model.EndTime.ToString(@"hh\:mm")</dd>
+                    <dt class="col-sm-4">Recurrence</dt>
+                    <dd class="col-sm-8"><span class="badge bg-info text-dark">@Model.RecurrenceType</span></dd>
+                    <dt class="col-sm-4">Pattern</dt>
+                    <dd class="col-sm-8">@(Model.RecurrencePattern ?? "—")</dd>
+                </dl>
+            </div>
+            <div class="card-footer d-flex gap-2">
+                <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-primary btn-sm">Edit</a>
+                <a asp-action="Delete" asp-route-id="@Model?.Id" class="btn btn-outline-danger btn-sm">Delete</a>
+                <a asp-action="Index" class="btn btn-outline-secondary btn-sm">Back to List</a>
+            </div>
+        </div>
+    </div>
 </div>

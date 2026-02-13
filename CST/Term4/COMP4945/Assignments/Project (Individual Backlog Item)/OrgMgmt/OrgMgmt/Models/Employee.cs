@@ -8,4 +8,5 @@ public class Employee : Person
     public Service? Service { get; set; }
     public decimal Salary { get; set; }
     public Guid? ServiceId { get; set; }
+    public ICollection<ShiftAssignment> ShiftAssignments { get; set; } = new List<ShiftAssignment>();
 }

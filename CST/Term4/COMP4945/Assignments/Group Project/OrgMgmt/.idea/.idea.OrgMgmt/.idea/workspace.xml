@@ -9,482 +9,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6e11c8e3-d949-4972-98ac-ef68832c0ee6" name="更改" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.OrgMgmt/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vs/OrgMgmt.slnx/DesignTimeBuild/.dtbcache.v2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vs/OrgMgmt.slnx/FileContentIndex/2045c70f-e5a2-426e-b092-571436a2b160.vsidx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vs/OrgMgmt.slnx/FileContentIndex/2c82211c-e86e-4354-83d2-ece77fdc5374.vsidx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vs/OrgMgmt.slnx/FileContentIndex/392481e6-f586-44db-854d-9396a814581b.vsidx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vs/OrgMgmt.slnx/FileContentIndex/3b6073a5-4175-4e27-9376-3fcd491ec2eb.vsidx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vs/OrgMgmt.slnx/FileContentIndex/c6927a31-2a7b-49ab-9ccf-037b9206b935.vsidx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vs/OrgMgmt.slnx/config/applicationhost.config" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vs/OrgMgmt.slnx/v18/.futdcache.v2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vs/OrgMgmt.slnx/v18/.suo" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vs/OrgMgmt.slnx/v18/DocumentLayout.backup.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vs/OrgMgmt.slnx/v18/DocumentLayout.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vs/OrgMgmt.slnx/v18/TestStore/0/000.testlog" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vs/OrgMgmt.slnx/v18/TestStore/0/testlog.manifest" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vs/ProjectEvaluation/orgmgmt.metadata.v10.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/ProjectEvaluation/orgmgmt.metadata.v10.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vs/ProjectEvaluation/orgmgmt.projects.v10.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/ProjectEvaluation/orgmgmt.projects.v10.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vs/ProjectEvaluation/orgmgmt.strings.v10.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/ProjectEvaluation/orgmgmt.strings.v10.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt.sln.DotSettings.user" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt.slnx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/.idea/.idea.OrgMgmt.dir/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/.idea/.idea.OrgMgmt.dir/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/.idea/.idea.OrgMgmt.dir/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/.idea/.idea.OrgMgmt.dir/.idea/indexLayout.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/.idea/.idea.OrgMgmt.dir/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/.idea/config/applicationhost.config" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/.vs/OrgMgmt/DesignTimeBuild/.dtbcache.v2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/.vs/OrgMgmt/FileContentIndex/3e8b6a4b-104d-4da9-8283-9b4cffb04543.vsidx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/.vs/OrgMgmt/FileContentIndex/44ce9d82-8554-4c5e-b5a2-745ffadf17fe.vsidx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/.vs/OrgMgmt/FileContentIndex/50422d64-989e-4087-8304-c777f186d10c.vsidx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/.vs/OrgMgmt/FileContentIndex/ca9530c6-8ad5-4205-a620-ce53ee13813f.vsidx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/.vs/OrgMgmt/FileContentIndex/d524890c-808e-46da-b51f-0cdca9849ae9.vsidx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/.vs/OrgMgmt/config/applicationhost.config" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/.vs/OrgMgmt/v17/.futdcache.v2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/.vs/OrgMgmt/v17/.suo" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/.vs/OrgMgmt/v17/DocumentLayout.backup.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/.vs/OrgMgmt/v17/DocumentLayout.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/.vs/OrgMgmt/v18/.futdcache.v2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/.vs/OrgMgmt/v18/.suo" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/.vs/OrgMgmt/v18/DocumentLayout.backup.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/.vs/OrgMgmt/v18/DocumentLayout.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/.vs/ProjectEvaluation/orgmgmt.metadata.v10.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/.vs/ProjectEvaluation/orgmgmt.projects.v10.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/.vs/ProjectEvaluation/orgmgmt.strings.v10.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/Controllers/ClientsController.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/Controllers/EmployeesController.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/Controllers/HomeController.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/Controllers/PerformanceReviewsController.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/Controllers/ReviewCyclesController.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/Controllers/ReviewQuestionsController.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/Controllers/ReviewResponsesController.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/Controllers/ServicesController.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/Controllers/ShiftAssignmentsController.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/Controllers/ShiftsController.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/Docs/PerformanceReviewLifecycle.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/Migrations/20260205155201_AddShiftAndShiftAssignment.Designer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/Migrations/20260205155201_AddShiftAndShiftAssignment.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/Migrations/20260206225059_AddPerformanceReviewModels.Designer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/Migrations/20260206225059_AddPerformanceReviewModels.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/Migrations/OrgDbContextModelSnapshot.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/Models/Client.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/Models/Employee.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/Models/ErrorViewModel.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/Models/PerformanceReview.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/Models/Person.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/Models/ReviewCycle.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/Models/ReviewQuestion.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/Models/ReviewResponse.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/Models/ReviewStatus.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/Models/Service.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/Models/Shift.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/Models/ShiftAssignment.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/OrgDbContext.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/OrgMgmt.csproj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/OrgMgmt.csproj.user" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/OrgMgmt.sln" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/Program.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/Properties/launchSettings.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/Views/Clients/Create.cshtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/Views/Clients/Delete.cshtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/Views/Clients/Details.cshtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/Views/Clients/Edit.cshtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/Views/Clients/Index.cshtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/Views/Employees/Create.cshtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/Views/Employees/Delete.cshtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/Views/Employees/Details.cshtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/Views/Employees/Edit.cshtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/Views/Employees/Index.cshtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/Views/Home/Index.cshtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/Views/Home/Privacy.cshtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/Views/PerformanceReviews/Create.cshtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/Views/PerformanceReviews/Delete.cshtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/Views/PerformanceReviews/Details.cshtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/Views/PerformanceReviews/Edit.cshtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/Views/PerformanceReviews/Index.cshtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/Views/ReviewCycles/Create.cshtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/Views/ReviewCycles/Delete.cshtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/Views/ReviewCycles/Details.cshtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/Views/ReviewCycles/Edit.cshtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/Views/ReviewCycles/Index.cshtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/Views/ReviewQuestions/Create.cshtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/Views/ReviewQuestions/Delete.cshtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/Views/ReviewQuestions/Details.cshtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/Views/ReviewQuestions/Edit.cshtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/Views/ReviewQuestions/Index.cshtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/Views/ReviewResponses/Create.cshtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/Views/ReviewResponses/Delete.cshtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/Views/ReviewResponses/Details.cshtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/Views/ReviewResponses/Edit.cshtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/Views/ReviewResponses/Index.cshtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/Views/Services/Create.cshtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/Views/Services/Delete.cshtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/Views/Services/Details.cshtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/Views/Services/Edit.cshtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/Views/Services/Index.cshtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/Views/Shared/Error.cshtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/Views/Shared/_Layout.cshtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/Views/Shared/_Layout.cshtml.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/Views/Shared/_ValidationScriptsPartial.cshtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/Views/ShiftAssignments/Create.cshtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/Views/ShiftAssignments/Delete.cshtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/Views/ShiftAssignments/Details.cshtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/Views/ShiftAssignments/Edit.cshtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/Views/ShiftAssignments/Index.cshtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/Views/ShiftAssignments/Schedule.cshtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/Views/Shifts/Create.cshtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/Views/Shifts/Delete.cshtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/Views/Shifts/Details.cshtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/Views/Shifts/Edit.cshtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/Views/Shifts/Index.cshtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/Views/_ViewImports.cshtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/Views/_ViewStart.cshtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/appsettings.Development.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/appsettings.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/Azure.Core.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/Azure.Identity.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/Humanizer.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/Microsoft.AspNetCore.Razor.Language.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/Microsoft.Bcl.AsyncInterfaces.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/Microsoft.Build.Framework.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/Microsoft.Build.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/Microsoft.CodeAnalysis.AnalyzerUtilities.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/Microsoft.CodeAnalysis.CSharp.Features.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/Microsoft.CodeAnalysis.CSharp.Workspaces.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/Microsoft.CodeAnalysis.CSharp.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/Microsoft.CodeAnalysis.Elfie.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/Microsoft.CodeAnalysis.Features.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/Microsoft.CodeAnalysis.Razor.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/Microsoft.CodeAnalysis.Scripting.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/Microsoft.CodeAnalysis.Workspaces.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/Microsoft.CodeAnalysis.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/Microsoft.Data.SqlClient.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/Microsoft.DiaSymReader.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/Microsoft.DotNet.Scaffolding.Shared.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/Microsoft.EntityFrameworkCore.Abstractions.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/Microsoft.EntityFrameworkCore.Design.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/Microsoft.EntityFrameworkCore.Relational.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/Microsoft.EntityFrameworkCore.SqlServer.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/Microsoft.EntityFrameworkCore.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/Microsoft.Extensions.Caching.Memory.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/Microsoft.Extensions.DependencyInjection.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/Microsoft.Extensions.DependencyModel.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/Microsoft.Extensions.Logging.Abstractions.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/Microsoft.Extensions.Logging.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/Microsoft.Extensions.Options.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/Microsoft.Identity.Client.Extensions.Msal.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/Microsoft.Identity.Client.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/Microsoft.IdentityModel.Abstractions.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/Microsoft.IdentityModel.JsonWebTokens.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/Microsoft.IdentityModel.Logging.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/Microsoft.IdentityModel.Protocols.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/Microsoft.IdentityModel.Tokens.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/Microsoft.NET.StringTools.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/Microsoft.SqlServer.Server.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/Microsoft.VisualStudio.Web.CodeGeneration.Core.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/Microsoft.VisualStudio.Web.CodeGeneration.EntityFrameworkCore.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/Microsoft.VisualStudio.Web.CodeGeneration.Templating.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/Microsoft.VisualStudio.Web.CodeGeneration.Utils.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/Microsoft.VisualStudio.Web.CodeGeneration.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/Microsoft.VisualStudio.Web.CodeGenerators.Mvc.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/Mono.TextTemplating.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/Newtonsoft.Json.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/NuGet.Common.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/NuGet.Configuration.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/NuGet.DependencyResolver.Core.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/NuGet.Frameworks.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/NuGet.LibraryModel.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/NuGet.Packaging.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/NuGet.ProjectModel.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/NuGet.Protocol.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/NuGet.Versioning.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/OrgMgmt.deps.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/OrgMgmt.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/OrgMgmt.exe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/OrgMgmt.pdb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/OrgMgmt.runtimeconfig.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/OrgMgmt.staticwebassets.endpoints.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/OrgMgmt.staticwebassets.runtime.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/System.ClientModel.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/System.CodeDom.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/System.Composition.AttributedModel.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/System.Composition.Convention.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/System.Composition.Hosting.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/System.Composition.Runtime.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/System.Composition.TypedParts.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/System.Configuration.ConfigurationManager.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/System.IdentityModel.Tokens.Jwt.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/System.Memory.Data.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/System.Reflection.MetadataLoadContext.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/System.Runtime.Caching.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/System.Security.Cryptography.ProtectedData.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/System.Text.Json.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/af/Humanizer.resources.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/appsettings.Development.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/appsettings.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/ar/Humanizer.resources.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/az/Humanizer.resources.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/bg/Humanizer.resources.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/bn-BD/Humanizer.resources.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/cs/Humanizer.resources.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/cs/Microsoft.CodeAnalysis.CSharp.Features.resources.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/cs/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/cs/Microsoft.CodeAnalysis.CSharp.resources.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/cs/Microsoft.CodeAnalysis.Features.resources.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/cs/Microsoft.CodeAnalysis.Scripting.resources.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/cs/Microsoft.CodeAnalysis.Workspaces.resources.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/cs/Microsoft.CodeAnalysis.resources.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/da/Humanizer.resources.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/de/Humanizer.resources.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/de/Microsoft.CodeAnalysis.CSharp.Features.resources.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/de/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/de/Microsoft.CodeAnalysis.CSharp.resources.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/de/Microsoft.CodeAnalysis.Features.resources.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/de/Microsoft.CodeAnalysis.Scripting.resources.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/de/Microsoft.CodeAnalysis.Workspaces.resources.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/de/Microsoft.CodeAnalysis.resources.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/dotnet-aspnet-codegenerator-design.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/el/Humanizer.resources.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/es/Humanizer.resources.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/es/Microsoft.CodeAnalysis.CSharp.Features.resources.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/es/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/es/Microsoft.CodeAnalysis.CSharp.resources.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/es/Microsoft.CodeAnalysis.Features.resources.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/es/Microsoft.CodeAnalysis.Scripting.resources.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/es/Microsoft.CodeAnalysis.Workspaces.resources.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/es/Microsoft.CodeAnalysis.resources.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/fa/Humanizer.resources.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/fi-FI/Humanizer.resources.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/fr-BE/Humanizer.resources.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/fr/Humanizer.resources.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/fr/Microsoft.CodeAnalysis.CSharp.Features.resources.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/fr/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/fr/Microsoft.CodeAnalysis.CSharp.resources.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/fr/Microsoft.CodeAnalysis.Features.resources.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/fr/Microsoft.CodeAnalysis.Scripting.resources.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/fr/Microsoft.CodeAnalysis.Workspaces.resources.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/fr/Microsoft.CodeAnalysis.resources.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/he/Humanizer.resources.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/hr/Humanizer.resources.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/hu/Humanizer.resources.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/hy/Humanizer.resources.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/id/Humanizer.resources.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/is/Humanizer.resources.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/it/Humanizer.resources.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/it/Microsoft.CodeAnalysis.CSharp.Features.resources.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/it/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/it/Microsoft.CodeAnalysis.CSharp.resources.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/it/Microsoft.CodeAnalysis.Features.resources.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/it/Microsoft.CodeAnalysis.Scripting.resources.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/it/Microsoft.CodeAnalysis.Workspaces.resources.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/it/Microsoft.CodeAnalysis.resources.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/ja/Humanizer.resources.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/ja/Microsoft.CodeAnalysis.CSharp.Features.resources.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/ja/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/ja/Microsoft.CodeAnalysis.CSharp.resources.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/ja/Microsoft.CodeAnalysis.Features.resources.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/ja/Microsoft.CodeAnalysis.Scripting.resources.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/ja/Microsoft.CodeAnalysis.Workspaces.resources.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/ja/Microsoft.CodeAnalysis.resources.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/ko-KR/Humanizer.resources.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/ko/Microsoft.CodeAnalysis.CSharp.Features.resources.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/ko/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/ko/Microsoft.CodeAnalysis.CSharp.resources.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/ko/Microsoft.CodeAnalysis.Features.resources.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/ko/Microsoft.CodeAnalysis.Scripting.resources.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/ko/Microsoft.CodeAnalysis.Workspaces.resources.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/ko/Microsoft.CodeAnalysis.resources.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/ku/Humanizer.resources.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/lv/Humanizer.resources.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/ms-MY/Humanizer.resources.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/mt/Humanizer.resources.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/nb-NO/Humanizer.resources.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/nb/Humanizer.resources.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/nl/Humanizer.resources.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/pl/Humanizer.resources.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/pl/Microsoft.CodeAnalysis.CSharp.Features.resources.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/pl/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/pl/Microsoft.CodeAnalysis.CSharp.resources.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/pl/Microsoft.CodeAnalysis.Features.resources.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/pl/Microsoft.CodeAnalysis.Scripting.resources.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/pl/Microsoft.CodeAnalysis.Workspaces.resources.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/pl/Microsoft.CodeAnalysis.resources.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/pt-BR/Microsoft.CodeAnalysis.CSharp.Features.resources.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/pt-BR/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/pt-BR/Microsoft.CodeAnalysis.CSharp.resources.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/pt-BR/Microsoft.CodeAnalysis.Features.resources.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/pt-BR/Microsoft.CodeAnalysis.Scripting.resources.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/pt-BR/Microsoft.CodeAnalysis.Workspaces.resources.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/pt-BR/Microsoft.CodeAnalysis.resources.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/pt/Humanizer.resources.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/ro/Humanizer.resources.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/ru/Humanizer.resources.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/ru/Microsoft.CodeAnalysis.CSharp.Features.resources.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/ru/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/ru/Microsoft.CodeAnalysis.CSharp.resources.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/ru/Microsoft.CodeAnalysis.Features.resources.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/ru/Microsoft.CodeAnalysis.Scripting.resources.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/ru/Microsoft.CodeAnalysis.Workspaces.resources.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/ru/Microsoft.CodeAnalysis.resources.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/runtimes/unix/lib/net6.0/Microsoft.Data.SqlClient.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/runtimes/win-arm/native/Microsoft.Data.SqlClient.SNI.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/runtimes/win-arm64/native/Microsoft.Data.SqlClient.SNI.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/runtimes/win-x64/native/Microsoft.Data.SqlClient.SNI.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/runtimes/win-x86/native/Microsoft.Data.SqlClient.SNI.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/runtimes/win/lib/net6.0/Microsoft.Data.SqlClient.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/runtimes/win/lib/net6.0/System.Runtime.Caching.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/sk/Humanizer.resources.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/sl/Humanizer.resources.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/sr-Latn/Humanizer.resources.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/sr/Humanizer.resources.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/sv/Humanizer.resources.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/th-TH/Humanizer.resources.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/tr/Humanizer.resources.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/tr/Microsoft.CodeAnalysis.CSharp.Features.resources.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/tr/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/tr/Microsoft.CodeAnalysis.CSharp.resources.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/tr/Microsoft.CodeAnalysis.Features.resources.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/tr/Microsoft.CodeAnalysis.Scripting.resources.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/tr/Microsoft.CodeAnalysis.Workspaces.resources.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/tr/Microsoft.CodeAnalysis.resources.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/uk/Humanizer.resources.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/uz-Cyrl-UZ/Humanizer.resources.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/uz-Latn-UZ/Humanizer.resources.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/vi/Humanizer.resources.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/zh-CN/Humanizer.resources.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/zh-Hans/Humanizer.resources.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/zh-Hans/Microsoft.CodeAnalysis.CSharp.Features.resources.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/zh-Hans/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/zh-Hans/Microsoft.CodeAnalysis.CSharp.resources.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/zh-Hans/Microsoft.CodeAnalysis.Features.resources.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/zh-Hans/Microsoft.CodeAnalysis.Scripting.resources.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/zh-Hans/Microsoft.CodeAnalysis.Workspaces.resources.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/zh-Hans/Microsoft.CodeAnalysis.resources.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/zh-Hant/Humanizer.resources.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/zh-Hant/Microsoft.CodeAnalysis.CSharp.Features.resources.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/zh-Hant/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/zh-Hant/Microsoft.CodeAnalysis.CSharp.resources.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/zh-Hant/Microsoft.CodeAnalysis.Features.resources.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/zh-Hant/Microsoft.CodeAnalysis.Scripting.resources.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/zh-Hant/Microsoft.CodeAnalysis.Workspaces.resources.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/bin/Debug/net8.0/zh-Hant/Microsoft.CodeAnalysis.resources.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/obj/Debug/net8.0/.NETCoreApp,Version=v8.0.AssemblyAttributes.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/obj/Debug/net8.0/ApiEndpoints.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/obj/Debug/net8.0/OrgMgmt.AssemblyInfo.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/obj/Debug/net8.0/OrgMgmt.AssemblyInfoInputs.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/obj/Debug/net8.0/OrgMgmt.GeneratedMSBuildEditorConfig.editorconfig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/obj/Debug/net8.0/OrgMgmt.GlobalUsings.g.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/obj/Debug/net8.0/OrgMgmt.MvcApplicationPartsAssemblyInfo.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/obj/Debug/net8.0/OrgMgmt.RazorAssemblyInfo.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/obj/Debug/net8.0/OrgMgmt.RazorAssemblyInfo.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/obj/Debug/net8.0/OrgMgmt.assets.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/obj/Debug/net8.0/OrgMgmt.csproj.AssemblyReference.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/obj/Debug/net8.0/OrgMgmt.csproj.BuildWithSkipAnalyzers" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/obj/Debug/net8.0/OrgMgmt.csproj.CoreCompileInputs.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/obj/Debug/net8.0/OrgMgmt.csproj.FileListAbsolute.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/obj/Debug/net8.0/OrgMgmt.csproj.Up2Date" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/obj/Debug/net8.0/OrgMgmt.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/obj/Debug/net8.0/OrgMgmt.genruntimeconfig.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/obj/Debug/net8.0/OrgMgmt.pdb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/obj/Debug/net8.0/OrgMgmt.sourcelink.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/obj/Debug/net8.0/apphost.exe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/obj/Debug/net8.0/ref/OrgMgmt.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/obj/Debug/net8.0/refint/OrgMgmt.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/obj/Debug/net8.0/rjimswa.dswa.cache.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/obj/Debug/net8.0/rjsmcshtml.dswa.cache.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/obj/Debug/net8.0/rjsmrazor.dswa.cache.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/obj/Debug/net8.0/rpswa.dswa.cache.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/obj/Debug/net8.0/scopedcss/Views/Shared/_Layout.cshtml.rz.scp.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/obj/Debug/net8.0/scopedcss/bundle/OrgMgmt.styles.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/obj/Debug/net8.0/scopedcss/projectbundle/OrgMgmt.bundle.scp.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/obj/Debug/net8.0/staticwebassets.build.endpoints.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/obj/Debug/net8.0/staticwebassets.build.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/obj/Debug/net8.0/staticwebassets.build.json.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/obj/Debug/net8.0/staticwebassets.development.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/obj/Debug/net8.0/staticwebassets.pack.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/obj/Debug/net8.0/staticwebassets.references.upToDateCheck.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/obj/Debug/net8.0/staticwebassets.removed.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/obj/Debug/net8.0/staticwebassets.upToDateCheck.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/obj/Debug/net8.0/staticwebassets/msbuild.OrgMgmt.Microsoft.AspNetCore.StaticWebAssetEndpoints.props" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/obj/Debug/net8.0/staticwebassets/msbuild.OrgMgmt.Microsoft.AspNetCore.StaticWebAssets.props" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/obj/Debug/net8.0/staticwebassets/msbuild.build.OrgMgmt.props" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/obj/Debug/net8.0/staticwebassets/msbuild.buildMultiTargeting.OrgMgmt.props" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/obj/Debug/net8.0/staticwebassets/msbuild.buildTransitive.OrgMgmt.props" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/obj/Debug/net8.0/swae.build.ex.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/obj/OrgMgmt.csproj.EntityFrameworkCore.targets" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/obj/OrgMgmt.csproj.codegeneration.targets" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/obj/OrgMgmt.csproj.nuget.dgspec.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/obj/OrgMgmt.csproj.nuget.g.props" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/obj/OrgMgmt.csproj.nuget.g.targets" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/obj/project.assets.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/obj/project.nuget.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/obj/project.packagespec.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/obj/rider.project.model.nuget.info" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/obj/rider.project.restore.info" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/wwwroot/css/site.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/wwwroot/favicon.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/wwwroot/js/site.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/wwwroot/lib/bootstrap/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.min.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.rtl.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.rtl.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.min.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.rtl.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.rtl.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.min.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.rtl.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.rtl.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/wwwroot/lib/bootstrap/dist/css/bootstrap.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/wwwroot/lib/bootstrap/dist/css/bootstrap.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/wwwroot/lib/bootstrap/dist/css/bootstrap.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/wwwroot/lib/bootstrap/dist/css/bootstrap.min.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.min.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.min.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/wwwroot/lib/bootstrap/dist/js/bootstrap.esm.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/wwwroot/lib/bootstrap/dist/js/bootstrap.esm.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/wwwroot/lib/bootstrap/dist/js/bootstrap.esm.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/wwwroot/lib/bootstrap/dist/js/bootstrap.esm.min.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/wwwroot/lib/bootstrap/dist/js/bootstrap.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/wwwroot/lib/bootstrap/dist/js/bootstrap.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/wwwroot/lib/bootstrap/dist/js/bootstrap.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/wwwroot/lib/bootstrap/dist/js/bootstrap.min.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/wwwroot/lib/jquery-validation-unobtrusive/LICENSE.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/wwwroot/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/wwwroot/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/wwwroot/lib/jquery-validation/LICENSE.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/wwwroot/lib/jquery-validation/dist/additional-methods.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/wwwroot/lib/jquery-validation/dist/additional-methods.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/wwwroot/lib/jquery-validation/dist/jquery.validate.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/wwwroot/lib/jquery-validation/dist/jquery.validate.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/wwwroot/lib/jquery/LICENSE.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/wwwroot/lib/jquery/dist/jquery.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/wwwroot/lib/jquery/dist/jquery.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrgMgmt/wwwroot/lib/jquery/dist/jquery.min.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../COMP3800/fall-protection-plan" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../COMP3800/fall-protection-plan" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/net8.0/OrgMgmt.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net8.0/OrgMgmt.AssemblyInfo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/net8.0/OrgMgmt.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net8.0/OrgMgmt.AssemblyInfoInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/obj/project.packagespec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/rider.project.model.nuget.info" beforeDir="false" afterPath="$PROJECT_DIR$/obj/rider.project.model.nuget.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/obj/rider.project.restore.info" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -501,34 +31,34 @@
     <commands />
     <urls />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 5
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5
+}</component>
   <component name="ProjectId" id="39JvVvXVYsjsgOTThj5GNm6wDGl" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    ".NET 启动设置配置文件.OrgMgmt: http.executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.MCP Project settings loaded": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
-    "git-widget-placeholder": "master",
-    "junie.onboarding.icon.badge.shown": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "to.speed.mode.migration.done": "true",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;.NET 启动设置配置文件.OrgMgmt: http.executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected=".NET 启动设置配置文件.OrgMgmt: http">
     <configuration name="OrgMgmt: IIS Express" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/OrgMgmt.csproj" />
@@ -571,6 +101,7 @@
       <option name="presentableId" value="Default" />
       <updated>1770427014718</updated>
       <workItem from="1770427016185" duration="1470000" />
+      <workItem from="1770683649715" duration="28000" />
     </task>
     <servers />
   </component>

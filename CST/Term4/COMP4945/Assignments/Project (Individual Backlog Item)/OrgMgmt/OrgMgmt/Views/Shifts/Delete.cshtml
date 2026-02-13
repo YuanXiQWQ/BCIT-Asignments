@@ -1,51 +1,38 @@
 @model OrgMgmt.Models.Shift
 
 @{
-    ViewData["Title"] = "Delete";
+    ViewData["Title"] = "Delete Shift";
 }
 
-<h1>Delete</h1>
-
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>Shift</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.StartTime)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.StartTime)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.EndTime)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.EndTime)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.RecurrenceType)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.RecurrenceType)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.RecurrencePattern)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.RecurrencePattern)
-        </dd>
-    </dl>
-    
-    <form asp-action="Delete">
-        <input type="hidden" asp-for="Id" />
-        <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-action="Index">Back to List</a>
-    </form>
+<h1>Delete Shift</h1>
+<hr/>
+<div class="row">
+    <div class="col-md-6">
+        <div class="card border-danger">
+            <div class="card-header bg-danger text-white">
+                <h5 class="mb-0">Are you sure you want to delete this shift?</h5>
+            </div>
+            <div class="card-body">
+                <dl class="row mb-0">
+                    <dt class="col-sm-4">Name</dt>
+                    <dd class="col-sm-8">@Model.Name</dd>
+                    <dt class="col-sm-4">Start Time</dt>
+                    <dd class="col-sm-8">@Model.StartTime.ToString(@"hh\:mm")</dd>
+                    <dt class="col-sm-4">End Time</dt>
+                    <dd class="col-sm-8">@Model.EndTime.ToString(@"hh\:mm")</dd>
+                    <dt class="col-sm-4">Recurrence</dt>
+                    <dd class="col-sm-8"><span class="badge bg-info text-dark">@Model.RecurrenceType</span></dd>
+                    <dt class="col-sm-4">Pattern</dt>
+                    <dd class="col-sm-8">@(Model.RecurrencePattern ?? "—")</dd>
+                </dl>
+            </div>
+            <div class="card-footer d-flex gap-2">
+                <form asp-action="Delete">
+                    <input type="hidden" asp-for="Id"/>
+                    <button type="submit" class="btn btn-danger">Confirm Delete</button>
+                </form>
+                <a asp-action="Index" class="btn btn-outline-secondary">Cancel</a>
+            </div>
+        </div>
+    </div>
 </div>

@@ -1,52 +1,54 @@
 @model OrgMgmt.Models.Shift
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Edit Shift";
 }
 
-<h1>Edit</h1>
-
-<h4>Shift</h4>
-<hr />
+<h1>Edit Shift</h1>
+<hr/>
 <div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Id" />
-            <div class="form-group">
-                <label asp-for="Name" class="control-label"></label>
-                <input asp-for="Name" class="form-control" />
-                <span asp-validation-for="Name" class="text-danger"></span>
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-body">
+                <form asp-action="Edit">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="Id"/>
+                    <div class="mb-3">
+                        <label asp-for="Name" class="form-label fw-semibold"></label>
+                        <input asp-for="Name" class="form-control"/>
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label asp-for="StartTime" class="form-label fw-semibold"></label>
+                            <input asp-for="StartTime" class="form-control" type="time"/>
+                            <span asp-validation-for="StartTime" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-6">
+                            <label asp-for="EndTime" class="form-label fw-semibold"></label>
+                            <input asp-for="EndTime" class="form-control" type="time"/>
+                            <span asp-validation-for="EndTime" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for="RecurrenceType" class="form-label fw-semibold"></label>
+                        <select asp-for="RecurrenceType" asp-items="Html.GetEnumSelectList<OrgMgmt.Models.RecurrenceType>()" class="form-select"></select>
+                        <span asp-validation-for="RecurrenceType" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for="RecurrencePattern" class="form-label fw-semibold"></label>
+                        <input asp-for="RecurrencePattern" class="form-control" placeholder="e.g. Mon,Wed,Fri"/>
+                        <div class="form-text">Optional. Specify days or pattern details (e.g. Mon,Wed,Fri for weekly shifts).</div>
+                        <span asp-validation-for="RecurrencePattern" class="text-danger"></span>
+                    </div>
+                    <div class="d-flex gap-2">
+                        <button type="submit" class="btn btn-primary">Save</button>
+                        <a asp-action="Index" class="btn btn-outline-secondary">Cancel</a>
+                    </div>
+                </form>
             </div>
-            <div class="form-group">
-                <label asp-for="StartTime" class="control-label"></label>
-                <input asp-for="StartTime" class="form-control" />
-                <span asp-validation-for="StartTime" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="EndTime" class="control-label"></label>
-                <input asp-for="EndTime" class="form-control" />
-                <span asp-validation-for="EndTime" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="RecurrenceType" class="control-label"></label>
-                <select asp-for="RecurrenceType" class="form-control"></select>
-                <span asp-validation-for="RecurrenceType" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="RecurrencePattern" class="control-label"></label>
-                <input asp-for="RecurrencePattern" class="form-control" />
-                <span asp-validation-for="RecurrencePattern" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
+        </div>
     </div>
-</div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
 </div>
 
 @section Scripts {
